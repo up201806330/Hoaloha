@@ -1,0 +1,36 @@
+@startuml petPosting
+skinparam minClassWidth 120
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGrey
+hide members
+hide circles
+show pet_posting fields
+show action_share_posting fields
+
+class pet_posting{
+    ..Basic information..
+    + Name
+    + Size
+    + Fur
+    + Breed
+    + Backstory
+    + Health details
+    + Location
+    ..More of same breed..
+    ..More from this shelter..
+    --Comments--
+}
+class adopt_pet
+class show_shelter_page
+class action_share_posting{
+    * Instagram
+    * Facebook
+    * Copy link
+}
+
+pet_posting-[#black]>show_shelter_page
+pet_posting--[#black]>adopt_pet
+pet_posting--[#black]up>action_share_posting
+
+
+@enduml

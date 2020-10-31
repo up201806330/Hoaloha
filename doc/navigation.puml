@@ -8,15 +8,15 @@ hide circles
 class index
 class signup
 class search
-class add
-class list_pets
-class show_pet
+class add_pet_posting
+class list_pet_postings
+class show_pet_posting
 class profile
 class action_login
 class action_logout
 class action_signup
 class action_search
-class action_add_pet
+class action_add_pet_posting
 
 index -[#black]down-> signup
 index -[#black]> action_login
@@ -30,10 +30,10 @@ action_logout-[#black]>index
 index--[#black]up>search
 search-left[#black]>action_search
 action_search.[#red]>search
-action_search....[#green]>list_pets
-index -left[#black]->add
-add--[#black]down>action_add_pet
-action_add_pet..[#green]>show_pet
-action_add_pet..[#red]>add
+action_search....[#green]>list_pet_postings
+index -left[#black]->add_pet_posting
+add_pet_posting--[#black]down>action_add_pet_posting
+action_add_pet_posting..[#green]>show_pet_posting
+action_add_pet_posting..[#red]>add_pet_posting
 
 @enduml
