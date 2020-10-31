@@ -1,0 +1,39 @@
+@startuml
+skinparam minClassWidth 100
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGrey
+hide members
+hide circles
+
+class index
+class signup
+class search
+class add
+class list_pets
+class show_pet
+class profile
+class action_login
+class action_logout
+class action_signup
+class action_search
+class action_add_pet
+
+index -[#black]down-> signup
+index -[#black]> action_login
+index-[#black]down->profile
+action_login -[#black]> index
+signup-[#black]right>action_signup
+action_signup..up[#green]>index
+action_signup..[#red]>signup
+index-[#black]left>action_logout
+action_logout-[#black]>index
+index--[#black]up>search
+search-left[#black]>action_search
+action_search.[#red]>search
+action_search....[#green]>list_pets
+index -left[#black]->add
+add--[#black]down>action_add_pet
+action_add_pet..[#green]>show_pet
+action_add_pet..[#red]>add
+
+@enduml

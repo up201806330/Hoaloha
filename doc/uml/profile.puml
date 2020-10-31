@@ -1,0 +1,32 @@
+@startuml
+skinparam minClassWidth 100
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGrey
+hide members
+hide circles
+
+class profile
+class favourite_pets
+class all_postings
+class list_pets
+class adoption_proposals
+class action_edit_username
+class action_edit_password
+class action_edit_image
+
+profile-[#black]up->action_edit_username
+action_edit_username--[#black]>profile
+profile-[#black]up->action_edit_password
+action_edit_password--[#black]>profile
+profile-[#black]up->action_edit_image
+action_edit_image--[#black]>profile
+profile-[#black]down->favourite_pets
+profile-[#black]down->all_postings
+favourite_pets-[#black]down->list_pets
+all_postings-[#black]down->list_pets
+profile-[#black]down->adoption_proposals
+adoption_proposals-[#black]->list_pets
+
+
+
+@enduml
