@@ -35,5 +35,5 @@ index -left[#black]->add
 add--[#black]down>action_add_pet
 action_add_pet..[#green]>show_pet
 action_add_pet..[#red]>add
-
+ 
 @enduml
