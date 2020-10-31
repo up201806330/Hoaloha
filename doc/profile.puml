@@ -9,6 +9,7 @@ class profile
 class favourite_pets
 class all_postings
 class list_pets
+class adoption_page
 class adoption_proposals
 class action_edit_username
 class action_edit_password
@@ -25,7 +26,7 @@ profile-[#black]down->all_postings
 favourite_pets-[#black]down->list_pets
 all_postings-[#black]down->list_pets
 profile-[#black]down->adoption_proposals
-adoption_proposals-[#black]->list_pets
+adoption_proposals-[#black]->adoption_page
 
 
 @enduml
