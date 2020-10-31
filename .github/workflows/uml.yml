@@ -3,8 +3,6 @@ on:
   push:
     paths:
       - 'doc/uml/**'
-    branches:
-      - master
 jobs:
   ci:
     runs-on: ubuntu-latest
