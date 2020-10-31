@@ -1,4 +1,4 @@
-@startuml
+@startuml profile
 skinparam minClassWidth 100
 skinparam classBackgroundColor WhiteSmoke
 skinparam classBorderColor DarkSlateGrey
