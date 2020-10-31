@@ -28,5 +28,5 @@ all_postings-[#black]down->list_pets
 profile-[#black]down->adoption_proposals
 adoption_proposals-[#black]->adoption_page
 
-
+ 
 @enduml

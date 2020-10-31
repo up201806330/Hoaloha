@@ -2,7 +2,7 @@ name: Generate PlantUML Diagrams
 on:
   push:
     paths:
-      - 'doc/uml/**'
+      - '**.puml'
 jobs:
   ci:
     runs-on: ubuntu-latest
