@@ -15,18 +15,15 @@ class action_edit_username
 class action_edit_password
 class action_edit_image
 
-profile-[#black]up->action_edit_username
-action_edit_username--[#black]>profile
-profile-[#black]up->action_edit_password
-action_edit_password--[#black]>profile
-profile-[#black]up->action_edit_image
-action_edit_image--[#black]>profile
+profile<-[#black]up->action_edit_username
+profile<-[#black]up->action_edit_password
+profile<-[#black]up->action_edit_image
 profile-[#black]down->favourite_pets
 profile-[#black]down->all_postings
-favourite_pets-[#black]down->list_pets
-all_postings-[#black]down->list_pets
+list_pets-[#black]down-o favourite_pets
+list_pets-[#black]down-o all_postings
 profile-[#black]down->adoption_proposals
-adoption_proposals-[#black]->adoption_page
+adoption_page-[#black]down-o adoption_proposals
 
  
 @enduml

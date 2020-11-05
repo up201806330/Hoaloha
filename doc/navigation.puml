@@ -19,14 +19,12 @@ class action_search
 class action_add_pet_posting
 
 index -[#black]down-> signup
-index -[#black]> action_login
+index <-[#black]> action_login
 index-[#black]down->profile
-action_login -[#black]> index
 signup-[#black]right>action_signup
 action_signup..up[#green]>index
 action_signup..[#red]>signup
-index-[#black]left>action_logout
-action_logout-[#black]>index
+index <-[#black]left>action_logout
 index--[#black]up>search
 search-left[#black]>action_search
 action_search.[#red]>search
