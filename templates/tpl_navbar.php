@@ -1,6 +1,6 @@
 <?php //TODO é correto ter isto assim num template?? Template a dar include d auth e session??
-include_once('../templates/tpl_auth.php'); 
-include_once('includes/session.php');
+include_once('./templates/tpl_auth.php'); 
+include_once('./includes/session.php');
 
 function draw_navbar(){
     /**

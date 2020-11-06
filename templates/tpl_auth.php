@@ -3,7 +3,7 @@
  * Draws the login section and button to register page.
  */ ?>
 <div class="login-container">
-    <form method="post" action="../actions/action_login.php">
+    <form method="post" action="./actions/action_login.php">
       <input type="text" placeholder="Username" name="username" required>
       <input type="text" placeholder="Password" name="password" required>
       <button type="submit">Login</button>
@@ -17,5 +17,5 @@
  * Draws the logout section.
  */ ?>
     <?= '<a>' . $_SESSION['username'] . '</a>'; ?>
-    <a href="../actions/action_logout.php">Logout</a>
+    <a href="./actions/action_logout.php">Logout</a>
 <?php } ?>
