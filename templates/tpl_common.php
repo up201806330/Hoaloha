@@ -5,12 +5,13 @@ function draw_header() {
  * Draws the header for all pages.
  */?>
   <!DOCTYPE html>
-  <html>
+  <html lang="en">
 
     <head>
         <title>TEMPORARY</title>
         <meta charset="utf-8">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
