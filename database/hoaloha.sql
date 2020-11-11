@@ -10,16 +10,9 @@ DROP TABLE IF EXISTS Topics;
 DROP TABLE IF EXISTS Pets;
 DROP TABLE IF EXISTS UserEntities;
 DROP TABLE IF EXISTS Locations;
-DROP TABLE IF EXISTS Photos;
+DROP TABLE IF EXISTS Species;
 
 PRAGMA foreign_keys=ON;
-
--- temporary. how to store image in sqlite? or is it even needed?
--- maybe link to the photo is the best way, need to check with teacher
-CREATE TABLE Photos(
-    id              INT PRIMARY KEY,
-    image          	VARCHAR(255) NOT NULL
-);
 
 CREATE TABLE Locations(
 	id           INT PRIMARY KEY,
@@ -36,11 +29,12 @@ CREATE TABLE UserEntities (
 	id              INT PRIMARY KEY,
     username        VARCHAR(255) UNIQUE,
     password        VARCHAR(255) NOT NULL,
-    idPhoto         INT NOT NULL REFERENCES Photo(id) ON UPDATE CASCADE,  
-	idLocation      VARCHAR(255) NOT NULL REFERENCES Locations(id),
+    photo         	BLOB ,  
+	idLocation      VARCHAR(255) ,
 	phoneNumber		INT NOT NULL,
 	email           VARCHAR(255) NOT NULL
 );
+
 
 -- petSize type is subject to change. atm is the length of the animal
 CREATE TABLE Pets(

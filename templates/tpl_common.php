@@ -8,7 +8,7 @@ function draw_header() {
   <html lang="en">
 
     <head>
-        <title>TEMPORARY</title>
+        <title>Hoa Aloha</title>
         <meta charset="utf-8">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@ function draw_header() {
 
     <body>
     <header>
-        <h1>TEMPORARY</h1>
+        <h1>Hoa Aloha</h1>
         <i class="fas fa-cat"></i>
     </header>  
         
