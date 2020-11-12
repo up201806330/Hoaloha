@@ -3,11 +3,14 @@
  * Draws the login section and button to register page.
  */ ?>
 <div class="login-container">
+  <div class="login-content">
+    Log In
     <form method="post" action="../actions/action_login.php">
       <input type="text" placeholder="Username" name="username" required>
       <input type="password" placeholder="Password" name="password" required>
-      <button type="submit">Login</button>
+      <button type="submit">Log in</button>
     </form>
+  </div>
 </div>
 <div><a href="../pages/register.php">Don't have an account?</a></div>
 <?php } ?>

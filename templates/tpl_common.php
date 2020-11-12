@@ -11,7 +11,9 @@ function draw_header() {
         <title>Hoa Aloha</title>
         <meta charset="utf-8">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script> -->
+        <script src="../js/main.js" defer></script>
     </head>
 
     <body>

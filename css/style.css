@@ -1,0 +1,69 @@
+:root {
+    font-size: 26px;
+    font-family: 'Open Sans';
+    /* --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418; */
+    --login-blue: rgb(52, 133, 226);
+}
+
+body {
+    color: black;
+    background-color: white;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header {
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.login-content {
+    width: 15rem;
+    height: 20rem;
+    background-color: white;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 2rem;
+
+    border-style: solid;
+    border-color: var(--login-blue);
+    border-width: 0.2rem;
+}
+
+body > div > div.login-container > div > form > input {
+    font-size: 0.8rem;
+    width: 50%;
+    display: block;
+    margin: 15px auto;
+}
+
+body > div > div.login-container > div > form > button {
+    font-size: 2rem;
+    color: white;
+    background-color: var(--login-blue);
+    height: 50%;
+    width: 50%;
+    border-radius: 3rem;
+    position: relative;
+    /* bottom: -6rem; */
+}
+
+body > div > div.login-container > div {
+    font-size: 2rem;
+    color: var(--login-blue);
+}

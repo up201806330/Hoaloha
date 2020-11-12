@@ -7,13 +7,17 @@ function draw_navbar($draw_login = true){
  * Draws the navbar for all pages.
  */?>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <?php 
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" id="loginButton" class="button">Login</a></li>
+        </ul>
+        <?php
         if ($draw_login){    
             if (isset($_SESSION['username']) && !empty($_SESSION['username'])) draw_logout();
             else draw_login();
+
         }
         ?>
     </div>
