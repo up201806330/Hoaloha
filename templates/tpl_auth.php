@@ -4,11 +4,25 @@
  */ ?>
 <div class="login-container">
   <div class="login-content">
-    Log In
+    <div class="close-button-container">
+      <a href="#" id="closeButton" class="close"><span class="material-icons-round">close</span></a>
+    </div>
+    <h1>Log In</h1>
     <form method="post" action="../actions/action_login.php">
-      <input type="text" placeholder="Username" name="username" required>
-      <input type="password" placeholder="Password" name="password" required>
-      <button type="submit">Log in</button>
+      <div class="txt_field">
+        <input type="text" name="username" required>
+        <span></span>
+        <label>Username</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="password" required>
+        <span></span>
+        <label>Password</label>
+      </div>
+      <button type="submit">LOG IN</button>
+      <div class="signup_link"> 
+        Not a member? <a href="register.php">Sign Up</a>
+      </div>
     </form>
   </div>
 </div>
