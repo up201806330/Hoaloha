@@ -12,7 +12,6 @@
     </form>
   </div>
 </div>
-<div><a href="../pages/register.php">Don't have an account?</a></div>
 <?php } ?>
 
 <?php function draw_logout() { 

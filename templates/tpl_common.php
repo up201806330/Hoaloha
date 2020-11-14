@@ -17,10 +17,14 @@ function draw_header() {
     </head>
 
     <body>
-    <header>
-        <h1>Hoa Aloha</h1>
-        <i class="fas fa-cat"></i>
-    </header>  
+        <header>
+            <img class="logo" src="../assets/logo.png" width="80" height="80">
+            <ul class="authentication">
+                <li><a href="#" id="loginButton" class="button">Login</a></li>
+                <li><a href="../pages/register.php">Register</a></li>
+            </ul>
+            
+        </header>  
         
 <?php } ?>
 
