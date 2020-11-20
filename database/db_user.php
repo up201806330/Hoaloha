@@ -19,4 +19,12 @@
     $stmt = $db->prepare('INSERT INTO UserEntities(username, password, photo, idLocation, phoneNumber, email) VALUES(?, ?, ?, ?, ?, ?)');
     $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT, $options), $profile_img, $phone_number, $email, $location));
   }
+
+  function getUser($username){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('SELECT * FROM UserEntities WHERE username = ?');
+    $stmt->execute(array($username));
+    return $stmt->fetch();
+  }
 ?>
