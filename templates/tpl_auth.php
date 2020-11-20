@@ -41,7 +41,8 @@
 /**
  * Draws the logout section.
  */ ?> 
-    <li><a href="../actions/action_logout.php" id="logoutButton" class="button"> <?=$username?> </a></li>
+    <li><a href="../pages/user.php" id="usernameButton" class="button"> <?=$username?> </a></li>
+    <li><a href="../actions/action_logout.php" id="logoutButton" class="button"> Logout </a></li>
 <?php } ?>
 
 <?php function draw_register() { 

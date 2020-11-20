@@ -1,6 +1,6 @@
 <?php
   include_once('../includes/session.php');
-  include_once('../database/user.php');
+  include_once('../database/db_user.php');
 
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -23,7 +23,6 @@
     $_SESSION['register'] = 'success';
     header('Location: ../pages/main.php');
   } catch (PDOException $e) { 
-    die($e->getMessage());//TODO won't just die,
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to register!');
     $_SESSION['register'] = 'failure';
     header('Location: ../pages/register.php');

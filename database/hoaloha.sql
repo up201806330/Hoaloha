@@ -35,16 +35,15 @@ CREATE TABLE UserEntities (
 	email           VARCHAR(255) NOT NULL
 );
 
-
 -- petSize type is subject to change. atm is the length of the animal
 CREATE TABLE Pets(
 	id          INT PRIMARY KEY,
 	name        VARCHAR(255) NOT NULL,
 	idSpecies   INT NOT NULL REFERENCES Species(id),
-	weight      FLOAT NOT NULL,
+	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
-	dimension   FLOAT NOT NULL,
-	photo 		INT NOT NULL REFERENCES Photos(id)
+	dimension   FLOAT,
+	photo 		BLOB
 );
 
 CREATE TABLE Topics(
