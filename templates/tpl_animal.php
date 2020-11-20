@@ -43,24 +43,27 @@
           <span></span>
           <label>Name</label>
         </div>
-        <div class="txt_field">
-          <input type="text" name="species" required>
-          <span></span>
-          <label>Species</label>
-        </div>
+        <select name='species' style='height: 45px; font-family:Arial, FontAwesome;'>
+            <option value=''>&#xf039; &nbsp; All States</option>
+            <option value='dog'>&#xf6d3; &nbsp; Dog</option>
+            <option value='cat'>&#xf6be; &nbsp; Cat</option>
+            <option value='bird'>&#xf535; &nbsp; Bird</option>
+            <option value='other'>&#xf059; &nbsp; Other</option>
+            <label>Species</label>
+        </select>
         <div class="details">
             <div class="txt_field">
-            <input type="text" name="weight" required>
+            <input type="text" name="weight">
             <span></span>
             <label>Weight</label>
             </div>
             <div class="txt_field">
-            <input type="text" name="color" required>
+            <input type="text" name="color">
             <span></span>
             <label>Color</label>
             </div>
             <div class="txt_field">
-            <input type="text" name="dimension" required>
+            <input type="text" name="dimension">
             <span></span>
             <label>Dimension</label>
             </div>
