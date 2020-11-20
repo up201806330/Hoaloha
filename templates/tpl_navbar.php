@@ -1,8 +1,4 @@
-<?php //TODO é correto ter isto assim num template?? Template a dar include d auth e session??
-include_once('../templates/tpl_auth.php'); 
-include_once('../includes/session.php');
-
-function draw_navbar($draw_login = true){
+<?php function draw_navbar(){
     /**
  * Draws the navbar for all pages.
  */?>
@@ -12,13 +8,6 @@ function draw_navbar($draw_login = true){
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
-        <?php
-        if ($draw_login){    
-            if (isset($_SESSION['username']) && !empty($_SESSION['username'])) draw_logout();
-            else draw_login();
-
-        }
-        ?>
     </div>
 <?php } ?>
 

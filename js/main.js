@@ -1,8 +1,7 @@
 'use strict'
 
-document.getElementById('loginButton').addEventListener('click', function() {
-    document.querySelector('.login-container').style.display = 'flex';
-});
-document.getElementById('closeButton').addEventListener('click', function() {
-    document.querySelector('.login-container').style.display = 'none';
-});
+let loginButton = document.getElementById('loginButton');
+if (loginButton != null) loginButton.addEventListener('click', function() {document.querySelector('.login-container').style.display = 'flex';});
+
+let closeButton = document.getElementById('closeButton');
+if (closeButton != null) closeButton.addEventListener('click', function() {document.querySelector('.login-container').style.display = 'none';});

@@ -4,8 +4,8 @@
 
   if (isset($_SESSION['username'])) die(header('Location: ../pages/main.php'));
 
-  draw_header();
-  draw_navbar(false);
+  draw_header(false);
+  draw_navbar();
   draw_register();
   draw_footer();
   ?>

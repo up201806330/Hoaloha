@@ -1,19 +1,27 @@
 <?php 
-function draw_mainpage_body() {
-?>
-    <!DOCTYPE html>
-    <html lang="en">
+include_once('../includes/session.php');
 
-        <div class="image-container">
-            <h1>Find the Right Animal for You</h1>
-            <h2>Check out our list of Available Pets</h2>
-            <div class="button-container">
-                <div class="inner-button-container">
-                    <button class="btn btn1">Search a Pet    <span class="material-icons-round">search</span></button>
-                    <button class="btn btn2">Rehome a Pet   <span class="material-icons-round">home</span></button>
+function draw_messages() { 
+    /**
+     * Draws success or failure message objects, if any
+     */?>
+        <div class="message-container">
+            <div class="message-content">
+                <div class="txt_field">
+                    <?php 
+                    if (@$_SESSION['login']){
+                        echo 'Login ' .$_SESSION['login'];
+                        unset($_SESSION['login']);
+                    }
+                    else if (@$_SESSION['logout']){
+                        echo 'Logout ' .$_SESSION['logout'];
+                        unset($_SESSION['logout']);
+                    }
+                    else if (@$_SESSION['register']){
+                        echo 'Register ' .$_SESSION['register'];
+                        unset($_SESSION['register']);
+                    } ?>
                 </div>
             </div>
         </div>
-        
-    </html>
 <?php } ?>

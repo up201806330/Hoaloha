@@ -1,6 +1,9 @@
 <?php 
+include_once('../includes/session.php');
+include_once('../templates/tpl_auth.php'); 
+include_once('../templates/tpl_messages.php');
 
-function draw_header() { 
+function draw_header($draw_login = true) { 
 /**
  * Draws the header for all pages.
  */?>
@@ -24,11 +27,20 @@ function draw_header() {
                 <img class="logo" src="../assets/logo.png" width="80" height="80">
             </a>
             <ul class="authentication">
-                <li><a href="#" id="loginButton" class="button">Log In</a></li>
-                <li><a href="../pages/register.php">Sign Up</a></li>
-            </ul>
-            
+                <?php if ($draw_login){
+                    if (isset($_SESSION['username']) && !empty($_SESSION['username'])) draw_logout($_SESSION['username']);
+                    else draw_login_button();
+                }?>
+            </ul> 
         </header>  
+
+        <?php     
+        // Login floating object
+        if ($draw_login){
+            if (!isset($_SESSION['username']) || empty($_SESSION['username'])) draw_login();   
+        }
+        draw_messages();
+        ?>
         
 <?php } ?>
 

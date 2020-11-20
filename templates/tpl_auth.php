@@ -1,6 +1,6 @@
-<?php function draw_login() { 
+<?php function draw_login() {
 /**
- * Draws the login section and button to register page.
+ * Draws the login div itself
  */ ?>
 <div class="login-container">
   <div class="login-content">
@@ -29,12 +29,19 @@
 </div>
 <?php } ?>
 
-<?php function draw_logout() { 
+<?php function draw_login_button() { 
+/**
+ * Draws the login and register buttons.
+ */ ?>
+  <li><a href="#" id="loginButton" class="button">Log In</a></li>
+  <li><a href="../pages/register.php">Sign Up</a></li>
+<?php } ?>
+
+<?php function draw_logout($username) { 
 /**
  * Draws the logout section.
- */ ?>
-    <?= '<a>' . $_SESSION['username'] . '</a>'; ?>
-    <a href="../actions/action_logout.php">Logout</a>
+ */ ?> 
+    <li><a href="../actions/action_logout.php" id="logoutButton" class="button"> <?=$username?> </a></li>
 <?php } ?>
 
 <?php function draw_register() { 

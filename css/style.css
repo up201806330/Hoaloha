@@ -176,6 +176,30 @@ header {
     color: var(--login-blue)
 }
 
+.message-container {
+    width: 200px;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 40%;
+    top: 0%;
+    animation: fadeout 2s linear 1 forwards;
+    opacity: 1;
+}
+
+@keyframes fadeout {
+    100% { opacity: 0; }
+  }
+
+.message-content{
+    width: 200px;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0);
+    top: 30%;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+}
 
 .login-container {
     width: 100%;
@@ -202,12 +226,10 @@ header {
 }
 
 .close-button-container{
-    height: 0px;
+    height: 5px;
     margin: 10px;
-    background-color: black;
     float: right;
     position: relative;
-    bottom: 25px;
 }
 
 .close-button-container a{
