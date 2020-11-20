@@ -1,15 +1,6 @@
 <?php
   include_once('../includes/database.php');
 
-  function getSpecies($id){
-    $db = Database::instance()->db();
-
-    $stmt = $db->prepare('SELECT * FROM Species WHERE id = ?');
-    $stmt->execute(array($id));
-    $stmt->fetch();
-    return $stmt['name'];
-  }
-
   function getAnimal($id) {
     $db = Database::instance()->db();
 
@@ -25,5 +16,12 @@
     $stmt->execute();
     return $stmt->fetchAll();
   }
-  
+
+  function insertAnimal($name, $species, $weight, $color, $dimension, $photo) { // TODO missing some parameters
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('INSERT INTO Pets(name, species, weight, color, dimension, photo) VALUES(?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($name, $species, $weight, $color, $dimension, $photo));
+    return $db->lastInsertId();
+  }
 ?>

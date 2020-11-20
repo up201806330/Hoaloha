@@ -14,13 +14,13 @@ DROP TABLE IF EXISTS Locations;
 PRAGMA foreign_keys=ON;
 
 CREATE TABLE Locations(
-	id           INT PRIMARY KEY,
+	id           INTEGER PRIMARY KEY,
 	City         VARCHAR(255) NOT NULL,
 	postalCode   VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE UserEntities (
-	id              INT PRIMARY KEY,
+	id              INTEGER PRIMARY KEY AUTOINCREMENT,
     username        VARCHAR(255) UNIQUE,
     password        VARCHAR(255) NOT NULL,
     photo         	BLOB ,  
@@ -31,9 +31,9 @@ CREATE TABLE UserEntities (
 
 -- petSize type is subject to change. atm is the length of the animal
 CREATE TABLE Pets(
-	id          INT PRIMARY KEY,
+	id          INTEGER PRIMARY KEY AUTOINCREMENT,
 	name        VARCHAR(255) NOT NULL,
-	species   VARCHAR(255) NOT NULL,
+	species   	VARCHAR(255) NOT NULL,
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
 	dimension   FLOAT,
@@ -41,30 +41,30 @@ CREATE TABLE Pets(
 );
 
 CREATE TABLE Topics(
-    idUserEntity    INT NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-    idPet           INT NOT NULL UNIQUE REFERENCES Pets(id) ON UPDATE CASCADE,
+    idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
+    idPet           INTEGER NOT NULL UNIQUE REFERENCES Pets(id) ON UPDATE CASCADE,
 	description     VARCHAR(255) NOT NULL,
     PRIMARY KEY (idUserEntity, idPet)
 );
 
 -- status either is 'P' (pending), 'A' (accepted) or 'R' (refused)
 CREATE TABLE Proposals(
-    id              INT PRIMARY KEY,
-    idUserEntity    INT NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-    idTopic          INT NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
+    id              INTEGER PRIMARY KEY,
+    idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
+    idTopic          INTEGER NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
     status          char(1) NOT NULL DEFAULT 'P' CHECK (status in ('P', 'A', 'R'))
 );
 
 CREATE TABLE Questions(
-    id              INT PRIMARY KEY,
-    idUserEntity   INT NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-    idTopic          INT NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
+    id              INTEGER PRIMARY KEY,
+    idUserEntity   INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
+    idTopic          INTEGER NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
     question        VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Answers(
-	id        		INT PRIMARY KEY,
-	idUserEntity   INT NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-	idQuestion      INT NOT NULL REFERENCES Questions(id) ON UPDATE CASCADE,
+	id        		INTEGER PRIMARY KEY,
+	idUserEntity   INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
+	idQuestion      INTEGER NOT NULL REFERENCES Questions(id) ON UPDATE CASCADE,
 	answer          VARCHAR(255) NOT NULL
 );

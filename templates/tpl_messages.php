@@ -20,7 +20,12 @@ function draw_messages() {
                     else if (@$_SESSION['register']){
                         echo 'Register ' .$_SESSION['register'];
                         unset($_SESSION['register']);
-                    } ?>
+                    } 
+                    else if (@$_SESSION['add_animal']){
+                        echo 'Adding animal ' .$_SESSION['add_animal'];
+                        unset($_SESSION['add_animal']);
+                    }    
+                    ?>
                 </div>
             </div>
         </div>

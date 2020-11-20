@@ -1,4 +1,4 @@
-<?php function draw_animal_full($animal, $species){
+<?php function draw_animal_full($animal){
 /**
  * Draws full animal page
  */?>
@@ -7,7 +7,7 @@
         <div class="animal-photo"><?=$animal['photo']?></div>
         <div class="animal-name"><?=$animal['name']?></div>
         <div class="animal-stats">
-            <div class="animal-species"><?=$species?></div>
+            <div class="animal-species"><?=$animal['species']?></div>
             <div class="animal-weight"><?=$animal['weight']?></div>
             <div class="animal-color"><?=$animal['color']?></div>
             <div class="animal-dimension"><?=$animal['dimension']?></div>
@@ -16,15 +16,15 @@
 
 <?php } ?>
 
-<?php function draw_animal_simple($animal, $species){
+<?php function draw_animal_simple($animal){
 /**
  * Draws animal division with most important info
  */?>
 
     <div class="short-animal-container">
         <div class="animal-photo"><?=$animal['photo']?></div>
-        <div class="animal-name"><a href='../pages/animal.php?id="<?= $animal['id'] ?>"'><?=$animal['name']?></a></div>
-        <div class="animal-species"><?=$species?></div>
+        <div class="animal-name"><a href="../pages/animal.php?id=<?= $animal['id'] ?>"><?=$animal['name']?></a></div>
+        <div class="animal-species"><?=$animal['species']?></div>
     </div>
 
 <?php } ?>
@@ -45,10 +45,10 @@
         </div>
         <select name='species' style='height: 45px; font-family:Arial, FontAwesome;'>
             <option value=''>&#xf039; &nbsp; All States</option>
-            <option value='dog'>&#xf6d3; &nbsp; Dog</option>
-            <option value='cat'>&#xf6be; &nbsp; Cat</option>
-            <option value='bird'>&#xf535; &nbsp; Bird</option>
-            <option value='other'>&#xf059; &nbsp; Other</option>
+            <option value='Dog'>&#xf6d3; &nbsp; Dog</option>
+            <option value='Cat'>&#xf6be; &nbsp; Cat</option>
+            <option value='Bird'>&#xf535; &nbsp; Bird</option>
+            <option value='Other'>&#xf059; &nbsp; Other</option>
             <label>Species</label>
         </select>
         <div class="details">
