@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS Topics;
 DROP TABLE IF EXISTS Pets;
 DROP TABLE IF EXISTS UserEntities;
 DROP TABLE IF EXISTS Locations;
-DROP TABLE IF EXISTS Species;
 
 PRAGMA foreign_keys=ON;
 
@@ -18,11 +17,6 @@ CREATE TABLE Locations(
 	id           INT PRIMARY KEY,
 	City         VARCHAR(255) NOT NULL,
 	postalCode   VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE Species(
-	id      INT PRIMARY KEY,
-	name 	VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE UserEntities (
@@ -39,7 +33,7 @@ CREATE TABLE UserEntities (
 CREATE TABLE Pets(
 	id          INT PRIMARY KEY,
 	name        VARCHAR(255) NOT NULL,
-	idSpecies   INT NOT NULL REFERENCES Species(id),
+	species   VARCHAR(255) NOT NULL,
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
 	dimension   FLOAT,
