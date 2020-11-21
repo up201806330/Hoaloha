@@ -10,8 +10,16 @@ DROP TABLE IF EXISTS Topics;
 DROP TABLE IF EXISTS Pets;
 DROP TABLE IF EXISTS UserEntities;
 DROP TABLE IF EXISTS Locations;
+DROP TABLE IF EXISTS Photos;
 
 PRAGMA foreign_keys=ON;
+
+CREATE TABLE Photos(
+	id        INTEGER PRIMARY KEY,
+	mime_type TEXT NOT NULL,
+	doc       BLOB
+);
+
 
 CREATE TABLE Locations(
 	id           INTEGER PRIMARY KEY,
@@ -23,7 +31,7 @@ CREATE TABLE UserEntities (
 	id              INTEGER PRIMARY KEY AUTOINCREMENT,
     username        VARCHAR(255) UNIQUE,
     password        VARCHAR(255) NOT NULL,
-    photo         	BLOB ,  
+    idPhoto     	INTEGER REFERENCES Photos(id),  
 	idLocation      VARCHAR(255) ,
 	phoneNumber		INT NOT NULL,
 	email           VARCHAR(255) NOT NULL
@@ -37,7 +45,7 @@ CREATE TABLE Pets(
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
 	dimension   FLOAT,
-	photo 		BLOB
+	idPhoto     INTEGER REFERENCES Photos(id)
 );
 
 CREATE TABLE Topics(
