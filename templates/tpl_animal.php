@@ -21,15 +21,24 @@
  * Draws animal division with most important info
  */?>
 
-    <div class="short-animal-container">
-        <div class="animal-photo"><?=$animal['photo']?></div>
-        <div class="animal-name"><a href="../pages/animal.php?id=<?= $animal['id'] ?>"><?=$animal['name']?></a></div>
-        <div class="animal-species"><?=$animal['species']?></div>
-    </div>
+    <li>
+      <a href="../pages/animal.php?id=<?= $animal['id'] ?>">
+        <div class="short-animal-container">
+          <!-- <div class="animal-photo"></div> -->
+          <!-- <div class="animal-photo"><img src="../puppy.jpg"></div> -->
+          <div class="animal-text">
+            <div class="animal-name"><?=$animal['name']?></div>
+            <div class="animal-species"><?=$animal['species']?></div>
+            <!-- <div class="animal-name">Lorem ipsum, doltae quo officia? </div>
+            <div class="animal-species">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel quas aut aliquid fuga omnis est mollitia amet pariatur tempora id quam sapiente atque tenetur sunt officia enim, provident fugiat laudantium.</div> -->
+          </div>
+        </div>
+      </a>
+    </li>
 
 <?php } ?>
 
-<?php function draw_add_animal() { 
+<?php function draw_add_animal() {
 /**
  * Draws the page for registering an animal
  */ ?>

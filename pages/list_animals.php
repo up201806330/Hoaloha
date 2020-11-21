@@ -8,11 +8,14 @@
   //TODO filtragem com parametros em $_GET
 
   draw_header();
-  echo '<ul>';
+  // echo '<ul class="animal-list-container">';
+  echo '<div class="animal-list-container">';
+  echo '<ul class="animal-list-grid">';
   foreach($animals as &$animal){
     if ($animal != null) draw_animal_simple($animal);
     //else header('Location: ../index.php');
   }
   echo '</ul>';
+  echo '</div>';
   draw_footer();
   ?>
