@@ -511,11 +511,12 @@ body > div > div.login-container > div {
     transform: scale(1.05); 
 }
 
-.short-animal-container {
+/* moved to tpl_animal.php */
+/* .short-animal-container {
     background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)),
     url(../puppy.jpg);
     background-position: center;
-}
+} */
 
 .short-animal-container > .animal-text {
     position: absolute;
@@ -544,6 +545,23 @@ body > div > div.login-container > div {
 
 /*
 --------------------------------------------- 
-    
+    animal.php
 --------------------------------------------- 
 */
+
+.animal-container {
+    display: grid;
+    flex-wrap:wrap;
+    border:1px;
+    margin:2px;
+}
+
+.animal-container > .animal-photo, .animal-name {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.animal-container > .animal-stats {
+}

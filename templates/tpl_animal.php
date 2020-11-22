@@ -3,16 +3,20 @@
  * Draws full animal page
  */?>
 
-    <li class="animal-container">
-        <div class="animal-photo"><?=$animal['photo']?></div>
-        <div class="animal-name"><?=$animal['name']?></div>
-        <div class="animal-stats">
-            <div class="animal-species"><?=$animal['species']?></div>
-            <div class="animal-weight"><?=$animal['weight']?></div>
-            <div class="animal-color"><?=$animal['color']?></div>
-            <div class="animal-dimension"><?=$animal['dimension']?></div>
+    <div class="animal-container">
+        <div class="animal-photo"> <img src="../puppy.jpg" alt="puppy"> </div> <!-- temporary -->
+        <!-- <div class="animal-photo"> --> <!-- < --> <!-- ? =$animal['photo']?></div> -->
+        <div class="animal-card">
+          <div class="animal-name"><?=$animal['name']?></div>
+          <div class="animal-stats">
+              About
+              <div class="animal-species"><?=$animal['species']?></div>
+              <div class="animal-weight"><?=$animal['weight']?></div>
+              <div class="animal-color"><?=$animal['color']?></div>
+              <div class="animal-dimension"><?=$animal['dimension']?></div>
+          </div>
         </div>
-    </li>
+    </div>
 
 <?php } ?>
 
@@ -21,6 +25,13 @@
  * Draws animal division with most important info
  */?>
 
+  <style>
+    .short-animal-container {
+      background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)),
+      url(../puppy.jpg); /* change url to the php/database one */
+      background-position: center;
+    }
+  </style>
     <li>
       <a href="../pages/animal.php?id=<?= $animal['id'] ?>">
         <div class="short-animal-container">
