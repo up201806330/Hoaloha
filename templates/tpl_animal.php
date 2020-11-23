@@ -4,16 +4,46 @@
  */?>
 
     <div class="animal-container">
-        <div class="animal-photo"> <img src="../puppy.jpg" alt="puppy"> </div> <!-- temporary -->
+        <div class="animal-photo"> <!-- <img src="../puppy.jpg" alt="puppy"> -->
+          <img src="../puppy.jpg">
+        </div>
         <!-- <div class="animal-photo"> --> <!-- < --> <!-- ? =$animal['photo']?></div> -->
         <div class="animal-card">
           <div class="animal-name"><?=$animal['name']?></div>
+
+          <ul>
+            <li class="animal-species"> <?=$animal['species']?> </li>
+            <li class="animal-gender"> Gender </li>
+            <li class="animal-location"> Location </li>
+          </ul>
+
+          <hr>
+
           <div class="animal-stats">
-              About
-              <div class="animal-species"><?=$animal['species']?></div>
-              <div class="animal-weight"><?=$animal['weight']?></div>
-              <div class="animal-color"><?=$animal['color']?></div>
-              <div class="animal-dimension"><?=$animal['dimension']?></div>
+
+              <div class="animal-stat">
+              <!-- <div class="animal-weight"> -->
+                <div class="stat-title">
+                  Weight
+                </div>
+                <?=$animal['weight']?>
+              </div>
+
+              <div class="animal-stat">
+              <!-- <div class="animal-color"> -->
+                <div class="stat-title">
+                  Color
+                </div>
+                <?=$animal['color']?>
+              </div>
+
+              <div class="animal-stat">
+                <div class="stat-title">
+                  Dimension
+                </div>
+              <!-- <div class="animal-dimension"> -->
+                <?=$animal['dimension']?>
+              </div>
           </div>
         </div>
     </div>
