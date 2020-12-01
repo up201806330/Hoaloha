@@ -4,7 +4,7 @@
   function getAnimal($id) {
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT * FROM Pets WHERE id = ?');
+    $stmt = $db->prepare('SELECT * FROM Pets INNER JOIN PetPhotos ON Pets.id = PetPhotos.idPet WHERE id = ?');
     $stmt->execute(array($id));
     return $stmt->fetch();
   }
@@ -12,7 +12,7 @@
   function getAllAnimals() {
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT * FROM Pets');
+    $stmt = $db->prepare('SELECT * FROM Pets INNER JOIN PetPhotos ON Pets.id = PetPhotos.idPet');
     $stmt->execute();
     return $stmt->fetchAll();
   }
