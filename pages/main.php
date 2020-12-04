@@ -1,4 +1,5 @@
 <?php 
+  include_once('../database/db_image.php');
   include_once('../templates/tpl_common.php');
   include_once('../templates/tpl_navbar.php'); 
   include_once('../templates/tpl_mainpage.php'); 

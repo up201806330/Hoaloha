@@ -5,7 +5,7 @@
 
     <div class="animal-container">
         <div class="animal-photo"> <!-- <img src="../puppy.jpg" alt="puppy"> -->
-          <img src="../puppy.jpg">
+          <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
         </div>
         <!-- <div class="animal-photo"> --> <!-- < --> <!-- ? =$animal['photo']?></div> -->
         <div class="animal-card">
@@ -55,27 +55,22 @@
  * Draws animal division with most important info
  */?>
 
-  <style>
-    .short-animal-container {
-      background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)),
-      url(../puppy.jpg); /* change url to the php/database one */
-      background-position: center;
-    }
-  </style>
+
     <li>
       <a href="../pages/animal.php?id=<?= $animal['id'] ?>">
-        <div class="short-animal-container">
-          <!-- <div class="animal-photo"></div> -->
-          <!-- <div class="animal-photo"><img src="../puppy.jpg"></div> -->
+        <div class="short-animal-container" style="background-position: center; background:url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">>
+
+
           <div class="animal-text">
-            <div class="animal-name"><?=$animal['name']?></div>
-            <div class="animal-species"><?=$animal['species']?></div>
+          <div class="animal-name"><a href="../pages/animal.php?id=<?= $animal['id'] ?>"><?=$animal['name']?></a></div>
+        <div class="animal-species"><?=$animal['species']?></div>
             <!-- <div class="animal-name">Lorem ipsum, doltae quo officia? </div>
             <div class="animal-species">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel quas aut aliquid fuga omnis est mollitia amet pariatur tempora id quam sapiente atque tenetur sunt officia enim, provident fugiat laudantium.</div> -->
           </div>
         </div>
       </a>
     </li>
+
 
 <?php } ?>
 
