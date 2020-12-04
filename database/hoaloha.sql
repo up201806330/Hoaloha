@@ -7,7 +7,9 @@ DROP TABLE IF EXISTS Answers;
 DROP TABLE IF EXISTS Questions;
 DROP TABLE IF EXISTS Proposals;
 DROP TABLE IF EXISTS Topics;
+DROP TABLE IF EXISTS PetPhotos;
 DROP TABLE IF EXISTS Pets;
+DROP TABLE IF EXISTS UserPhotos;
 DROP TABLE IF EXISTS UserEntities;
 DROP TABLE IF EXISTS Locations;
 DROP TABLE IF EXISTS Photos;
@@ -31,10 +33,15 @@ CREATE TABLE UserEntities (
 	id              INTEGER PRIMARY KEY AUTOINCREMENT,
     username        VARCHAR(255) UNIQUE,
     password        VARCHAR(255) NOT NULL,
-    idPhoto     	INTEGER REFERENCES Photos(id),  
 	idLocation      VARCHAR(255) ,
 	phoneNumber		INT NOT NULL,
 	email           VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE UserPhotos(
+	idUser         INTEGER REFERENCES UserEntities(id),
+	idPhoto        INTEGER REFERENCES Photos(id),
+	PRIMARY KEY (idUser,idPhoto)
 );
 
 -- petSize type is subject to change. atm is the length of the animal
@@ -44,8 +51,14 @@ CREATE TABLE Pets(
 	species   	VARCHAR(255) NOT NULL,
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
-	dimension   FLOAT,
-	idPhoto     INTEGER REFERENCES Photos(id)
+	dimension   FLOAT
+);
+
+
+CREATE TABLE PetPhotos(
+	idPet         INTEGER REFERENCES Pets(id),
+	idPhoto        INTEGER REFERENCES Photos(id),
+	PRIMARY KEY (idPet,idPhoto)
 );
 
 CREATE TABLE Topics(

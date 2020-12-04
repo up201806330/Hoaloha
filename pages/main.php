@@ -8,5 +8,4 @@
   draw_navbar();
   draw_mainpage_body();
   draw_footer();
-
 ?>

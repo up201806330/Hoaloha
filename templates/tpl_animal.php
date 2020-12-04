@@ -4,7 +4,9 @@
  */?>
 
     <li class="animal-container">
-        <div class="animal-photo"><?=$animal['photo']?></div>
+        <div class="animal-photo">
+          <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
+        </div>
         <div class="animal-name"><?=$animal['name']?></div>
         <div class="animal-stats">
             <div class="animal-species"><?=$animal['species']?></div>
@@ -22,7 +24,9 @@
  */?>
 
     <div class="short-animal-container">
-        <div class="animal-photo"><?=$animal['photo']?></div>
+        <div class="animal-photo">
+          <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>" width="200" height="200">
+        </div>
         <div class="animal-name"><a href="../pages/animal.php?id=<?= $animal['id'] ?>"><?=$animal['name']?></a></div>
         <div class="animal-species"><?=$animal['species']?></div>
     </div>

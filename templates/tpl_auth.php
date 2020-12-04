@@ -53,7 +53,7 @@
     <div class="register-content">
       <h1>Sign Up</h1>
       <h2>New Here? Welcome!</h2>
-      <form method="post" action="../actions/action_register.php">
+      <form method="post" action="../actions/action_register.php" enctype="multipart/form-data">
         <div class="txt_field">
           <input type="text" name="username" required>
           <span></span>
@@ -78,6 +78,10 @@
           <input type="text" name="location" required>
           <span></span>
           <label>Location</label>
+        </div>
+        <div class="image">
+          <input type="file" name="profile_img">      
+          <label>Photo</label>
         </div>
         <button type="submit">SIGN UP</button>
       </form>

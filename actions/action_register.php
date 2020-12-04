@@ -4,7 +4,7 @@
 
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $profile_img = $_POST['profile_img'];
+  $profile_img = $_FILES['profile_img'];
   $phone_number = $_POST['phone_number'];
   $email = $_POST['email'];
   $location = $_POST['location'];
@@ -12,7 +12,13 @@
   // Don't allow certain characters
   if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters and numbers!');
-    $_SESSION['register'] = 'success';
+    $_SESSION['register'] = 'failure';
+    die(header('Location: ../pages/register.php'));
+  }
+
+  if(exif_imagetype($profile_img['tmp_name']) != IMAGETYPE_PNG && exif_imagetype($profile_img['tmp_name']) != IMAGETYPE_JPEG){
+    $_SESSION['message'][] = array('type' => 'error','content' => 'Profile image must be a png or a jpg!');
+    $_SESSION['register'] = 'failure';
     die(header('Location: ../pages/register.php'));
   }
 
