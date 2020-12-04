@@ -624,7 +624,7 @@ body > div > div.login-container > div {
     border-width: 10px;
 }
 
-.animal-name:after {
+#animal-name-profile:after {
     content: '';
     position: absolute;
     height: 3px;

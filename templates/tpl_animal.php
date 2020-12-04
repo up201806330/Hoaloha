@@ -9,7 +9,7 @@
         </div>
         <!-- <div class="animal-photo"> --> <!-- < --> <!-- ? =$animal['photo']?></div> -->
         <div class="animal-card">
-          <div class="animal-name"><?=$animal['name']?></div>
+          <div id="animal-name-profile" class="animal-name"><?=$animal['name']?></div>
 
           <ul>
             <li class="animal-species"> <?=$animal['species']?> </li>
