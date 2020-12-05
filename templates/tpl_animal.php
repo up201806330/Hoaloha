@@ -3,18 +3,50 @@
  * Draws full animal page
  */?>
 
-    <li class="animal-container">
-        <div class="animal-photo">
+    <div class="animal-container">
+        <div class="animal-photo"> <!-- <img src="../puppy.jpg" alt="puppy"> -->
           <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
         </div>
-        <div class="animal-name"><?=$animal['name']?></div>
-        <div class="animal-stats">
-            <div class="animal-species"><?=$animal['species']?></div>
-            <div class="animal-weight"><?=$animal['weight']?></div>
-            <div class="animal-color"><?=$animal['color']?></div>
-            <div class="animal-dimension"><?=$animal['dimension']?></div>
+        <!-- <div class="animal-photo"> --> <!-- < --> <!-- ? =$animal['photo']?></div> -->
+        <div class="animal-card">
+          <div id="animal-name-profile" class="animal-name"><?=$animal['name']?></div>
+
+          <ul>
+            <li class="animal-species"> <?=$animal['species']?> </li>
+            <li class="animal-gender"> Gender </li>
+            <li class="animal-location"> Location </li>
+          </ul>
+
+          <hr>
+
+          <div class="animal-stats">
+
+              <div class="animal-stat">
+              <!-- <div class="animal-weight"> -->
+                <div class="stat-title">
+                  Weight
+                </div>
+                <?=$animal['weight']?>
+              </div>
+
+              <div class="animal-stat">
+              <!-- <div class="animal-color"> -->
+                <div class="stat-title">
+                  Color
+                </div>
+                <?=$animal['color']?>
+              </div>
+
+              <div class="animal-stat">
+                <div class="stat-title">
+                  Dimension
+                </div>
+              <!-- <div class="animal-dimension"> -->
+                <?=$animal['dimension']?>
+              </div>
+          </div>
         </div>
-    </li>
+    </div>
 
 <?php } ?>
 
@@ -23,17 +55,22 @@
  * Draws animal division with most important info
  */?>
 
-    <div class="short-animal-container">
-        <div class="animal-photo">
-          <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>" width="200" height="200">
-        </div>
-        <div class="animal-name"><a href="../pages/animal.php?id=<?= $animal['id'] ?>"><?=$animal['name']?></a></div>
-        <div class="animal-species"><?=$animal['species']?></div>
-    </div>
+    <li>
+      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
+        <a href="../pages/animal.php?id=<?=$animal['id']?>">
+          <div class="animal-text">
+            <div class="animal-name"><?=$animal['name']?></div>
+            <div class="animal-species"><?=$animal['species']?></div>
+          </div>
+        </a>
+      </div>
+    </li>
+
+
 
 <?php } ?>
 
-<?php function draw_add_animal() { 
+<?php function draw_add_animal() {
 /**
  * Draws the page for registering an animal
  */ ?>
