@@ -50,26 +50,6 @@
 
 <?php } ?>
 
-<?php function draw_animal_simple($animal){
-/**
- * Draws animal division with most important info
- */?>
-
-    <li>
-      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
-        <a href="../pages/animal.php?id=<?=$animal['id']?>">
-          <div class="animal-text">
-            <div class="animal-name"><?=$animal['name']?></div>
-            <div class="animal-species"><?=$animal['species']?></div>
-          </div>
-        </a>
-      </div>
-    </li>
-
-
-
-<?php } ?>
-
 <?php function draw_add_animal() {
 /**
  * Draws the page for registering an animal
