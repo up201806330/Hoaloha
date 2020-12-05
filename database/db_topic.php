@@ -24,4 +24,12 @@
     $stmt->execute(array($idUser, $idAnimal, $description));
     return $db->lastInsertId();
   }
+
+  function topicFromAnimalId($animalId){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('SELECT * FROM Topics WHERE idPet = ?');
+    $stmt->execute(array($animalId));
+    return $stmt->fetch();
+  }
 ?>

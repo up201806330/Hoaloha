@@ -39,6 +39,8 @@ function draw_header($draw_login = true) {
         if ($draw_login){
             if (!isset($_SESSION['username']) || empty($_SESSION['username'])) draw_login();   
         }
+
+        // Draw error/success messages
         draw_messages();
         ?>
         
