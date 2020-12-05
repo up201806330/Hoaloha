@@ -51,7 +51,9 @@ CREATE TABLE Pets(
 	species   	VARCHAR(255) NOT NULL,
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
-	dimension   FLOAT
+	dimension   VARCHAR(255) NOT NULL,
+	gender		VARCHAR(255) NOT NULL,
+	age			INTEGER
 );
 
 
