@@ -49,11 +49,12 @@ CREATE TABLE Pets(
 	id          INTEGER PRIMARY KEY AUTOINCREMENT,
 	name        VARCHAR(255) NOT NULL,
 	species   	VARCHAR(255) NOT NULL,
+	breed       VARCHAR(255) NOT NULL,
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
 	dimension   VARCHAR(255) NOT NULL,
 	gender		VARCHAR(255) NOT NULL,
-	age			INTEGER
+	age			INTEGER NOT NULL
 );
 
 

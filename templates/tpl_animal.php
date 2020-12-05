@@ -13,6 +13,7 @@
 
           <ul>
             <li class="animal-species"> <?=$animal['species']?> </li>
+            <li class="animal-breed"> <?=$animal['breed']?> </li>
             <li class="animal-gender"> <?=$animal['gender']?> </li>
             <li class="animal-location"> Location </li>
           </ul>
@@ -85,6 +86,11 @@
             <option value='Other'>&#xf059; &nbsp; Other</option>
             <label>Species</label>
         </select>
+        <div class="txt_field">
+          <input type="text" name="breed" required>
+          <span></span>
+          <label>Breed</label>
+        </div>
         <select name='gender' style='height: 45px; font-family:Arial, FontAwesome;'>
             <option value=''>&#xf22d; &nbsp; Select a Gender</option>
             <option value='Male'>&#xf222; &nbsp; Male</option>

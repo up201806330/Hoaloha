@@ -6,6 +6,7 @@
 
   $name = $_POST['name'];
   $species = $_POST['species'];
+  $breed = $_POST['breed'];
   $weight = $_POST['weight'];
   $color = $_POST['color'];
   $dimensions = $_POST['dimensions'];
@@ -16,7 +17,7 @@
   $description = $_POST['description'];
 
   try {
-    $animalId = insertAnimal($name, $species, $weight, $color, $dimensions, $gender, $age, $photo); // TODO handle bad image and bad location here
+    $animalId = insertAnimal($name, $species, $breed, $weight, $color, $dimensions, $gender, $age, $photo); // TODO handle bad image and bad location here
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Added animal to db!');
     $_SESSION['add_animal'] = 'success';
 
