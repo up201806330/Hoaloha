@@ -62,10 +62,10 @@ CREATE TABLE PetPhotos(
 );
 
 CREATE TABLE Topics(
+	id 				INTEGER PRIMARY KEY,
     idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
     idPet           INTEGER NOT NULL UNIQUE REFERENCES Pets(id) ON UPDATE CASCADE,
-	description     VARCHAR(255) NOT NULL,
-    PRIMARY KEY (idUserEntity, idPet)
+	description     VARCHAR(255) NOT NULL
 );
 
 -- status either is 'P' (pending), 'A' (accepted) or 'R' (refused)
