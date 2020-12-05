@@ -55,21 +55,17 @@
  * Draws animal division with most important info
  */?>
 
-
     <li>
-      <a href="../pages/animal.php?id=<?= $animal['id'] ?>">
-        <div class="short-animal-container" style="background-position: center; background:url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">>
-
-
+      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
+        <a href="../pages/animal.php?id=<?=$animal['id']?>">
           <div class="animal-text">
-          <div class="animal-name"><a href="../pages/animal.php?id=<?= $animal['id'] ?>"><?=$animal['name']?></a></div>
-        <div class="animal-species"><?=$animal['species']?></div>
-            <!-- <div class="animal-name">Lorem ipsum, doltae quo officia? </div>
-            <div class="animal-species">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel quas aut aliquid fuga omnis est mollitia amet pariatur tempora id quam sapiente atque tenetur sunt officia enim, provident fugiat laudantium.</div> -->
+            <div class="animal-name"><?=$animal['name']?></div>
+            <div class="animal-species"><?=$animal['species']?></div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </li>
+
 
 
 <?php } ?>
