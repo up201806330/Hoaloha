@@ -6,11 +6,12 @@
   include_once("../database/db_animal.php");
   include_once("../database/db_topic.php");
   
-  $username = $_GET['username'];
-  if (!isset($username)){
+  if (!isset($_GET['username'])){
     header('Location: ../pages/main.php');
     die();
   }
+
+  $username = $_GET['username'];
 
   $profile = getUser($username);
   $topics = getTopicsPostedByUser($username);

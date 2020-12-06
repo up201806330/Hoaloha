@@ -18,6 +18,21 @@
 
 <?php } ?>
 
+<?php function draw_profile_simple($user){
+/**
+ * Draws simplified user section to link to full profile page
+ */
+?>
+
+    <div href="../pages/profile.php?username=<?=$user['username']?>" class="simple-profile-container">
+        <div class="user-username"> <?= $user['username'] ?> </div>
+        <div class="user-photo"> 
+            <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
+        </div>
+    </div>
+
+<?php } ?>
+
 <?php function start_animals_div($username, $is_own_profile){
 /**
  * Starts the division where the users' animals are displayed
