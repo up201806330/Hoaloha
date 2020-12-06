@@ -74,7 +74,8 @@
 /**
  * Draws the page for registering an animal
  */ ?>
-  <section id="signup">
+ 
+  <section id="signup-animal">
     <div class="register-content">
       <h1>Let's find our friend a new Home!</h1>
       <h2>But first, tell us more about them</h2>
@@ -84,32 +85,36 @@
           <span></span>
           <label>Name</label>
         </div>
-        <select name='species' style='height: 45px; font-family:Arial, FontAwesome;'>
-            <option value=''>&#xf039; &nbsp; All States</option>
-            <option value='Dog'>&#xf6d3; &nbsp; Dog</option>
-            <option value='Cat'>&#xf6be; &nbsp; Cat</option>
-            <option value='Bird'>&#xf535; &nbsp; Bird</option>
-            <option value='Other'>&#xf059; &nbsp; Other</option>
-            <label>Species</label>
-        </select>
+        <div class="dropdown">
+          <div class="dropdown-select"> 
+            <select name='species' style='height: 45px; font-family:Arial, FontAwesome;'>
+                <option value=''>&#xf039; &nbsp; All States</option>
+                <option value='Dog'>&#xf6d3; &nbsp; Dog</option>
+                <option value='Cat'>&#xf6be; &nbsp; Cat</option>
+                <option value='Bird'>&#xf535; &nbsp; Bird</option>
+                <option value='Other'>&#xf059; &nbsp; Other</option>
+                <label>Species</label>
+            </select>
+          </div>
+        </div>
         <div class="details">
             <div class="txt_field">
-            <input type="text" name="weight">
-            <span></span>
-            <label>Weight</label>
+              <input type="text" name="weight" required>
+              <span></span>
+              <label>Weight</label>
             </div>
             <div class="txt_field">
-            <input type="text" name="color">
-            <span></span>
-            <label>Color</label>
+              <input type="text" name="color" required>
+              <span></span>
+              <label>Color</label>
             </div>
             <div class="txt_field">
-            <input type="text" name="dimension">
-            <span></span>
-            <label>Dimension</label>
+              <input type="text" name="dimension" required>
+              <span></span>
+              <label>Dimension</label>
             </div>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Register Pet</button>
       </form>
     </div>
   </section>
