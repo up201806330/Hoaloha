@@ -17,11 +17,11 @@
     return $stmt->fetchAll();
   }
 
-  function insertAnimal($name, $species, $weight, $color, $dimension, $photo) { // TODO missing some parameters
+  function insertAnimal($name, $species, $breed, $weight, $color, $dimension, $gender, $age, $photo) {
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('INSERT INTO Pets(name, species, weight, color, dimension, photo) VALUES(?, ?, ?, ?, ?, ?)');
-    $stmt->execute(array($name, $species, $weight, $color, $dimension, $photo));
+    $stmt = $db->prepare('INSERT INTO Pets(name, species, breed, weight, color, dimension, gender, age) VALUES(?, ?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($name, $species, $breed, $weight, $color, $dimension, $gender, $age));
     return $db->lastInsertId();
   }
 ?>

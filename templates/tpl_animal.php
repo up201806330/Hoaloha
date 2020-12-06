@@ -13,7 +13,8 @@
 
           <ul>
             <li class="animal-species"> <?=$animal['species']?> </li>
-            <li class="animal-gender"> Gender </li>
+            <li class="animal-breed"> <?=$animal['breed']?> </li>
+            <li class="animal-gender"> <?=$animal['gender']?> </li>
             <li class="animal-location"> Location </li>
           </ul>
 
@@ -24,7 +25,7 @@
               <div class="animal-stat">
               <!-- <div class="animal-weight"> -->
                 <div class="stat-title">
-                  Weight
+                  Weight (Kg)
                 </div>
                 <?=$animal['weight']?>
               </div>
@@ -44,29 +45,17 @@
               <!-- <div class="animal-dimension"> -->
                 <?=$animal['dimension']?>
               </div>
+              
+              <div class="animal-stat">
+                <div class="stat-title">
+                  Age (Years)
+                </div>
+              <!-- <div class="animal-age"> -->
+                <?=$animal['age']?>
+              </div>
           </div>
         </div>
     </div>
-
-<?php } ?>
-
-<?php function draw_animal_simple($animal){
-/**
- * Draws animal division with most important info
- */?>
-
-    <li>
-      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
-        <a href="../pages/animal.php?id=<?=$animal['id']?>">
-          <div class="animal-text">
-            <div class="animal-name"><?=$animal['name']?></div>
-            <div class="animal-species"><?=$animal['species']?></div>
-          </div>
-        </a>
-      </div>
-    </li>
-
-
 
 <?php } ?>
 
@@ -85,34 +74,53 @@
           <span></span>
           <label>Name</label>
         </div>
-        <div class="dropdown">
-          <div class="dropdown-select"> 
-            <select name='species' style='height: 45px; font-family:Arial, FontAwesome;'>
-                <option value=''>&#xf039; &nbsp; All States</option>
-                <option value='Dog'>&#xf6d3; &nbsp; Dog</option>
-                <option value='Cat'>&#xf6be; &nbsp; Cat</option>
-                <option value='Bird'>&#xf535; &nbsp; Bird</option>
-                <option value='Other'>&#xf059; &nbsp; Other</option>
-                <label>Species</label>
-            </select>
-          </div>
+        <div class="txt_field">
+          <input type="text" name="description" required>
+          <span></span>
+          <label>Description</label>
         </div>
+        <select name='species' style='height: 45px; font-family:Arial, FontAwesome;'>
+          <option value=''>&#xf039; &nbsp; Select a Species</option>
+          <option value='Dog'>&#xf6d3; &nbsp; Dog</option>
+          <option value='Cat'>&#xf6be; &nbsp; Cat</option>
+          <option value='Bird'>&#xf535; &nbsp; Bird</option>
+          <option value='Other'>&#xf059; &nbsp; Other</option>
+          <label>Species</label>
+        </select>
+        <div class="txt_field">
+          <input type="text" name="breed" required>
+          <span></span>
+          <label>Breed</label>
+        </div>
+        <select name='gender' style='height: 45px; font-family:Arial, FontAwesome;'>
+          <option value=''>&#xf22d; &nbsp; Select a Gender</option>
+          <option value='Male'>&#xf222; &nbsp; Male</option>
+          <option value='Female'>&#xf221; &nbsp; Female</option>
+          <label>Gender</label>
+        </select>
         <div class="details">
-            <div class="txt_field">
-              <input type="text" name="weight" required>
-              <span></span>
-              <label>Weight</label>
-            </div>
-            <div class="txt_field">
-              <input type="text" name="color" required>
-              <span></span>
-              <label>Color</label>
-            </div>
-            <div class="txt_field">
-              <input type="text" name="dimension" required>
-              <span></span>
-              <label>Dimension</label>
-            </div>
+          <div class="txt_field">
+            <input type="text" name="weight" required>
+            <span></span>
+            <label>Weight (Kg)</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" name="color" required>
+            <span></span>
+            <label>Color</label>
+          </div>
+          <select name='dimensions' style='height: 45px; font-family:Arial, FontAwesome;'>
+            <option value=''>&#xf22d; &nbsp; Select Dimensions</option>
+            <option value='Small'>&#xf56b; &nbsp; Small</option>
+            <option value='Medium'>&#xf546; &nbsp; Medium</option>
+            <option value='Large'>&#xf436; &nbsp; Large</option>
+            <label>Dimensions</label>
+          </select>
+          <div class="txt_field">
+            <input type="number" name="age" required>
+            <span></span>
+            <label>Age (Years)</label>
+          </div>
         </div>
         <button type="submit">Register Pet</button>
       </form>

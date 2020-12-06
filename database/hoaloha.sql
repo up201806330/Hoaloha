@@ -49,9 +49,12 @@ CREATE TABLE Pets(
 	id          INTEGER PRIMARY KEY AUTOINCREMENT,
 	name        VARCHAR(255) NOT NULL,
 	species   	VARCHAR(255) NOT NULL,
+	breed       VARCHAR(255) NOT NULL,
 	weight      FLOAT,
 	color 	    VARCHAR(255) NOT NULL,
-	dimension   FLOAT
+	dimension   VARCHAR(255) NOT NULL,
+	gender		VARCHAR(255) NOT NULL,
+	age			INTEGER NOT NULL
 );
 
 
@@ -62,10 +65,10 @@ CREATE TABLE PetPhotos(
 );
 
 CREATE TABLE Topics(
+	id 				INTEGER PRIMARY KEY,
     idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
     idPet           INTEGER NOT NULL UNIQUE REFERENCES Pets(id) ON UPDATE CASCADE,
-	description     VARCHAR(255) NOT NULL,
-    PRIMARY KEY (idUserEntity, idPet)
+	description     VARCHAR(255) NOT NULL
 );
 
 -- status either is 'P' (pending), 'A' (accepted) or 'R' (refused)
