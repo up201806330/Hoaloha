@@ -6,18 +6,24 @@
   include_once("../database/db_animal.php");
   include_once("../database/db_topic.php");
   
-  if (!isset($_GET['username'])){
+  $username = $_GET['username'];
+  if (!isset($username)){
     header('Location: ../pages/main.php');
     die();
   }
 
-  $profile = getUser($_GET['username']);
-  $topics = getTopicsPostedByUser($_GET['username']);
+  $profile = getUser($username);
+  $topics = getTopicsPostedByUser($username);
 
   draw_header();
   draw_profile($profile);
-  start_animals_div($_GET['username']);
-  foreach($topics as &$topic) draw_topic_in_profile($topic['id'], getAnimal($topic['idPet']));
+  start_animals_div($username, (@$_SESSION['username'] == $username));
+  foreach($topics as &$topic) {
+    if ($topic != null) {
+      $animal = getAnimal($topic['idPet']);
+      if ($animal != null) draw_topic_in_profile($topic['id'], $animal);
+    }
+  }
   end_animals_div();
   draw_footer();
   ?>

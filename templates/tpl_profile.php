@@ -18,14 +18,17 @@
 
 <?php } ?>
 
-<?php function start_animals_div($username){
+<?php function start_animals_div($username, $is_own_profile){
 /**
  * Starts the division where the users' animals are displayed
  */
 ?>
+    <?php 
+        $string = $is_own_profile ? 'Your animals up for adoption': $username . 's animals up for adoption';
+    ?>
 
     <div class="profile-animals-container">
-        <h1><?= $username ?>'s friends looking for a new home...</h1>
+        <h1><?= $string ?></h1>
     </div>
 
 <?php } ?>
