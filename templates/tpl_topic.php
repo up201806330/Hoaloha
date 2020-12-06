@@ -46,3 +46,16 @@
     </li>
 
 <?php } ?>
+
+
+<?php function draw_n_results($n_results){
+  $output;
+  if ($n_results == 0) $output = 'No results match your search :((';
+  else {
+    $result_string = ($n_results == 1) ? ' result' : ' results';
+    $output = 'Found ' . $n_results . $result_string;
+  }
+  echo $output;
+}
+?>
+

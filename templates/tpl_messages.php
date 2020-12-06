@@ -25,9 +25,10 @@ function draw_messages() {
                         echo 'Adding animal ' .$_SESSION['add_animal'];
                         unset($_SESSION['add_animal']);
                     }    
-                    else if (@$_SESSION['add_animal_page'])
+                    else if (@$_SESSION['add_animal_page']){
                         echo 'Must be logged in to add an animal';
                         unset($_SESSION['add_animal_page']);
+                    }
                     ?>
                 </div>
             </div>

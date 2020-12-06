@@ -21,7 +21,7 @@
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Added animal to db!');
     $_SESSION['add_animal'] = 'success';
 
-    if (@$_SESSION['username']) $user = getUser($_SESSION['username']);
+    if (isset($_SESSION['username'])) $user = getUser($_SESSION['username']);
     $userId = $user['id'];
 
     $topicId = insertTopic($userId, $animalId, $description);

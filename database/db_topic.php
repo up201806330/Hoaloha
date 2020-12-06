@@ -32,4 +32,12 @@
     $stmt->execute(array($username));
     return $stmt->fetchAll();
   }
+  
+  function topicFromAnimalId($animalId){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('SELECT * FROM Topics WHERE idPet = ?');
+    $stmt->execute(array($animalId));
+    return $stmt->fetch();
+  }
 ?>
