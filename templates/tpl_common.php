@@ -19,8 +19,6 @@ function draw_header($draw_login = true) {
         <script src="../js/main.js" defer></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
         <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
-        <link href="jquery-plugins/toxin-rangeslider/toxin-rangeslider.css" rel="stylesheet" />
-        <script type="text/javascript" src="jquery-plugins/toxin-rangeslider/toxin-rangeslider.js"></script>
     </head>
 
     <body>
