@@ -24,4 +24,12 @@
     $stmt->execute(array($idUser, $idAnimal, $description));
     return $db->lastInsertId();
   }
+
+  function getTopicsPostedByUser($username){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('SELECT DISTINCT Topics.* FROM Topics, UserEntities WHERE Topics.idUserEntity=UserEntities.id AND UserEntities.username=?');
+    $stmt->execute(array($username));
+    return $stmt->fetchAll();
+  }
 ?>
