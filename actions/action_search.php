@@ -19,7 +19,6 @@
             $topic = topicFromAnimalId($animal['id']);
             array_push($result, $topic);
         }
-        // Weight ...
     }
 
 

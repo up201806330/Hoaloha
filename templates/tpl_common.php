@@ -16,9 +16,11 @@ function draw_header($draw_login = true) {
         <meta charset="utf-8">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/main.js" defer></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
         <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
-        <script src="../js/main.js" defer></script>
+        <link href="jquery-plugins/toxin-rangeslider/toxin-rangeslider.css" rel="stylesheet" />
+        <script type="text/javascript" src="jquery-plugins/toxin-rangeslider/toxin-rangeslider.js"></script>
     </head>
 
     <body>
