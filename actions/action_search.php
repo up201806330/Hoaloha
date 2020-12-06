@@ -15,12 +15,11 @@
     // vv Textbox vv  
     // $color
 
-
     $animals = getAllAnimals();
     $result = array();
     foreach($animals as &$animal){
-        if ( // Finds animal with input string in name or in breed
-            (stripos($animal['name'], $search_string) !== false) || (stripos($animal['breed'], $search_string) !== false) ||
+        if ( // Finds animal with input string in name or in breed (if input is empty, all animals pass this filter)
+            (empty($search_string) || ((stripos($animal['name'], $search_string) !== false) || (stripos($animal['breed'], $search_string) !== false))) &&
             // Finds animal of one of the selected species
             (stripos($species, $animal['species']) !== false)
             ){
