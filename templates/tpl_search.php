@@ -14,7 +14,19 @@
       <div class="txt_field">
         <input type="text" name="search_string">
         <span></span>
-        <label>Name, Species, Breed, ...</label>
+        <label>Name, Breed, ...</label>
+      </div>
+      <div class="species-checkbox-container">
+        <label>Species</label><br>
+        <label for="checkbox-dog">Dog</label>
+        <input type="checkbox" id="checkbox-dog" name="is_dog" value="dog" checked>
+        <label for="checkbox-cat">Cat</label>
+        <input type="checkbox" id="checkbox-cat" name="is_cat" value="cat"checked>
+        <label for="checkbox-bird">Bird</label>
+        <input type="checkbox" id="checkbox-bird" name="is_bird" value="bird"checked>
+        <label for="checkbox-other">Other</label>
+        <input type="checkbox" id="checkbox-other" name="is_other" value="other" checked>
+        <span></span>
       </div>
       <button type="submit">Search</button>
     </form>
