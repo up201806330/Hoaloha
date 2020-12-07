@@ -17,6 +17,7 @@ function draw_header($draw_login = true) {
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../js/main.js" defer></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
         <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
     </head>
