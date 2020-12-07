@@ -18,7 +18,7 @@
 
   draw_header();
   draw_profile($profile);
-  start_animals_div($username, (@$_SESSION['username'] == $username));
+  start_animals_div($username, (@$_SESSION['username'] == $username), count($topics));
   foreach($topics as &$topic) {
     if ($topic != null) {
       $animal = getAnimal($topic['idPet']);
