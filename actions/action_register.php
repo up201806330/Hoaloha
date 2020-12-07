@@ -3,6 +3,7 @@
   include_once('../database/db_user.php');
 
   $username = $_POST['username'];
+  $name = $_POST['name'];
   $password = $_POST['password'];
   $profile_img = $_FILES['profile_img'];
   $phone_number = $_POST['phone_number'];
@@ -23,7 +24,7 @@
   }
 
   try {
-    insertUser($username, $password, $profile_img, $phone_number, $email, $location); // TODO handle bad image and bad location here
+    insertUser($username, $name, $password, $profile_img, $phone_number, $email, $location); // TODO handle bad image and bad location here
     $_SESSION['username'] = $username;
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
     $_SESSION['register'] = 'success';
