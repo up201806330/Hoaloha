@@ -28,6 +28,14 @@
         <input type="checkbox" id="checkbox-other" name="is_other" value="other" checked>
         <span></span>
       </div>
+      <div class="gender-checkbox-container">
+          <label>Gender</label><br>
+          <label for="checkbox-male">Male</label>
+          <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked>
+          <label for="checkbox-female">Female</label>
+          <input type="checkbox" id="checkbox-female" name="is_female" value="fem"checked>
+          <span></span>
+        </div>
       <button type="submit">Search</button>
     </form>
   </div>
@@ -69,13 +77,13 @@
           <span></span>
         </div>
         <div class="gender-checkbox-container">
-        <label>Gender</label><br>
-        <label for="checkbox-male">Male</label>
-        <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked>
-        <label for="checkbox-female">Female</label>
-        <input type="checkbox" id="checkbox-female" name="is_female" value="fem"checked>
-        <span></span>
-      </div>
+          <label>Gender</label><br>
+          <label for="checkbox-male">Male</label>
+          <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked>
+          <label for="checkbox-female">Female</label>
+          <input type="checkbox" id="checkbox-female" name="is_female" value="fem"checked>
+          <span></span>
+        </div>
         <button type="submit">Search</button>
       </form>
     </div>

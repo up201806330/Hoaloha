@@ -16,21 +16,11 @@
     $age_max = isset($_POST['age_max']) ? $_POST['age_max'] : 999;
     // vv Checkboxes vv
     // Gender
-    $male = isset($_POST['is_male']) ? $_POST['is_male'] : "male";
-    $female = isset($_POST['is_female']) ? $_POST['is_female'] : "fem";
-    $gender =$male . '&' . $female;
-
+    $gender = @$_POST['is_male'] . '&' . @$_POST['is_female'];
+    
     $animals = getAllAnimals();
     $result = array();
 
-    echo($search_string);
-    echo($species);
-    echo($weight_min);
-    echo($weight_max);
-    echo($age_min);
-    echo($age_max);
-    echo($gender);
-    
     
     //die();
 
