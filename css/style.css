@@ -43,7 +43,7 @@ header {
     border-right-style: solid;
     border-width: 1px;
     border-color: gray;
-    padding-right: 10px;
+    padding-right: 5px;
 }
 
 .authentication li a{
@@ -245,11 +245,11 @@ header {
 }
 
 .login-content{
+    text-align: center;
     width: 400px;
     margin-bottom: 150px;
     background-color: white;
     border-radius: 8px;
-    text-align: center;
     border-style: solid;
     border-color: var(--login-blue);
     border-width: 2px;
@@ -258,9 +258,10 @@ header {
 
 .close-button-container{
     height: 5px;
-    margin: 10px;
     float: right;
     position: relative;
+    top: 10px;
+    right: 10px;
 }
 
 .close-button-container a{
@@ -278,7 +279,6 @@ header {
 
 .login-content h1{
     font-size: 40px;
-    text-align: center;
     font-weight: normal;
     padding: 20px 0 0 0;
     color: darkblue;
@@ -314,16 +314,6 @@ form .txt_field{
 
 .txt_field label{
     position: absolute;
-    top: 60%;
-    left: 5px;
-    color: #adadad;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-#signup .txt_field label{
-    position: absolute;
     top: 30%;
     left: 5px;
     color: #adadad;
@@ -346,7 +336,7 @@ form .txt_field{
 
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label{
-    top: -5px;
+    top: -15px;
     color: var(--login-blue)
 }
 
@@ -393,6 +383,9 @@ body > div > div.login-container > div {
 
 
 #signup {
+    border-top-style: solid;
+    border-width: 15px;
+    border-color: var(--login-blue);
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -413,7 +406,7 @@ body > div > div.login-container > div {
     overflow: hidden;
 }
 
-.register-content h1{
+#signup .register-content h1{
     font-size: 50px;
     text-align: center;
     font-weight: normal;
@@ -473,13 +466,40 @@ body > div > div.login-container > div {
 
 #signup .txt_field input:focus ~ label,
 #signup .txt_field input:valid ~ label{
-    top: -20px;
+    top: -15px;
     color: var(--login-blue)
 }
 
 #signup .txt_field input:focus ~ span::before,
 #signup .txt_field input:valid ~ span::before{
     width: 100%;
+}
+
+
+/*
+---------------------------------------------
+add_animal.php
+---------------------------------------------
+
+*/
+
+#signup-animal {
+    border-top-style: solid;
+    border-width: 15px;
+    border-color: var(--login-blue);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../assets/add_animal_bg.jpg);
+    background-size: cover;
+}
+
+#signup-animal .register-content h1{
+    font-size: 45px;
+    text-align: center;
+    font-weight: normal;
+    padding-top: 20px;
+    color: darkblue;
 }
 
 
@@ -502,7 +522,8 @@ body > div > div.login-container > div {
 	padding: 0;
 	list-style: none;
 	display: block;
-	text-align: center;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Source: https://stackoverflow.com/questions/4919076/outline-effect-to-text */
 	width: 100%;
 }
 
@@ -521,6 +542,9 @@ body > div > div.login-container > div {
 	display: inline-block;
 	margin: 20px;
 }
+
+
+
 
 .short-animal-container {
 	width: 100%;
@@ -602,27 +626,23 @@ body > div > div.login-container > div {
 .animal-container {
     padding: 20px;
     display: block;
-    /* justify-content: center; */
-    /* align-items: center; */
+
     min-height: 100vh;
-    position: absolute;
+    position: relative;
     width: 100%;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
-    /* overflow: hidden; */
 }
 
 .animal-container:before{
     content: '';
     position: absolute;
-    /* flex-direction: column; */
     width: 100%;
     height: 35%;
     top: 0;
     left: 0;
-    background-image: linear-gradient(to top, #00cbfe, #3a9bf0);
-    /* clip-path: circle(800px at 50% -200%); */
+    background-image: linear-gradient(to top, var(--login-blue), var(--login-blue-soft));
 }
 
 
@@ -634,51 +654,62 @@ body > div > div.login-container > div {
     border-radius: 50%;
     width: 400px;
     height: 400px;
-    /* display: block;
-    align-items: center;
-    position: relative;
-    top: 4rem;
-    width: 400px;
-    height: 400px;
+}
 
-    border-radius: 50%; */
-    /* background: url('../puppy.jpg') no-repeat center / cover; */
+.content-grid {
+    white-space: nowrap;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
+}
+
+.content-grid > .topic-container {
+    position: absolute;
+    max-width: inherit;
+}
+
+
+.animal-card, .topic-container {
+    white-space: normal;
+    width: calc(50% - .5em);
+    box-sizing: border-box;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    padding: 1% 2% 3% 2%;
+    display: inline-block;
+    border: 5px solid var(--login-blue);
 }
 
 .animal-card {
-    /* position: relative; */
-    margin-top: -3%;
-    margin-left: 25%;
-    margin-right: 25%;
-    padding: 1% 2% 3% 2%;
-    /* padding-bottom: 3%; */
-    box-sizing: border-box;
-
-    /* background-image: linear-gradient(to top, rgba(122, 178, 230, 0.5), #00cbfebe); */
+    margin-right: 5%;
+    max-width: 32%;
     background-color: rgb(228, 228, 228);
-    border-radius: 10px;
-
 }
 
-.animal-card .animal-name {
+.animal-card .animal-name, .topic-container > .topic-username {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     color: rgb(0, 0, 0);
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 3% 0 3px 0;
     margin-bottom: 3%;
-    margin-left: 2rem;
+    margin-left: 3%;
     margin-right: 2rem;
     display: inline-block;
     border-width: 10px;
 }
 
-#animal-name-profile:after {
+.animal-card .animal-name {
+    font-size: 1.8rem;
+}
+
+#animal-name-profile:after, .topic-username:after {
     content: '';
     position: absolute;
     height: 3px;
     width: 55%;
+    max-width: 55%;
     background-color: rgb(0, 0, 0);
     bottom: 0;
     left: 0;
@@ -686,6 +717,7 @@ body > div > div.login-container > div {
 
 .animal-card hr {
     margin: 20px 5px;
+    width: 40%;
 }
 
 .animal-card ul li:not(:first-child):before {
@@ -700,6 +732,7 @@ body > div > div.login-container > div {
     font-weight: 600;
     margin-right: 3%;
 }
+
 
 select {
     font-family: 'FontAwesome', 'Arial';
@@ -736,3 +769,87 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
   border-radius: 100%;
 }
 .min-max-slider > input::-webkit-slider-runnable-track {cursor: pointer;}
+
+
+/*
+---------------------------------------------
+    profile.php
+---------------------------------------------
+*/
+
+.profile-container{
+    padding: 20px;
+    display: block;
+    min-height: 100vh;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
+    
+}
+
+.profile-container:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to top, #00cbfe, var(--login-blue));
+    border-bottom-style: solid;
+    border-width: 10px;
+    border-color: var(--login-blue);
+}
+
+.user-photo img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border-radius: 100%;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 20px;
+    border-color: var(--login-blue);
+    width: 400px;
+    height: 400px;
+}
+
+.user-card{
+    color: white;
+    margin-top: -3%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 1% 2% 3% 2%;
+    box-sizing: border-box;
+    background-image: linear-gradient(to top, var(--login-blue), #00cbfe);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: var(--login-blue);
+}
+
+.user-card .user-username{
+    position: relative;
+    color: white;
+    font-weight: bold;
+    padding: 5% 0 3px 0;
+    text-align: center;
+    border-width: 10px;
+}
+
+#user-username:after{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 55%;
+    background-color: rgb(0, 0, 0);
+    bottom: 0;
+    left: 0;
+}
+
+.user-card h4{
+    color: black;
+}
+
