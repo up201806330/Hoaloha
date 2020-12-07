@@ -4,13 +4,13 @@
   include_once('../database/db_topic.php');
   include_once('../database/db_user.php');
 
-  $name = $_POST['name'];
-  $species = $_POST['species'];
-  $breed = $_POST['breed'];
-  $weight = $_POST['weight'];
-  $color = $_POST['color'];
-  $dimensions = $_POST['dimensions'];
-  $gender = $_POST['gender'];
+  $name = strtolower($_POST['name']);
+  $species = strtolower($_POST['species']);
+  $breed = strtolower($_POST['breed']);
+  $weight = strtolower($_POST['weight']);
+  $color = strtolower($_POST['color']);
+  $dimensions = strtolower($_POST['dimensions']);
+  $gender = strtolower($_POST['gender']);
   $age = $_POST['age'];
   $photo = $_POST['img'];
 
@@ -23,8 +23,9 @@
 
     if (isset($_SESSION['username'])) $user = getUser($_SESSION['username']);
     $userId = $user['id'];
+    $data = date("Y-m-d H:i:s");
 
-    $topicId = insertTopic($userId, $animalId, $description);
+    $topicId = insertTopic($userId, $animalId, $description, $data);
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Added topic to db!');
     $_SESSION['add_topic'] = 'success';
 
