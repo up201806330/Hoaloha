@@ -16,7 +16,9 @@
     $age_max = isset($_POST['age_max']) ? $_POST['age_max'] : 999;
     // vv Checkboxes vv
     // Gender
-    $gender = @$_POST['is_male'] . '&' . @$_POST['is_female'];
+    //$gender = @$_POST['is_male'] . '&' . @$_POST['is_female'];
+    $is_male = @$_POST['is_male'];
+    $is_female = @$_POST['is_female'];
     
     $animals = getAllAnimals();
     $result = array();
@@ -30,7 +32,7 @@
             // Finds animal of one of the selected species
             (stripos($species, $animal['species']) !== false) && 
             // Finds animal of one of the selected genders 
-            (stripos($gender, $animal['gender']) !== false) && 
+            ($animal['gender'] === $is_male || $animal['gender'] === $is_female) && 
             // Finds animal with weight wthin given range
             ($animal['weight'] >= $weight_min && $animal['weight'] <= $weight_max) &&
             // Finds animal with age wthin given range

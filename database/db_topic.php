@@ -4,7 +4,7 @@
   function getTopic($id) {
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT Topics.id, idPet, username, description FROM Topics INNER JOIN UserEntities ON Topics.idUserEntity=UserEntities.id WHERE Topics.id = ?');
+    $stmt = $db->prepare('SELECT Topics.id, idPet, username, data, description FROM Topics INNER JOIN UserEntities ON Topics.idUserEntity=UserEntities.id WHERE Topics.id = ?');
     $stmt->execute(array($id));
     return $stmt->fetch();
   }
@@ -17,11 +17,11 @@
     return $stmt->fetchAll();
   }
 
-  function insertTopic($idUser, $idAnimal, $description) {
+  function insertTopic($idUser, $idAnimal, $description, $data) {
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('INSERT INTO Topics(idUserEntity, idPet, description) VALUES(?, ?, ?)');
-    $stmt->execute(array($idUser, $idAnimal, $description));
+    $stmt = $db->prepare('INSERT INTO Topics(idUserEntity, idPet, description, data) VALUES(?, ?, ?, ?)');
+    $stmt->execute(array($idUser, $idAnimal, $description,$data));
     return $db->lastInsertId();
   }
 
