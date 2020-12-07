@@ -23,17 +23,18 @@ CREATE TABLE Photos(
 );
 
 
-CREATE TABLE Locations(
+/*CREATE TABLE Locations(
 	id           INTEGER PRIMARY KEY,
 	City         VARCHAR(255) NOT NULL,
 	postalCode   VARCHAR(255) NOT NULL
-);
+);*/
 
 CREATE TABLE UserEntities (
 	id              INTEGER PRIMARY KEY AUTOINCREMENT,
+	name            VARCHAR(255) NOT NULL,
     username        VARCHAR(255) UNIQUE,
     password        VARCHAR(255) NOT NULL,
-	idLocation      VARCHAR(255) ,
+	Location     	VARCHAR(255) NOT NULL,
 	phoneNumber		INT NOT NULL,
 	email           VARCHAR(255) NOT NULL
 );
@@ -68,7 +69,14 @@ CREATE TABLE Topics(
 	id 				INTEGER PRIMARY KEY,
     idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
     idPet           INTEGER NOT NULL UNIQUE REFERENCES Pets(id) ON UPDATE CASCADE,
-	description     VARCHAR(255) NOT NULL
+	description     VARCHAR(255) NOT NULL,
+	data            DATATIME NOT NULL
+);
+
+CREATE TABLE UserFavourites(
+	idUser       INTEGER REFERENCES UserEntities(id),
+	idTopic      INTEGER REFERENCES Topics(id),
+	PRIMARY KEY (idUser,idTopic)
 );
 
 -- status either is 'P' (pending), 'A' (accepted) or 'R' (refused)
@@ -83,12 +91,14 @@ CREATE TABLE Questions(
     id              INTEGER PRIMARY KEY,
     idUserEntity   INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
     idTopic          INTEGER NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
-    question        VARCHAR(255) NOT NULL
+    question        VARCHAR(255) NOT NULL,
+	data            DATATIME NOT NULL
 );
 
 CREATE TABLE Answers(
 	id        		INTEGER PRIMARY KEY,
 	idUserEntity   INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
 	idQuestion      INTEGER NOT NULL REFERENCES Questions(id) ON UPDATE CASCADE,
-	answer          VARCHAR(255) NOT NULL
+	answer          VARCHAR(255) NOT NULL,
+	data            DATATIME NOT NULL
 );
