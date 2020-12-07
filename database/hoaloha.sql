@@ -34,7 +34,7 @@ CREATE TABLE UserEntities (
 	name            VARCHAR(255) NOT NULL,
     username        VARCHAR(255) UNIQUE,
     password        VARCHAR(255) NOT NULL,
-	Location     	VARCHAR(255) NOT NULL,
+	location     	VARCHAR(255) NOT NULL,
 	phoneNumber		INT NOT NULL,
 	email           VARCHAR(255) NOT NULL
 );
