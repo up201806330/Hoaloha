@@ -69,6 +69,23 @@
 
 <?php } ?>
 
+<?php function draw_favourite_button($n_favourites, $idUser, $idTopic){
+/**
+ * Draws the favourite button for a particular topic page
+ */
+?>
+  <div class="favourite-button-container" >
+  <div class="favourites-text"><?=$n_favourites?></div>
+  <form method="post" action="../actions/action_toggle_favourite.php">
+    <input type="hidden" name="idUser" value=<?=$idUser?>>
+    <input type="hidden" name="idTopic" value=<?=$idTopic?>>
+    <button type="submit" class="add-to-favourites-button">Favourite</button>
+  </form>
+  </div>
+
+<?php } ?>
+
+
 
 <?php function draw_n_results($n_results){
   $output;

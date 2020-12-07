@@ -40,4 +40,5 @@
     $stmt->execute(array($animalId));
     return $stmt->fetch();
   }
+
 ?>
