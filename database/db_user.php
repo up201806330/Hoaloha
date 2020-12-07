@@ -14,15 +14,15 @@
     return $user !== false && password_verify($password, $user['password']);
   }
 
-  function insertUser($username, $password, $profile_img, $phone_number, $email, $location) { // TODO missing some parameters
+  function insertUser($username, $name, $password, $profile_img, $phone_number, $email, $location) { // TODO missing some parameters
     $db = Database::instance()->db();
 
     $photoId = Database::instance()->insertDoc($profile_img['type'],$profile_img['tmp_name']);
     
     $options = ['cost' => 12];
 
-    $stmt = $db->prepare('INSERT INTO UserEntities(username, password, idLocation, phoneNumber, email) VALUES(?, ?, ?, ?, ?)');
-    $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT, $options),$location, $phone_number, $email));
+    $stmt = $db->prepare('INSERT INTO UserEntities(username, name, password, location, phoneNumber, email) VALUES(?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($username, $name, password_hash($password, PASSWORD_DEFAULT, $options),$location, $phone_number, $email));
 
     $userId = $db->lastInsertId();
 
