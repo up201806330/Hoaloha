@@ -644,6 +644,20 @@ add_animal.php
     margin-top: 1%;
 }
 
+
+.animal-card {
+    /* position: relative; */
+    margin-top: -3%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 1% 2% 3% 2%;
+    /* padding-bottom: 3%; */
+    box-sizing: border-box;
+    /* background-image: linear-gradient(to top, rgba(122, 178, 230, 0.5), #00cbfebe); */
+    margin-right: 5%;
+    max-width: 32%;
+    background-color: rgb(228, 228, 228);
+
 .content-grid > .topic-container {
     position: absolute;
     max-width: inherit;
@@ -669,13 +683,7 @@ add_animal.php
     display: inline-block;
     border: 5px solid var(--login-blue);
 }
-
-.animal-card {
-    margin-right: 5%;
-    max-width: 32%;
-    background-color: rgb(228, 228, 228);
-}
-
+  
 .animal-card .animal-name, .topic-container > .topic-username {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -788,12 +796,10 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 .profile-container{
     padding: 20px;
     display: block;
-    min-height: 100vh;
-    position: absolute;
+    min-height: 80vh;
+    position: relative;
     width: 100%;
     background-color: #fff;
-    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
-    
 }
 
 .profile-container:before{
@@ -809,7 +815,8 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-color: var(--login-blue);
 }
 
-.user-photo img{
+
+.profile-container .user-photo img{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -824,6 +831,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     height: 400px;
 }
 
+
 .user-card{
     color: white;
     margin-top: -3%;
@@ -833,9 +841,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     box-sizing: border-box;
     background-image: linear-gradient(to top, var(--login-blue), #00cbfe);
     border-radius: 10px;
-    border-style: solid;
-    border-width: 5px;
-    border-color: var(--login-blue);
 }
 
 .user-card .user-username{
@@ -847,17 +852,120 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-width: 10px;
 }
 
-#user-username:after{
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 55%;
-    background-color: rgb(0, 0, 0);
-    bottom: 0;
-    left: 0;
+.profile-container .user-card hr{
+    margin-bottom: 2%;
+    margin-top: 1%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
 }
 
 .user-card h4{
     color: black;
 }
 
+.profile-animals-title-container{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1%;
+    justify-content: center;
+}
+
+.profile-animals-title-divider{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-animals-title-divider hr{
+    border-style: solid;
+    border-width: 2px;
+    border-color:var(--login-blue);
+    width: 50%;
+    background-color: white;
+}
+
+.profile-animals-ext-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.profile-animals-container{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.profile-animal-container{
+    background-color: white;
+    margin: 4%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--login-blue);
+    min-height: 40vh;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out, ;
+}
+
+.profile-animal-container .animal-photo{
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.profile-animal-container .animal-text{
+    padding-top: 4%;
+    border-top-style: solid;
+    border-width: 3px;
+    border-color: var(--login-blue);
+    text-align: center;
+}
+
+.profile-animal-container .animal-text .animal-name{
+    color: black;
+    font-weight: bold;
+    font-size: x-large;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out, ;
+}
+
+.profile-animal-container .animal-text .animal-species{
+    color: black;
+    font-size: large;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out, ;
+}
+
+.profile-animal-container:hover {
+    transform: scale(1.05);
+    background-color: var(--login-blue-soft);
+}
+
+.profile-animal-container:hover .animal-text .animal-name{
+    color: white;
+}
+
+.profile-animal-container:hover .animal-text .animal-species{
+    color: white;
+}
