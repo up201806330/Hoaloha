@@ -13,7 +13,6 @@
   
   draw_header();
   if ($animal != null)  draw_animal_full($animal); 
-  if ($topic != null)   draw_topic($topic);
-  if ($user != null)    draw_profile_simple($user);
+  if ($topic != null && $user != null) draw_topic($topic, $user);
   draw_footer();
   ?>
