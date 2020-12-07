@@ -4,10 +4,19 @@
  */
     ?>
     
-    <div class="topic-container">
-        <div class="topic-username"><?=$topic['username']?></div>
-        <div class="topic-description"><?=$topic['description']?></div>
+        <div class="topic-container">
+            <div class="topic-username">Found by <?=$topic['username']?></div>
+            <div class="topic-description"><?=$topic['description']?>
+            
+              <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
+              <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
+            </div>
+        </div>
+
+
+
     </div>
+  </div>
 
 
 <?php } ?>

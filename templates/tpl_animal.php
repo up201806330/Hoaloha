@@ -4,58 +4,65 @@
  */?>
 
     <div class="animal-container">
-        <div class="animal-photo"> <!-- <img src="../puppy.jpg" alt="puppy"> -->
+        <div class="animal-photo">
           <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
         </div>
-        <!-- <div class="animal-photo"> --> <!-- < --> <!-- ? =$animal['photo']?></div> -->
-        <div class="animal-card">
-          <div id="animal-name-profile" class="animal-name"><?=$animal['name']?></div>
 
-          <ul>
-            <li class="animal-species"> <?=$animal['species']?> </li>
-            <li class="animal-breed"> <?=$animal['breed']?> </li>
-            <li class="animal-gender"> <?=$animal['gender']?> </li>
-            <li class="animal-location"> Location </li>
-          </ul>
+        <div class="content-grid">
 
-          <hr>
+          <div class="animal-card">
+            <div id="animal-name-profile" class="animal-name"><?=$animal['name']?></div>
 
-          <div class="animal-stats">
+            <ul>
+              <li class="animal-species"> <?=$animal['species']?> </li>
+              <li class="animal-breed"> <?=$animal['breed']?> </li>
+              <li class="animal-gender"> <?=$animal['gender']?> </li>
+              <li class="animal-location"> Location </li>
+            </ul>
 
-              <div class="animal-stat">
-              <!-- <div class="animal-weight"> -->
-                <div class="stat-title">
-                  Weight (Kg)
+            <hr>
+
+            <div class="animal-stats">
+
+                <div class="animal-stat">
+
+                  <div class="stat-title">
+                    Weight (Kg)
+                  </div>
+                  <?=$animal['weight']?>
+
                 </div>
-                <?=$animal['weight']?>
-              </div>
 
-              <div class="animal-stat">
-              <!-- <div class="animal-color"> -->
-                <div class="stat-title">
-                  Color
-                </div>
-                <?=$animal['color']?>
-              </div>
+                <div class="animal-stat">
 
-              <div class="animal-stat">
-                <div class="stat-title">
-                  Dimension
+                  <div class="stat-title">
+                    Color
+                  </div>
+                  <?=$animal['color']?>
+
                 </div>
-              <!-- <div class="animal-dimension"> -->
-                <?=$animal['dimension']?>
-              </div>
-              
-              <div class="animal-stat">
-                <div class="stat-title">
-                  Age (Years)
+
+                <div class="animal-stat">
+
+                  <div class="stat-title">
+                    Dimension
+                  </div>
+                  <?=$animal['dimension']?>
+
                 </div>
-              <!-- <div class="animal-age"> -->
-                <?=$animal['age']?>
-              </div>
+                
+                <div class="animal-stat">
+
+                  <div class="stat-title">
+                    Age (Years)
+                  </div>
+                  <?=$animal['age']?>
+
+                </div>
+            </div>
+
+
           </div>
-        </div>
-    </div>
 
 <?php } ?>
 
