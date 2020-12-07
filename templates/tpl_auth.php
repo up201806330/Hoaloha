@@ -5,7 +5,7 @@
 <div class="login-container">
   <div class="login-content">
     <div class="close-button-container">
-      <a href="#" id="closeButton" class="close"><span class="material-icons-round">close</span></a>
+      <a href="#" id="closeButtonLogin" class="close"><span class="material-icons-round">close</span></a>
     </div>
     <h1>Log In</h1>
     <h2>Welcome Back!</h2>

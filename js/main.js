@@ -3,8 +3,15 @@
 let loginButton = document.getElementById('loginButton');
 if (loginButton != null) loginButton.addEventListener('click', function() {document.querySelector('.login-container').style.display = 'flex';});
 
-let closeButton = document.getElementById('closeButton');
-if (closeButton != null) closeButton.addEventListener('click', function() {document.querySelector('.login-container').style.display = 'none';});
+let closeButtonLogin = document.getElementById('closeButtonLogin');
+if (closeButtonLogin != null) closeButtonLogin.addEventListener('click', function() {document.querySelector('.login-container').style.display = 'none';});
+
+let searchButton = document.getElementById('searchButton');
+if (searchButton != null) searchButton.addEventListener('click', function() {document.querySelector('.search-container').style.display = 'flex';});
+
+let closeButtonSearch = document.getElementById('closeButtonSearch');
+if (closeButtonSearch != null) closeButtonSearch.addEventListener('click', function() {document.querySelector('.search-container').style.display = 'none';});
+
 
 let collapsible = document.getElementById('collapsible');
 collapsible.addEventListener("click", function() {

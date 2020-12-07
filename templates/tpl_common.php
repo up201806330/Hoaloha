@@ -16,9 +16,9 @@ function draw_header($draw_login = true) {
         <meta charset="utf-8">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/main.js" defer></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
         <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
-        <script src="../js/main.js" defer></script>
     </head>
 
     <body>
@@ -39,6 +39,8 @@ function draw_header($draw_login = true) {
         if ($draw_login){
             if (!isset($_SESSION['username']) || empty($_SESSION['username'])) draw_login();   
         }
+
+        // Draw error/success messages
         draw_messages();
         ?>
         
