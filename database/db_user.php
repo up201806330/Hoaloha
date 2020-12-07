@@ -21,7 +21,7 @@
     
     $options = ['cost' => 12];
 
-    $stmt = $db->prepare('INSERT INTO UserEntities(username, password, idLocation, phoneNumber, email) VALUES(?, ?, ?, ?, ?)');
+    $stmt = $db->prepare('INSERT INTO UserEntities(username, name, password, Location, phoneNumber, email) VALUES(?,"",?, ?, ?, ?)');
     $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT, $options),$location, $phone_number, $email));
 
     $userId = $db->lastInsertId();
