@@ -4,6 +4,8 @@
     include_once('../database/db_user.php');
     include_once('../database/db_topic.php');
 
+    $idTopic = $_POST['idTopic'];
+
     if (!isset($_SESSION['username'])){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Must be logged in to favourite an animal!');
         $_SESSION['favourite'] = 'failure';
@@ -13,7 +15,6 @@
     }
 
     $username = $_SESSION['username']; $idUser = getUser($username)['id'];
-    $idTopic = $_POST['idTopic'];
 
     if (topicWasPostedByUser($idTopic, $idUser)){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'You cant like your own posts');

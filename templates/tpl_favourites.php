@@ -10,7 +10,7 @@
             </div>
             <?php 
                 $output;
-                if ($n_users == 0) $output = 'No one has added' . $animal_name . ' to their favourites yet :(';
+                if ($n_users == 0) $output = 'No one has added ' . $animal_name . ' to their favourites yet :(';
                 else {
                 $result_string = ($n_users == 1) ? ' person has added ' : ' people have added ';
                 $output = $n_users . $result_string . $animal_name . ' to their favourites';

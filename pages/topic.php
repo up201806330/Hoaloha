@@ -10,8 +10,10 @@
   include_once("../database/db_favourites.php");
   
   $topic = getTopic($_GET['id']);
-  $animal = getAnimal($topic['idPet']);
-  $user = getUser($topic['username']);
+  if ($topic != null) {
+    $animal = getAnimal($topic['idPet']);
+    $user = getUser($topic['username']);
+  }
   
   draw_header();
   if ($animal != null)  draw_animal_full($animal);
