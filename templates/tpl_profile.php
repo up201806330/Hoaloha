@@ -26,13 +26,31 @@
 
 <?php } ?>
 
-<?php function start_animals_div($username, $is_own_profile){
+<?php function draw_profile_simple($user){
+/**
+ * Draws simplified version of profile page (just username and photo)
+ */
+?>
+    <div class="simple-profile-container">
+        <!-- <div class="user-photo"> 
+            <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
+        </div> -->
+        <div class="user-card">
+            <div class="user-username"> <a href="../pages/profile.php?username=<?= $user['username'] ?>"><h1><?= $user['username'] ?></h1></a> </div>
+        </div>
+    </div>
+
+<?php } ?>
+
+<?php function start_profile_animals_div($username, $is_own_profile, $n_topics){
 /**
  * Starts the division where the users' animals are displayed
  */
 ?>
     <?php 
-        $string = $is_own_profile ? 'Your animals up for adoption': $username . '´s animals up for adoption';
+        $string = $is_own_profile ? 
+            ($n_topics > 0 ? 'Your animals up for adoption' : 'You have no animals up for adoption yet. <a href=../pages/add_animal.php>Lets change that!</a>') : 
+            ($n_topics > 0 ? $username . chr(39) . 's animals up for adoption' : $username . ' has no animals up for adoption yet');
     ?>
 
     <div class="profile-animals-title-container">
@@ -47,7 +65,7 @@
 <?php } ?>
 
 
-<?php function end_animals_div(){
+<?php function end_profile_animals_div(){
 /**
  * Ends the division where the users' animals are displayed
  */
@@ -55,4 +73,36 @@
         </div>
     </div>
 </div>
+<?php } ?>
+
+<?php function start_profile_favourites_div($username, $is_own_profile, $n_favourites){
+/**
+ * Starts the division where the users' favourite animals are displayed
+ */
+?>
+    <?php 
+        $string = $is_own_profile ? 
+            ($n_favourites > 0 ? 'Your favourites' : 'You have no favourites yet') : 
+            ($n_favourites > 0 ? $username . chr(39) . 's favourites' : $username . ' has no favourites yet');
+    ?>
+
+    <div class="profile-favourites-title-container">
+        <div class="profile-favourites-title-divider"><hr></div> 
+            <h1><?= $string ?></h1>
+        <div class="profile-favourites-title-divider"><hr></div> 
+    </div>
+
+    <div class="profile-favourites-ext-container">
+        <div class="profile-favourites-container">
+
+<?php } ?>
+
+
+<?php function end_profile_favourites_div(){
+/**
+ * Ends the division where the users' favourite animals are displayed
+ */
+?>
+        </div>
+    </div>
 <?php } ?>

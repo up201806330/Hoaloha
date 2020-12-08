@@ -1,4 +1,4 @@
-<?php function draw_topic($topic, $user){
+<?php function draw_topic_details($topic, $user){
 /**
  * Draws the independent part of the topic (username and description)
  */
@@ -73,6 +73,23 @@
 
 <?php } ?>
 
+<?php function start_favourite_adopt_div(){
+/**
+ * Starts the division that holds the adopt and favourite buttons
+ */
+?>
+  <div class="favourite-adopt-container">
+
+<?php } ?>
+
+<?php function end_favourite_adopt_div(){
+/**
+ * Ends the division that holds the adopt and favourite buttons
+ */
+?>
+  </div>
+
+<?php } ?>
 
 <?php function draw_n_results($n_results){
   $output;
@@ -82,6 +99,5 @@
     $output = 'Found ' . $n_results . $result_string;
   }
   echo $output;
-}
-?>
+} ?>
 

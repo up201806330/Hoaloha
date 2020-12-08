@@ -1,5 +1,5 @@
 'use strict'
-
+// Floating object buttons' listeners 
 let loginButton = document.getElementById('loginButton');
 if (loginButton != null) loginButton.addEventListener('click', function() {document.querySelector('.login-container').style.display = 'flex';});
 
@@ -12,7 +12,19 @@ if (searchButton != null) searchButton.addEventListener('click', function() {doc
 let closeButtonSearch = document.getElementById('closeButtonSearch');
 if (closeButtonSearch != null) closeButtonSearch.addEventListener('click', function() {document.querySelector('.search-container').style.display = 'none';});
 
+let favouritesButton = document.getElementById('favouritesButton');
+if (favouritesButton != null) favouritesButton.addEventListener('click', function() {document.querySelector('.favourites-container').style.display = 'flex';});
 
+let closeButtonFavourites = document.getElementById('closeButtonFavourites');
+if (closeButtonFavourites != null) closeButtonFavourites.addEventListener('click', function() {document.querySelector('.favourites-container').style.display = 'none';});
+
+let adoptButton = document.getElementById('adoptButton');
+if (adoptButton != null) adoptButton.addEventListener('click', function() {document.querySelector('.adopt-container').style.display = 'flex';});
+
+let closeButtonAdopt = document.getElementById('closeButtonAdopt');
+if (closeButtonAdopt != null) closeButtonAdopt.addEventListener('click', function() {document.querySelector('.adopt-container').style.display = 'none';});
+
+// Collapsible section listener
 let collapsible = document.getElementById('collapsible');
 if (collapsible != null) {
     collapsible.addEventListener("click", function() {
@@ -25,8 +37,7 @@ if (collapsible != null) {
     });
 }
 
-/* Range sliders (Source: https://codepen.io/joosts/pen/rNLdxvK) */
-
+// Range sliders (Source: https://codepen.io/joosts/pen/rNLdxvK)
 var thumbsize = 14;
 
 function draw(slider,splitvalue) {
