@@ -29,9 +29,12 @@
   draw_topic_details($topic, $owner);
   
   if (isset($_SESSION['username'])) {
-    $current_user = getUser($_SESSION['username']);
-    draw_adopt_button();
-    draw_adopt_div($current_user['name'], $animal['name'], $topic['id']);
+    if ($_SESSION['username'] == $owner['username']) echo 'You cant adopt your own pet';
+    else {
+      $current_user = getUser($_SESSION['username']);
+      draw_adopt_button();
+      draw_adopt_div($current_user['name'], $animal['name'], $topic['id']);
+    }
   }
   else {
     echo 'Log in to adopt this pet';
