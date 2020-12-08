@@ -26,7 +26,7 @@
 
 <?php } ?>
 
-<?php function start_animals_div($username, $is_own_profile, $n_topics){
+<?php function start_profile_animals_div($username, $is_own_profile, $n_topics){
 /**
  * Starts the division where the users' animals are displayed
  */
@@ -49,9 +49,41 @@
 <?php } ?>
 
 
-<?php function end_animals_div(){
+<?php function end_profile_animals_div(){
 /**
  * Ends the division where the users' animals are displayed
+ */
+?>
+        </div>
+    </div>
+<?php } ?>
+
+<?php function start_profile_favourites_div($username, $is_own_profile, $n_favourites){
+/**
+ * Starts the division where the users' favourite animals are displayed
+ */
+?>
+    <?php 
+        $string = $is_own_profile ? 
+            ($n_favourites > 0 ? 'Your favourites' : 'You have no favourites yet') : 
+            ($n_favourites > 0 ? $username . chr(39) . 's favourites' : $username . ' has no favourites yet');
+    ?>
+
+    <div class="profile-favourites-title-container">
+        <div class="profile-favourites-title-divider"><hr></div> 
+            <h1><?= $string ?></h1>
+        <div class="profile-favourites-title-divider"><hr></div> 
+    </div>
+
+    <div class="profile-favourites-ext-container">
+        <div class="profile-favourites-container">
+
+<?php } ?>
+
+
+<?php function end_profile_favourites_div(){
+/**
+ * Ends the division where the users' favourite animals are displayed
  */
 ?>
         </div>

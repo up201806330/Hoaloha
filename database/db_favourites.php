@@ -1,11 +1,11 @@
 <?php
   include_once('../includes/database.php');
 
-  function getUsersFavourites($idUser){
+  function getUsersFavourites($username){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT * FROM UserFavourites WHERE idUser = ?');
-    $stmt->execute(array($idUser));
+    $stmt = $db->prepare('SELECT UserFavourites.* FROM UserFavourites, UserEntities WHERE UserEntities.username = ? AND UserEntities.id = UserFavourites.idUser');
+    $stmt->execute(array($username));
     return $stmt->fetchAll();
   }
 
