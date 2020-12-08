@@ -610,7 +610,7 @@ add_animal.php
     min-height: 100vh;
     position: relative;
     width: 100%;
-    background-image: linear-gradient(to top, #84ceeb, var(--login-blue));
+    background-image: linear-gradient(to top, var(--login-blue), #84ceeb);
     border-radius: 5px;
     box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
 }
@@ -667,7 +667,6 @@ add_animal.php
     border-radius: 10px;
     padding: 1% 2% 3% 2%;
     display: inline-block;
-    border: 5px solid var(--login-blue);
 }
 
 .animal-card {
@@ -786,7 +785,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 ---------------------------------------------
 */
 .profile-page-complete {
-    background-image: linear-gradient(to top, #84ceeb, var(--login-blue));
+    background-image: linear-gradient(to top, var(--login-blue), #84ceeb);
 }
 
 .profile-container{
@@ -808,7 +807,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-right-style: solid;
     border-left-style: solid;
     border-width: 20px;
-    border-color: var(--info-field-text);
+    border-color: var(--login-blue);
     width: 400px;
     height: 400px;
 }
@@ -821,7 +820,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     padding: 1% 2% 3% 2%;
     box-sizing: border-box;
     border-radius: 10px;
-    border: 5px solid var(--login-blue);
     background-color: white;
     border-radius: 10px;
 }
@@ -864,9 +862,9 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 
 
 
-
-
 .profile-animals-title-container{
+    color: white;
+    text-shadow: 1px 1px 1px #000000;
     text-align: center;
     width: 100%;
     margin-bottom: 1%;
@@ -880,9 +878,11 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 .profile-animals-title-divider hr{
+
     border-style: solid;
     border-width: 2px;
-    border-color:black;
+    border-color:white;
+    border-radius: 10px;
     width: 50%;
 }
 
