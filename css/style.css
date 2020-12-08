@@ -609,12 +609,14 @@ add_animal.php
     min-height: 100vh;
     position: relative;
     width: 100%;
-    background-color: #fff;
+    /* background-color: #fff; */
+    /* background-color: #84ceeb; */
+    background-image: linear-gradient(to top, #84ceeb, var(--login-blue));
     border-radius: 5px;
     box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
 }
 
-.animal-container:before{
+/* .animal-container:before{
     content: '';
     position: absolute;
     width: 100%;
@@ -622,7 +624,7 @@ add_animal.php
     top: 0;
     left: 0;
     background-image: linear-gradient(to top, var(--login-blue), var(--login-blue-soft));
-}
+} */
 
 
 .animal-photo img {
@@ -661,8 +663,10 @@ add_animal.php
     white-space: normal;
     width: calc(50% - .5em);
     box-sizing: border-box;
-    background-color: rgb(228, 228, 228);
-    /* background-image: linear-gradient(to top, var(--login-blue-soft) 0, rgb(228, 228, 228) 20%, var(--login-blue-soft) 100%); */
+    /* background-color: rgb(228, 228, 228); */
+    
+    background-color: white;
+
     border-radius: 10px;
     padding: 1% 2% 3% 2%;
     display: inline-block;
@@ -672,6 +676,11 @@ add_animal.php
 .animal-card {
     margin-right: 5%;
     max-width: 32%;
+}
+
+.animal-stats {
+    color: #6b6dd6;
+    /* color: white; */
 }
 
 .animal-card .animal-name, .topic-container > .topic-username {
@@ -806,7 +815,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 /* cant be ".profile-container .user-photo img {" cuz it's being used in the animal profile page */
-.user-photo img{
+.user-photo img, .animal-photo img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -854,7 +863,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     left: 0;
 }
 
-.user-card h4{
+.user-card h4, .animal-stat h4 {
     color: black;
 }
 

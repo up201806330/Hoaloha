@@ -27,7 +27,7 @@
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Weight (Kg)
+                    <h4>Weight (Kg)</h4>
                   </div>
                   <?=$animal['weight']?>
 
@@ -36,7 +36,7 @@
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Color
+                    <h4>Color</h4>
                   </div>
                   <?=ucwords($animal['color'])?>
 
@@ -45,7 +45,7 @@
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Dimension
+                    <h4>Dimension</h4>
                   </div>
                   <?=ucwords($animal['dimension'])?>
 
@@ -54,7 +54,7 @@
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Age (Years)
+                    <h4>Age (Years)</h4>
                   </div>
                   <?=$animal['age']?>
 
