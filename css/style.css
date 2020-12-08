@@ -675,7 +675,7 @@ add_animal.php
 }
 
 .animal-stats {
-    color: var(--info-field-text);
+    color: var(--login-blue);
 }
 
 .animal-card .animal-name, .topic-container > .topic-username {
@@ -813,7 +813,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 .user-card{
-    color: var(--info-field-text);
+    color: var(--login-blue);
     margin-top: -3%;
     margin-left: 25%;
     margin-right: 25%;
