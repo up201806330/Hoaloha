@@ -33,7 +33,7 @@
           <label for="checkbox-male">Male</label>
           <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked>
           <label for="checkbox-female">Female</label>
-          <input type="checkbox" id="checkbox-female" name="is_female" value="fem"checked>
+          <input type="checkbox" id="checkbox-female" name="is_female" value="female"checked>
           <span></span>
         </div>
       <button type="submit">Search</button>
@@ -81,7 +81,7 @@
           <label for="checkbox-male">Male</label>
           <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked>
           <label for="checkbox-female">Female</label>
-          <input type="checkbox" id="checkbox-female" name="is_female" value="fem"checked>
+          <input type="checkbox" id="checkbox-female" name="is_female" value="female"checked>
           <span></span>
         </div>
         <button type="submit">Search</button>

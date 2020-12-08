@@ -3,7 +3,7 @@
  * Draws entire profile page
  */
 ?>
-
+<div class="profile-page-complete">
     <div class="profile-container">
         <div class="user-photo"> 
             <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
@@ -72,6 +72,7 @@
 ?>
         </div>
     </div>
+</div>
 <?php } ?>
 
 <?php function start_profile_favourites_div($username, $is_own_profile, $n_favourites){

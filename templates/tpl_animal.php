@@ -11,13 +11,13 @@
         <div class="content-grid">
 
           <div class="animal-card">
-            <div id="animal-name-profile" class="animal-name"><?=$animal['name']?></div>
+            <div id="animal-name-profile" class="animal-name"><?=ucwords($animal['name'])?></div>
 
             <ul>
-              <li class="animal-species"> <?=$animal['species']?> </li>
-              <li class="animal-breed"> <?=$animal['breed']?> </li>
-              <li class="animal-gender"> <?=$animal['gender']?> </li>
-              <li class="animal-location"> Location </li>
+              <li class="animal-species"> <?=ucwords($animal['species'])?> </li>
+              <li class="animal-breed"> <?=ucwords($animal['breed'])?> </li>
+              <li class="animal-gender"> <?=ucwords($animal['gender'])?> </li>
+              <!--<li class="animal-location"> Location </li>-->
             </ul>
 
             <hr>
@@ -27,7 +27,7 @@
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Weight (Kg)
+                    <h4>Weight (Kg)</h4>
                   </div>
                   <?=$animal['weight']?>
 
@@ -36,25 +36,25 @@
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Color
+                    <h4>Color</h4>
                   </div>
-                  <?=$animal['color']?>
+                  <?=ucwords($animal['color'])?>
 
                 </div>
 
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Dimension
+                    <h4>Dimension</h4>
                   </div>
-                  <?=$animal['dimension']?>
+                  <?=ucwords($animal['dimension'])?>
 
                 </div>
                 
                 <div class="animal-stat">
 
                   <div class="stat-title">
-                    Age (Years)
+                    <h4>Age (Years)</h4>
                   </div>
                   <?=$animal['age']?>
 
@@ -102,7 +102,7 @@
         <select name='gender'>
             <option value=''>&#xf22d; &nbsp; Select a Gender</option>
             <option value='male'>&#xf222; &nbsp; Male</option>
-            <option value='fem'>&#xf221; &nbsp; Female</option>
+            <option value='female'>&#xf221; &nbsp; Female</option>
             <label>Gender</label>
         </select>
         <div class="details">

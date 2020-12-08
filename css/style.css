@@ -15,6 +15,7 @@
     --bg-secondary: #141418; */
     --login-blue: rgb(61, 138, 247);
     --login-blue-soft: rgb(90, 159, 255);
+    --info-field-text: #384dc3;
 }
 
 body {
@@ -584,12 +585,12 @@ add_animal.php
     min-height: 100vh;
     position: relative;
     width: 100%;
-    background-color: #fff;
+    background-image: linear-gradient(to top, var(--login-blue), #84ceeb);
     border-radius: 5px;
     box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1);
 }
 
-.animal-container:before{
+/* .animal-container:before{
     content: '';
     position: absolute;
     width: 100%;
@@ -597,7 +598,7 @@ add_animal.php
     top: 0;
     left: 0;
     background-image: linear-gradient(to top, var(--login-blue), var(--login-blue-soft));
-}
+} */
 
 
 .animal-photo img {
@@ -635,18 +636,21 @@ add_animal.php
 .animal-card, .topic-container {
     white-space: normal;
     width: calc(50% - .5em);
-    box-sizing: border-box;
-    background-color: rgb(228, 228, 228);
-    /* background-image: linear-gradient(to top, var(--login-blue-soft) 0, rgb(228, 228, 228) 20%, var(--login-blue-soft) 100%); */
+    box-sizing: border-box;   
+    background-color: white;
+
     border-radius: 10px;
     padding: 1% 2% 3% 2%;
     display: inline-block;
-    border: 5px solid var(--login-blue);
 }
 
 .animal-card {
     margin-right: 5%;
     max-width: 32%;
+}
+
+.animal-stats {
+    color: var(--login-blue);
 }
 
 .animal-card .animal-name, .topic-container > .topic-username {
@@ -755,6 +759,9 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     profile.php
 ---------------------------------------------
 */
+.profile-page-complete {
+    background-image: linear-gradient(to top, var(--login-blue), #84ceeb);
+}
 
 .profile-container{
     padding: 20px;
@@ -762,26 +769,10 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     min-height: 80vh;
     position: relative;
     width: 100%;
-    background-color: #fff;
-    /* box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.1); <---- tira a outline do div */
-
-}
-
-.profile-container:before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 35%;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to top, #00cbfe, var(--login-blue));
-    border-bottom-style: solid;
-    border-width: 10px;
-    border-color: var(--login-blue);
 }
 
 /* cant be ".profile-container .user-photo img {" cuz it's being used in the animal profile page */
-.user-photo img{
+.user-photo img, .animal-photo img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -797,22 +788,20 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 .user-card{
-    color: white;
+    color: var(--login-blue);
     margin-top: -3%;
     margin-left: 25%;
     margin-right: 25%;
     padding: 1% 2% 3% 2%;
     box-sizing: border-box;
-    background-image: linear-gradient(to top, var(--login-blue), #00cbfe);
     border-radius: 10px;
-    /* border-style: solid;
-    border-width: 5px;
-    border-color: var(--login-blue); */
+    background-color: white;
+    border-radius: 10px;
 }
 
 .user-card .user-username{
     position: relative;
-    color: white;
+    color: black;
     font-weight: bold;
     padding: 5% 0 3px 0;
     text-align: center;
@@ -829,7 +818,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     left: 0;
 }
 
-.user-card h4{
+.user-card h4, .animal-stat h4 {
     color: black;
 }
 
@@ -843,14 +832,14 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-radius: 10px;
     border-style: solid;
     border-width: 1px;
-    border-color: white;
+    border-color: black;
 }
 
 
 
-
-
 .profile-animals-title-container{
+    color: white;
+    text-shadow: 1px 1px 1px #000000;
     text-align: center;
     width: 100%;
     margin-bottom: 1%;
@@ -859,17 +848,17 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 
 .profile-animals-title-divider{
     width: 100%;
-    background-color: white;
     display: flex;
     justify-content: center;
 }
 
 .profile-animals-title-divider hr{
+
     border-style: solid;
     border-width: 2px;
-    border-color:var(--login-blue);
+    border-color:white;
+    border-radius: 10px;
     width: 50%;
-    background-color: white;
 }
 
 .profile-animals-ext-container{

@@ -7,10 +7,14 @@
         <div class="topic-container">
 
             <div class="topic-username">
-              Found by
+              Posted by
               <a href="../pages/profile.php?username=<?=$user['username']?>" >
                 <?=$topic['username']?>
               </a>
+              
+            </div>
+            <div class="topic-data">
+              at <a><?=$topic['data']?></a>
             </div>
 
             <div class="user-photo">
