@@ -10,24 +10,28 @@ function draw_messages() {
                 <div class="txt_field">
                     <?php 
                     if (@$_SESSION['login']){
-                        echo 'Login ' .$_SESSION['login'];
+                        echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['login']);
                     }
                     else if (@$_SESSION['logout']){
-                        echo 'Logout ' .$_SESSION['logout'];
+                        echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['logout']);
                     }
                     else if (@$_SESSION['register']){
-                        echo 'Register ' .$_SESSION['register'];
+                        echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['register']);
                     } 
                     else if (@$_SESSION['add_animal']){
-                        echo 'Adding animal ' .$_SESSION['add_animal'];
+                        echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['add_animal']);
                     }    
                     else if (@$_SESSION['add_animal_page']){
-                        echo 'Must be logged in to add an animal';
+                        echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['add_animal_page']);
+                    }
+                    else if (@$_SESSION['favourite']){
+                        echo array_pop($_SESSION['messages'])['content'];
+                        unset($_SESSION['favourite']);
                     }
                     ?>
                 </div>

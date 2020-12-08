@@ -25,14 +25,22 @@
     return $db->lastInsertId();
   }
 
-  function getTopicsPostedByUser($username){
+  function getTopicsPostedByUser($idUser){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT DISTINCT Topics.* FROM Topics, UserEntities WHERE Topics.idUserEntity=UserEntities.id AND UserEntities.username=?');
-    $stmt->execute(array($username));
+    $stmt = $db->prepare('SELECT DISTINCT * FROM Topics WHERE Topics.idUserEntity = ?');
+    $stmt->execute(array($idUser));
     return $stmt->fetchAll();
   }
   
+  function topicWasPostedByUser($idTopic, $idUser){
+    $topics = getTopicsPostedByUser($idUser);
+    foreach($topics as &$topic){
+      if ($idTopic == $topic['id']) return true;
+    }
+    return false;
+  }
+
   function topicFromAnimalId($animalId){
     $db = Database::instance()->db();
 

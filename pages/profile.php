@@ -15,8 +15,8 @@
   $username = $_GET['username'];
 
   $profile = getUser($username);
-  $topics = getTopicsPostedByUser($username);
-  $usersFavourites = getUsersFavourites($username);
+  $topics = getTopicsPostedByUser($profile['id']);
+  $usersFavourites = getUsersFavourites($profile['id']);
 
   draw_header();
   draw_profile($profile);
