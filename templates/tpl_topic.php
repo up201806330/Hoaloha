@@ -1,4 +1,4 @@
-<?php function draw_topic($topic, $user){
+<?php function draw_topic_details($topic, $user){
 /**
  * Draws the independent part of the topic (username and description)
  */
@@ -69,18 +69,20 @@
 
 <?php } ?>
 
-<?php function draw_favourite_button($n_favourites, $idUser, $idTopic){
+<?php function start_favourite_adopt_div(){
 /**
- * Draws the favourite button for a particular topic page
+ * Starts the division that holds the adopt and favourite buttons
  */
 ?>
-  <div class="favourite-button-container" >
-    <button id="favouritesButton" class="favourites-counter"><?=$n_favourites?></div>
-    <form method="post" action="../actions/action_toggle_favourite.php">
-      <input type="hidden" name="idTopic" value=<?=$idTopic?>>
-      <button type="submit" class="add-to-favourites-button">Favourite</button>
-      <!-- To get state of button (clicked or not): ( getFavourite($idUser, $idTopic) != false ) -->
-    </form>
+  <div class="favourite-adopt-container">
+
+<?php } ?>
+
+<?php function end_favourite_adopt_div(){
+/**
+ * Ends the division that holds the adopt and favourite buttons
+ */
+?>
   </div>
 
 <?php } ?>

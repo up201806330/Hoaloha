@@ -33,6 +33,10 @@ function draw_messages() {
                         echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['favourite']);
                     }
+                    else if (@$_SESSION['adoption_proposal']){
+                        echo array_pop($_SESSION['messages'])['content'];
+                        unset($_SESSION['adoption_proposal']);
+                    }
                     ?>
                 </div>
             </div>

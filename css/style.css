@@ -206,7 +206,7 @@ header {
     position: absolute;
 }
 
-.favourites-container {
+.adopt-container, .favourites-container, .search-container, .login-container{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -219,62 +219,12 @@ header {
     z-index: 10;
 }
 
-.favourites-content{
+.adopt-content, .favourites-content, .search-content, .login-content{
     width: 400px;
     margin-bottom: 150px;
     background-color: white;
     border-radius: 8px;
     text-align: center;
-    border-style: solid;
-    border-color: var(--login-blue);
-    border-width: 2px;
-    overflow: hidden;
-}
-
-.search-container {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    z-index: 10;
-}
-
-.search-content{
-    width: 400px;
-    margin-bottom: 150px;
-    background-color: white;
-    border-radius: 8px;
-    text-align: center;
-    border-style: solid;
-    border-color: var(--login-blue);
-    border-width: 2px;
-    overflow: hidden;
-}
-
-.login-container {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    z-index: 10;
-}
-
-.login-content{
-    text-align: center;
-    width: 400px;
-    margin-bottom: 150px;
-    background-color: white;
-    border-radius: 8px;
     border-style: solid;
     border-color: var(--login-blue);
     border-width: 2px;

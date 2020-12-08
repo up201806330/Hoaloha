@@ -7,7 +7,7 @@
     $idTopic = $_POST['idTopic'];
 
     if (!isset($_SESSION['username'])){
-        $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Must be logged in to favourite an animal!');
+        $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Must be logged in to favourite a pet!');
         $_SESSION['favourite'] = 'failure';
         
         header('Location: ../pages/topic.php?id=' . $idTopic);
