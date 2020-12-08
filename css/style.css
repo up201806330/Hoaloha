@@ -15,7 +15,7 @@
     --bg-secondary: #141418; */
     --login-blue: rgb(61, 138, 247);
     --login-blue-soft: rgb(90, 159, 255);
-    --info-field-text: #4d42df;
+    --info-field-text: #384dc3;
 }
 
 body {
@@ -808,7 +808,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-right-style: solid;
     border-left-style: solid;
     border-width: 20px;
-    border-color: var(--login-blue);
+    border-color: var(--info-field-text);
     width: 400px;
     height: 400px;
 }
