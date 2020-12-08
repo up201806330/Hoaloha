@@ -83,6 +83,7 @@ CREATE TABLE UserFavourites(
 CREATE TABLE Proposals(
     idUser    		INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
     idTopic         INTEGER NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
+	newName         VARCHAR(255) NOT NULL,
     status          char(1) NOT NULL DEFAULT 'P' CHECK (status in ('P', 'A', 'F', 'R')),
 	PRIMARY KEY 	(idUser,idTopic)
 );
