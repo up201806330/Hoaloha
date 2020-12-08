@@ -12,6 +12,12 @@ if (searchButton != null) searchButton.addEventListener('click', function() {doc
 let closeButtonSearch = document.getElementById('closeButtonSearch');
 if (closeButtonSearch != null) closeButtonSearch.addEventListener('click', function() {document.querySelector('.search-container').style.display = 'none';});
 
+let favouritesButton = document.getElementById('favouritesButton');
+if (favouritesButton != null) favouritesButton.addEventListener('click', function() {document.querySelector('.favourites-container').style.display = 'flex';});
+
+let closeButtonFavourites = document.getElementById('closeButtonFavourites');
+if (closeButtonFavourites != null) closeButtonFavourites.addEventListener('click', function() {document.querySelector('.favourites-container').style.display = 'none';});
+
 
 let collapsible = document.getElementById('collapsible');
 if (collapsible != null) {

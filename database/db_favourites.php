@@ -9,10 +9,10 @@
     return $stmt->fetchAll();
   }
 
-  function getTopicsFavourites($idTopic){
+  function getTopicsFavouritedUsers($idTopic){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT * FROM UserFavourites WHERE idTopic = ?');
+    $stmt = $db->prepare('SELECT UserEntities.* FROM UserFavourites, UserEntities WHERE UserFavourites.idTopic = ? AND UserFavourites.idUser = UserEntities.id');
     $stmt->execute(array($idTopic));
     return $stmt->fetchAll();
   }
