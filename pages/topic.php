@@ -5,15 +5,18 @@
   include_once('../templates/tpl_profile.php');
   include_once('../templates/tpl_favourites.php');
   include_once('../templates/tpl_adopt.php');
+  include_once('../templates/tpl_question.php');
   include_once("../database/db_topic.php");
   include_once("../database/db_animal.php");
   include_once("../database/db_user.php");
   include_once("../database/db_favourites.php");
+  include_once("../database/db_question.php");
   
   $topic = getTopic($_GET['id']);
   if ($topic != null) {
     $animal = getAnimal($topic['idPet']);
     $owner = getUser($topic['username']);
+    $questions = getAllQuestionsFromTopic($topic['id']);
   }
   
   if ($topic == null || $animal == null || $owner == null){
@@ -27,6 +30,12 @@
   draw_header();
   draw_animal_full($animal);
   draw_topic_details($topic, $owner);
+  foreach($questions as &$question){
+    draw_question($question);
+  }
+  draw_add_question($topic['id'],$owner['id']);
+  
+
   
   if (isset($_SESSION['username'])) {
     if ($_SESSION['username'] == $owner['username']) echo 'You cant adopt your own pet';
