@@ -14,7 +14,7 @@
     --bg-primary: #23232e;
     --bg-secondary: #141418; */
     --login-blue: rgb(61, 138, 247);
-    --login-blue-a: rgba(61, 138, 247, 0.7);
+    --login-blue-a: rgba(61, 138, 247, 0.8);
     --login-blue-soft: rgb(90, 159, 255);
     --info-field-text: #384dc3;
 }
@@ -87,23 +87,40 @@ header {
 
 .about-us-names-class {
     color: white;
+    font-size: 0.9rem;
     padding: 0 4%;
     overflow: hidden;
     background-color: var(--login-blue-a);
     position: absolute;
     width: 100%;
-    opacity: 0.9;
     
     height: 0px;
     transition: height 300ms;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-#about-us-names-id > li:nth-child(1) {
+.up-number-col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.up-number-col:nth-of-type(2) {
+    padding-left: 10px;
+    flex: 5;
+}
+
+.name-col > li:nth-child(1), .up-number-col > li:nth-child(1) {
     margin-top: 10px;
 }
 
 .about-us-names-class.is-active {
-    height: 145px;
+    height: 135px;
 }
 
 .image-container{
