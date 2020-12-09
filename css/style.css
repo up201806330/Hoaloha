@@ -284,6 +284,114 @@ header {
     color: red;
 }
 
+
+.gender-checkbox-container {
+    margin-top: 8%;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    text-align: left;
+    margin-left: 30%;
+    margin-right: 25%;
+
+    margin-top: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    right: 20%;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+  
+/* mouse-over checkbox */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+/* blue background if checkbox is checked */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark (starts as hidden) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+/* Show checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+/* Style checkmark */
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.search-content h1 {
+    padding: 10% 10% 0;
+}
+
+.search-content > form {
+    padding: 5% 10% 8%;
+}
+
+.search-content > form > button{
+    margin-top: 7%;
+    width: 75%;
+    height: 50px;
+    border: 2px solid;
+    background: var(--login-blue);
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
+}
+
+
+.search-content > form > button:hover{
+    background-color: white;
+    color: var(--login-blue);
+}
+
+
+
 .login-content h1{
     font-size: 40px;
     font-weight: normal;
