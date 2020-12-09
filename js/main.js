@@ -25,15 +25,11 @@ let closeButtonAdopt = document.getElementById('closeButtonAdopt');
 if (closeButtonAdopt != null) closeButtonAdopt.addEventListener('click', function() {document.querySelector('.adopt-container').style.display = 'none';});
 
 // Collapsible section listener
-let collapsible = document.getElementById('collapsible');
-if (collapsible != null) {
-    collapsible.addEventListener("click", function() {
-        var content = collapsible.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
-        }
+let buttonId = document.getElementById('about-us-button-id');
+if (buttonId != null) {
+    buttonId.addEventListener("click", function() {
+        let namesId = document.getElementById('about-us-names-id');
+        namesId.classList.toggle("is-active");
     });
 }
 
