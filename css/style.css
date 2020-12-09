@@ -87,9 +87,19 @@ header {
 
 .content {
   padding: 0 18px;
-  display: none;
+  /* display: none; */
   overflow: hidden;
   background-color: lightsteelblue;
+  position: absolute;
+  width: 100%;
+  opacity: 0.9;
+  
+  height: 100px;
+  transition: height 300ms;
+}
+
+.content.is-active {
+    height: 150px;
 }
 
 .image-container{

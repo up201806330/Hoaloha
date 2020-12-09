@@ -28,12 +28,10 @@ if (closeButtonAdopt != null) closeButtonAdopt.addEventListener('click', functio
 let collapsible = document.getElementById('collapsible');
 if (collapsible != null) {
     collapsible.addEventListener("click", function() {
-        var content = collapsible.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
-        }
+        console.log(this);
+        console.log(document.getElementById("contentss"));
+        let a = document.getElementById("contentss");
+        a.classList.toggle("is-active");
     });
 }
 
