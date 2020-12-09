@@ -14,6 +14,7 @@
     --bg-primary: #23232e;
     --bg-secondary: #141418; */
     --login-blue: rgb(61, 138, 247);
+    --login-blue-a: rgba(61, 138, 247, 0.7);
     --login-blue-soft: rgb(90, 159, 255);
     --info-field-text: #384dc3;
 }
@@ -66,12 +67,11 @@ header {
 }
 
 
-.collapsible:hover{
+.about-us-button-id:hover{
     color:darkblue;
-
 }
 
-.collapsible {
+.about-us-button-class {
     background-color: var(--login-blue);
     align-items: center;
     width: 100%;
@@ -85,21 +85,25 @@ header {
     outline: none;
 }
 
-.content {
-  padding: 0 18px;
-  /* display: none; */
-  overflow: hidden;
-  background-color: lightsteelblue;
-  position: absolute;
-  width: 100%;
-  opacity: 0.9;
-  
-  height: 100px;
-  transition: height 300ms;
+.about-us-names-class {
+    color: white;
+    padding: 0 4%;
+    overflow: hidden;
+    background-color: var(--login-blue-a);
+    position: absolute;
+    width: 100%;
+    opacity: 0.9;
+    
+    height: 0px;
+    transition: height 300ms;
 }
 
-.content.is-active {
-    height: 150px;
+#about-us-names-id > li:nth-child(1) {
+    margin-top: 10px;
+}
+
+.about-us-names-class.is-active {
+    height: 145px;
 }
 
 .image-container{

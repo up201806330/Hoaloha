@@ -25,13 +25,11 @@ let closeButtonAdopt = document.getElementById('closeButtonAdopt');
 if (closeButtonAdopt != null) closeButtonAdopt.addEventListener('click', function() {document.querySelector('.adopt-container').style.display = 'none';});
 
 // Collapsible section listener
-let collapsible = document.getElementById('collapsible');
-if (collapsible != null) {
-    collapsible.addEventListener("click", function() {
-        console.log(this);
-        console.log(document.getElementById("contentss"));
-        let a = document.getElementById("contentss");
-        a.classList.toggle("is-active");
+let buttonId = document.getElementById('about-us-button-id');
+if (buttonId != null) {
+    buttonId.addEventListener("click", function() {
+        let namesId = document.getElementById('about-us-names-id');
+        namesId.classList.toggle("is-active");
     });
 }
 
