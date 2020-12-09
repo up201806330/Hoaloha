@@ -1,4 +1,4 @@
-/*var form = document.querySelector(".addComment form");
+var form = document.querySelector(".addComment form");
 
 console.log(form.outerHTML);
 
@@ -7,33 +7,15 @@ function encodeForAjax(data) {
       return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&')
 }
-*/
 
-/*function submitForm(event){
-    console.log("Estou aqui\n");
-    var question = document.querySelector('.addComment form label textarea').value;
+
+function submitForm(event){
+    
+    var question = document.querySelector('.addComment form textarea').value;
     var idTopic = document.querySelector('form #idTopic').value;
     var idUser = document.querySelector('form #idUser').value;
     var data = document.querySelector('form #data').value;
 
-    console.log(question);
-    console.log(idTopic);
-    console.log(idUser);
-    console.log(data);
-
-    var articles = document.querySelectorAll("#comments article");
-    var commentID = 0;
-
-    if (articles.length == 0){
-        //no comments made yet
-        let last = document.querySelector("#comments .last_id");
-        commentID = last.textContent;
-    }
-    else {
-        var commentIDs = document.querySelectorAll('#comments article .id');
-        var last = commentIDs[commentIDs.length - 1];
-        var commentID = last.textContent;
-    }
 
     console.log("Form submitted.");
 
@@ -43,44 +25,76 @@ function encodeForAjax(data) {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.send(encodeForAjax({idUser: idUser, idTopic: idTopic, question: question, data: data}));
     event.preventDefault();
-}*/
+    
+}
 
-/*function receiveComments() {
+function receiveComments() {
     console.log(this.responseText);
     var response = JSON.parse(this.responseText);
     console.log(response);
-    //var comments = document.querySelector(".question-container");
-
-    //var commentsCounter = comments.querySelector("h1");
     
-    response.forEach( function(comment) {
-        const username = comment['username'];
-        const text = comment['text'];
-        const commentID = comment['idComment'];
+    var questions = document.querySelector("#questions-container");
 
-        let new_comment = document.createElement('article');
+    response.forEach( function(question) {
+        const username = question['username'];
+        const name = question['name'];
+        const questionText = question['question'];
+        const idPhoto = question['idPhoto']; 
+        const data = question['data'];     
 
-        let spanCommentID = document.createElement('span');
-        spanCommentID.setAttribute('class', 'id');
-        spanCommentID.innerText = commentID;
-        spanCommentID.style.visibility = "hidden";
+        let newQuestionContainer = document.createElement('div');
+        newQuestionContainer.setAttribute('class','question-container');
 
-        let usernameElement = document.createElement('h4');
-        usernameElement.innerText = username;
+        let newQuestionUsername = document.createElement('div');
+        newQuestionUsername.setAttribute('class','question-username');
+        newQuestionUsername.innerText = "Posted by";
 
-        let commentElement = document.createElement('p');
-        commentElement.innerText = text;
+        let articleName = document.createElement('article');
+        articleName.innerText = name;
 
-        new_comment.append(usernameElement);
-        new_comment.append(commentElement);
-        new_comment.append(spanCommentID);
+        let articleProfile = document.createElement('article');
+        articleProfile.setAttribute('href',"../pages/profile.php?username=" + username);
 
-        comments.appendChild(new_comment);
+        newQuestionUsername.appendChild(articleName);
+        newQuestionUsername.appendChild(articleProfile);
 
+        let questionData = document.createElement('div');
+        questionData.setAttribute('class','question-data');
 
-        articles = document.querySelectorAll("#comments article");
-        commentsCounter.innerText = "" + articles.length + " comments";
+        questionData.innerText = "at";
+
+        let articleData = document.createElement('article');
+        articleData.innerText = data;
+
+        questionData.appendChild(articleData);
+
+        let userPhotoContainer = document.createElement('div');
+        questionData.setAttribute('class','user-photo');
+
+        let articlePhoto = document.createElement('article');
+        articlePhoto.setAttribute('href',"../pages/profile.php?username=" + username);
+
+        let photo = document.createElement('img');
+        photo.setAttribute('src', '../database/db_link_image.php?id=' + idPhoto);
+        photo.setAttribute('width', '200');
+        photo.setAttribute('height', '200');
+
+        articlePhoto.appendChild(photo);
+
+        userPhotoContainer.appendChild(articlePhoto);
+
+        let description = document.createElement('div');
+        description.setAttribute('class','question-description');
+        description.innerText = questionText;
+
+        newQuestionContainer.appendChild(newQuestionUsername);
+        newQuestionContainer.appendChild(questionData);
+        newQuestionContainer.appendChild(userPhotoContainer);
+        newQuestionContainer.appendChild(description);
+
+        questions.appendChild(newQuestionContainer);
+              
     })
 }
 
-form.addEventListener("submit", submitForm);*/
+form.addEventListener("submit", submitForm);

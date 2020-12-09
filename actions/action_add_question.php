@@ -8,7 +8,7 @@
   $data = $_POST['data'];
 
   $questionId = insertQuestion($idUser,$idTopic,$question,$data);
-  $lastQuestionAdded = getQuestion($questionId);
+  $lastQuestionAdded = getQuestionAndUser($questionId);
 
   echo(json_encode($lastQuestionAdded));
   

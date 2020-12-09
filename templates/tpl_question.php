@@ -1,32 +1,39 @@
-<?php function draw_question($question){
+<?php function draw_all_question($questions){
 /**
  * Draws the independent part of the topic (username and description)
  */
     ?>
+        <div class= "questions-container" id = "questions-container">
+
+        <?php foreach($questions as &$question){ ?>
     
-        <div class="question-container">
+            <div class="question-container">
 
-            <div class="question-username">
-              Posted by
-              <a href="../pages/profile.php?username=<?=$question['username']?>" >
-                <?=$question['username']?>
-              </a>
-              
-            </div>
-            <div class="question-data">
-              at <a><?=$question['data']?></a>
+                <div class="question-username">
+                Posted by
+                <a><?=$question['name']?></a>
+                <a href="../pages/profile.php?username=<?=$question['username']?>" >
+                    <?=$question['username']?>
+                </a>
+                </div>
+                <div class="question-data">
+                at <a><?=$question['data']?></a>
+                </div>
+
+                <div class="user-photo">
+                <a href="../pages/profile.php?username=<?=$question['username']?>" >
+                    <img src="../database/db_link_image.php?id=<?php echo $question['idPhoto'];?>" width="200" height="200">
+                </a>
+                </div>
+            
+            <div class="question-description"><?=$question['question']?>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
             </div>
 
-            <div class="user-photo">
-              <a href="../pages/profile.php?username=<?=$question['username']?>" >
-                <img src="../database/db_link_image.php?id=<?php echo $question['idPhoto'];?>" width="200" height="200">
-              </a>
             </div>
-        
-          <div class="question-description"><?=$question['question']?>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
-              <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
-          </div>
+
+        <?php } ?>
 
         </div>
 

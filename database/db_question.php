@@ -40,21 +40,14 @@
     $stmt->execute(array($idTopic));
     return $stmt->fetchAll();
   }
-  
-  /*function topicWasPostedByUser($idTopic, $idUser){
-    $topics = getTopicsPostedByUser($idUser);
-    foreach($topics as &$topic){
-      if ($idTopic == $topic['id']) return true;
-    }
-    return false;
-  }
 
-  function topicFromAnimalId($animalId){
+  function getQuestionAndUser($idQuestion){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT * FROM Topics WHERE idPet = ?');
-    $stmt->execute(array($animalId));
-    return $stmt->fetch();
-  }*/
+    $stmt = $db->prepare('SELECT U.username, U.name, UP.idPhoto,Q.question, Q.data from Questions Q Inner JOIN UserEntities U ON Q.idUSerEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.id = ?');
+    $stmt->execute(array($idQuestion));
+    return $stmt->fetchAll();
+  }
+  
 
 ?>

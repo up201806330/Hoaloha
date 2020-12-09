@@ -22,18 +22,18 @@
   if ($topic == null || $animal == null || $owner == null){
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to load topic');
     $_SESSION['topic'] = 'failure';
-    
-    header('Location: ../pages/main.php');
+    //die();
+    //header('Location: ../pages/main.php');
     die();
   }
 
   draw_header();
   draw_animal_full($animal);
   draw_topic_details($topic, $owner);
-  foreach($questions as &$question){
-    draw_question($question);
-  }
-  draw_add_question($topic['id'],$owner['id']);
+  draw_all_question($questions);
+ 
+  $idUser = getUser($_SESSION['username'])['id'];
+  draw_add_question($topic['id'],$idUser);
   
 
   
