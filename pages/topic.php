@@ -6,11 +6,13 @@
   include_once('../templates/tpl_favourites.php');
   include_once('../templates/tpl_adopt.php');
   include_once('../templates/tpl_question.php');
+  include_once('../templates/tpl_answer.php');
   include_once("../database/db_topic.php");
   include_once("../database/db_animal.php");
   include_once("../database/db_user.php");
   include_once("../database/db_favourites.php");
   include_once("../database/db_question.php");
+  include_once("../database/db_answer.php");
   
   $topic = getTopic($_GET['id']);
   if ($topic != null) {
@@ -27,12 +29,25 @@
     die();
   }
 
+  $idUser = getUser($_SESSION['username'])['id'];
+
   draw_header();
   draw_animal_full($animal);
   draw_topic_details($topic, $owner);
-  draw_all_question($questions);
+  draw_start_questions_container();
+  foreach($questions as &$question){
+    draw_question($question);
+    draw_start_answers_container($question['id']);
+    $answers = getAllAnswersFromQuestion($question['id']);
+    foreach($answers as &$answer){
+      draw_answer($answer);
+    }
+    draw_end_answers_container();
+    draw_add_answer($question['id'],$idUser);
+  }
+  draw_end_questions_container();
+  
  
-  $idUser = getUser($_SESSION['username'])['id'];
   draw_add_question($topic['id'],$idUser);
   
 

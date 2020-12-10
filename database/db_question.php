@@ -36,7 +36,7 @@
   function getAllQuestionsFromTopic($idTopic){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT U.name, U.username, Q.question,Q.data, UP.idPhoto FROM Questions Q INNER JOIN UserEntities U ON Q.idUserEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.idTopic = ?');
+    $stmt = $db->prepare('SELECT U.name, U.username, Q.id, Q.question,Q.data, UP.idPhoto FROM Questions Q INNER JOIN UserEntities U ON Q.idUserEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.idTopic = ?');
     $stmt->execute(array($idTopic));
     return $stmt->fetchAll();
   }
@@ -44,7 +44,7 @@
   function getQuestionAndUser($idQuestion){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT U.username, U.name, UP.idPhoto,Q.question, Q.data from Questions Q Inner JOIN UserEntities U ON Q.idUSerEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.id = ?');
+    $stmt = $db->prepare('SELECT U.username, U.name, UP.idPhoto,Q.question, Q.data from Questions Q Inner JOIN UserEntities U ON Q.idUserEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.id = ?');
     $stmt->execute(array($idQuestion));
     return $stmt->fetchAll();
   }
