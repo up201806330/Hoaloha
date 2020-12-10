@@ -16,26 +16,49 @@
         <span></span>
         <label>Name, Breed, ...</label>
       </div>
+
       <div class="species-checkbox-container">
         <label>Species</label><br>
-        <label for="checkbox-dog">Dog</label>
-        <input type="checkbox" id="checkbox-dog" name="is_dog" value="dog" checked>
-        <label for="checkbox-cat">Cat</label>
-        <input type="checkbox" id="checkbox-cat" name="is_cat" value="cat"checked>
-        <label for="checkbox-bird">Bird</label>
-        <input type="checkbox" id="checkbox-bird" name="is_bird" value="bird"checked>
-        <label for="checkbox-other">Other</label>
-        <input type="checkbox" id="checkbox-other" name="is_other" value="other" checked>
-        <span></span>
+        <label class="checkbox-container" for="checkbox-dog">
+          Dog
+          <input type="checkbox" id="checkbox-dog" name="is_dog" value="dog" checked>
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="checkbox-container" for="checkbox-cat">
+          Cat
+          <input type="checkbox" id="checkbox-cat" name="is_cat" value="cat"checked>
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="checkbox-container" for="checkbox-bird">
+          Bird
+          <input type="checkbox" id="checkbox-bird" name="is_bird" value="bird"checked>
+          <span class="checkmark"></span>
+        </label>
+        
+        <label class="checkbox-container" for="checkbox-other">
+          Other
+          <input type="checkbox" id="checkbox-other" name="is_other" value="other" checked>
+          <span class="checkmark"></span>
+        </label>
       </div>
+
+
       <div class="gender-checkbox-container">
-          <label>Gender</label><br>
-          <label for="checkbox-male">Male</label>
-          <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked>
-          <label for="checkbox-female">Female</label>
+        <label>Gender</label><br>
+        <label class="checkbox-container" for="checkbox-male">
+          Male
+          <input type="checkbox" id="checkbox-male" name="is_male" value="male" checked="checked">
+          <span class="checkmark"></span>
+        </label>
+            
+        <label class="checkbox-container" for="checkbox-female">
+          Female
           <input type="checkbox" id="checkbox-female" name="is_female" value="female"checked>
-          <span></span>
-        </div>
+          <span class="checkmark"></span>
+        </label>
+      </div>
       <button type="submit">Search</button>
     </form>
   </div>
