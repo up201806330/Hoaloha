@@ -8,11 +8,11 @@
     <div class="close-button-container">
       <a href="#" id="closeButtonSearch" class="close"><span class="material-icons-round">close</span></a>
     </div>
-    <h1>Find a Friend</h1>
-    <h2>Fit for you </h2>
+    <h1>Pet Search</h1>
+    <h2>Find a friend fit for you! </h2>
     <form method="post" action="../actions/action_search.php">
       <div class="txt_field">
-        <input type="text" name="search_string">
+        <input type="text" placeholder=" " name="search_string">
         <span></span>
         <label>Name, Breed, ...</label>
       </div>

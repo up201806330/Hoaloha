@@ -9,10 +9,6 @@
 
 :root {
     font-size: 26px;
-    /* --text-primary: #b6b6b6;
-    --text-secondary: #ececec;
-    --bg-primary: #23232e;
-    --bg-secondary: #141418; */
     --login-blue: rgb(61, 138, 247);
     --login-blue-a: rgba(61, 138, 247, 0.8);
     --login-blue-soft: rgb(90, 159, 255);
@@ -253,7 +249,6 @@ header {
 
 .adopt-content, .favourites-content, .search-content, .login-content{
     width: 400px;
-    margin-bottom: 150px;
     background-color: white;
     border-radius: 8px;
     text-align: center;
@@ -363,7 +358,17 @@ header {
 
 
 .search-content h1 {
-    padding: 10% 10% 0;
+    padding: 20px 0 0 0;
+    font-size: 40px;
+    font-weight: normal;
+    color: darkblue;
+}
+
+
+.search-content h2{
+    font-size: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--login-blue);
 }
 
 .search-content > form {
@@ -390,6 +395,48 @@ header {
     color: var(--login-blue);
 }
 
+.species-checkbox-container{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--login-blue);
+    border-width: 2px;
+}
+
+.species-checkbox-container label{
+    color: darkblue;
+}
+
+.species-checkbox-container .checkbox-container{
+    color: black;
+    font-size: 20px
+}
+
+.gender-checkbox-container label{
+    color: darkblue;
+}
+
+.gender-checkbox-container .checkbox-container{
+    color: black;
+    font-size: 20px
+}
+
+.gender-checkbox-container{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--login-blue);
+    border-width: 2px;
+}
+
+.search-container .txt_field input:focus ~ label,
+.search-container .txt_field input:not(:placeholder-shown) ~ label{
+    top: -15px;
+    color: var(--login-blue)
+}
+
+.search-container .txt_field input:focus ~ span::before,
+.search-container .txt_field input:not(:placeholder-shown) ~ span::before{
+    width: 100%;
+}
 
 
 .login-content h1{
@@ -449,14 +496,14 @@ form .txt_field{
 }
 
 
-.txt_field input:focus ~ label,
-.txt_field input:valid ~ label{
+.login-content .txt_field input:focus ~ label,
+.login-content .txt_field input:valid ~ label{
     top: -15px;
     color: var(--login-blue)
 }
 
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before{
+.login-content .txt_field input:focus ~ span::before,
+.login-content .txt_field input:valid ~ span::before{
     width: 100%;
 }
 
@@ -589,7 +636,6 @@ body > div > div.login-container > div {
 #signup .txt_field input:valid ~ span::before{
     width: 100%;
 }
-
 
 /*
 ---------------------------------------------
