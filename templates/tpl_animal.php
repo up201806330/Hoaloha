@@ -2,67 +2,70 @@
 /**
  * Draws full animal page
  */?>
-
+ <div class="animal-page-complete">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill= "#3d8af7" fill-opacity="1" d="M0,320L120,293.3C240,267,480,213,720,213.3C960,213,1200,267,1320,293.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+    </svg>
     <div class="animal-container">
-        <div class="animal-photo">
-          <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
+      <div class="animal-photo">
+        <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
+      </div>
+
+      <div class="animal-card">
+        <div id="animal-name-profile" class="animal-name"><h1><?=ucwords($animal['name'])?></h1></div>
+
+        <div class="animal-info">
+          <ul>
+            <li class="animal-species"> <?=ucwords($animal['species'])?> </li>
+            <li class="animal-breed"> <?=ucwords($animal['breed'])?> </li>
+            <li class="animal-gender"> <?=ucwords($animal['gender'])?> </li>
+            <!--<li class="animal-location"> Location </li>-->
+          </ul>
         </div>
+        
+        <hr>
 
-        <div class="content-grid">
+        <div class="animal-stats">
 
-          <div class="animal-card">
-            <div id="animal-name-profile" class="animal-name"><?=ucwords($animal['name'])?></div>
+            <div class="animal-stat">
 
-            <ul>
-              <li class="animal-species"> <?=ucwords($animal['species'])?> </li>
-              <li class="animal-breed"> <?=ucwords($animal['breed'])?> </li>
-              <li class="animal-gender"> <?=ucwords($animal['gender'])?> </li>
-              <!--<li class="animal-location"> Location </li>-->
-            </ul>
+              <div class="stat-title">
+                <h4>Weight (Kg)</h4>
+              </div>
+              <?=$animal['weight']?>
 
-            <hr>
-
-            <div class="animal-stats">
-
-                <div class="animal-stat">
-
-                  <div class="stat-title">
-                    <h4>Weight (Kg)</h4>
-                  </div>
-                  <?=$animal['weight']?>
-
-                </div>
-
-                <div class="animal-stat">
-
-                  <div class="stat-title">
-                    <h4>Color</h4>
-                  </div>
-                  <?=ucwords($animal['color'])?>
-
-                </div>
-
-                <div class="animal-stat">
-
-                  <div class="stat-title">
-                    <h4>Dimension</h4>
-                  </div>
-                  <?=ucwords($animal['dimension'])?>
-
-                </div>
-                
-                <div class="animal-stat">
-
-                  <div class="stat-title">
-                    <h4>Age (Years)</h4>
-                  </div>
-                  <?=$animal['age']?>
-
-                </div>
             </div>
 
+            <div class="animal-stat">
 
-          </div>
+              <div class="stat-title">
+                <h4>Color</h4>
+              </div>
+              <?=ucwords($animal['color'])?>
+
+            </div>
+
+            <div class="animal-stat">
+
+              <div class="stat-title">
+                <h4>Dimension</h4>
+              </div>
+              <?=ucwords($animal['dimension'])?>
+
+            </div>
+            
+            <div class="animal-stat">
+
+              <div class="stat-title">
+                <h4>Age (Years)</h4>
+              </div>
+              <?=$animal['age']?>
+
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="topic-title-container"><h1><?=$animal['name']?>'s Story & Current Owner</h1></div>
 
 <?php } ?>
 
@@ -124,7 +127,7 @@
                 <label>Dimensions</label>
             </select>
             <div class="txt_field">
-            <input type="number" name="age">
+            <input type="number" name="age" required>
             <span></span>
             <label>Age (Years)</label>
           </div>
