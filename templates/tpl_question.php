@@ -47,6 +47,7 @@
 <?php function draw_add_question($idTopic,$idUser){
     ?>
     <script defer src = "../js/question.js"></script>
+    <script defer src = "../js/answer.js"></script>
     <div class = "addQuestion">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
@@ -56,7 +57,6 @@
             </div>
             <input type="hidden" id = "idTopic" value="<?=$idTopic?>">  
             <input type="hidden" id = "idUser" value="<?=$idUser?>"> 
-            <input type="hidden" id= "data" value="<?=date("Y-m-d H:i:s")?>"> 
             <input type="submit" value="Reply">
         </form>
     <?php } else { ?>

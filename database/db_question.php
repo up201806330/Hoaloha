@@ -44,7 +44,7 @@
   function getQuestionAndUser($idQuestion){
     $db = Database::instance()->db();
 
-    $stmt = $db->prepare('SELECT U.username, U.name, UP.idPhoto,Q.question, Q.data from Questions Q Inner JOIN UserEntities U ON Q.idUserEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.id = ?');
+    $stmt = $db->prepare('SELECT U.username, U.name, U.id AS idUser, UP.idPhoto, Q.id, Q.question, Q.data from Questions Q Inner JOIN UserEntities U ON Q.idUserEntity = U.id INNER JOIN UserPhotos UP ON UP.idUser = U.id WHERE Q.id = ?');
     $stmt->execute(array($idQuestion));
     return $stmt->fetchAll();
   }

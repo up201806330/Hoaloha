@@ -5,7 +5,7 @@
   $idUser = $_POST['idUser'];
   $idQuestion = $_POST['idQuestion'];
   $answer = $_POST['answer'];
-  $data = $_POST['data'];
+  $data = date("Y-m-d H:i:s");
 
   $answerId = insertAnswer($idUser,$idQuestion,$answer,$data);
   $lastAnswerAdded = getAnswerAndUser($answerId);

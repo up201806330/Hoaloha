@@ -1,12 +1,9 @@
 'use strict'
 
-var form = document.querySelectorAll(".addAnswer form");
+var forms = document.querySelectorAll(".addAnswer form");
 
-form.forEach(element => console.log(element));
+forms.forEach(form => {form.addEventListener("submit", submitAnswerForm);});
 
-console.log(document);
-
-//console.log(form.outerHTML);
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
@@ -17,11 +14,13 @@ function encodeForAjax(data) {
 
 function submitAnswerForm(event){
     
-    var answer = document.querySelector('.addAnswer form textarea').value;
-    var idQuestion = document.querySelector('form #idQuestion').value;
+    let thisForm = event.target;
+
+    var answer = thisForm.querySelector('.addAnswer form textarea').value;
+    var idQuestion = thisForm.querySelector('form #idQuestion').value;
     console.log(idQuestion);
-    var idUser = document.querySelector('form #idUser').value;
-    var data = document.querySelector('form #data').value;
+    var idUser = thisForm.querySelector('form #idUser').value;
+    //var data = thisForm.querySelector('form #data').value;
 
 
     console.log("Form submitted.");
@@ -30,21 +29,19 @@ function submitAnswerForm(event){
     request.onload = receiveAnswers;
     request.open('post', '../actions/action_add_answer.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    request.send(encodeForAjax({idUser: idUser, idQuestion: idQuestion, answer: answer, data: data}));
+    request.send(encodeForAjax({idUser: idUser, idQuestion: idQuestion, answer: answer}));
     event.preventDefault();
     
 }
 
 function receiveAnswers() {
-    console.log(this.responseText);
+    //console.log(this.responseText);
     var response = JSON.parse(this.responseText);
-    console.log(response);
+    //console.log(response);
 
     response.forEach( function(answer) {
 
         var answers = document.querySelector("#answers-container" + answer['idQuestion']);
-
-        console.log(answers);
 
         const username = answer['username'];
         const name = answer['name'];
@@ -107,4 +104,3 @@ function receiveAnswers() {
     })
 }
 
-form.addEventListener("submit", submitAnswerForm);

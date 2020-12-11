@@ -45,7 +45,6 @@
 
 <?php function draw_add_answer($idQuestion,$idUser){
     ?>
-    <script defer src = "../js/answer.js"></script>
     <div class = "addAnswer">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
@@ -55,8 +54,7 @@
             </div>
             <input type="hidden" id = "idQuestion" value="<?=$idQuestion?>">  
             <input type="hidden" id = "idUser" value="<?=$idUser?>"> 
-            <input type="hidden" id= "data" value="<?=date("Y-m-d H:i:s")?>"> 
-            <input type="submit" value="Reply">
+            <input type="submit" id="<?=$idQuestion?>" value="Reply">
         </form>
     <?php } else { ?>
         <label> Add an Answer </label>

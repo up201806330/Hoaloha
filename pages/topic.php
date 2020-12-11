@@ -13,6 +13,14 @@
   include_once("../database/db_favourites.php");
   include_once("../database/db_question.php");
   include_once("../database/db_answer.php");
+
+  $isLoggedIn = isset($_SESSION['username']);
+  $thisUser = null;
+
+  if($isLoggedIn){
+    $thisUser = getUser($_SESSION['username']); 
+  }
+
   
   $topic = getTopic($_GET['id']);
   if ($topic != null) {
@@ -24,12 +32,9 @@
   if ($topic == null || $animal == null || $owner == null){
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to load topic');
     $_SESSION['topic'] = 'failure';
-    //die();
-    //header('Location: ../pages/main.php');
+    header('Location: ../pages/main.php');
     die();
   }
-
-  $idUser = getUser($_SESSION['username'])['id'];
 
   draw_header();
   draw_animal_full($animal);
@@ -43,21 +48,30 @@
       draw_answer($answer);
     }
     draw_end_answers_container();
-    draw_add_answer($question['id'],$idUser);
+    if($isLoggedIn){
+      draw_add_answer($question['id'],$thisUser['id']);
+    }
+    else{
+      echo 'Log in to answer a question';
+    }
   }
   draw_end_questions_container();
   
- 
-  draw_add_question($topic['id'],$idUser);
+  if($isLoggedIn){
+    draw_add_question($topic['id'],$thisUser['id']);
+  }
+  else{
+    echo 'Log in to ask a question';
+  }
+  
   
 
   
-  if (isset($_SESSION['username'])) {
-    if ($_SESSION['username'] == $owner['username']) echo 'You cant adopt your own pet';
+  if ($isLoggedIn) {
+    if ($thisUser['username'] == $owner['username']) echo 'You cant adopt your own pet';
     else {
-      $current_user = getUser($_SESSION['username']);
       draw_adopt_button();
-      draw_adopt_div($current_user['name'], $animal['name'], $topic['id']);
+      draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
     }
   }
   else {
