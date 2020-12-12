@@ -51,8 +51,8 @@
 ?>
     <?php 
         $string = $is_own_profile ? 
-            ($n_topics > 0 ? 'Your animals up for adoption' : 'You have no animals up for adoption yet. <a href=../pages/add_animal.php>Lets change that!</a>') : 
-            ($n_topics > 0 ? $username . chr(39) . 's animals up for adoption' : $username . ' has no animals up for adoption yet');
+            ($n_topics > 0 ? 'Your animals up for adoption' : 'You have no animals registered yet. <a href=../pages/add_animal.php>Lets change that!</a>') : 
+            ($n_topics > 0 ? $username . chr(39) . 's animals' : $username . ' has no animals registered yet');
     ?>
 
     <div class="profile-animals-title-container">

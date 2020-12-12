@@ -33,4 +33,26 @@
         $stmt->execute(array($idUser, $idTopic, $newName, $description));
     }
 
+    function isTopicFinalized($idTopic){
+        $db = Database::instance()->db();
+    
+        $stmt = $db->prepare('SELECT * FROM Proposals WHERE idTopic = ?');
+        $stmt->execute(array($idTopic));
+        $results = $stmt->fetchAll();
+
+        foreach($results as &$result){
+            $status = $result['status'];
+            if ($status == 'A' || $status == 'R') return true;
+        }
+        return false;
+    }
+
+    function getApprovedProposal($idTopic){
+        $db = Database::instance()->db();
+    
+        $stmt = $db->prepare('SELECT Proposals.*, UserEntities.username FROM Proposals, UserEntities WHERE Proposals.idUser = UserEntities.id AND idTopic = ? AND status = "A" ');
+        $stmt->execute(array($idTopic));
+        return $stmt->fetch();
+    }
+
 ?>

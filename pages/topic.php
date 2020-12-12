@@ -14,6 +14,7 @@
   include_once("../database/db_favourites.php");
   include_once("../database/db_question.php");
   include_once("../database/db_answer.php");
+  include_once("../database/db_proposal.php");
 
   $isLoggedIn = isset($_SESSION['username']);
   $thisUser = null;
@@ -36,9 +37,11 @@
     die();
   }
 
+  $approved_proposal = getApprovedProposal($topic['id']);
+
   draw_header();
   draw_animal_full($animal);
-  draw_topic_details($topic, $owner);
+  draw_topic_details($topic, $owner, $approved_proposal);
   draw_start_questions_container();
   foreach($questions as &$question){
     draw_question($question);
@@ -64,12 +67,8 @@
     echo 'Log in to ask a question';
   }
   
-  
-
-  
   if ($isLoggedIn) {
-    if ($thisUser['username'] == $owner['username']) echo 'You cant adopt your own pet';
-    else {
+    if ($thisUser['username'] != $owner['username'] && !isTopicFinalized($topic['id'])) {
       draw_adopt_button();
       draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
     }
