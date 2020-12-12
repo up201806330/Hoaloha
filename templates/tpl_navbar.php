@@ -3,12 +3,23 @@
  * Draws the navbar for all pages.
  */?>
     <div class="navbar">
-        <button id="collapsible" type="button" class="collapsible">About Us</button>
-        <div class="content">
-            <p><a class="name">Diogo Almeida</a>    <a class="up">up201806630</a></p>
-            <p><a class="name">João Sousa</a>       <a class="up">up201806613</a></p>
-            <p><a class="name">Pedro Queirós</a>    <a class="up">up201806329</a></p>
-            <p><a class="name">Rafael Ribeiro</a>   <a class="up">up201806330</a></p>
+        <button id="about-us-button-id" class="about-us-button-class">About Us</button>
+        <div id="about-us-names-id" class="about-us-names-class">
+
+            <ul class='name-col'>
+                <li>Diogo Almeida</li>
+                <li>João Sousa</li>
+                <li>Pedro Queirós</li>
+                <li>Rafael Ribeiro</li>
+            </ul>
+
+            <ul class='up-number-col'>
+                <li>up201806630</li>
+                <li>up201806613</li>
+                <li>up201806329</li>
+                <li>up201806330</li>
+            </ul>
+ 
         </div>
     </div>
 <?php } ?>

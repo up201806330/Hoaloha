@@ -5,24 +5,24 @@
     ?>
     
         <div class="topic-container">
-
-            <div class="topic-username">
-              Posted by
-              <a href="../pages/profile.php?username=<?=$user['username']?>" >
-                <?=$topic['username']?>
-              </a>
-              
+          <div class= topic-header>
+            <div class="topic-title">
+              <div class="topic-username">
+                Posted by
+                <a href="../pages/profile.php?username=<?=$user['username']?>" >
+                  <?=$topic['username']?>
+                </a>
+              </div>
+              <div class="topic-data">
+                at <a><?=$topic['data']?></a>
+              </div>
             </div>
-            <div class="topic-data">
-              at <a><?=$topic['data']?></a>
-            </div>
-
             <div class="user-photo">
               <a href="../pages/profile.php?username=<?=$user['username']?>" >
                 <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
               </a>
             </div>
-        
+          </div>
           <div class="topic-description"><?=$topic['description']?>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
               <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
@@ -113,7 +113,6 @@
 <?php } ?>
 
 <?php function draw_n_results($n_results){
-  $output;
   if ($n_results == 0) $output = 'No results match your search :((';
   else {
     $result_string = ($n_results == 1) ? ' result' : ' results';

@@ -17,12 +17,6 @@
     $newName = $_POST['new_name'];
     $description = $_POST['description'];
 
-    echo($idTopic);
-    var_dump($user);
-    echo($newName);
-    echo($description);
-    //die();
-
     try {
     insertProposal($user['id'], $idTopic, $newName, $description);
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Proposal sent!');
