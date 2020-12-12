@@ -79,7 +79,8 @@
 
   $favourites = getTopicsFavouritedUsers($topic['id']);
   if ($favourites !== null) {
-    draw_favourite_button(count($favourites), $topic['id']);
+    $topicIsLiked = getFavourite($thisUser['id'], $topic['id']);
+    draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
     start_favourites_div(count($favourites), $animal['name']);
     foreach($favourites as &$favourite) if ($favourite != null) draw_favourite($favourite);
     end_favourites_div();
