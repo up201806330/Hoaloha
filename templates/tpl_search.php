@@ -2,7 +2,6 @@
 /**
  * Starts the section that contains all results of a search
  */?>
-    <div class="animal-list-container">
       <ul class="animal-list-grid">
 <?php } ?>
 
