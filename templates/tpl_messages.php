@@ -37,6 +37,13 @@ function draw_messages() {
                         echo array_pop($_SESSION['messages'])['content'];
                         unset($_SESSION['adoption_proposal']);
                     }
+                    else if (@$_SESSION['approve_proposal']){
+                        echo array_pop($_SESSION['messages'])['content'];
+                        unset($_SESSION['approve_proposal']);
+                    }else if (@$_SESSION['refuse_proposal']){
+                        echo array_pop($_SESSION['messages'])['content'];
+                        unset($_SESSION['refuse_proposal']);
+                    }
                     ?>
                 </div>
             </div>

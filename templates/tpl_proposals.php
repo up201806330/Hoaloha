@@ -14,7 +14,10 @@
             <li class="proposal-container">
                 <div class="proposal-username"><a href="../pages/profile?username=<?= $proposal['username'] ?>"><?= $proposal['username'] ?></a></div>
                 <div class="proposal-description"><?= $proposal['description'] ?></div>
-                <div class="proposal-status"><?= $proposal['status'] ?></div>
+                <?php if($proposal['status'] == 'P'){
+                    echo '<button class="approve-button" onclick="approvalOrRefusalBox(true, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Approve</button>';
+                    echo '<button class="refuse-button" onclick="approvalOrRefusalBox(false, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Refuse</button>';
+                }?>
             </li>
 
 <?php } ?>
@@ -24,6 +27,7 @@
  * Ends the section that holds all proposals made on an animal
  */?>
         </ul>
+    </div>
     </div>
 
 <?php } ?>

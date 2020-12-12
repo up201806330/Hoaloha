@@ -17,17 +17,24 @@
     $topics = getTopicsPostedByUser($thisUser['id']);
 
     draw_header();
-    foreach($topics as &$topic){
-        $animal = getAnimal($topic['idPet']);
-        draw_topic_in_proposals($topic['id'], $animal);
+    if (count($topics) > 0){
+        foreach($topics as &$topic){
+            $animal = getAnimal($topic['idPet']);
+            draw_topic_in_proposals($topic['id'], $animal);
 
-        if ($topic != null) $proposals = getAllTopicsProposals($topic['id']);
+            if ($topic != null) $proposals = getAllTopicsProposals($topic['id']);
 
-        start_proposals_div();
-        foreach($proposals as &$proposal){
-            if ($proposal != null) draw_proposal($proposal);
+            start_proposals_div();
+            if (count($proposals) > 0){
+                foreach($proposals as &$proposal){
+                    if ($proposal != null) draw_proposal($proposal);
+                }
+            }
+            else echo 'No proposals yet...';
+            end_proposals_div();
         }
-        end_proposals_div();
     }
+    else echo 'You havent posted any animals yet...';
+    
     draw_footer();
 ?>

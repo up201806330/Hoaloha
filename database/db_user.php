@@ -1,6 +1,5 @@
 <?php
   include_once('../includes/database.php');
-  //include_once('./db_image.php');
 
   //use App\SQLiteBLOB as SQLiteBlob;
 
