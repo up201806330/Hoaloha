@@ -15,7 +15,7 @@
                 <input type="hidden" name="idTopic" value="<?= $idTopic ?>">
                 <label for="new_name">Your pet's name:</label>
                 <input type="text" id="new_name" name="new_name" value="<?= $previous_pet_name ?>">
-                <textarea name="description" id="description" rows="10" cols="30">Describe why you want to adopt a pet</textarea>
+                <textarea name="description" id="description" rows="10" cols="30" placeholder="Describe why you want to adopt a pet"></textarea>
                 <button type="submit">Send proposal</button>
             </form>
         </div>

@@ -8,7 +8,6 @@
 
     if (!isset($_SESSION['username'])){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Must be logged in to favourite a pet!');
-        $_SESSION['favourite'] = 'failure';
         
         header('Location: ../pages/topic.php?id=' . $idTopic);
         die();
@@ -18,7 +17,6 @@
 
     if (topicWasPostedByUser($idTopic, $idUser)){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'You cant like your own posts');
-        $_SESSION['favourite'] = 'failure';
 
         header('Location: ../pages/topic.php?id=' . $idTopic);
         die();
@@ -31,16 +29,13 @@
         if ($this_favourite_entry != false) {
             removeFavourite($idUser, $idTopic);
             $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Removed from favourites!');
-            $_SESSION['favourite'] = 'success';
         }
         else {
             addFavourite($idUser, $idTopic);
             $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Added to favourites!');
-            $_SESSION['favourite'] = 'success';
         }
     } catch (PDOException $e) {
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to toggle favourite!');
-        $_SESSION['favourite'] = 'failure';
     }
     header('Location: ../pages/topic.php?id=' . $idTopic);
 ?>

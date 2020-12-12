@@ -1,5 +1,22 @@
+<?php function start_animal_list(){
+/**
+ * Starts the section that contains all results of a search
+ */?>
+    <div class="animal-list-container">
+      <ul class="animal-list-grid">
+<?php } ?>
+
+<?php function end_animal_list(){
+/**
+ * Ends the section that contains all results of a search
+ */?>
+      </ul>
+    </div>
+<?php } ?>
+
+
 <?php function draw_search(){
-    /**
+/**
  * Draws the search floating object.
  */?>
 
@@ -67,7 +84,7 @@
 <?php } ?>
 
 <?php function draw_search_parameters(){
-    /**
+/**
  * Draws the section that contains aditional search parameters
  */?>
   

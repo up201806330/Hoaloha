@@ -146,3 +146,13 @@ var sliders = document.querySelectorAll('.min-max-slider');
 sliders.forEach( function(slider) {
     init(slider);
 });
+
+// Shows browser confirm window to confirm pressing of approval / refusal of a proposal
+function approvalOrRefusalBox(isApproval, idUser, idTopic){
+    if (isApproval){
+        if (confirm("Are you sure you approve this proposal? (This will finalize this animals posting)")) window.location.replace("../actions/action_approve_proposal.php?idUser=" + idUser + "&idTopic=" + idTopic);
+    }
+    else if (!isApproval){
+        if (confirm("Are you sure you want to refuse this proposal?")) window.location.replace("../actions/action_refuse_proposal.php?idUser=" + idUser + "&idTopic=" + idTopic);
+    }
+}

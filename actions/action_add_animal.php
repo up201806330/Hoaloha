@@ -17,9 +17,7 @@
   $description = $_POST['description'];
 
   try {
-    $animalId = insertAnimal($name, $species, $breed, $weight, $color, $dimensions, $gender, $age, $photo); // TODO handle bad image and bad location here
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Added animal to db!');
-    $_SESSION['add_animal'] = 'success';
+    $animalId = insertAnimal($name, $species, $breed, $weight, $color, $dimensions, $gender, $age, $photo);
 
     if (isset($_SESSION['username'])) $user = getUser($_SESSION['username']);
     $userId = $user['id'];
@@ -27,12 +25,10 @@
 
     $topicId = insertTopic($userId, $animalId, $description, $data);
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Added topic to db!');
-    $_SESSION['add_topic'] = 'success';
 
     header('Location: ../pages/topic.php?id=' . $topicId);
   } catch (PDOException $e) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add animal to db!');
-    $_SESSION['add_animal'] = 'failure';
     header('Location: ../pages/add_animal.php');
   }
 ?>

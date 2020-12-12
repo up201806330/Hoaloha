@@ -9,33 +9,10 @@ function draw_messages() {
             <div class="message-content">
                 <div class="txt_field">
                     <?php 
-                    if (@$_SESSION['login']){
+                    if (@$_SESSION['messages']){
                         echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['login']);
-                    }
-                    else if (@$_SESSION['logout']){
-                        echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['logout']);
-                    }
-                    else if (@$_SESSION['register']){
-                        echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['register']);
-                    } 
-                    else if (@$_SESSION['add_animal']){
-                        echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['add_animal']);
-                    }    
-                    else if (@$_SESSION['add_animal_page']){
-                        echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['add_animal_page']);
-                    }
-                    else if (@$_SESSION['favourite']){
-                        echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['favourite']);
-                    }
-                    else if (@$_SESSION['adoption_proposal']){
-                        echo array_pop($_SESSION['messages'])['content'];
-                        unset($_SESSION['adoption_proposal']);
+                        // array_pop($_SESSION['messages'])['type'];  error poe texto vermelho ; success poe verde
+                        unset($_SESSION['messages']);
                     }
                     ?>
                 </div>

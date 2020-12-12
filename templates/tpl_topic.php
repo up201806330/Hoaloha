@@ -73,6 +73,24 @@
 
 <?php } ?>
 
+<?php function draw_topic_in_proposals($id, $animal){
+/**
+ * Draws the topic shown inside a user's proposals page
+ */
+?>
+    <div class="proposals-animal-container" >
+      <a href="../pages/topic.php?id=<?=$id?>">
+        <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
+        </div>
+        <div class="animal-text">
+          <div class="animal-name"><?=$animal['name']?></div>
+          <div class="animal-species"><?=$animal['species']?></div>
+        </div>
+      </a>
+
+<?php } ?>
+
+
 <?php function start_favourite_adopt_div(){
 /**
  * Starts the division that holds the adopt and favourite buttons
