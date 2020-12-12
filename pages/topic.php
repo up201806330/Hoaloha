@@ -68,7 +68,7 @@
   }
   
   if ($isLoggedIn) {
-    if ($thisUser['username'] != $owner['username'] && !isTopicFinalized($topic['id'])) {
+    if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
       draw_adopt_button();
       draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
     }

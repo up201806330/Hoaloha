@@ -33,11 +33,11 @@
         $stmt->execute(array($idUser, $idTopic, $newName, $description));
     }
 
-    function isTopicFinalized($idTopic){
+    function isAnimalAdopted($idPet){
         $db = Database::instance()->db();
     
-        $stmt = $db->prepare('SELECT * FROM Proposals WHERE idTopic = ?');
-        $stmt->execute(array($idTopic));
+        $stmt = $db->prepare('SELECT Proposals.* FROM Proposals, Topics WHERE Proposals.idTopic = Topics.id AND Topics.idPet = ?');
+        $stmt->execute(array($idPet));
         $results = $stmt->fetchAll();
 
         foreach($results as &$result){
