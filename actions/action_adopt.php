@@ -2,6 +2,8 @@
     include_once('../includes/session.php');
     include_once('../database/db_proposal.php');
     include_once('../database/db_user.php');
+    include_once('../database/db_topic.php');
+    include_once('../database/db_animal.php');
 
     $idTopic = $_POST['idTopic'];
 
@@ -13,7 +15,7 @@
     }
 
     $user = getUser($_SESSION['username']);
-    $newName = $_POST['new_name'];
+    $newName = (getAnimal(getTopic($idTopic)['idPet'])['name'] != $_POST['new_name']) ? $_POST['new_name'] : null;
     $description = $_POST['description'];
 
     try {

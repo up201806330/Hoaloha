@@ -33,4 +33,26 @@
         $stmt->execute(array($idUser, $idTopic, $newName, $description));
     }
 
+    function isAnimalAdopted($idPet){
+        $db = Database::instance()->db();
+    
+        $stmt = $db->prepare('SELECT Proposals.* FROM Proposals, Topics WHERE Proposals.idTopic = Topics.id AND Topics.idPet = ?');
+        $stmt->execute(array($idPet));
+        $results = $stmt->fetchAll();
+
+        foreach($results as &$result){
+            $status = $result['status'];
+            if ($status == 'A' || $status == 'R') return true;
+        }
+        return false;
+    }
+
+    function getApprovedProposal($idTopic){
+        $db = Database::instance()->db();
+    
+        $stmt = $db->prepare('SELECT Proposals.*, UserEntities.username FROM Proposals, UserEntities WHERE Proposals.idUser = UserEntities.id AND idTopic = ? AND status = "A" ');
+        $stmt->execute(array($idTopic));
+        return $stmt->fetch();
+    }
+
 ?>

@@ -12,7 +12,7 @@
  * Draws one proposal section.
  */?>
             <li class="proposal-container">
-                <div class="proposal-username"><a href="../pages/profile?username=<?= $proposal['username'] ?>"><?= $proposal['username'] ?></a></div>
+                <div class="proposal-username"><a href="../pages/profile.php?username=<?= $proposal['username'] ?>"><?= $proposal['username'] ?></a></div>
                 <div class="proposal-description"><?= $proposal['description'] ?></div>
                 <?php if($proposal['status'] == 'P'){
                     echo '<button class="approve-button" onclick="approvalOrRefusalBox(true, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Approve</button>';

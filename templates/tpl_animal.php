@@ -65,7 +65,7 @@
         </div>
       </div>
     </div>
-    <div class="topic-title-container"><h1><?=$animal['name']?>'s Story & Current Owner</h1></div>
+    <div class="topic-title-container"><h1><?=$animal['name']?>'s Story</h1></div>
 
 <?php } ?>
 
