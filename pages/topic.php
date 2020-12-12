@@ -32,7 +32,6 @@
   
   if ($topic == null || $animal == null || $owner == null){
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to load topic');
-    $_SESSION['topic'] = 'failure';
     header('Location: ../pages/main.php');
     die();
   }

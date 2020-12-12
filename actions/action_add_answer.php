@@ -7,9 +7,15 @@
   $answer = $_POST['answer'];
   $data = date("Y-m-d H:i:s");
 
-  $answerId = insertAnswer($idUser,$idQuestion,$answer,$data);
-  $lastAnswerAdded = getAnswerAndUser($answerId);
-
-  echo(json_encode($lastAnswerAdded));
+  try {
+    $answerId = insertAnswer($idUser,$idQuestion,$answer,$data);
+    $lastAnswerAdded = getAnswerAndUser($answerId);
+  
+    echo(json_encode($lastAnswerAdded));
+    
+    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Answer sent!');
+  } catch (PDOException $e) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add answer to db!');
+  }
   
 ?>

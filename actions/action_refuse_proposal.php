@@ -9,11 +9,9 @@
   try {
     refuseProposal($idUser, $idTopic);
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Refused proposal!');
-    $_SESSION['refuse_proposal'] = 'success';
     header('Location: ../pages/proposals.php');
   } catch (PDOException $e) { 
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to refuse proposal!');
-    $_SESSION['refuse_proposal'] = 'failure';
     header('Location: ../pages/main.php');
   }
 

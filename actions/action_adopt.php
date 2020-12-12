@@ -7,7 +7,6 @@
 
     if (!isset($_SESSION['username'])){
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Must be logged in to create adoption proposal');
-        $_SESSION['adoption_proposal'] = 'failure';
 
         header('Location: ../pages/topic.php?id=' . $idTopic);
         die();
@@ -18,12 +17,10 @@
     $description = $_POST['description'];
 
     try {
-    insertProposal($user['id'], $idTopic, $newName, $description);
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Proposal sent!');
-    $_SESSION['adoption_proposal'] = 'success';
+        insertProposal($user['id'], $idTopic, $newName, $description);
+        $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Proposal sent!');
     } catch (PDOException $e) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to create adoption proposal! ' . $e->getMessage());
-    $_SESSION['adoption_proposal'] = 'failure';
+        $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to create adoption proposal! ');
     }
 
     header('Location: ../pages/topic.php?id=' . $idTopic);

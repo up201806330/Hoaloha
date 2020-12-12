@@ -5,7 +5,6 @@
 
   if (!isset($_SESSION['username'])){
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Must be logged in to add an animal!');
-    $_SESSION['add_animal_page'] = 'failure';
     header('Location: ../pages/main.php');
     die();
   }

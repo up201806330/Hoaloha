@@ -9,11 +9,9 @@
   try {
     approveRequest($idUser, $idTopic);
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Approved proposal!');
-    $_SESSION['approve_proposal'] = 'success';
     header('Location: ../pages/proposals.php');
   } catch (PDOException $e) { 
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to approve proposal!');
-    $_SESSION['approve_proposal'] = 'failure';
     header('Location: ../pages/main.php');
   }
 

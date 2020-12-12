@@ -16,15 +16,11 @@
     $age_max = isset($_POST['age_max']) ? $_POST['age_max'] : 999;
     // vv Checkboxes vv
     // Gender
-    //$gender = @$_POST['is_male'] . '&' . @$_POST['is_female'];
     $is_male = @$_POST['is_male'];
     $is_female = @$_POST['is_female'];
     
     $animals = getAllAnimals();
     $result = array();
-
-    
-    //die();
 
     foreach($animals as &$animal){
         if ( // Finds animal with input string in name or in breed (if input is empty, all animals pass this filter)
