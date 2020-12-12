@@ -116,5 +116,8 @@
     $output = 'Found ' . $n_results . $result_string;
   }
   echo $output;
+
+  echo '</div>';
+
 } ?>
 
