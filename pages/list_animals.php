@@ -9,10 +9,12 @@
   
   draw_header();
 
+  echo '<div class="animal-list-container">';
+
   draw_search_parameters();
   draw_n_results(count($_SESSION['search_results']));
   $topics = $_SESSION['search_results'];
-  echo '<div class="animal-list-container">';
+  
   echo '<ul class="animal-list-grid">';
   foreach($topics as &$topic){
     $animal = getAnimal($topic['idPet']);
