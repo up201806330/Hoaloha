@@ -23,6 +23,9 @@ function draw_header($draw_login = true) {
     </head>
 
     <body>
+        <?php 
+        draw_messages();
+        ?>
         <header>
             <a href="main.php">
                 <img class="logo" src="../assets/logo.png" width="80" height="80">
@@ -42,7 +45,6 @@ function draw_header($draw_login = true) {
         }
 
         // Draw error/success messages
-        draw_messages();
         ?>
         
 <?php } ?>

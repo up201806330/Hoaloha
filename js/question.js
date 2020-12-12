@@ -1,6 +1,6 @@
-var form = document.querySelector(".addComment form");
+'use strict'
 
-console.log(form.outerHTML);
+var form = document.querySelector(".addQuestion form");
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
@@ -9,26 +9,26 @@ function encodeForAjax(data) {
 }
 
 
-function submitForm(event){
+function submitQuestionForm(event){
     
-    var question = document.querySelector('.addComment form textarea').value;
+    var question = document.querySelector('.addQuestion form textarea').value;
     var idTopic = document.querySelector('form #idTopic').value;
     var idUser = document.querySelector('form #idUser').value;
-    var data = document.querySelector('form #data').value;
+    //var data = document.querySelector('form #data').value;
 
 
     console.log("Form submitted.");
 
     let request = new XMLHttpRequest();
-    request.onload = receiveComments;
+    request.onload = receiveQuestions;
     request.open('post', '../actions/action_add_question.php', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    request.send(encodeForAjax({idUser: idUser, idTopic: idTopic, question: question, data: data}));
+    request.send(encodeForAjax({idUser: idUser, idTopic: idTopic, question: question}));
     event.preventDefault();
     
 }
 
-function receiveComments() {
+function receiveQuestions() {
     console.log(this.responseText);
     var response = JSON.parse(this.responseText);
     console.log(response);
@@ -40,7 +40,11 @@ function receiveComments() {
         const name = question['name'];
         const questionText = question['question'];
         const idPhoto = question['idPhoto']; 
-        const data = question['data'];     
+        const data = question['data']; 
+        const idQuestion = question['id'];
+        const idUser = question['idUser'];   
+        
+        //console.log(username);
 
         let newQuestionContainer = document.createElement('div');
         newQuestionContainer.setAttribute('class','question-container');
@@ -49,11 +53,13 @@ function receiveComments() {
         newQuestionUsername.setAttribute('class','question-username');
         newQuestionUsername.innerText = "Posted by";
 
-        let articleName = document.createElement('article');
+        let articleName = document.createElement('a');
         articleName.innerText = name;
 
-        let articleProfile = document.createElement('article');
+        let articleProfile = document.createElement('a');
         articleProfile.setAttribute('href',"../pages/profile.php?username=" + username);
+
+        articleProfile.innerText = username;
 
         newQuestionUsername.appendChild(articleName);
         newQuestionUsername.appendChild(articleProfile);
@@ -63,15 +69,15 @@ function receiveComments() {
 
         questionData.innerText = "at";
 
-        let articleData = document.createElement('article');
+        let articleData = document.createElement('a');
         articleData.innerText = data;
 
         questionData.appendChild(articleData);
 
         let userPhotoContainer = document.createElement('div');
-        questionData.setAttribute('class','user-photo');
+        userPhotoContainer.setAttribute('class','user-photo');
 
-        let articlePhoto = document.createElement('article');
+        let articlePhoto = document.createElement('a');
         articlePhoto.setAttribute('href',"../pages/profile.php?username=" + username);
 
         let photo = document.createElement('img');
@@ -93,8 +99,50 @@ function receiveComments() {
         newQuestionContainer.appendChild(description);
 
         questions.appendChild(newQuestionContainer);
+
+        let addAnswer = document.createElement('div');
+        addAnswer.setAttribute('class','addAnswer');
+
+        let form = document.createElement('form');
+
+        let label = document.createElement('label');
+        label.innerText = "Add an Answer";
+
+        form.appendChild(label);
+
+        let text = document.createElement('div');
+        text.setAttribute('class','textinput');
+
+        let textArea = document.createElement('textarea');
+        textArea.setAttribute('name','text');
+
+        text.appendChild(textArea);
+
+        let idQuestionInput = document.createElement('input');
+        idQuestionInput.setAttribute('type','hidden');
+        idQuestionInput.setAttribute('id','idQuestion');
+        idQuestionInput.setAttribute('value',idQuestion);
+
+        let idUserInput = document.createElement('input');
+        idUserInput.setAttribute('type','hidden');
+        idUserInput.setAttribute('id','idUser');
+        idUserInput.setAttribute('value',idUser);
+
+        let button = document.createElement('input');
+        button.setAttribute('type','submit');
+        button.setAttribute('id',idQuestion);
+        button.setAttribute('value', 'Reply');
+
+        form.appendChild(text);
+        form.appendChild(idQuestionInput);
+        form.appendChild(idUserInput);
+        form.appendChild(button);
+
+        addAnswer.appendChild(form);
+
+        questions.appendChild(addAnswer);
               
     })
 }
 
-form.addEventListener("submit", submitForm);
+form.addEventListener("submit", submitQuestionForm);
