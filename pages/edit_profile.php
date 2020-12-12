@@ -15,12 +15,16 @@
   $username = $_GET['username'];
 
   $profile = getUser($username);
+
+  draw_header();
+
+  /*$profile = getUser($username);
   $topics = getTopicsPostedByUser($profile['id']);
   $usersFavourites = getUsersFavourites($profile['id']);
 
   draw_header();
   draw_profile($profile);
-  if($username == $_SESSION['username'])
+  if($username === $_SESSION['username'])
     draw_edit_profile($username);
   start_profile_animals_div($username, (@$_SESSION['username'] == $username), count($topics));
   foreach($topics as &$topic) {
@@ -41,7 +45,7 @@
       }
     }
   }
-  end_profile_favourites_div();
+  end_profile_favourites_div();*/
 
   draw_footer();
   ?>
