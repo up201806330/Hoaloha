@@ -45,7 +45,7 @@
 
 <?php function draw_add_answer($idQuestion,$idUser){
     ?>
-    <div class = "addAnswer">
+    <div class = "add-answer-container">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
             <label> Add an Answer </label>

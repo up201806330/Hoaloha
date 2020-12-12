@@ -55,7 +55,7 @@
       draw_add_answer($question['id'],$thisUser['id']);
     }
     else{
-      echo 'Log in to answer a question';
+      echo '<div class="add-answer-container">Log in to answer a question</div>';
     }
   }
   draw_end_questions_container();
@@ -64,7 +64,7 @@
     draw_add_question($topic['id'],$thisUser['id']);
   }
   else{
-    echo 'Log in to ask a question';
+    echo '<div classs="add-question-container">Log in to ask a question</div>';
   }
   
   if ($isLoggedIn) {
@@ -74,7 +74,7 @@
     }
   }
   else {
-    echo 'Log in to adopt this pet';
+    echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
   }
 
   $favourites = getTopicsFavouritedUsers($topic['id']);
