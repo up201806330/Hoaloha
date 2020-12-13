@@ -32,21 +32,32 @@
           <?php if ($approved_proposal != null) : ?>
 
             <?php if ($approved_proposal['newName'] != null) : ?>
+          <div class="proposal-header">
+            <div class="proposal-title">
               <div class="proposal-newName">
-                Now 
+                Changed name to 
                 <?=$approved_proposal['newName']?>
               </div>
             <?php endif; ?>
 
-            <div class="proposal-user">
-              Adopted by 
+              <div class="proposal-user">
+                Adopted by 
+                <a href="../pages/profile.php?username=<?=$approved_proposal['username']?>" >
+                  <?=$approved_proposal['username']?>
+                </a>
+              </div>
+            </div>
+            
+            <div class="proposal-user-photo">
               <a href="../pages/profile.php?username=<?=$approved_proposal['username']?>" >
-                <?=$approved_proposal['username']?>
+                <img src="../database/db_link_image.php?id=<?php echo $approved_proposal['idPhoto'];?>" width="200" height="200">
               </a>
             </div>
-            <div class="proposal-description">
+          </div>
+            
+          <div class="proposal-description">
               <?=$approved_proposal['description']?>
-            </div>
+          </div>
 
           <?php endif; ?>
 
@@ -83,11 +94,11 @@
     <li>
       <div class="profile-animal-container" >
         <a href="../pages/topic.php?id=<?=$id?>">
-          <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
+          <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
           </div>
           <div class="animal-text">
-            <div class="animal-name"><?=$animal['name']?></div>
-            <div class="animal-species"><?=$animal['species']?></div>
+            <div class="animal-name"><?=$animal[0]['name']?></div>
+            <div class="animal-species"><?=$animal[0]['species']?></div>
           </div>
         </a>
       </div>
@@ -102,11 +113,11 @@
 ?>
     <div class="proposals-animal-container" >
       <a href="../pages/topic.php?id=<?=$id?>">
-        <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
+        <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
         </div>
         <div class="animal-text">
-          <div class="animal-name"><?=$animal['name']?></div>
-          <div class="animal-species"><?=$animal['species']?></div>
+          <div class="animal-name"><?=$animal[0]['name']?></div>
+          <div class="animal-species"><?=$animal[0]['species']?></div>
         </div>
       </a>
 

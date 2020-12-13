@@ -40,16 +40,15 @@
   $approved_proposal = getApprovedProposal($topic['id']);
 
   draw_header();
+  if($isLoggedIn){ draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']); }
   draw_animal_full($animal, $topic, $thisUser, $isLoggedIn);
 
   start_adopt_favourite_container();
 
 
-
   if ($isLoggedIn) {
     if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
       draw_adopt_button();
-      draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']);
     }
   }
   else {

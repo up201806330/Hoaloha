@@ -394,6 +394,7 @@ header {
 
 .adopt-favourite-container > button {
     margin-top: 0;
+    font-size: 28px;
 }
 
 
@@ -915,19 +916,13 @@ add_animal.php
 }
 
 .favourite-container form {
-    /* display: flex;
-    flex-direction: row; */
     margin: auto auto auto 1%;
 }
 .favourite-container .favourite-button-container {
-    /* display: flex;
-    flex-direction: row; */
     margin: auto 3% auto auto;
 }
 
 .adopt-button-container {
-    /* height: 50%;
-    width: 50%; */
     margin: auto;
 }
 
@@ -969,7 +964,7 @@ add_animal.php
     flex: 2;
 }
 
-.topic-container .user-photo img {
+.topic-container .user-photo img, .topic-container .proposal-user-photo img {
 
     display: flex;
     position: relative;
@@ -994,7 +989,7 @@ add_animal.php
 }
 
 
-.topic-header {
+.topic-header, .proposal-header {
     margin-bottom: 2vh;
 
     display: flex;
@@ -1012,12 +1007,12 @@ add_animal.php
     margin-right: 2%;
 }
 
-.topic-username{
+.topic-username, .proposal-user {
     font-size: 4vh;
 }
 
 
-.topic-data{
+.topic-data, .proposal-newName {
     font-size: 2vh;
     font-style: italic;
 }
@@ -1045,7 +1040,7 @@ add_animal.php
     justify-content: center;
 }
 
-.topic-title-container h1, .adopt-favourite-container {
+.topic-title-container h1 {
 
     border-style: solid;
     border-color:var(--login-blue);
@@ -1056,7 +1051,7 @@ add_animal.php
     padding: 1vh;
 }
 
-.topic-username > a {
+.topic-username > a, .proposal-user > a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: 400;
@@ -1071,7 +1066,7 @@ add_animal.php
 
 
 
-.topic-username > a:hover {
+.topic-username > a:hover, .proposal-user > a:hover {
     color: var(--login-blue);
 }
 

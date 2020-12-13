@@ -50,7 +50,7 @@
     function getApprovedProposal($idTopic){
         $db = Database::instance()->db();
     
-        $stmt = $db->prepare('SELECT Proposals.*, UserEntities.username FROM Proposals, UserEntities WHERE Proposals.idUser = UserEntities.id AND idTopic = ? AND status = "A" ');
+        $stmt = $db->prepare('SELECT Proposals.*, UserEntities.username, idPhoto FROM Proposals, UserEntities INNER JOIN UserPhotos ON UserEntities.id = UserPhotos.idUser WHERE Proposals.idUser = UserEntities.id AND idTopic = ? AND status = "A" ');
         $stmt->execute(array($idTopic));
         return $stmt->fetch();
     }
