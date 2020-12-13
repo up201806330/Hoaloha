@@ -78,7 +78,7 @@
     <div class="register-content">
       <h1>Let's find our friend a new Home!</h1>
       <h2>But first, tell us more about them</h2>
-      <form method="post" action="../actions/action_add_animal.php">
+      <form method="post" action="../actions/action_add_animal.php" enctype="multipart/form-data">
         <div class="txt_field">
           <input type="text" name="name" required>
           <span></span>
@@ -130,6 +130,9 @@
             <input type="number" name="age" required>
             <span></span>
             <label>Age (Years)</label>
+          </div>
+          <div class="txt_field">
+            <input type="file"  name="images[]" multiple>
           </div>
         </div>
         <button type="submit">Register Pet</button>

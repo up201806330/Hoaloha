@@ -1,22 +1,20 @@
 <?php 
   include_once('../templates/tpl_common.php');
-  include_once('../templates/tpl_profile.php');
-  include_once('../templates/tpl_topic.php');
+  include_once('../templates/tpl_edit_profile.php');
   include_once("../database/db_user.php");
-  include_once("../database/db_animal.php");
-  include_once("../database/db_topic.php");
-  include_once("../database/db_favourites.php");
   
-  if (!isset($_GET['username'])){
+  $username = $_GET['username'];
+
+  if (!isset($_GET['username']) || $username != $_SESSION['username']){
     header('Location: ../pages/main.php');
     die();
   }
 
-  $username = $_GET['username'];
 
   $profile = getUser($username);
 
   draw_header();
+  draw_edit_profile($profile);
 
   /*$profile = getUser($username);
   $topics = getTopicsPostedByUser($profile['id']);
