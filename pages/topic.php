@@ -52,7 +52,7 @@
     }
   }
   else {
-    echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
+    if (!isAnimalAdopted($topic['idPet'])) echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
   }
 
   end_adopt_favourite_container();
