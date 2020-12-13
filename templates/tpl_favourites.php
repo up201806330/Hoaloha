@@ -3,15 +3,18 @@
  * Draws the favourite button for a particular topic page
  */
 ?>
-  <?php if($topicIsLiked) : ?>
-    <div class="favourite-button-container-liked"> 
-  <?php else : ?>
-    <div class="favourite-button-container-unliked">
-  <?php endif; ?>
+    <div class="favourite-button-container"> 
     <button id="favouritesButton" class="favourites-counter"><?=$n_favourites?></div>
     <form method="post" action="../actions/action_toggle_favourite.php">
       <input type="hidden" name="idTopic" value=<?=$idTopic?>>
-      <button type="submit" class="add-to-favourites-button">Favourite</button>
+      
+      <?php if($topicIsLiked) : ?>
+      <button type="submit" class="add-to-favourites-button-liked">
+      <?php else : ?>
+      <button type="submit" class="add-to-favourites-button-unliked">
+      <?php endif; ?>
+      Favourite</button>
+
     </form>
   </div>
 
