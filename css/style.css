@@ -952,7 +952,7 @@ add_animal.php
     min-width: 380px;
 }
 
-.topic-container .user-photo {
+.topic-container .user-photo, .topic-container .proposal-user-photo  {
     
     position: relative;
     top: -20px;
@@ -964,8 +964,23 @@ add_animal.php
     flex: 2;
 }
 
+.topic-container .proposal-user-photo {
+    top: 10px;
+}
+
 .topic-container .user-photo img, .topic-container .proposal-user-photo img {
 
+
+
+    border-radius: 100%;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 10px;
+    border-color: var(--login-blue);
+}
+
+.topic-container .user-photo a, .topic-container .proposal-user-photo a {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -979,13 +994,6 @@ add_animal.php
     height: 15vh;
     max-width: 300px;
     max-height: 300px;
-
-    border-radius: 100%;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-left-style: solid;
-    border-width: 10px;
-    border-color: var(--login-blue);
 }
 
 
@@ -997,7 +1005,7 @@ add_animal.php
     align-items: center;
 }
 
-.topic-title{
+.topic-title, .proposal-title{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -1017,7 +1025,9 @@ add_animal.php
     font-style: italic;
 }
 
-
+.proposal-header .proposal-title {
+    padding-top: 5%;
+}
 
 
 
