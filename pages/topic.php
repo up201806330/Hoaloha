@@ -40,8 +40,25 @@
   $approved_proposal = getApprovedProposal($topic['id']);
 
   draw_header();
-  draw_animal_full($animal);
-  draw_topic_details($topic, $owner, $approved_proposal);
+  draw_animal_full($animal, $topic, $thisUser, $isLoggedIn);
+
+  start_adopt_favourite_container();
+
+
+
+  if ($isLoggedIn) {
+    if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
+      draw_adopt_button();
+      draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
+    }
+  }
+  else {
+    echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
+  }
+
+  end_adopt_favourite_container();
+
+  draw_topic_details($topic, $owner, $approved_proposal, $animal['name']);
   draw_start_questions_container();
   foreach($questions as &$question){
     draw_question($question);
@@ -65,25 +82,6 @@
   }
   else{
     echo '<div classs="add-question-container">Log in to ask a question</div>';
-  }
-  
-  if ($isLoggedIn) {
-    if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
-      draw_adopt_button();
-      draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
-    }
-  }
-  else {
-    echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
-  }
-
-  $favourites = getTopicsFavouritedUsers($topic['id']);
-  if ($favourites !== null) {
-    $topicIsLiked = ($isLoggedIn)? getFavourite($thisUser['id'], $topic['id']) : false;
-    draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
-    start_favourites_div(count($favourites), $animal['name']);
-    foreach($favourites as &$favourite) if ($favourite != null) draw_favourite($favourite);
-    end_favourites_div();
   }
 
   draw_footer();

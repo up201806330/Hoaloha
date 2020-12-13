@@ -27,6 +27,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
+    z-index: 999;
 }
 
 .logo{
@@ -377,7 +378,7 @@ header {
     padding: 5% 10% 8%;
 }
 
-.search-content > form > button, .advanced-search-form > button {
+.search-content > form > button, .advanced-search-form > button, .adopt-favourite-container > button {
     margin-top: 7%;
     width: 75%;
     height: 50px;
@@ -391,8 +392,12 @@ header {
     transition: ease-out 0.5s;
 }
 
+.adopt-favourite-container > button {
+    margin-top: 0;
+}
 
-.search-content > form > button:hover, .advanced-search-form > button:hover {
+
+.search-content > form > button:hover, .advanced-search-form > button:hover, .adopt-favourite-container > button:hover {
     background-color: white;
     color: var(--login-blue);
 }
@@ -796,47 +801,52 @@ add_animal.php
 */
 
 .animal-page-complete{
+    align-content: center;
     background-color: #f3f2da;
+    width: 100%;
+}
+
+.animal-page-complete > svg {
+    width:100%;
+    height: 20%;
+    position: absolute;
+    z-index: 0;
 }
 
 .animal-container {
     display: block;
-    height: 75vh;
+    /* height: 75vh; */
     position: relative;
     width: 100%;
 }
 
-
 .animal-photo img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+
     position: relative;
-    bottom: 40vh;
+
+    margin: 0 auto -4%;
+    
     border-radius: 100%;
     border-top-style: solid;
     border-right-style: solid;
     border-left-style: solid;
     border-width: 20px;
     border-color: var(--login-blue);
+
+    min-width: 30vh;
+    min-height: 30vh;
     width: 400px;
     height: 400px;
+    max-width: 40vh;
+    max-height: 40vh;
     z-index: 1;
-}
-
-.topic-container > .user-photo img {
-    position: absolute;
-    top: -20%;
-    right: 12%;
-    width: 175px;
-    height: 175px;
-    border-width: 8px;
 }
 
 
 .animal-card{
     position: relative;
-    bottom: 48vh;
+    /* bottom: 48vh; */
     color: var(--login-blue);
     margin-left: 20%;
     margin-right: 20%;
@@ -851,41 +861,6 @@ add_animal.php
 
 }
 
-.topic-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.topic-username{
-    font-size: 7vh;
-}
-
-
-.topic-data{
-    font-size: 3vh;
-}
-
-.topic-container {
-    position: relative;
-    box-sizing: border-box;   
-    background-color: white;
-    border-radius: 10px;
-    padding: 1% 2% 3% 2%;
-    display: inline-block;
-    color: var(--login-blue);
-    border-radius: 10px;
-    background-color: rgb(250, 250, 250);
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-    margin-left: 20%;
-    margin-right: 20%;
-    color: black;
-}
-
 .animal-stats {
     color: var(--login-blue);
 }
@@ -895,6 +870,11 @@ add_animal.php
     color: black;
     padding: 5% 0 3px 0;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
 }
 
 .animal-card hr {
@@ -918,21 +898,134 @@ add_animal.php
     color: black;
 }
 
-.topic-container .user-photo img{
-    width: 25vh;
-    height: 25vh;
+.animal-card .animal-name h1 {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    flex: 2;
+}
+
+.favourite-container {
+    position: absolute;
+    right: 20%;
+    display: flex;
+    padding-left: 10%;
+
+}
+
+.favourite-container form {
+    /* display: flex;
+    flex-direction: row; */
+    margin: auto auto auto 1%;
+}
+.favourite-container .favourite-button-container {
+    /* display: flex;
+    flex-direction: row; */
+    margin: auto 3% auto auto;
+}
+
+.adopt-button-container {
+    /* height: 50%;
+    width: 50%; */
+    margin: auto;
+}
+
+.add-to-favourites-button-unliked, .add-to-favourites-button-liked, .favourites-counter {
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    background-color: rgb(250, 250, 250);
+    cursor: pointer;
+}
+
+.adopt-favourite-container {
+    margin: 1% 20% 2%;
+    text-align: center;
+}
+
+.topic-container {
+    color: black;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    margin: 0 20% 5%;
+    padding: 0% 3% 2%;
+    min-width: 380px;
+}
+
+.topic-container .user-photo {
+    
+    position: relative;
+    top: -20px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: 2;
+}
+
+.topic-container .user-photo img {
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    align-items: center;
+
+    min-width: 100px;
+    min-height: 100px;
+    width: 15vh;
+    height: 15vh;
+    max-width: 300px;
+    max-height: 300px;
+
     border-radius: 100%;
     border-top-style: solid;
     border-right-style: solid;
     border-left-style: solid;
     border-width: 10px;
     border-color: var(--login-blue);
-    z-index: 1;
 }
 
-.topic-header{
-    margin-bottom: 3vh;
+
+.topic-header {
+    margin-bottom: 2vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.topic-title{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: auto;
+    flex: 2;
+
+    margin-right: 2%;
+}
+
+.topic-username{
+    font-size: 4vh;
+}
+
+
+.topic-data{
+    font-size: 2vh;
+    font-style: italic;
+}
+
+
+
+
+
 
 .animal-card ul li {
     display:inline;
@@ -944,17 +1037,16 @@ add_animal.php
 }
 
 .topic-title-container{
-    margin-top: 2%;
+    margin: 2% 20% 3%;
     color: white;
     text-align: center;
-    width: 100%;
-    margin-bottom: 1%;
-    display: flex;
+    
+    display: block;
     justify-content: center;
 }
 
-.topic-title-container h1{
-    width: 60%;
+.topic-title-container h1, .adopt-favourite-container {
+
     border-style: solid;
     border-color:var(--login-blue);
     border-radius: 50px;
