@@ -49,7 +49,7 @@
   if ($isLoggedIn) {
     if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
       draw_adopt_button();
-      draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
+      draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']);
     }
   }
   else {
@@ -58,7 +58,7 @@
 
   end_adopt_favourite_container();
 
-  draw_topic_details($topic, $owner, $approved_proposal, $animal['name']);
+  draw_topic_details($topic, $owner, $approved_proposal, $animal[0]['name']);
   draw_start_questions_container();
   foreach($questions as &$question){
     draw_question($question);

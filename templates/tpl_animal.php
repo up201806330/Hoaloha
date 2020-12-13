@@ -16,14 +16,14 @@
       <div class="animal-card">
 
         <div id="animal-name-profile" class="animal-name">
-          <h1><?=ucwords($animal['name'])?></h1>
+          <h1><?=ucwords($animal[0]['name'])?></h1>
 
           <?php
             $favourites = getTopicsFavouritedUsers($topic['id']);
             if ($favourites !== null) {
               $topicIsLiked = ($isLoggedIn)? getFavourite($thisUser['id'], $topic['id']) : false;
               draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
-              start_favourites_div(count($favourites), $animal['name']);
+              start_favourites_div(count($favourites), $animal[0]['name']);
               foreach($favourites as &$favourite) if ($favourite != null) draw_favourite($favourite);
               end_favourites_div();
             }
