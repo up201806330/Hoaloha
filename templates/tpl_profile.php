@@ -28,6 +28,13 @@
 
 <?php } ?>
 
+<?php function draw_edit_profile($username){
+    ?>
+    <div class="edit-profile">
+        <a href="../pages/edit_profile.php?username=<?=$username?>">
+    </div>
+<?php } ?>
+
 <?php function draw_profile_simple($user){
 /**
  * Draws simplified version of profile page (just username and photo)

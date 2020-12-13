@@ -63,11 +63,11 @@
  */?>
 
     <li>
-      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>);">
+      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
         <a href="../pages/topic.php?id=<?=$id?>">
           <div class="animal-text">
-            <div class="animal-name"><?=$animal['name']?></div>
-            <div class="animal-species"><?=$animal['species']?></div>
+            <div class="animal-name"><?=$animal[0]['name']?></div>
+            <div class="animal-species"><?=$animal[0]['species']?></div>
           </div>
         </a>
       </div>
