@@ -2,6 +2,7 @@
     include_once('../includes/session.php');
     include_once('../database/db_animal.php');
     include_once('../database/db_topic.php');
+    include_once('../database/db_proposal.php');
     
     // Name, Breed
     $search_string = isset($_POST['search_string']) ? $_POST['search_string']: "";
@@ -18,6 +19,9 @@
     // Gender
     $is_male = @$_POST['is_male'];
     $is_female = @$_POST['is_female'];
+    // Show adopted pets
+    if(isset($_POST['show_adopted'])) $show_adopted = true;
+    else $show_adopted = false;
     
     $animals = getAllAnimals();
     $result = array();
@@ -32,7 +36,9 @@
             // Finds animal with weight wthin given range
             ($animal['weight'] >= $weight_min && $animal['weight'] <= $weight_max) &&
             // Finds animal with age wthin given range
-            ($animal['age'] >= $age_min && $animal['age'] <= $age_max) 
+            ($animal['age'] >= $age_min && $animal['age'] <= $age_max) && 
+            // If toggled, also shows animals already adopted
+            ((!isAnimalAdopted($animal['id']) && !$show_adopted) || $show_adopted)
             ){
             $topic = topicFromAnimalId($animal['id']);
             array_push($result, $topic);

@@ -75,6 +75,15 @@
           <span class="checkmark"></span>
         </label>
       </div>
+
+      <div class="show-adopted-checkbox-container">
+        <label class="checkbox-container" for="checkbox-show-adopted">
+          Show adopted pets
+          <input type="checkbox" id="checkbox-show-adopted" name="show_adopted">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
       <button type="submit">Search</button>
     </form>
   </div>
@@ -156,6 +165,14 @@
             <span class="checkmark"></span>
           </label>
 
+        </div>
+
+        <div class="show-adopted-checkbox-container">
+          <label class="checkbox-container" for="checkbox-show-adopted">
+            Show adopted pets
+            <input type="checkbox" id="checkbox-show-adopted" name="show_adopted">
+            <span class="checkmark"></span>
+          </label>
         </div>
 
         <button type="submit">Search</button>

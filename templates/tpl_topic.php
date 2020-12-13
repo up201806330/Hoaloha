@@ -1,11 +1,11 @@
-<?php function draw_topic_details($topic, $user){
+<?php function draw_topic_details($topic, $user, $approved_proposal){
 /**
  * Draws the independent part of the topic (username and description)
  */
     ?>
     
         <div class="topic-container">
-          <div class= topic-header>
+          <div class="topic-header">
             <div class="topic-title">
               <div class="topic-username">
                 Posted by
@@ -27,6 +27,27 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
               <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit labore, voluptates tempore vel dolorum obcaecati consequuntur, sed ut officia eligendi ratione nobis? Accusantium ex mollitia obcaecati quaerat sint asperiores!
           </div>
+
+          <?php if ($approved_proposal != null) : ?>
+
+            <?php if ($approved_proposal['newName'] != null) : ?>
+              <div class="proposal-newName">
+                Now 
+                <?=$approved_proposal['newName']?>
+              </div>
+            <?php endif; ?>
+
+            <div class="proposal-user">
+              Adopted by 
+              <a href="../pages/profile.php?username=<?=$approved_proposal['username']?>" >
+                <?=$approved_proposal['username']?>
+              </a>
+            </div>
+            <div class="proposal-description">
+              <?=$approved_proposal['description']?>
+            </div>
+
+          <?php endif; ?>
 
         </div>
 

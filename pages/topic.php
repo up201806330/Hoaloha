@@ -14,6 +14,7 @@
   include_once("../database/db_favourites.php");
   include_once("../database/db_question.php");
   include_once("../database/db_answer.php");
+  include_once("../database/db_proposal.php");
 
   $isLoggedIn = isset($_SESSION['username']);
   $thisUser = null;
@@ -36,9 +37,11 @@
     die();
   }
 
+  $approved_proposal = getApprovedProposal($topic['id']);
+
   draw_header();
   draw_animal_full($animal);
-  draw_topic_details($topic, $owner);
+  draw_topic_details($topic, $owner, $approved_proposal);
   draw_start_questions_container();
   foreach($questions as &$question){
     draw_question($question);
@@ -52,7 +55,7 @@
       draw_add_answer($question['id'],$thisUser['id']);
     }
     else{
-      echo 'Log in to answer a question';
+      echo '<div class="add-answer-container">Log in to answer a question</div>';
     }
   }
   draw_end_questions_container();
@@ -61,26 +64,23 @@
     draw_add_question($topic['id'],$thisUser['id']);
   }
   else{
-    echo 'Log in to ask a question';
+    echo '<div classs="add-question-container">Log in to ask a question</div>';
   }
   
-  
-
-  
   if ($isLoggedIn) {
-    if ($thisUser['username'] == $owner['username']) echo 'You cant adopt your own pet';
-    else {
+    if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
       draw_adopt_button();
       draw_adopt_div($thisUser['name'], $animal['name'], $topic['id']);
     }
   }
   else {
-    echo 'Log in to adopt this pet';
+    echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
   }
 
   $favourites = getTopicsFavouritedUsers($topic['id']);
   if ($favourites !== null) {
-    draw_favourite_button(count($favourites), $topic['id']);
+    $topicIsLiked = ($isLoggedIn)? getFavourite($thisUser['id'], $topic['id']) : false;
+    draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
     start_favourites_div(count($favourites), $animal['name']);
     foreach($favourites as &$favourite) if ($favourite != null) draw_favourite($favourite);
     end_favourites_div();

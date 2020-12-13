@@ -1,14 +1,20 @@
-<?php function draw_favourite_button($n_favourites, $idTopic){
+<?php function draw_favourite_button($n_favourites, $idTopic, $topicIsLiked){
 /**
  * Draws the favourite button for a particular topic page
  */
 ?>
-  <div class="favourite-button-container">
+    <div class="favourite-button-container"> 
     <button id="favouritesButton" class="favourites-counter"><?=$n_favourites?></div>
     <form method="post" action="../actions/action_toggle_favourite.php">
       <input type="hidden" name="idTopic" value=<?=$idTopic?>>
-      <button type="submit" class="add-to-favourites-button">Favourite</button>
-      <!-- To get state of button (clicked or not): ( getFavourite($idUser, $idTopic) != false ) -->
+      
+      <?php if($topicIsLiked) : ?>
+      <button type="submit" class="add-to-favourites-button-liked">
+      <?php else : ?>
+      <button type="submit" class="add-to-favourites-button-unliked">
+      <?php endif; ?>
+      Favourite</button>
+
     </form>
   </div>
 

@@ -48,7 +48,7 @@
     ?>
     <script defer src = "../js/question.js"></script>
     <script defer src = "../js/answer.js"></script>
-    <div class = "addQuestion">
+    <div class = "add-question-container">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
             <label> Add a Question </label>
