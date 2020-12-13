@@ -19,6 +19,8 @@ function draw_header($draw_login = true) {
         <script src="../js/main.js" defer></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://kit.fontawesome.com/2fb51e88be.js" crossorigin="anonymous"></script>
     </head>
 
@@ -55,4 +57,19 @@ function draw_header($draw_login = true) {
  */ ?>
   </body>
 </html>
+<?php } ?>
+
+
+<?php function start_adopt_favourite_container() { 
+/**
+ * Start Adopt / Favourite Buttons Container
+ */ ?>
+    <div class="adopt-favourite-container">
+<?php } ?>
+
+<?php function end_adopt_favourite_container() { 
+/**
+ * End Adopt / Favourite Buttons Container
+ */ ?>
+    </div>
 <?php } ?>

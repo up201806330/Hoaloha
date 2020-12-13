@@ -1,9 +1,10 @@
-<?php function draw_topic_details($topic, $user, $approved_proposal){
+<?php function draw_topic_details($topic, $user, $approved_proposal, $animal_name){
 /**
  * Draws the independent part of the topic (username and description)
  */
     ?>
-    
+      <div class="topic-title-container"><h1><?=$animal_name?>'s Story</h1></div>
+
         <div class="topic-container">
           <div class="topic-header">
             <div class="topic-title">
@@ -14,7 +15,7 @@
                 </a>
               </div>
               <div class="topic-data">
-                at <a><?=$topic['data']?></a>
+                At <a><?=$topic['data']?></a>
               </div>
             </div>
             <div class="user-photo">
