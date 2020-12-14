@@ -11,14 +11,14 @@
 /**
  * Draws one proposal section.
  */?>
-            <li class="proposal-container">
-                <div class="proposal-username"><a href="../pages/profile.php?username=<?= $proposal['username'] ?>"><?= $proposal['username'] ?></a></div>
-                <div class="proposal-description"><?= $proposal['description'] ?></div>
-                <?php if($proposal['status'] == 'P'){
-                    echo '<button class="approve-button" onclick="approvalOrRefusalBox(true, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Approve</button>';
-                    echo '<button class="refuse-button" onclick="approvalOrRefusalBox(false, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Refuse</button>';
-                }?>
-            </li>
+        <li class="proposal-container">
+            <div class="proposal-username"><a href="../pages/profile.php?username=<?= $proposal['username'] ?>"><?= $proposal['username'] ?></a></div>
+            <div class="proposal-description"><?= $proposal['description'] ?></div>
+            <?php if($proposal['status'] == 'P'){
+                echo '<button class="approve-button" onclick="approvalOrRefusalBox(true, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Approve</button>';
+                echo '<button class="refuse-button" onclick="approvalOrRefusalBox(false, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Refuse</button>';
+            }?>
+        </li>
 
 <?php } ?>
 
