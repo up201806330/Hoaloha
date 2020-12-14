@@ -117,6 +117,7 @@
           <h3><div class="animal-species">Species: <?=$animal[0]['species']?></div></h3>
         </div>
       </a>
+    
 
 <?php } ?>
 

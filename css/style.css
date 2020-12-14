@@ -39,17 +39,15 @@ header {
 }
 
 .authentication li:first-child{
-    border-right-style: solid;
-    border-width: 1px;
-    border-color: gray;
     padding-right: 5px;
 }
 
 .authentication li:last-child{
-    border-left-style: solid;
-    border-width: 1px;
-    border-color: gray;
     padding-left: 5px;
+}
+
+.authentication .material-icons-round{
+    font-size: 150%;
 }
 
 .authentication li a{
@@ -1565,6 +1563,10 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     
 }
 
+.proposals-container-title .material-icons-round{
+    font-size: 80%;
+}
+
 .proposals-container-title h1{
     border-style: solid;
     border-color:var(--login-blue);
@@ -1587,6 +1589,16 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 .proposals-animal-container .animal-text{
     margin-left: 2%;
     color: black;
+}
+
+.proposals-animal-container .animal-text h1{
+    margin-left: 2%;
+    color: black;
+    transition: ease-out 0.3s;
+}
+
+.proposals-animal-container .animal-text h1:hover{
+    color: var(--login-blue);
 }
 
 
@@ -1615,6 +1627,11 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     margin-bottom: 1%;
     color: black;
     font-size: 80%;
+    transition: ease-out 0.3s;
+}
+
+.proposal-username a:hover{
+    color: var(--login-blue);
 }
 
 

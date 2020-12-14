@@ -3,9 +3,6 @@
  * Starts the section that holds all proposals made on an animal
  */?>
     <div class="proposals-page-complete">
-        <div class= "proposals-container-title">
-            <h1>Your Proposals</h1>
-        </div>
 <?php } ?>
 
 <?php function start_proposals_div(){
@@ -61,6 +58,9 @@
  * a) a user's animals still up for adoption and all of their pendind adoption proposals or 
  * b) the proposals a user has created on other people's pets
  */?>
+    <div class= "proposals-container-title">
+        <h1><?php echo ($toggle) ? "Received Proposals Status" : "Sent Proposals Status";?> <span class="material-icons-round"><?php echo ($toggle) ? "call_received" : "call_made";?></span></h1>
+    </div>
     <div class="<?php echo ($toggle) ? 'received' : 'sent';?>-proposals-container">
 
 <?php } ?>

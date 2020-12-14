@@ -55,7 +55,9 @@
             $animal = getAnimal($topic['idPet']);
 
             draw_topic_in_proposals($topic['id'], $animal);
+            start_proposals_div();
             draw_proposal($thisProposal);
+            end_proposals_div();
         }
     }
     else echo 'You havent made any proposals yet...';

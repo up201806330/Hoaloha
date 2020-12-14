@@ -33,17 +33,17 @@
 /**
  * Draws the login and register buttons.
  */ ?>
-  <li><a href="#" id="loginButton" class="button">Log In</a></li>
-  <li><a href="../pages/register.php">Sign Up</a></li>
+  <li><a href="#" id="loginButton" class="button"><span class="material-icons-round">login</span></a></li>
+  <li><a href="../pages/register.php"><span class="material-icons-round">person_add</span></a></li>
 <?php } ?>
 
 <?php function draw_logout($username) { 
 /**
  * Draws the logout section.
  */ ?> 
-    <li><a href="../pages/profile.php?username=<?=$_SESSION['username']?>" id="usernameButton" class="button"> <?=$username?> </a></li>
-    <li><a href="../pages/proposals.php" class="button">Your Proposals</a></li>
-    <li><a href="../actions/action_logout.php" id="logoutButton" class="button"> Logout </a></li>
+    <li><a href="../pages/profile.php?username=<?=$_SESSION['username']?>" id="usernameButton" class="button"><span class="material-icons-round">person</span></a></li>
+    <li><a href="../pages/proposals.php" class="button"><span class="material-icons-round">all_inbox</span></a></li>
+    <li><a href="../actions/action_logout.php" id="logoutButton" class="button"><span class="material-icons-round">logout</span></a></li>
 <?php } ?>
 
 <?php function draw_register() { 
