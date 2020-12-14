@@ -22,7 +22,7 @@
 
   draw_header();
   draw_profile($profile);
-  if($username == $_SESSION['username']) draw_edit_profile($username);
+
   start_profile_animals_up_for_adoption_div($username, (@$_SESSION['username'] == $username), count($topicsPosted));
   foreach($topicsPosted as &$thisPosted) {
     if ($thisPosted != null) {

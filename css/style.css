@@ -968,7 +968,7 @@ add_animal.php
     margin-right: 2%;
 }
 
-.topic-container .proposal-user-photo img {
+.topic-container .proposal-user-photo img, .animal-proposal-photo img{
     border-radius: 100%;
     border-style: solid;
     border-width: 10px;
@@ -1166,7 +1166,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 ---------------------------------------------
 */
 .profile-page-complete{
-    background-color: #D8F4F3;
+    background-color:#f3f2da;
 }
 
 
@@ -1211,11 +1211,25 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-width: 2px;
 }
 
-.user-card .user-name{
+.user-card .user-title{
+    display: flex;
+    justify-content: center;
+}
+
+.user-card .user-name, .user-card .edit-profile{
     position: relative;
     color: black;
     padding: 5% 0 3px 0;
     text-align: center;
+}
+
+.user-card .edit-profile .material-icons-round{
+    font-size: 70%
+}
+
+.user-card .edit-profile a{
+    color: black;
+    margin-left: 50%;
 }
 
 
@@ -1360,7 +1374,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-style: solid;
     border-color:var(--login-blue);
     border-radius: 50px;
-    border-width: 10px;
+    border-width: 2px;
     background-color: rgb(250, 250, 250);
     width: 80%;
     display: grid;
@@ -1535,4 +1549,136 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-color: var(--login-blue);
     background-color:var(--login-blue);
     width: 100%;
+}
+
+/* Proposals Page*/
+
+.proposals-page-complete{
+    background-color:  #f3f2da;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.proposals-container-title{
+    text-align: center;
+    margin: 0% 30% 3%;
+    
+}
+
+.proposals-container-title h1{
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background: white;
+    
+}
+    
+.proposals-animal-container{
+    margin: 2% 5% 3%;
+    padding: 2%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background: white;
+}
+
+.proposals-animal-container .animal-text{
+    margin-left: 2%;
+    color: black;
+}
+
+
+.proposals-animal-container a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.proposal-container-accepted{
+    margin-top: 2%;
+    padding: 2%;
+    border-style: solid;
+    border-color: #32CD32;
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: #d2f8d2; 
+}
+
+.proposal-username{
+    margin-bottom: 1%;
+}
+
+.proposal-username a{
+    margin-bottom: 1%;
+    color: black;
+    font-size: 80%;
+}
+
+
+.proposal-container-pending{
+    margin-top: 2%;
+    padding: 2%;
+    border-style: solid;
+    border-color: orange;
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: lightyellow; 
+}
+
+.proposal-container-refused{
+    margin-top: 2%;
+    padding: 2%;
+    border-style: solid;
+    border-color: red;
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: #ffc6c4; 
+}
+
+
+.proposal-container-pending .approve-button{
+    margin-right: 1%;
+    width: 25%;
+    height: 50px;
+    border: 2px solid;
+    background: #d2f8d2;
+    border-radius: 25px;
+    font-size: 18px;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
+}
+
+.proposal-container-pending .refuse-button{
+    margin-left: 1%;
+    width: 25%;
+    height: 50px;
+    border: 2px solid;
+    background:  #ffc6c4;
+    border-radius: 25px;
+    font-size: 18px;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
+}
+
+.proposal-container-pending .refuse-button:hover{
+    background: red;
+}
+
+.proposal-container-pending .approve-button:hover{
+    background: #32CD32;
+}
+
+.proposal-buttons{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
 }

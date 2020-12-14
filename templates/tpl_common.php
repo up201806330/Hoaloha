@@ -55,6 +55,8 @@ function draw_header($draw_login = true) {
 /**
  * Draws the footer for all pages.
  */ ?>
+    <footer>
+    </footer>
   </body>
 </html>
 <?php } ?>

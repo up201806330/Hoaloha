@@ -50,7 +50,7 @@
 
         foreach($results as &$result){
             $status = $result['status'];
-            if ($status == 'A' || $status == 'R') return true;
+            if ($status == 'A') return true;
         }
         return false;
     }

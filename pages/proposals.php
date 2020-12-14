@@ -1,6 +1,7 @@
 <?php
     include_once('../includes/session.php');
     include_once('../templates/tpl_common.php');
+    include_once('../templates/tpl_navbar.php');
     include_once('../templates/tpl_proposals.php');
     include_once('../templates/tpl_topic.php');
     include_once("../database/db_proposal.php");
@@ -17,7 +18,10 @@
     $topics = getTopicsPostedByUser($thisUser['id']);
 
     draw_header();
+    draw_navbar();
+    start_proposals_page();
     start_received_or_sent_proposals_div(true);
+
     if (count($topics) > 0){
         foreach($topics as &$topic){
             $animal = getAnimal($topic['idPet']);
@@ -39,6 +43,7 @@
         }
     }
     else echo 'You havent posted any animals yet...';
+
     end_received_or_sent_proposals_div();
 
     start_received_or_sent_proposals_div(false);
@@ -56,5 +61,6 @@
     else echo 'You havent made any proposals yet...';
     end_received_or_sent_proposals_div();
 
+    end_proposals_page();
     draw_footer();
 ?>

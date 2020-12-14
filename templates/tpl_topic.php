@@ -109,11 +109,12 @@
 ?>
     <div class="proposals-animal-container" >
       <a href="../pages/topic.php?id=<?=$id?>">
-        <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
+        <div class="animal-proposal-photo">
+          <img src="../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>" width="200" height="200">
         </div>
         <div class="animal-text">
-          <div class="animal-name"><?=$animal[0]['name']?></div>
-          <div class="animal-species"><?=$animal[0]['species']?></div>
+          <h1><div class="animal-name"><?=$animal[0]['name']?></div></h1>
+          <h3><div class="animal-species">Species: <?=$animal[0]['species']?></div></h3>
         </div>
       </a>
 
