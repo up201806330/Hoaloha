@@ -3,34 +3,41 @@
  * Draws the independent part of the topic (username and description)
  */
     ?>
-      <div class="topic-title-container"><h1><?=$animal_name?>'s Story</h1></div>
-
+      <div class="topic-title-container"><h1><?=$animal_name?>'s Story <span class="material-icons-round">library_books</span></h1></div>
         <div class="topic-container">
           <div class="topic-header">
             <div class="topic-title">
               <div class="topic-username">
                 Posted by
-                <a href="../pages/profile.php?username=<?=$user['username']?>" >
-                  <?=$topic['username']?>
-                </a>
+                <h1><a><?=$user['name']?></a>-
+                <a class="topic-username-link" href="../pages/profile.php?username=<?=$user['username']?>" ><?=$topic['username']?></a></h1>
               </div>
               <div class="topic-data">
-                At <a><?=$topic['data']?></a>
+                at <a><?=$topic['data']?></a>
               </div>
             </div>
+          </div>
+          <div class= "topic-body">
             <div class="user-photo">
               <a href="../pages/profile.php?username=<?=$user['username']?>" >
                 <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
               </a>
             </div>
-          </div>
-          <div class="topic-description"><?=$topic['description']?>
+          
+            <div class="topic-description"><?=$topic['description']?>
+            </div>
           </div>
 
           <?php if ($approved_proposal != null) : ?>
 
             <?php if ($approved_proposal['newName'] != null) : ?>
+          <hr>
           <div class="proposal-header">
+            <div class="proposal-user-photo">
+              <a href="../pages/profile.php?username=<?=$approved_proposal['username']?>" >
+                <img src="../database/db_link_image.php?id=<?php echo $approved_proposal['idPhoto'];?>" width="200" height="200">
+              </a>
+            </div>
             <div class="proposal-title">
               <div class="proposal-newName">
                 Changed name to 
@@ -44,26 +51,17 @@
                   <?=$approved_proposal['username']?>
                 </a>
               </div>
-            </div>
-            
-            <div class="proposal-user-photo">
-              <a href="../pages/profile.php?username=<?=$approved_proposal['username']?>" >
-                <img src="../database/db_link_image.php?id=<?php echo $approved_proposal['idPhoto'];?>" width="200" height="200">
-              </a>
-            </div>
-          </div>
-            
-          <div class="proposal-description">
-              <?=$approved_proposal['description']?>
-          </div>
 
+              <div class="proposal-description">
+                <?=$approved_proposal['description']?>
+              </div>
+            </div>
+          </div>
+          
           <?php endif; ?>
 
         </div>
-
-    </div>
-  </div>
-
+        
 <?php } ?>
 
 <?php function draw_topic_simple($id, $animal){
@@ -136,8 +134,7 @@
  * Ends the division that holds the adopt and favourite buttons
  */
 ?>
-  </div>
-
+    </div>
 <?php } ?>
 
 <?php function draw_n_results($n_results){

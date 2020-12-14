@@ -45,6 +45,13 @@ header {
     padding-right: 5px;
 }
 
+.authentication li:last-child{
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    padding-left: 5px;
+}
+
 .authentication li a{
     font-size: 20px;
     transition: all 0.3s ease 0s;
@@ -212,7 +219,6 @@ header {
 
 .message-container {
     position: relative;
-    top: 10%;
     width: 100%;
     height: 100%;
     display: flex;
@@ -227,11 +233,10 @@ header {
   }
 
 .message-content{
-    padding-top: 1%;
+    padding-top: 5px;
     width: 200px;
     height: 75px;
     background-color: rgba(0, 0, 0, 0);
-    top: 30%;
     text-align: center;
     overflow: hidden;
     position: absolute;
@@ -378,7 +383,7 @@ header {
     padding: 5% 10% 8%;
 }
 
-.search-content > form > button, .advanced-search-form > button, .adopt-favourite-container > button {
+.search-content > form > button, .advanced-search-form > button, .adopt-favourite-container > button{
     margin-top: 7%;
     width: 75%;
     height: 50px;
@@ -797,12 +802,11 @@ add_animal.php
 
 /*
 ---------------------------------------------
-    animal.php
+    topic.php
 ---------------------------------------------
 */
 
 .animal-page-complete{
-    align-content: center;
     background-color: #f3f2da;
     width: 100%;
 }
@@ -935,11 +939,12 @@ add_animal.php
 }
 
 .adopt-favourite-container {
-    margin: 1% 20% 2%;
+    margin: 1% 20% 6%;
     text-align: center;
 }
 
 .topic-container {
+    padding: 1vh;
     color: black;
     border-radius: 10px;
     background-color: rgb(250, 250, 250);
@@ -948,88 +953,45 @@ add_animal.php
     border-radius: 50px;
     border-width: 2px;
     margin: 0 20% 5%;
-    padding: 0% 3% 2%;
-    min-width: 380px;
+    height: auto;
 }
 
-.topic-container .user-photo, .topic-container .proposal-user-photo  {
-    
-    position: relative;
-    top: -20px;
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    flex: 2;
+.topic-container hr{
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    background-color:gray;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
-.topic-container .proposal-user-photo {
-    top: 10px;
-}
-
-.topic-container .user-photo img, .topic-container .proposal-user-photo img {
-
-
-
+.topic-container .proposal-user-photo img {
     border-radius: 100%;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-left-style: solid;
+    border-style: solid;
     border-width: 10px;
     border-color: var(--login-blue);
 }
 
-.topic-container .user-photo a, .topic-container .proposal-user-photo a {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-    align-items: center;
 
-    min-width: 100px;
-    min-height: 100px;
-    width: 15vh;
-    height: 15vh;
-    max-width: 300px;
-    max-height: 300px;
-}
-
-
-.topic-header, .proposal-header {
-    margin-bottom: 2vh;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.topic-title, .proposal-title{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: auto;
-    flex: 2;
-
-    margin-right: 2%;
-}
-
-.topic-username, .proposal-user {
+.proposal-user {
     font-size: 4vh;
 }
 
-
-.topic-data, .proposal-newName {
-    font-size: 2vh;
+.proposal-newName {
+    font-size: 100%;
     font-style: italic;
 }
 
-.proposal-header .proposal-title {
-    padding-top: 5%;
+.proposal-description {
+    text-align: justify;
 }
 
-
+.proposal-title{
+    margin-right: 2%;
+}
 
 
 .animal-card ul li {
@@ -1050,18 +1012,22 @@ add_animal.php
     justify-content: center;
 }
 
-.topic-title-container h1 {
+.topic-title-container .material-icons-round, .questions-title-container .material-icons-round{
+    font-size: 80%;
+}
 
+.topic-title-container h1, .questions-title-container h1{
     border-style: solid;
     border-color:var(--login-blue);
     border-radius: 50px;
     border-width: 2px;
     background-color: white;
     color: black;
+    text-align: center;
     padding: 1vh;
 }
 
-.topic-username > a, .proposal-user > a {
+.proposal-user > a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: 400;
@@ -1076,8 +1042,29 @@ add_animal.php
 
 
 
-.topic-username > a:hover, .proposal-user > a:hover {
+.proposal-user > a:hover {
     color: var(--login-blue);
+}
+
+.topic-username-link, .topic-question-link, .topic-answer-link {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    line-height: 1rem;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out, ;
+}
+
+.topic-username-link:hover, .topic-question-link:hover, .topic-answer-link:hover{
+    color: var(--login-blue);
+}
+
+.topic-data, .question-data, .answer-data{
+    font-size: 80%;
 }
 
 select {
@@ -1379,4 +1366,173 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 1vh;
+}
+
+
+/*Comments and Answers in topic.php*/
+.questions-title-container h1{
+    margin: 2% 10% 3%;
+}
+
+.questions-title-container{
+    width: 100%;
+}
+
+
+.question-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.questions-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 80%;
+}
+
+.question-container{
+    padding: 1vh;
+    width: 100%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: rgb(250, 250, 250);
+    margin-bottom: 1vh;
+}
+
+.answers-container{
+    width: 100%;
+}
+
+.answer-container{
+    padding: 1vh;
+    width: 80%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: rgb(250, 250, 250);
+    float: right;
+    margin-bottom: 1vh;
+}
+
+.question-header, .answer-header, .topic-header{
+    padding-left: 2%;
+    padding-top: 1%;
+}
+
+.question-header h1, .answer-header h1, .topic-header h1{
+    font-size: 150%;
+    color: black;
+}
+
+
+.question-body, .answer-body, .topic-body, .proposal-header{
+    display: flex;
+    padding: 1%;
+    width: auto;
+}
+
+.question-body .user-photo, .answer-body .user-photo, .topic-body .user-photo, .proposal-user-photo{
+    margin-left: 2%;
+    margin-right: 4%;
+
+}
+
+.question-body .user-photo img, .answer-body .user-photo img, .topic-body .user-photo img{
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: var(--login-blue);
+}
+
+.question-description, .answer-description, .topic-description{
+    font-size: 120%;
+    text-align: justify;
+    margin-right: 2%;
+}
+
+.add-question-container, .add-answer-container{
+    width: 80%;
+}
+
+.textinput{
+    width: 100%;
+}
+
+.add-question-container .textinput textarea, .add-answer-container .textinput textarea{
+    width: 100%;
+    min-height: 30vh;
+    font-size: 30px;
+    padding: 3%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none;
+}
+
+.add-answer-container .textinput textarea{
+    min-height: 20vh;
+}
+
+.form-title{
+    padding: 1%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: white;
+    width: 30%;
+    margin-bottom: 1%;
+    font-size: 80%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.form-title .material-icons-round{
+    font-size: 80%
+}
+
+.forum-button{
+    margin-left: 70%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    width: 25%;
+    height: 50px;
+    border: 2px solid;
+    background: var(--login-blue);
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
+}
+
+
+.forum-button:hover{
+    background: white;
+    color: var(--login-blue);
+}
+
+
+.question-section hr{
+    margin-bottom: 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: var(--login-blue);
+    background-color:var(--login-blue);
+    width: 100%;
 }
