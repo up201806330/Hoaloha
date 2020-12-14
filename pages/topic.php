@@ -82,6 +82,6 @@
   else{
     echo '<div classs="add-question-container">Log in to ask a question</div>';
   }
-
+  draw_end_question_section();
   draw_footer();
   ?>

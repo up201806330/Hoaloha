@@ -16,27 +16,28 @@
     ?>
    
             <div class="answer-container">
-
-                <div class="answer-username">
-                Posted by
-                <a><?=$answer['name']?></a>
-                <a href="../pages/profile.php?username=<?=$answer['username']?>" >
-                    <?=$answer['username']?>
-                </a>
+                <div class="answer-header">
+                    <div class="answer-username">
+                    Posted by
+                    <h1><a><?=$answer['name']?></a> -
+                    <a class="topic-answer-link" href="../pages/profile.php?username=<?=$answer['username']?>" >
+                        <?=$answer['username']?>
+                    </a></h1>
+                    </div>
+                    <div class="answer-data">
+                    at <a><?=$answer['data']?></a>
+                    </div>
                 </div>
-                <div class="answer-data">
-                at <a><?=$answer['data']?></a>
+                
+                <div class="answer-body">
+                    <div class="user-photo">
+                        <a href="../pages/profile.php?username=<?=$answer['username']?>" >
+                            <img src="../database/db_link_image.php?id=<?php echo $answer['idPhoto'];?>" width="200" height="200">
+                        </a>
+                    </div>
+                    <div class="answer-description"><?=$answer['answer']?>
+                    </div>
                 </div>
-
-                <div class="user-photo">
-                <a href="../pages/profile.php?username=<?=$answer['username']?>" >
-                    <img src="../database/db_link_image.php?id=<?php echo $answer['idPhoto'];?>" width="200" height="200">
-                </a>
-                </div>
-            
-                <div class="answer-description"><?=$answer['answer']?>
-                </div>
-
             </div>
 
 <?php } ?>
@@ -46,13 +47,13 @@
     <div class = "add-answer-container">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
-            <label> Add an Answer </label>
+        <div class="form-title"><h1>Add an Answer <span class="material-icons-round">insert_comment</span></h1></div>
             <div class="textinput">
                 <textarea name="text"></textarea>
             </div>
             <input type="hidden" id = "idQuestion" value="<?=$idQuestion?>">  
             <input type="hidden" id = "idUser" value="<?=$idUser?>"> 
-            <input type="submit" id="<?=$idQuestion?>" value="Reply">
+            <input class="forum-button" type="submit" id="<?=$idQuestion?>" value="Reply">
         </form>
     <?php } else { ?>
         <label> Add an Answer </label>
@@ -60,6 +61,7 @@
 
     <?php } ?>
     </div>
+    <hr>
 <?php
 }
 ?>
