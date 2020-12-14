@@ -1,6 +1,6 @@
 'use strict'
 
-var form = document.querySelector(".addQuestion form");
+var form = document.querySelector(".add-question-container form");
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
@@ -11,7 +11,7 @@ function encodeForAjax(data) {
 
 function submitQuestionForm(event){
     
-    var question = document.querySelector('.addQuestion form textarea').value;
+    var question = document.querySelector('.add-question-container form textarea').value;
     var idTopic = document.querySelector('form #idTopic').value;
     var idUser = document.querySelector('form #idUser').value;
     //var data = document.querySelector('form #data').value;

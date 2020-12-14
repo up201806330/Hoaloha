@@ -1,6 +1,6 @@
 'use strict'
 
-var forms = document.querySelectorAll(".addAnswer form");
+var forms = document.querySelectorAll(".add-answer-container form");
 
 forms.forEach(form => {form.addEventListener("submit", submitAnswerForm);});
 
@@ -16,7 +16,7 @@ function submitAnswerForm(event){
     
     let thisForm = event.target;
 
-    var answer = thisForm.querySelector('.addAnswer form textarea').value;
+    var answer = thisForm.querySelector('.add-answer-container form textarea').value;
     var idQuestion = thisForm.querySelector('form #idQuestion').value;
     console.log(idQuestion);
     var idUser = thisForm.querySelector('form #idUser').value;
