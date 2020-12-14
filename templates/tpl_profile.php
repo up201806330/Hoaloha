@@ -11,8 +11,11 @@
         <div class="user-photo"> 
             <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
         </div>
-        <div class="user-card">  
-            <div class="user-name"> <h1><?=$user['name'] ?></h1> </div>
+        <div class="user-card">
+            <div class="user-title"> 
+                <div class="user-name"> <h1><?=$user['name'] ?></h1> </div>
+                <?php if($user['username'] == $_SESSION['username']) draw_edit_profile($user['username']);?>
+            </div> 
             <hr>
         
             <div class= "user-information">
@@ -31,7 +34,7 @@
 <?php function draw_edit_profile($username){
     ?>
     <div class="edit-profile">
-        <a href="../pages/edit_profile.php?username=<?=$username?>">Edit Profile</a>
+        <h1><a href="../pages/edit_profile.php?username=<?=$username?>"><span class="material-icons-round">settings</span></a></h1>
     </div>
 <?php } ?>
 

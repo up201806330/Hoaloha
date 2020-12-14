@@ -20,7 +20,6 @@
 
   draw_header();
   draw_profile($profile);
-  if($username == $_SESSION['username']) draw_edit_profile($username);
   start_profile_animals_div($username, (@$_SESSION['username'] == $username), count($topics));
   foreach($topics as &$topic) {
     if ($topic != null) {
