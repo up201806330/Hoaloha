@@ -51,9 +51,9 @@
 
 <?php } ?>
 
-<?php function start_profile_animals_div($username, $is_own_profile, $n_topics){
+<?php function start_profile_animals_up_for_adoption_div($username, $is_own_profile, $n_topics){
 /**
- * Starts the division where the users' animals are displayed
+ * Starts the division where the users' animals still up for adoption are displayed
  */
 ?>
     <?php 
@@ -72,15 +72,46 @@
 <?php } ?>
 
 
-<?php function end_profile_animals_div(){
+<?php function end_profile_animals_up_for_adoption_div(){
 /**
- * Ends the division where the users' animals are displayed
+ * Ends the division where the users' animals still up for adoption are displayed
  */
 ?>
         </div>
     </div>
 
 <?php } ?>
+
+<?php function start_profile_animals_adopted_div($username, $is_own_profile, $n_topics){
+/**
+ * Starts the division where the animals adopted by this user are displayed
+ */
+?>
+    <?php 
+        $string = $is_own_profile ? 
+            ($n_topics > 0 ? 'The animals you have adopted' : 'You havent adopted any animals yet...') : 
+            ($n_topics > 0 ? $username . chr(39) . 's adopted animals' : $username . ' hasnt adopted any animals yet');
+    ?>
+
+    <div class="profile-adopted-title-container">
+        <h1><?= $string ?></h1>
+    </div>
+
+    <div class="profile-adopted-ext-container">
+        <div class="profile-adopted-container">
+
+<?php } ?>
+
+
+<?php function end_profile_animals_adopted_div(){
+/**
+* Ends the division where the animals adopted by this user are displayed */
+?>
+        </div>
+    </div>
+
+<?php } ?>
+
 
 <?php function start_profile_favourites_div($username, $is_own_profile, $n_favourites){
 /**

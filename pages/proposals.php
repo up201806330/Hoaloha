@@ -44,15 +44,16 @@
     start_received_or_sent_proposals_div(false);
 
     $thisProposals = getAllUsersProposals($thisUser['id']);
+    if (count($thisProposals) > 0){
+        foreach($thisProposals as &$thisProposal){
+            $topic = getTopic($thisProposal['idTopic']);
+            $animal = getAnimal($topic['idPet']);
 
-    foreach($thisProposals as &$thisProposal){
-        $topic = getTopic($thisProposal['idTopic']);
-        $animal = getAnimal($topic['idPet']);
-
-        draw_topic_in_proposals($topic['id'], $animal);
-        draw_proposal($thisProposal);
+            draw_topic_in_proposals($topic['id'], $animal);
+            draw_proposal($thisProposal);
+        }
     }
-
+    else echo 'You havent made any proposals yet...';
     end_received_or_sent_proposals_div();
 
     draw_footer();
