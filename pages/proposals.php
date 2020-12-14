@@ -20,9 +20,14 @@
     draw_header();
     draw_navbar();
     start_proposals_page();
+    start_received_or_sent_proposals_div(true);
+
     if (count($topics) > 0){
         foreach($topics as &$topic){
             $animal = getAnimal($topic['idPet']);
+
+            if (isAnimalAdopted($topic['idPet'])) continue;
+
             draw_topic_in_proposals($topic['id'], $animal);
 
             if ($topic != null) $proposals = getAllTopicsProposals($topic['id']);
@@ -38,6 +43,24 @@
         }
     }
     else echo 'You havent posted any animals yet...';
+
+    end_received_or_sent_proposals_div();
+
+    start_received_or_sent_proposals_div(false);
+
+    $thisProposals = getAllUsersProposals($thisUser['id']);
+    if (count($thisProposals) > 0){
+        foreach($thisProposals as &$thisProposal){
+            $topic = getTopic($thisProposal['idTopic']);
+            $animal = getAnimal($topic['idPet']);
+
+            draw_topic_in_proposals($topic['id'], $animal);
+            draw_proposal($thisProposal);
+        }
+    }
+    else echo 'You havent made any proposals yet...';
+    end_received_or_sent_proposals_div();
+
     end_proposals_page();
     draw_footer();
 ?>

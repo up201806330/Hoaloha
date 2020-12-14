@@ -32,6 +32,14 @@
     $stmt->execute(array($idUser));
     return $stmt->fetchAll();
   }
+
+  function getTopicsAdoptedByUser($idUser){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('SELECT DISTINCT Topics.* FROM Proposals, Topics WHERE Proposals.idUser = ? AND Topics.id = Proposals.idTopic AND Proposals.status = ?');
+    $stmt->execute(array($idUser, 'A'));
+    return $stmt->fetchAll();
+  }
   
   function topicWasPostedByUser($idTopic, $idUser){
     $topics = getTopicsPostedByUser($idUser);
