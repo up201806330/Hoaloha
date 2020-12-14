@@ -26,6 +26,14 @@
         return $stmt->fetchAll();
     }
 
+    function getAllUsersProposals($idUser){
+        $db = Database::instance()->db();
+    
+        $stmt = $db->prepare('SELECT Proposals.* , UserEntities.username FROM Proposals, UserEntities WHERE Proposals.idUser = UserEntities.id AND Proposals.idUser = ?');
+        $stmt->execute(array($idUser));
+        return $stmt->fetchAll();
+    }
+
     function insertProposal($idUser, $idTopic, $newName, $description) {
         $db = Database::instance()->db();
 
