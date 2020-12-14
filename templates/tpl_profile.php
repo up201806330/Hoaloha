@@ -31,7 +31,7 @@
 <?php function draw_edit_profile($username){
     ?>
     <div class="edit-profile">
-        <a href="../pages/edit_profile.php?username=<?=$username?>">
+        <a href="../pages/edit_profile.php?username=<?=$username?>">Edit Profile</a>
     </div>
 <?php } ?>
 
