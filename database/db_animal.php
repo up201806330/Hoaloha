@@ -52,4 +52,23 @@
     $stmt->execute(array($name, $species, $breed, $weight, $color, $dimension, $gender, $age, $idAnimal));
 
   }
+
+  function deleteAnimal($idAnimal){
+
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('SELECT idPhoto FROM PetPhotos WHERE idPet = ?');
+    $stmt->execute(array($idAnimal));
+    $photosIds = $stmt->fetchAll();
+
+    foreach($photosIds as &$photoId){
+      $stmt = $db->prepare('DELETE FROM Photos WHERE id = ?');
+      $stmt->execute(array($photoId['idPhoto']));
+    }
+
+    $stmt = $db->prepare('DELETE FROM Pets WHERE id = ?');
+    $stmt->execute(array($idAnimal));
+
+  }
+
 ?>
