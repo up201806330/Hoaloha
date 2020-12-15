@@ -172,9 +172,18 @@ function receiveQuestions() {
 
         addAnswer.appendChild(form);
 
+        form.addEventListener("submit", submitAnswerForm);
+
+        let answerContainer = document.createElement('div');
+        answerContainer.setAttribute('class','answers-container');
+        answerContainer.setAttribute('id','answers-container' + idQuestion);
+
+        questions.appendChild(answerContainer);
+
         questions.appendChild(addAnswer);
               
     })
 }
+
 
 form.addEventListener("submit", submitQuestionForm);
