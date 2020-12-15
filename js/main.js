@@ -156,3 +156,33 @@ function approvalOrRefusalBox(isApproval, idUser, idTopic){
         if (confirm("Are you sure you want to refuse this proposal?")) window.location.replace("../actions/action_refuse_proposal.php?idUser=" + idUser + "&idTopic=" + idTopic);
     }
 }
+
+//Image selector in edit_profile.php
+const wrapper = document.querySelector(".wrapper");
+const fileName = document.querySelector(".file-name");
+const defaultBtn = document.querySelector("#default-btn");
+const customBtn = document.querySelector("#custom-btn");
+const cancelBtn = document.querySelector("#cancel-btn i");
+const img = document.querySelector(".image img");
+let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+defaultBtn.addEventListener("change", function(){
+    const file = this.files[0];
+    var result;
+    if(file){
+        document.querySelector(".change-photo-container .wrapper img").style.objectFit = "cover";
+        const reader = new FileReader();
+        reader.onload = function(){
+        result = reader.result;
+        img.src = result;
+        console.log(img.src);
+        wrapper.classList.add("active");
+        }
+        cancelBtn.addEventListener("click", function(){
+            img.src = "../assets/dog.png";
+            document.querySelector(".change-photo-container .wrapper img").style.objectFit = "contain";
+        wrapper.classList.remove("active");
+        })
+        reader.readAsDataURL(file);
+    }
+    return false
+});

@@ -296,11 +296,9 @@ header {
     text-align: left;
     margin-left: 30%;
     margin-right: 25%;
-
     margin-top: 6px;
     margin-bottom: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -408,7 +406,6 @@ header {
 
 .species-checkbox-container{
     border-top-style: solid;
-    border-bottom-style: solid;
     border-color: var(--login-blue);
     border-width: 2px;
 }
@@ -429,6 +426,11 @@ header {
 .gender-checkbox-container .checkbox-container{
     color: black;
     font-size: 20px
+}
+
+.show-adopted-checkbox-container .checkbox-container{
+    color: black;
+    font-size: 23px;
 }
 
 .gender-checkbox-container{
@@ -555,7 +557,9 @@ body > div > div.login-container > div {
 }
 
 
-#signup {
+#signup{
+    display : flex;
+    justify-content: center;
     border-top-style: solid;
     border-width: 15px;
     border-color: var(--login-blue);
@@ -569,17 +573,17 @@ body > div > div.login-container > div {
 .register-content{
     padding-top: 10px;
     padding-bottom: 20px;
-    margin: auto;
-    margin-top: 50px;
+    margin-top: 2%;
     width: 450px;
     margin-bottom: 150px;
     background-color: rgba(255,255,255,0.7);
     border-radius: 8px;
     text-align: center;
     overflow: hidden;
+    border: 2px solid var(--login-blue);
 }
 
-#signup .register-content h1{
+#signup .register-content h1, #edit-profile-container .edit-content h1{
     font-size: 50px;
     text-align: center;
     font-weight: normal;
@@ -587,7 +591,7 @@ body > div > div.login-container > div {
     color: darkblue;
 }
 
-.register-content h2{
+.register-content h2,.edit-content h2{
     font-size: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--login-blue);
@@ -595,7 +599,7 @@ body > div > div.login-container > div {
 }
 
 
-.register-content > form > button{
+.register-content > form > button, #edit-profile-container > button{
     width: 100%;
     height: 50px;
     border: 2px solid;
@@ -610,12 +614,12 @@ body > div > div.login-container > div {
 }
 
 
-.register-content > form > button:hover{
+.register-content > form > button:hover, #edit-profile-container > button:hover{
     background-color: white;
     color: var(--login-blue);
 }
 
-#signup .txt_field label{
+#signup .txt_field label, #edit-profile-container .txt_field label{
     position: absolute;
     top: 30%;
     left: 5px;
@@ -625,7 +629,7 @@ body > div > div.login-container > div {
     transition: 0.5s;
 }
 
-#signup .txt_field span::before{
+#signup .txt_field span::before,#edit-profile-container .txt_field span::before{
     content: '';
     position: absolute;
     top: 100%;
@@ -639,7 +643,6 @@ body > div > div.login-container > div {
 
 #signup .txt_field input:focus ~ label,
 #signup .txt_field input:valid ~ label{
-    top: -15px;
     color: var(--login-blue)
 }
 
@@ -807,11 +810,12 @@ add_animal.php
 .animal-page-complete, .profile-page-complete {
     background-color: #f3f2da;
     width: 100%;
+    padding-bottom: 2%;
 }
 
 .animal-page-complete > svg, .profile-page-complete > svg {
     width:100%;
-    height: 20%;
+    height: 30%;
     position: absolute;
     z-index: 0;
 }
@@ -925,6 +929,19 @@ add_animal.php
 
 .adopt-button-container {
     margin: auto;
+}
+
+.adopt-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    border: 2px solid;
+    background: white;
+    border-radius: 25px;
+    border-color: red;
+    color: black
 }
 
 .add-to-favourites-button-unliked, .add-to-favourites-button-liked, .favourites-counter {
@@ -1164,6 +1181,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 */
 .profile-page-complete{
     background-color:#f3f2da;
+    padding-bottom: 2%;
 }
 
 
@@ -1246,7 +1264,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 
 
 /*-----------------------------------------*/
-.profile-animals-title-container{
+.profile-animals-title-container, .profile-adopted-title-container{
     color: white;
     text-align: center;
     width: 100%;
@@ -1255,7 +1273,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     justify-content: center;
 }
 
-.profile-animals-title-container h1{
+.profile-animals-title-container h1, .profile-adopted-title-container h1{
     width: 60%;
     border-style: solid;
     border-color:var(--login-blue);
@@ -1266,7 +1284,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     padding: 1vh;
 }
 
-.profile-animals-ext-container{
+.profile-animals-ext-container, .profile-adopted-ext-container{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1274,7 +1292,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 
 }
 
-.profile-animals-container{
+.profile-animals-container, .profile-adopted-container{
     border-style: solid;
     border-color:var(--login-blue);
     border-radius: 50px;
@@ -1336,7 +1354,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 .profile-animal-container:hover .animal-text .animal-species{
     color: white;
 }
-
 
 /*------------------------*/
 .profile-favourites-title-container{
@@ -1428,6 +1445,8 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     float: right;
     margin-bottom: 1vh;
 }
+
+
 
 .question-header, .answer-header, .topic-header{
     padding-left: 2%;
@@ -1553,6 +1572,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     background-color:  #f3f2da;
     padding-top: 2%;
     padding-bottom: 2%;
+    min-height: 100vh;
 }
 
 .proposals-container-title{
@@ -1566,6 +1586,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 .proposals-container-title h1{
+    padding: 1vh;
     border-style: solid;
     border-color:var(--login-blue);
     border-radius: 50px;
@@ -1600,11 +1621,11 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 
-.proposals-animal-container a{
+.proposals-animal-inner-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    width: auto;
 }
 
 .proposal-container-accepted{
@@ -1685,15 +1706,154 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 .proposal-container-pending .refuse-button:hover{
-    background: red;
+    background: #ff726f;
 }
 
 .proposal-container-pending .approve-button:hover{
-    background: #32CD32;
+    background: #7aeb7a;
 }
 
 .proposal-buttons{
     margin-top: 2%;
     display: flex;
     justify-content: center;
+}
+
+
+/*edit-profile-image-upload*/
+.change-photo-container{
+    margin-top: 2%;
+}
+
+
+.change-photo-container .container{
+    height: 350px;
+    width: 430px;
+    position: relative;
+  }
+.change-photo-container .container .wrapper{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.7);
+    border: 2px solid var(--login-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+.change-photo-container .wrapper .image{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.7);
+  }
+
+.change-photo-container .wrapper img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+.change-photo-container .wrapper #cancel-btn i{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: var(--login-blue);
+    cursor: pointer;
+    display: none;
+    transition: ease-out 0.3s;
+  }
+.change-photo-container .wrapper.active:hover #cancel-btn i{
+    display: block;
+  }
+.change-photo-container  .wrapper #cancel-btn i:hover{
+    color: #e74c3c;
+  }
+
+.change-photo-container .wrapper.active:hover .file-name{
+    display: block;
+  }
+
+.change-photo-container .container #custom-btn{
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: var(--login-blue);
+    transition: ease-out 0.5s;
+}
+
+.change-photo-container .container #custom-btn:hover{
+    background-color: white;
+    color: var(--login-blue);
+    border-color: var(--login-blue);
+}
+
+
+#edit-profile-container{
+    background-image: url(../assets/edit_profile.jpg);
+}
+
+#edit-profile-container .txt_field input:focus ~ label,
+#edit-profile-container .txt_field input:not(:placeholder-shown) ~ label{
+    top: -15px;
+    color: var(--login-blue)
+}
+
+#edit-profile-container .txt_field input:focus ~ span::before,
+#edit-profile-container .txt_field input:not(:placeholder-shown) ~ span::before{
+    width: 100%;
+}
+
+
+.form-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-content{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 2%;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    border: 2px solid var(--login-blue);
+    width: 50%;
+}
+
+#edit-profile-container{
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-details-container{
+    width: 35%;
+}
+
+#edit-profile-container > button{
+    width: 50%;
 }
