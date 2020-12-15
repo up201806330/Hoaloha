@@ -52,7 +52,7 @@
     }
   }
   else {
-    if (!isAnimalAdopted($topic['idPet'])) echo '<div class="adopt-button-container">Log in to adopt this pet</div>';
+    if (!isAnimalAdopted($topic['idPet'])) echo '<div class="adopt-button-container">Log in to adopt this pet & join the conversation with other owners!</div>';
   }
 
   end_adopt_favourite_container();
@@ -70,17 +70,11 @@
     if($isLoggedIn){
       draw_add_answer($question['id'],$thisUser['id']);
     }
-    else{
-      echo '<div class="add-answer-container">Log in to answer a question</div>';
-    }
   }
   draw_end_questions_container();
   
   if($isLoggedIn){
     draw_add_question($topic['id'],$thisUser['id']);
-  }
-  else{
-    echo '<div classs="add-question-container">Log in to ask a question</div>';
   }
   draw_end_question_section();
   draw_footer();
