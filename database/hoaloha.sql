@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS PetPhotos;
 DROP TABLE IF EXISTS Pets;
 DROP TABLE IF EXISTS UserPhotos;
 DROP TABLE IF EXISTS UserEntities;
-DROP TABLE IF EXISTS Locations;
+/*DROP TABLE IF EXISTS Locations;*/
 DROP TABLE IF EXISTS Photos;
 
 PRAGMA foreign_keys=ON;
@@ -40,8 +40,8 @@ CREATE TABLE UserEntities (
 );
 
 CREATE TABLE UserPhotos(
-	idUser         	INTEGER REFERENCES UserEntities(id),
-	idPhoto        	INTEGER REFERENCES Photos(id),
+	idUser         	INTEGER REFERENCES UserEntities(id) ON DELETE CASCADE,
+	idPhoto        	INTEGER REFERENCES Photos(id) ON DELETE CASCADE,
 	PRIMARY KEY 	(idUser,idPhoto)
 );
 
@@ -60,29 +60,29 @@ CREATE TABLE Pets(
 
 
 CREATE TABLE PetPhotos(
-	idPet         	INTEGER REFERENCES Pets(id),
-	idPhoto        	INTEGER REFERENCES Photos(id),
+	idPet         	INTEGER REFERENCES Pets(id) ON DELETE CASCADE,
+	idPhoto        	INTEGER REFERENCES Photos(id) ON DELETE CASCADE,
 	PRIMARY KEY 	(idPet,idPhoto)
 );
 
 CREATE TABLE Topics(
 	id 				INTEGER PRIMARY KEY,
-    idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-    idPet           INTEGER NOT NULL UNIQUE REFERENCES Pets(id) ON UPDATE CASCADE,
+    idUserEntity    INTEGER NOT NULL REFERENCES UserEntities(id) ON DELETE CASCADE,
+    idPet           INTEGER NOT NULL UNIQUE REFERENCES Pets(id) ON DELETE CASCADE,
 	description     VARCHAR(255) NOT NULL,
 	data            DATATIME NOT NULL
 );
 
 CREATE TABLE UserFavourites(
-	idUser       	INTEGER REFERENCES UserEntities(id),
-	idTopic      	INTEGER REFERENCES Topics(id),
+	idUser       	INTEGER REFERENCES UserEntities(id) ON DELETE CASCADE,
+	idTopic      	INTEGER REFERENCES Topics(id) ON DELETE CASCADE,
 	PRIMARY KEY 	(idUser,idTopic)
 );
 
 -- status either is 'P' (pending), 'A' (approved), 'F' (finalized) or 'R' (refused)
 CREATE TABLE Proposals(
-    idUser    		INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-    idTopic         INTEGER NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
+    idUser    		INTEGER NOT NULL REFERENCES UserEntities(id) ON DELETE CASCADE,
+    idTopic         INTEGER NOT NULL REFERENCES Topics(id) ON DELETE CASCADE,
 	newName         VARCHAR(255),
 	description     VARCHAR(255) NOT NULL,
     status          char(1) NOT NULL DEFAULT 'P' CHECK (status in ('P', 'A', 'F', 'R')),
@@ -91,16 +91,16 @@ CREATE TABLE Proposals(
 
 CREATE TABLE Questions(
     id              INTEGER PRIMARY KEY,
-    idUserEntity   	INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-    idTopic         INTEGER NOT NULL REFERENCES Topics(id) ON UPDATE CASCADE,
+    idUserEntity   	INTEGER NOT NULL REFERENCES UserEntities(id) ON DELETE CASCADE,
+    idTopic         INTEGER NOT NULL REFERENCES Topics(id) ON DELETE CASCADE,
     question        VARCHAR(255) NOT NULL,
 	data            DATATIME NOT NULL
 );
 
 CREATE TABLE Answers(
 	id        		INTEGER PRIMARY KEY,
-	idUserEntity   	INTEGER NOT NULL REFERENCES UserEntities(id) ON UPDATE CASCADE,
-	idQuestion      INTEGER NOT NULL REFERENCES Questions(id) ON UPDATE CASCADE,
+	idUserEntity   	INTEGER NOT NULL REFERENCES UserEntities(id) ON DELETE CASCADE,
+	idQuestion      INTEGER NOT NULL REFERENCES Questions(id) ON DELETE CASCADE,
 	answer          VARCHAR(255) NOT NULL,
 	data            DATATIME NOT NULL
 );

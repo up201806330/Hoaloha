@@ -57,4 +57,12 @@
     return $stmt->fetch();
   }
 
+  function updateTopicDescription($idTopic,$description){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('UPDATE Topics SET description = ? WHERE id = ?');
+    $stmt->execute(array($description, $idTopic));
+
+  }
+
 ?>

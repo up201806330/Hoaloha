@@ -52,28 +52,46 @@ function receiveAnswers() {
         let newAnswerContainer = document.createElement('div');
         newAnswerContainer.setAttribute('class','answer-container');
 
+        let answerHeader = document.createElement('div');
+        answerHeader.setAttribute('class','answer-header');
+
         let newAnswerUsername = document.createElement('div');
         newAnswerUsername.setAttribute('class','answer-username');
         newAnswerUsername.innerText = "Posted by";
 
+        let h1 = document.createElement('h1');
+
         let articleName = document.createElement('a');
-        articleName.innerText = name;
+        articleName.innerText = name + " - ";
+
+        h1.appendChild(articleName);
 
         let articleProfile = document.createElement('a');
+        articleProfile.setAttribute('class','topic-answer-link');
         articleProfile.setAttribute('href',"../pages/profile.php?username=" + username);
+        articleProfile.innerText = username;
 
-        newAnswerUsername.appendChild(articleName);
-        newAnswerUsername.appendChild(articleProfile);
+        //newAnswerUsername.appendChild(articleName);
+        //newAnswerUsername.appendChild(articleProfile);
+        h1.appendChild(articleProfile);
+
+        newAnswerUsername.appendChild(h1);
 
         let answerData = document.createElement('div');
         answerData.setAttribute('class','answer-data');
 
-        answerData.innerText = "at";
+        answerData.innerText = " at";
 
         let articleData = document.createElement('a');
         articleData.innerText = data;
 
         answerData.appendChild(articleData);
+
+        answerHeader.appendChild(newAnswerUsername);
+        answerHeader.appendChild(answerData);
+
+        let answerBody = document.createElement('div');
+        answerBody.setAttribute('class','answer-body');
 
         let userPhotoContainer = document.createElement('div');
         userPhotoContainer.setAttribute('class','user-photo');
@@ -94,10 +112,15 @@ function receiveAnswers() {
         description.setAttribute('class','answer-description');
         description.innerText = answerText;
 
-        newAnswerContainer.appendChild(newAnswerUsername);
-        newAnswerContainer.appendChild(answerData);
-        newAnswerContainer.appendChild(userPhotoContainer);
-        newAnswerContainer.appendChild(description);
+        answerBody.appendChild(userPhotoContainer);
+        answerBody.appendChild(description);
+
+        //newAnswerContainer.appendChild(newAnswerUsername);
+        //newAnswerContainer.appendChild(answerData);
+        //newAnswerContainer.appendChild(userPhotoContainer);
+        //newAnswerContainer.appendChild(description);
+        newAnswerContainer.appendChild(answerHeader);
+        newAnswerContainer.appendChild(answerBody);
 
         answers.appendChild(newAnswerContainer);
               

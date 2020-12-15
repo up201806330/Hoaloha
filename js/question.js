@@ -49,30 +49,46 @@ function receiveQuestions() {
         let newQuestionContainer = document.createElement('div');
         newQuestionContainer.setAttribute('class','question-container');
 
+        let questionHeader = document.createElement('div');
+        questionHeader.setAttribute('class', 'question-header');
+
         let newQuestionUsername = document.createElement('div');
         newQuestionUsername.setAttribute('class','question-username');
         newQuestionUsername.innerText = "Posted by";
 
+        let h1 = document.createElement('h1');
+
         let articleName = document.createElement('a');
-        articleName.innerText = name;
+        articleName.innerText = name + " - ";
 
         let articleProfile = document.createElement('a');
+        articleProfile.setAttribute('class','topic-question-link');
         articleProfile.setAttribute('href',"../pages/profile.php?username=" + username);
 
         articleProfile.innerText = username;
 
-        newQuestionUsername.appendChild(articleName);
-        newQuestionUsername.appendChild(articleProfile);
+        h1.appendChild(articleName);
+        h1.appendChild(articleProfile);
+
+        //newQuestionUsername.appendChild(articleName);
+        //newQuestionUsername.appendChild(articleProfile);
+        newQuestionUsername.appendChild(h1);
 
         let questionData = document.createElement('div');
         questionData.setAttribute('class','question-data');
 
-        questionData.innerText = "at";
+        questionData.innerText = "at ";
 
         let articleData = document.createElement('a');
         articleData.innerText = data;
 
         questionData.appendChild(articleData);
+
+        questionHeader.appendChild(newQuestionUsername);
+        questionHeader.appendChild(questionData);
+
+        let questionBody = document.createElement('div');
+        questionBody.setAttribute('class', 'question-body');
 
         let userPhotoContainer = document.createElement('div');
         userPhotoContainer.setAttribute('class','user-photo');
@@ -93,30 +109,46 @@ function receiveQuestions() {
         description.setAttribute('class','question-description');
         description.innerText = questionText;
 
-        newQuestionContainer.appendChild(newQuestionUsername);
-        newQuestionContainer.appendChild(questionData);
-        newQuestionContainer.appendChild(userPhotoContainer);
-        newQuestionContainer.appendChild(description);
+        questionBody.appendChild(userPhotoContainer);
+        questionBody.appendChild(description);
+
+        newQuestionContainer.appendChild(questionHeader);
+        newQuestionContainer.appendChild(questionBody);
+        //newQuestionContainer.appendChild(userPhotoContainer);
+        //newQuestionContainer.appendChild(description);
 
         questions.appendChild(newQuestionContainer);
 
         let addAnswer = document.createElement('div');
-        addAnswer.setAttribute('class','addAnswer');
+        addAnswer.setAttribute('class','add-answer-container');
 
         let form = document.createElement('form');
 
-        let label = document.createElement('label');
-        label.innerText = "Add an Answer";
+        let formTitle = document.createElement('div');
+        formTitle.setAttribute('class','form-title');
 
-        form.appendChild(label);
+        let newH1 = document.createElement('h1');
+        newH1.innerText = "Add an Answer ";
 
-        let text = document.createElement('div');
-        text.setAttribute('class','textinput');
+        let span = document.createElement('span');
+        span.setAttribute('class','material-icons-round');
+        span.innerText = "insert_comment";
 
-        let textArea = document.createElement('textarea');
-        textArea.setAttribute('name','text');
+        newH1.appendChild(span);
+        formTitle.appendChild(newH1);
 
-        text.appendChild(textArea);
+        form.appendChild(formTitle);
+
+        let textInput = document.createElement('div');
+        textInput.setAttribute('class','textinput');
+
+        let textarea = document.createElement('textarea');
+        textarea.setAttribute('name','text');
+
+        textInput.appendChild(textarea);
+
+        form.appendChild(formTitle);
+        form.appendChild(textInput);
 
         let idQuestionInput = document.createElement('input');
         idQuestionInput.setAttribute('type','hidden');
@@ -129,11 +161,11 @@ function receiveQuestions() {
         idUserInput.setAttribute('value',idUser);
 
         let button = document.createElement('input');
+        button.setAttribute('class','forum-button');
         button.setAttribute('type','submit');
         button.setAttribute('id',idQuestion);
         button.setAttribute('value', 'Reply');
 
-        form.appendChild(text);
         form.appendChild(idQuestionInput);
         form.appendChild(idUserInput);
         form.appendChild(button);
