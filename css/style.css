@@ -804,26 +804,25 @@ add_animal.php
 ---------------------------------------------
 */
 
-.animal-page-complete{
+.animal-page-complete, .profile-page-complete {
     background-color: #f3f2da;
     width: 100%;
 }
 
-.animal-page-complete > svg {
+.animal-page-complete > svg, .profile-page-complete > svg {
     width:100%;
     height: 20%;
     position: absolute;
     z-index: 0;
 }
 
-.animal-container {
+.animal-container, .profile-container {
     display: block;
-    /* height: 75vh; */
     position: relative;
     width: 100%;
 }
 
-.animal-photo img {
+.animal-photo img, .profile-container .user-photo img {
     display: block;
 
     position: relative;
@@ -847,7 +846,7 @@ add_animal.php
 }
 
 
-.animal-card{
+.animal-card, .user-card {
     position: relative;
     /* bottom: 48vh; */
     color: var(--login-blue);
@@ -1168,15 +1167,14 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 
-.profile-container{
+/* .profile-container {
     display: block;
-    height: 75vh;
     position: relative;
     width: 100%;
-}
+} */
 
 /* cant be ".profile-container .user-photo img {" cuz it's being used in the animal profile page */
-.profile-container .user-photo img{
+/* .profile-container .user-photo img{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -1191,9 +1189,9 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     width: 400px;
     height: 400px;
     z-index: 1;
-}
+} */
 
-.user-card{
+/* .user-card{
     position: relative;
     bottom: 48vh;
     color: var(--login-blue);
@@ -1207,7 +1205,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-color:var(--login-blue);
     border-radius: 50px;
     border-width: 2px;
-}
+} */
 
 .user-card .user-title{
     display: flex;
