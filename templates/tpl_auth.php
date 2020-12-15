@@ -85,10 +85,6 @@
           <span></span>
           <label>Location</label>
         </div>
-        <div class="image">
-          <input type="file" name="profile_img">      
-          <label>Photo</label>
-        </div>
         <button type="submit">SIGN UP</button>
       </form>
     </div>

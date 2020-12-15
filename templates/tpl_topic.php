@@ -108,15 +108,15 @@
  */
 ?>
     <div class="proposals-animal-container" >
-      <a href="../pages/topic.php?id=<?=$id?>">
+      <div class="proposals-animal-inner-container" >
         <div class="animal-proposal-photo">
-          <img src="../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>" width="200" height="200">
+          <a href="../pages/topic.php?id=<?=$id?>"><img src="../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>" width="200" height="200"></a>
         </div>
         <div class="animal-text">
-          <h1><div class="animal-name"><?=$animal[0]['name']?></div></h1>
+          <a href="../pages/topic.php?id=<?=$id?>"><h1><div class="animal-name"><?=$animal[0]['name']?></div></h1></a>
           <h3><div class="animal-species">Species: <?=$animal[0]['species']?></div></h3>
         </div>
-      </a>
+      </div>
     
 
 <?php } ?>

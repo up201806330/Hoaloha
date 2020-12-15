@@ -57,7 +57,6 @@
         </form>
     <?php } else { ?>
         <label> Add an Answer </label>
-        <label> Login to post an answer! </label>
 
     <?php } ?>
     </div>

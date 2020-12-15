@@ -74,3 +74,12 @@
     </div>
 
 <?php } ?>
+
+
+<?php function start_no_proposals_div(){?>
+    <div class="proposals-animal-container">
+<?php } ?>
+
+<?php function end_no_proposals_div(){?>
+    </div>
+<?php } ?>

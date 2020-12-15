@@ -38,11 +38,19 @@
                     if ($proposal != null) draw_proposal($proposal);
                 }
             }
-            else echo 'No proposals yet...';
+            else{ 
+                start_no_proposals_div();
+                echo 'No proposals yet...';
+                end_proposals_page();
+            }
             end_proposals_div();
         }
     }
-    else echo 'You havent posted any animals yet...';
+    else{
+        start_no_proposals_div();
+        echo 'You have not posted any animals yet...';
+        end_proposals_page();
+    }
 
     end_received_or_sent_proposals_div();
 
@@ -60,7 +68,12 @@
             end_proposals_div();
         }
     }
-    else echo 'You havent made any proposals yet...';
+    
+    else{
+        start_no_proposals_div();
+        echo 'You have not made any proposals yet...';
+        end_no_proposals_div();
+    } 
     end_received_or_sent_proposals_div();
 
     end_proposals_page();
