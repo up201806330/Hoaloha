@@ -24,6 +24,9 @@
               $topicIsLiked = ($isLoggedIn)? getFavourite($thisUser['id'], $topic['id']) : false;
               draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
             }
+            if($thisUser['username'] === $topic['username']){
+              draw_edit_animal($animal[0]['id']);
+            } 
           ?>
 
         </div>
@@ -154,5 +157,10 @@
   </section>
 <?php } ?>
 
-
+<?php function draw_edit_animal($animalId) {
+  ?>
+  <div class="edit-animal-information">
+        <a href="../pages/edit_animal.php?animalId=<?=$animalId?>">Edit</a>
+  </div>
+<?php } ?>
 

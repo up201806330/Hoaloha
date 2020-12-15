@@ -43,4 +43,13 @@
 
     return $animalId;
   }
+
+  function updateAnimal($idAnimal, $name, $species, $breed, $weight, $color, $dimension, $gender, $age){
+
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('UPDATE Pets SET name = ?, species = ?, breed = ?, weight = ?, color = ?, dimension = ?, gender = ?, age = ? WHERE id = ?');
+    $stmt->execute(array($name, $species, $breed, $weight, $color, $dimension, $gender, $age, $idAnimal));
+
+  }
 ?>
