@@ -2,6 +2,12 @@
 
 var form = document.querySelector(".add-question-container form");
 
+form.addEventListener("submit", submitQuestionForm);
+
+var questionsContainer = document.querySelectorAll(".delete-button");
+
+questionsContainer.forEach(questionDiv => {questionDiv.addEventListener("click", deleteQuestion);});
+
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
       return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
@@ -9,11 +15,40 @@ function encodeForAjax(data) {
 }
 
 
+function deleteQuestion(event){
+
+    let thisQuestion = event.target;
+
+
+    let idQuestion = thisQuestion.querySelector('input').value;
+
+    //console.log(idQuestion);
+
+    let request = new XMLHttpRequest();
+    request.onload = deleteQuestionContainer;
+    request.open('post','../actions/action_delete_question.php', true);
+    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    request.send(encodeForAjax({idQuestion : idQuestion}));
+    event.preventDefault();
+}
+
+function deleteQuestionContainer() {
+
+    var response = JSON.parse(this.responseText);
+    
+    console.log(response);
+
+    var div = document.getElementById(response);
+
+    div.parentNode.removeChild(div);
+
+}
+
 function submitQuestionForm(event){
     
-    var question = document.querySelector('.add-question-container form textarea').value;
-    var idTopic = document.querySelector('form #idTopic').value;
-    var idUser = document.querySelector('form #idUser').value;
+    let question = document.querySelector('.add-question-container form textarea').value;
+    let idTopic = document.querySelector('form #idTopic').value;
+    let idUser = document.querySelector('form #idUser').value;
     //var data = document.querySelector('form #data').value;
 
 
@@ -27,6 +62,7 @@ function submitQuestionForm(event){
     event.preventDefault();
     
 }
+
 
 function receiveQuestions() {
     console.log(this.responseText);
@@ -48,6 +84,7 @@ function receiveQuestions() {
 
         let newQuestionContainer = document.createElement('div');
         newQuestionContainer.setAttribute('class','question-container');
+        newQuestionContainer.setAttribute('id', idQuestion);
 
         let questionHeader = document.createElement('div');
         questionHeader.setAttribute('class', 'question-header');
@@ -185,5 +222,3 @@ function receiveQuestions() {
     })
 }
 
-
-form.addEventListener("submit", submitQuestionForm);

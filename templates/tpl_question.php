@@ -16,8 +16,15 @@
  * Draws the independent part of the topic (username and description)
  */
     ?>
-        <div class="question-container"> 
+        <div class="question-container" id="<?=$question['id']?>"> 
             <div class="question-header">
+                <?php if($question['username'] === $_SESSION['username']){?> 
+                    <div class="delete-button">
+                        <span class="fas fa-times-circle">
+                            <input type="hidden" value="<?=$question['id']?>">
+                        </span>
+                    </div>
+                <?php } ?>
                 <div class="question-username">
                     Posted by
                     <h1><a><?=$question['name']?></a> -
