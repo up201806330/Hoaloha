@@ -16,19 +16,22 @@
       <div class="animal-card">
 
         <div id="animal-name-profile" class="animal-name">
-          <h1><?=ucwords($animal[0]['name'])?></h1>
-
           <?php
             $favourites = getTopicsFavouritedUsers($topic['id']);
             if ($favourites !== null) {
               $topicIsLiked = ($isLoggedIn)? getFavourite($thisUser['id'], $topic['id']) : false;
               draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
             }
-            if($thisUser['username'] === $topic['username']){
-              draw_edit_animal($animal[0]['id']);
-              draw_delete_animal($animal[0]['id']);
-            } 
           ?>
+          <h1><?=ucwords($animal[0]['name'])?></h1>
+          <div class="animal-card-buttons">
+            <?php
+              if($thisUser['username'] === $topic['username']){
+                draw_edit_animal($animal[0]['id']);
+                draw_delete_animal($animal[0]['id']);
+              } 
+            ?>
+          </div>
 
         </div>
 
@@ -161,7 +164,7 @@
 <?php function draw_edit_animal($animalId) {
   ?>
   <div class="edit-animal-information">
-        <a href="../pages/edit_animal.php?animalId=<?=$animalId?>">Edit</a>
+        <a href="../pages/edit_animal.php?animalId=<?=$animalId?>"><span class="material-icons-round">settings</span></a>
   </div>
 <?php } ?>
 
@@ -170,7 +173,7 @@
   <div class="delete-animal">
       <form method="post" action="../actions/action_delete_animal.php">
       <input type="hidden" name="animalId" value="<?=$animalId?>">
-        <button type="submit" class="delete-button">Delete</button>
+        <button type="submit" class="delete-button"><span class="material-icons-round">close</span></button>
       </form>
   </div>
 

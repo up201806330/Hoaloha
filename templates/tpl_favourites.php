@@ -5,7 +5,6 @@
 ?>
     <div class="favourite-container">
         <div class="favourite-button-container"> 
-        <button id="favouritesButton" class="favourites-counter"><?=$n_favourites?></div>
         <form method="post" action="../actions/action_toggle_favourite.php">
         <input type="hidden" name="idTopic" value=<?=$idTopic?>>
         
@@ -21,6 +20,7 @@
         </button>
 
         </form>
+        <button id="favouritesButton" class="favourites-counter"><?=$n_favourites?></div>
     </div>
   
 

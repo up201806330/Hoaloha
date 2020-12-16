@@ -569,6 +569,8 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 */
 
 #signup-animal {
+    display: flex;
+    justify-content: center;
     border-top-style: solid;
     border-width: 15px;
     border-color: var(--login-blue);
@@ -615,14 +617,11 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 .animal-card .animal-name{
-    position: relative;
     color: black;
     padding: 5% 0 3px 0;
-    text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: space-between;
 }
 
@@ -661,27 +660,59 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    flex: 2;
 }
 
 .favourite-container {
-    position: absolute;
-    right: 20%;
-    display: flex;
-    padding-left: 10%;
-
+    padding-left: 25%;
 }
 
 .favourite-container form {
     margin: auto auto auto 1%;
+    display: flex;
+    flex-direction: column;
 }
 
 .favourite-container .favourite-button-container {
-    margin: auto 3% auto auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.animal-card-buttons{
+    padding-right: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#animal-name-profile > div.animal-card-buttons > div.edit-animal-information > a{
+    color: black;
+    font-size: 100%;
+}
+
+#animal-name-profile > div.animal-card-buttons > div.edit-animal-information > a .material-icons-round{
+    color: black;
+    font-size: 130%;
+}
+
+#animal-name-profile > div.animal-card-buttons > div.delete-animal > form > button{
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: red;
+   
+}
+
+#animal-name-profile > div.animal-card-buttons > div.delete-animal > form > button .material-icons-round{
+    font-size: 300%;
 }
 
 .adopt-button-container {
     margin: auto;
+    
 }
 
 .adopt-button-container {
@@ -1685,6 +1716,7 @@ body > div > div.login-container > div {
     overflow: hidden;
     background-image: url(../assets/register_bg.jpeg);
     background-size: cover;
+    padding: 2%;
 }
 
 .register-content{
@@ -1714,6 +1746,7 @@ body > div > div.login-container > div {
 
 #signup .txt_field input:focus ~ label,
 #signup .txt_field input:valid ~ label{
+    top: -15px;
     color: var(--login-blue)
 }
 
