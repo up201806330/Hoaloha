@@ -70,8 +70,10 @@
  */?>
 
     <li>
-      <div class="short-animal-container" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
+      <div class="profile-animal-container" >
         <a href="../pages/topic.php?id=<?=$id?>">
+          <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
+          </div>
           <div class="animal-text">
             <div class="animal-name"><?=$animal[0]['name']?></div>
             <div class="animal-species"><?=$animal[0]['species']?></div>
@@ -140,13 +142,14 @@
 <?php } ?>
 
 <?php function draw_n_results($n_results){
-  if ($n_results == 0) $output = 'No results match your search :((';
+  if ($n_results == 0) $output = 'No results match your search <span class="material-icons-round">warning</span>';
   else {
     $result_string = ($n_results == 1) ? ' result' : ' results';
-    $output = 'Found ' . $n_results . $result_string;
+    $output = 'Found ' . $n_results . $result_string . ' <span class="material-icons-round">check</span>';
   }
-  echo $output;
+  ?> <div class = "search-results"> <h1><?php echo $output?></h1> </div>
 
+<?php
   echo '</div>';
 
 } ?>

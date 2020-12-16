@@ -10,11 +10,14 @@
             <a href="#" id="closeButtonAdopt" class="close"><span class="material-icons-round">close</span></a>
             </div>
             <div class="adopt-title">You're so close...</div>
-            <div>I, <?= $user_full_name ?>, solemnly promise to cherish, protect and deeply care for my pet until their last breath, and pledge to, above all else, never break this pact.</div>
+            <div class="adopt-vow">I, <?= $user_full_name ?>, solemnly promise to cherish, protect and deeply care for my pet until their last breath, and pledge to, above all else, never break this pact.</div>
             <form method="post" action="../actions/action_adopt.php">
                 <input type="hidden" name="idTopic" value="<?= $idTopic ?>">
-                <label for="new_name">Your pet's name:</label>
-                <input type="text" id="new_name" name="new_name" value="<?= $previous_pet_name ?>">
+                <div class="txt_field">
+                <input type="text" id="new_name" name="new_name" value="<?= $previous_pet_name ?>" placeholder=" "> 
+                    <span></span>
+                    <label>Your pet's name:</label>
+                </div>
                 <textarea name="description" id="description" rows="10" cols="30" placeholder="Describe why you want to adopt a pet"></textarea>
                 <button type="submit">Send proposal</button>
             </form>

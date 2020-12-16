@@ -95,10 +95,10 @@
 /**
  * Draws the section that contains aditional search parameters
  */?>
-  
   <div class="search-parameters-container">
     <div class="search-parameters">
       <h1>Advanced Search</h1>
+      <h2>Let us help you search for the perfect buddy!</h2>
 
       <form class="advanced-search-form" method="post" action="../actions/action_search.php">
 
