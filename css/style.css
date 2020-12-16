@@ -376,6 +376,8 @@ form .txt_field{
 }
 
 .search-parameters-container {
+    font-weight: normal;
+    text-align: center;
     margin-bottom: 2%;
     flex: 1;
 }
@@ -387,6 +389,7 @@ form .txt_field{
 
 .search-parameters {
     text-align: center;
+    margin-bottom: 4%;
 }
 
 .animal-list-grid {
