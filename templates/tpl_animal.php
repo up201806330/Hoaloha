@@ -7,12 +7,9 @@
         <path fill= "#3d8af7" fill-opacity="1" d="M0,320L120,293.3C240,267,480,213,720,213.3C960,213,1200,267,1320,293.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
     </svg>
     <div class="animal-container">
-      <?php for ($i=0; $i < count($animal) ; $i++) {       
-        ?>
       <div class="animal-photo">
-        <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>">
+        <img src="../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>">
       </div>
-      <?php } ?>
       <div class="animal-card">
 
         <div id="animal-name-profile" class="animal-name">
@@ -85,6 +82,36 @@
             </div>
         </div>
       </div>
+    </div>
+
+    <div class="topic-photos-title-container">
+      <h1>More Photos of <?=ucwords($animal[0]['name'])?> <span class="material-icons-round">camera_alt</span></h1>
+    </div>
+    
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+      <!-- Full-width images with number and caption text -->
+      <?php for ($i=0; $i < count($animal) ; $i++) {       
+        ?>
+        <div class="mySlides fade">
+          <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
+          <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
+        </div>
+      <?php } ?>
+
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <br>
+
+      <!-- The dots/circles -->
+    <div style="text-align:center">
+      <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
+        <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
+      <?php } ?>
     </div>
 
 <?php } ?>
