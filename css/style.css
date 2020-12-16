@@ -1006,7 +1006,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 
 .animal-page-complete > svg, .profile-page-complete > svg {
     width:100%;
-    height: 30%;
+    height: 25%;
     position: absolute;
     z-index: 0;
 }
