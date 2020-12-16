@@ -19,7 +19,7 @@
         <div class="question-container" id="<?=$question['id']?>"> 
             <div class="question-header">
                 <?php if($question['username'] === $_SESSION['username']){?> 
-                    <div class="delete-button">
+                    <div class="delete-button-question">
                         <span class="fas fa-times-circle">
                             <input type="hidden" value="<?=$question['id']?>">
                         </span>

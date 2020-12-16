@@ -15,8 +15,15 @@
  */
     ?>
    
-            <div class="answer-container">
+            <div class="answer-container" id="<?=$answer['id']?>">
                 <div class="answer-header">
+                <?php if($answer['username'] === $_SESSION['username']){?> 
+                    <div class="delete-button-answer">
+                        <span class="fas fa-times-circle">
+                            <input type="hidden" value="<?=$answer['id']?>">
+                        </span>
+                    </div>
+                <?php } ?>
                     <div class="answer-username">
                     Posted by
                     <h1><a><?=$answer['name']?></a> -
@@ -44,7 +51,7 @@
 
 <?php function draw_add_answer($idQuestion,$idUser){
     ?>
-    <div class = "add-answer-container">
+    <div class = "add-answer-container" id="add-answer-container<?=$idQuestion?>">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
         <div class="form-title"><h1>Add an Answer <span class="material-icons-round">insert_comment</span></h1></div>

@@ -4,12 +4,59 @@ var forms = document.querySelectorAll(".add-answer-container form");
 
 forms.forEach(form => {form.addEventListener("submit", submitAnswerForm);});
 
+var answersDeleteButton = document.querySelectorAll(".delete-button-answer");
+
+answersDeleteButton.forEach(answerDeleteButton => {answerDeleteButton.addEventListener("click", deleteAnswer);});
+
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
       return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&')
 }
+
+function deleteAnswer(event){
+
+    let thisAnswer = event.target;
+
+
+    let idAnswer = thisAnswer.querySelector('input').value;
+
+    //console.log(idQuestion);
+
+    let request = new XMLHttpRequest();
+    request.onload = deleteAnswerContainer;
+    request.open('post','../actions/action_delete_answer.php', true);
+    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    request.send(encodeForAjax({idAnswer : idAnswer}));
+    event.preventDefault();
+}
+
+function deleteAnswerContainer() {
+
+    var response = JSON.parse(this.responseText);
+    
+    //console.log(response);
+
+    var div = document.getElementById(response);
+    var answersContainer = document.getElementById("answers-container" + response);
+    var addAnswerContainer = document.getElementById("add-answer-container" + response);
+    //var hr = document.querySelector('hr');
+
+    //console.log(div);
+    //console.log(hr);
+
+    div.parentNode.removeChild(div);
+    answersContainer.parentNode.removeChild(answersContainer);
+    addAnswerContainer.parentNode.removeChild(addAnswerContainer);
+
+    //console.log(hr.parentNode.childElementCount);
+
+    //if(hr.parentNode.childElementCount === 1)
+        //hr.parentNode.removeChild(hr);
+
+
+    }
 
 
 function submitAnswerForm(event){
