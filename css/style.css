@@ -1,3 +1,32 @@
+/*
+    Divisions:
+    1.  General
+    2.  Common (reused in various situations)
+    3.  About Us
+    4.  Advanced Search
+    5.  Animal Signup
+    6.  Animal Profile
+    7.  Animal / User Profile Common
+    8.  Edit / Register Common
+    9.  Edit User Profile
+    10. Main Page
+    11. Proposals Page
+    12. Top bar Header
+    13. User Authentication
+    14. User Profile
+
+*/
+
+
+
+
+
+/*
+---------------------------------------------
+    1. General
+---------------------------------------------
+*/
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -30,48 +59,248 @@ header {
     z-index: 999;
 }
 
-.logo{
-    cursor: pointer;
+select {
+    font-family: 'FontAwesome', 'Arial';
+    height: 45px;
 }
 
-.authentication li{
-    display: inline-block;
-}
 
-.authentication li:first-child{
-    padding-right: 5px;
-}
 
-.authentication li:last-child{
-    padding-left: 5px;
-}
 
-.authentication .material-icons-round{
-    font-size: 150%;
-}
 
-.authentication li a{
-    font-size: 20px;
-    transition: all 0.3s ease 0s;
-    color: black;
-}
+/*
+---------------------------------------------
+    2. Common (reused in various situations)
+---------------------------------------------
+*/
 
-.authentication li a:hover{
-    color:var(--login-blue);
-
-}
-
-.topnav-elements{
-    display: flex;
-    justify-content: space-around;
+/* ----- Mulitiple Usages ----- */
+.adopt-container, .favourites-container, .search-container, .login-container {
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 10;
+}
+
+.adopt-content, .favourites-content, .search-content, .login-content {
+    width: 400px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    border-style: solid;
+    border-color: var(--login-blue);
+    border-width: 2px;
+    overflow: hidden;
+}
+
+.search-content > form, .advanced-search-form {
+    padding: 5% 10% 8%;
+}
+
+.search-content > form > button, .advanced-search-form > button, .adopt-favourite-container > button {
+    margin-top: 7%;
+    width: 75%;
+    height: 50px;
+    border: 2px solid;
+    background: var(--login-blue);
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
+}
+
+/* --- Close ('X') Button --- */
+.close-button-container {
+    height: 5px;
+    float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;
+}
+
+.close-button-container a{
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: black;
+    transition: 0.1s;
+}
+
+.close-button-container a:hover{
+    color: red;
+}
+
+/* --- Checkbox --- */
+.checkbox-container {
+    display: block;
+    position: relative;
+    text-align: left;
+    margin-left: 30%;
+    margin-right: 25%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox-container input { /* Hide default checkbox */
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark { /* Custom checkmark */
+    position: absolute;
+    top: 0;
+    right: 20%;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after { /* Create the checkmark (starts as hidden) */
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block; /* Show checkmark when checked */
+}
+
+.checkbox-container .checkmark:after { /* Checkmark Styling */
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.search-content > form > button:hover, .advanced-search-form > button:hover, .adopt-favourite-container > button:hover {
+    background-color: white;
+    color: var(--login-blue);
+}
+
+/* Search checkboxes */
+.species-checkbox-container {
+    border-top-style: solid;
+    border-color: var(--login-blue);
+    border-width: 2px;
+}
+
+.species-checkbox-container label, .range-slider-container > label {
+    color: darkblue;
+}
+
+.species-checkbox-container .checkbox-container{
+    color: black;
+    font-size: 20px
+}
+
+.gender-checkbox-container {
+    margin-top: 2%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--login-blue);
+    border-width: 2px;
+}
+
+.gender-checkbox-container label{
+    color: darkblue;
+}
+
+.gender-checkbox-container .checkbox-container {
+    color: black;
+    font-size: 20px
+}
+
+.show-adopted-checkbox-container .checkbox-container{
+    color: black;
+    font-size: 23px;
+}
+
+.search-container .txt_field input:focus ~ label, .search-container .txt_field input:not(:placeholder-shown) ~ label{
+    top: -15px;
+    color: var(--login-blue)
+}
+
+.search-container .txt_field input:focus ~ span::before, .search-container .txt_field input:not(:placeholder-shown) ~ span::before{
+    width: 100%;
+}
+
+form .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_field label{
+    position: absolute;
+    top: 30%;
+    left: 5px;
+    color: #adadad;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--login-blue);
+    transition: 0.5s;
 }
 
 
-.about-us-button-class:hover{
-    color:darkblue;
-}
+
+
+
+/*
+---------------------------------------------
+    3. About Us
+---------------------------------------------
+*/
 
 .about-us-button-class {
     background-color: var(--login-blue);
@@ -125,577 +354,16 @@ header {
     height: 135px;
 }
 
-.image-container{
-    width: 100%;
-    height: 70vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-bottom-style: solid;
-    border-width: 10px;
-    border-color: var(--login-blue);
-    animation: animate 60s ease-in-out infinite;
-}
 
-@keyframes animate{
-    0%, 100%{background-image: url(../assets/image1.png), url(../assets/image2.png);}
-    10% {background-image: url(../assets/image2.png), url(../assets/image3.png);}
-    20% {background-image: url(../assets/image3.png), url(../assets/image4.png);}
-    30% {background-image: url(../assets/image4.png), url(../assets/image5.png);}
-    40% {background-image: url(../assets/image5.png), url(../assets/image6.png);}
-    50% {background-image: url(../assets/image6.png), url(../assets/image7.png);}
-    60% {background-image: url(../assets/image7.png), url(../assets/image8.png);}
-    70% {background-image: url(../assets/image8.png), url(../assets/image9.png);}
-    80% {background-image: url(../assets/image9.png), url(../assets/image10.png);}
-    90% {background-image: url(../assets/image10.png);}
-}
 
-.image-container h1{
-    text-align: center;
-    color:white;
-    padding-top: 30px;
-    text-shadow: 2px 2px 5px #000000;
-    font-weight: lighter;
-}
-
-.image-container h2{
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 5px #000000;
-    font-weight: lighter;
-}
-
-.button-container{
-    height: 15%;
-    text-align: center;
-    position: relative;
-    top: 55%;
-}
-
-.inner-button-container{
-    height: 100%;
-    width:50%;
-    position: relative;
-    left: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: var(--login-blue);
-    border-radius: 8px;
-}
-
-.btn{
-    height: 100%;
-    width: 100%;
-    background: var(--login-blue);
-    padding: 10px 20px;
-    font-size: 30px;
-    cursor: pointer;
-    outline: none;
-    border:none;
-    border-right-style: solid;
-    border-width: 1px;
-    border-color: black;
-    transition: ease-out 0.5s;
-    color:white;
-}
-
-.btn:first-child{
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-.btn:last-child{
-    border-right: none;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.btn:hover{
-    background-color: white;
-    color: var(--login-blue)
-}
-
-.message-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0);
-    animation: fadeout 3s linear 1 forwards;
-    opacity: 1;
-}
-
-@keyframes fadeout {
-    100% { opacity: 0; }
-  }
-
-.message-content{
-    padding-top: 5px;
-    width: 200px;
-    height: 75px;
-    background-color: rgba(0, 0, 0, 0);
-    text-align: center;
-    overflow: hidden;
-    position: absolute;
-}
-
-.adopt-container, .favourites-container, .search-container, .login-container{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    z-index: 10;
-}
-
-.adopt-content, .favourites-content, .search-content, .login-content{
-    width: 400px;
-    background-color: white;
-    border-radius: 8px;
-    text-align: center;
-    border-style: solid;
-    border-color: var(--login-blue);
-    border-width: 2px;
-    overflow: hidden;
-}
-
-.close-button-container{
-    height: 5px;
-    float: right;
-    position: relative;
-    top: 10px;
-    right: 10px;
-}
-
-.close-button-container a{
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: black;
-    transition: 0.1s;
-}
-
-.close-button-container a:hover{
-    color: red;
-}
-
-
-.gender-checkbox-container {
-    margin-top: 2%;
-}
-
-.checkbox-container {
-    display: block;
-    position: relative;
-    text-align: left;
-    margin-left: 30%;
-    margin-right: 25%;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide default checkbox */
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* custom checkbox */
-.checkmark {
-    position: absolute;
-    top: 0;
-    right: 20%;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 5px;
-}
-  
-/* mouse-over checkbox */
-.checkbox-container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-  
-/* blue background if checkbox is checked */
-.checkbox-container input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
-
-/* Create the checkmark (starts as hidden) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-  
-/* Show checkmark when checked */
-.checkbox-container input:checked ~ .checkmark:after {
-    display: block;
-}
-  
-/* Style checkmark */
-.checkbox-container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-
-.search-content h1 {
-    padding: 20px 0 0 0;
-    font-size: 40px;
-    font-weight: normal;
-    color: darkblue;
-}
-
-
-.search-content h2{
-    font-size: 15px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--login-blue);
-}
-
-.search-content > form, .advanced-search-form {
-    padding: 5% 10% 8%;
-}
-
-.search-content > form > button, .advanced-search-form > button, .adopt-favourite-container > button{
-    margin-top: 7%;
-    width: 75%;
-    height: 50px;
-    border: 2px solid;
-    background: var(--login-blue);
-    border-radius: 25px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    transition: ease-out 0.5s;
-}
-
-.adopt-favourite-container > button {
-    margin-top: 0;
-    font-size: 28px;
-}
-
-
-.search-content > form > button:hover, .advanced-search-form > button:hover, .adopt-favourite-container > button:hover {
-    background-color: white;
-    color: var(--login-blue);
-}
-
-.species-checkbox-container{
-    border-top-style: solid;
-    border-color: var(--login-blue);
-    border-width: 2px;
-}
-
-.species-checkbox-container label, .range-slider-container > label {
-    color: darkblue;
-}
-
-.species-checkbox-container .checkbox-container{
-    color: black;
-    font-size: 20px
-}
-
-.gender-checkbox-container label{
-    color: darkblue;
-}
-
-.gender-checkbox-container .checkbox-container{
-    color: black;
-    font-size: 20px
-}
-
-.show-adopted-checkbox-container .checkbox-container{
-    color: black;
-    font-size: 23px;
-}
-
-.gender-checkbox-container{
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-color: var(--login-blue);
-    border-width: 2px;
-}
-
-.search-container .txt_field input:focus ~ label,
-.search-container .txt_field input:not(:placeholder-shown) ~ label{
-    top: -15px;
-    color: var(--login-blue)
-}
-
-.search-container .txt_field input:focus ~ span::before,
-.search-container .txt_field input:not(:placeholder-shown) ~ span::before{
-    width: 100%;
-}
-
-
-.login-content h1{
-    font-size: 40px;
-    font-weight: normal;
-    padding: 20px 0 0 0;
-    color: darkblue;
-}
-
-.login-content h2{
-    font-size: 15px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--login-blue);
-}
-
-
-.login-content form, .register-content form{
-    padding: 0 40px;
-    box-sizing: border-box;
-}
-
-form .txt_field{
-    position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
-}
-
-.txt_field input{
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
-}
-
-.txt_field label{
-    position: absolute;
-    top: 30%;
-    left: 5px;
-    color: #adadad;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-.txt_field span::before{
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--login-blue);
-    transition: 0.5s;
-}
-
-
-.login-content .txt_field input:focus ~ label,
-.login-content .txt_field input:valid ~ label{
-    top: -15px;
-    color: var(--login-blue)
-}
-
-.login-content .txt_field input:focus ~ span::before,
-.login-content .txt_field input:valid ~ span::before{
-    width: 100%;
-}
-
-.login-content > form > button{
-    width: 100%;
-    height: 50px;
-    border: 2px solid;
-    background: var(--login-blue);
-    border-radius: 25px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    transition: ease-out 0.5s;
-}
-
-
-.login-content > form > button:hover{
-    background-color: white;
-    color: var(--login-blue);
-}
-
-.signup_link{
-    margin: 30px 0;
-    text-align: center;
-    font-size: 16px;
-    color: #666666;
-}
-
-.signup_link a{
-    color: var(--login-blue);
-    text-decoration: none;
-}
-
-
-body > div > div.login-container > div {
-    font-size: 2rem;
-}
-
-
-#signup{
-    display : flex;
-    justify-content: center;
-    border-top-style: solid;
-    border-width: 15px;
-    border-color: var(--login-blue);
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-image: url(../assets/register_bg.jpeg);
-    background-size: cover;
-}
-
-.register-content{
-    padding-top: 10px;
-    padding-bottom: 20px;
-    margin-top: 2%;
-    width: 450px;
-    margin-bottom: 150px;
-    background-color: rgba(255,255,255,0.7);
-    border-radius: 8px;
-    text-align: center;
-    overflow: hidden;
-    border: 2px solid var(--login-blue);
-}
-
-#signup .register-content h1, #edit-profile-container .edit-content h1{
-    font-size: 50px;
-    text-align: center;
-    font-weight: normal;
-    padding-top: 20px;
-    color: darkblue;
-}
-
-.register-content h2,.edit-content h2{
-    font-size: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--login-blue);
-
-}
-
-
-.register-content > form > button, #edit-profile-container > button{
-    width: 100%;
-    height: 50px;
-    border: 2px solid;
-    background: var(--login-blue);
-    border-radius: 25px;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    transition: ease-out 0.5s;
-    margin-top: 20px;
-}
-
-
-.register-content > form > button:hover, #edit-profile-container > button:hover{
-    background-color: white;
-    color: var(--login-blue);
-}
-
-#signup .txt_field label, #edit-profile-container .txt_field label{
-    position: absolute;
-    top: 30%;
-    left: 5px;
-    color: #adadad;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.5s;
-}
-
-#signup .txt_field span::before,#edit-profile-container .txt_field span::before{
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--login-blue);
-    transition: 0.5s;
-}
-
-
-#signup .txt_field input:focus ~ label,
-#signup .txt_field input:valid ~ label{
-    color: var(--login-blue)
-}
-
-#signup .txt_field input:focus ~ span::before,
-#signup .txt_field input:valid ~ span::before{
-    width: 100%;
-}
-
-/*
----------------------------------------------
-add_animal.php
----------------------------------------------
-
-*/
-
-#signup-animal {
-    border-top-style: solid;
-    border-width: 15px;
-    border-color: var(--login-blue);
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-image: url(../assets/add_animal_bg.jpg);
-    background-size: cover;
-}
-
-#signup-animal .register-content h1{
-    font-size: 45px;
-    text-align: center;
-    font-weight: normal;
-    padding-top: 20px;
-    color: darkblue;
-    line-height: 100%;
-    margin-bottom: 1%;
-}
-
-#signup-animal .txt_field input:focus ~ label,
-#signup-animal .txt_field input:valid ~ label{
-    top: -15px;
-    color: var(--login-blue)
-}
-
-#signup-animal .txt_field input:focus ~ span::before,
-#signup-animal .txt_field input:valid ~ span::before{
-    width: 100%;
-}
 
 
 /*
 ---------------------------------------------
-    list_animals.php
+    4. Advanced Search
 ---------------------------------------------
 */
+
 .animal-list-container {
     display: flex;
     flex-wrap: wrap;
@@ -720,7 +388,6 @@ add_animal.php
 .search-parameters {
     text-align: center;
 }
-
 
 .animal-list-grid {
     padding: 0;
@@ -773,18 +440,18 @@ add_animal.php
   background-size: 100% 100%;
 }
 
-.short-animal-container > .animal-text{
-    position: fixed;
-    width: 100%;
-}
-
 .short-animal-container > .background-image {
     position: absolute;
     width:100%; height:100%;
     margin: auto;
 }
 
-.animal-list-container .animal-text > .animal-name {
+.short-animal-container > .animal-text {
+    position: fixed;
+    width: 100%;
+}
+
+.short-animal-container .animal-text .animal-name {
     font-weight: 400;
     color: #fff;
     font-size: 2.5rem;
@@ -793,297 +460,12 @@ add_animal.php
 	line-height: 1.5;
 }
 
-.animal-list-container .animal-text > .animal-species {
+.short-animal-container .animal-text .animal-species {
     color: #fff;
     padding: 0;
 	margin: 1% 4%;
 	font-size: 1.5rem;
 	line-height: 1.5;
-}
-
-/*
----------------------------------------------
-    topic.php
----------------------------------------------
-*/
-
-.animal-page-complete, .profile-page-complete {
-    background-color: #f3f2da;
-    width: 100%;
-    padding-bottom: 2%;
-}
-
-.animal-page-complete > svg, .profile-page-complete > svg {
-    width:100%;
-    height: 30%;
-    position: absolute;
-    z-index: 0;
-}
-
-.animal-container, .profile-container {
-    display: block;
-    position: relative;
-    width: 100%;
-}
-
-.animal-photo img, .profile-container .user-photo img {
-    display: block;
-
-    position: relative;
-
-    margin: 0 auto -4%;
-    
-    border-radius: 100%;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-left-style: solid;
-    border-width: 20px;
-    border-color: var(--login-blue);
-
-    min-width: 30vh;
-    min-height: 30vh;
-    width: 400px;
-    height: 400px;
-    max-width: 40vh;
-    max-height: 40vh;
-    z-index: 1;
-}
-
-
-.animal-card, .user-card {
-    position: relative;
-    /* bottom: 48vh; */
-    color: var(--login-blue);
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 1% 2% 3% 2%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    background-color: rgb(250, 250, 250);
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-
-}
-
-.animal-stats {
-    color: var(--login-blue);
-}
-
-.animal-card .animal-name{
-    position: relative;
-    color: black;
-    padding: 5% 0 3px 0;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    justify-content: space-between;
-}
-
-.animal-card hr {
-    margin-bottom: 2%;
-    margin-top: 1%;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: gray;
-    background-color:gray;
-}
-
-.animal-info{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.animal-card ul li:not(:first-child):before {
-    content: " | ";
-    color: black;
-}
-
-.animal-card .animal-name h1 {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    flex: 2;
-}
-
-.favourite-container {
-    position: absolute;
-    right: 20%;
-    display: flex;
-    padding-left: 10%;
-
-}
-
-.favourite-container form {
-    margin: auto auto auto 1%;
-}
-.favourite-container .favourite-button-container {
-    margin: auto 3% auto auto;
-}
-
-.adopt-button-container {
-    margin: auto;
-}
-
-.adopt-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 50px;
-    border: 2px solid;
-    background: white;
-    border-radius: 25px;
-    border-color: red;
-    color: black
-}
-
-.add-to-favourites-button-unliked, .add-to-favourites-button-liked, .favourites-counter {
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    background-color: rgb(250, 250, 250);
-    cursor: pointer;
-}
-
-.adopt-favourite-container {
-    margin: 1% 20% 6%;
-    text-align: center;
-}
-
-.topic-container {
-    padding: 1vh;
-    color: black;
-    border-radius: 10px;
-    background-color: rgb(250, 250, 250);
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-    margin: 0 20% 5%;
-    height: auto;
-}
-
-.topic-container hr{
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: gray;
-    background-color:gray;
-    margin-bottom: 1%;
-    margin-top: 1%;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-
-.topic-container .proposal-user-photo img, .animal-proposal-photo img{
-    border-radius: 100%;
-    border-style: solid;
-    border-width: 10px;
-    border-color: var(--login-blue);
-}
-
-
-.proposal-user {
-    font-size: 4vh;
-}
-
-.proposal-newName {
-    font-size: 100%;
-    font-style: italic;
-}
-
-.proposal-description {
-    text-align: justify;
-}
-
-.proposal-title{
-    margin-right: 2%;
-}
-
-
-.animal-card ul li {
-    display:inline;
-}
-
-.stat-title {
-    font-weight: 600;
-    margin-right: 3%;
-}
-
-.topic-title-container{
-    margin: 2% 20% 3%;
-    color: white;
-    text-align: center;
-    
-    display: block;
-    justify-content: center;
-}
-
-.topic-title-container .material-icons-round, .questions-title-container .material-icons-round{
-    font-size: 80%;
-}
-
-.topic-title-container h1, .questions-title-container h1{
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    padding: 1vh;
-}
-
-.proposal-user > a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-weight: 400;
-    line-height: 1rem;
-    -webkit-transition: 0.3s ease-in-out,
-    -webkit-transform 0.3s ease-in-out;
-	-moz-transition:  0.3s ease-in-out,
-    -moz-transform 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out,
-    transform 0.3s ease-in-out, ;
-}
-
-
-
-.proposal-user > a:hover {
-    color: var(--login-blue);
-}
-
-.topic-username-link, .topic-question-link, .topic-answer-link {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-weight: 400;
-    line-height: 1rem;
-    -webkit-transition: 0.3s ease-in-out,
-    -webkit-transform 0.3s ease-in-out;
-	-moz-transition:  0.3s ease-in-out,
-    -moz-transform 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out,
-    transform 0.3s ease-in-out, ;
-}
-
-.topic-username-link:hover, .topic-question-link:hover, .topic-answer-link:hover{
-    color: var(--login-blue);
-}
-
-.topic-data, .question-data, .answer-data{
-    font-size: 80%;
-}
-
-select {
-    font-family: 'FontAwesome', 'Arial';
-    height: 45px;
 }
 
 .advanced-search-form {
@@ -1144,8 +526,6 @@ span.upper.value {
     /* padding-left: 35%; */
 }
 
-
-
 span.value.lower::before {content: ""; display: inline-block;}
 span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em;}
 .min-max-slider > .legend {display: none;}
@@ -1159,6 +539,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
   background: transparent;
   background-image: linear-gradient(to bottom, transparent 0%, transparent 30%, silver 30%, silver 60%, transparent 60%, transparent 100%);
 }
+
 .min-max-slider > input::-webkit-slider-thumb {
     appearance: none;
     -webkit-appearance: none;
@@ -1171,88 +552,78 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
+
 .min-max-slider > input::-webkit-slider-runnable-track {cursor: pointer;}
+
+
+
 
 
 /*
 ---------------------------------------------
-    profile.php
+    5. Animal Signup
 ---------------------------------------------
 */
-.profile-page-complete{
-    background-color:#f3f2da;
-    padding-bottom: 2%;
-}
 
-
-/* .profile-container {
-    display: block;
-    position: relative;
-    width: 100%;
-} */
-
-/* cant be ".profile-container .user-photo img {" cuz it's being used in the animal profile page */
-/* .profile-container .user-photo img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    bottom: 40vh;
-    border-radius: 100%;
+#signup-animal {
     border-top-style: solid;
-    border-right-style: solid;
-    border-left-style: solid;
-    border-width: 20px;
+    border-width: 15px;
     border-color: var(--login-blue);
-    width: 400px;
-    height: 400px;
-    z-index: 1;
-} */
-
-/* .user-card{
-    position: relative;
-    bottom: 48vh;
-    color: var(--login-blue);
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 1% 2% 3% 2%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    background-color: rgb(250, 250, 250);
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-} */
-
-.user-card .user-title{
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../assets/add_animal_bg.jpg);
+    background-size: cover;
 }
 
-.user-card .user-name, .user-card .edit-profile{
+#signup-animal .register-content h1 {
+    font-size: 45px;
+    text-align: center;
+    font-weight: normal;
+    padding-top: 20px;
+    color: darkblue;
+    line-height: 100%;
+    margin-bottom: 1%;
+}
+
+#signup-animal .txt_field input:focus ~ label,
+#signup-animal .txt_field input:valid ~ label {
+    top: -15px;
+    color: var(--login-blue)
+}
+
+#signup-animal .txt_field input:focus ~ span::before,
+#signup-animal .txt_field input:valid ~ span::before {
+    width: 100%;
+}
+
+
+
+
+
+/*
+---------------------------------------------
+    6. Animal Profile
+---------------------------------------------
+*/
+
+.animal-stats {
+    color: var(--login-blue);
+}
+
+.animal-card .animal-name{
     position: relative;
     color: black;
     padding: 5% 0 3px 0;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
 }
 
-.user-card .edit-profile .material-icons-round{
-    font-size: 70%
-}
-
-.user-card .edit-profile a{
-    color: black;
-    margin-left: 50%;
-}
-
-
-.user-card h4, .animal-stat h4 {
-    color: black;
-    font-weight: normal;
-}
-
-.profile-container .user-card hr{
+.animal-card hr {
     margin-bottom: 2%;
     margin-top: 1%;
     border-radius: 10px;
@@ -1262,141 +633,197 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     background-color:gray;
 }
 
+.animal-info{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
-/*-----------------------------------------*/
-.profile-animals-title-container, .profile-adopted-title-container{
+.animal-card ul li:not(:first-child):before {
+    content: " | ";
+    color: black;
+}
+
+.animal-card ul li {
+    display:inline;
+}
+
+.stat-title {
+    font-weight: 600;
+    margin-right: 3%;
+}
+
+.animal-card .animal-name h1 {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    flex: 2;
+}
+
+.favourite-container {
+    position: absolute;
+    right: 20%;
+    display: flex;
+    padding-left: 10%;
+
+}
+
+.favourite-container form {
+    margin: auto auto auto 1%;
+}
+
+.favourite-container .favourite-button-container {
+    margin: auto 3% auto auto;
+}
+
+.adopt-button-container {
+    margin: auto;
+}
+
+.adopt-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    border: 2px solid;
+    background: white;
+    border-radius: 25px;
+    border-color: red;
+    color: black
+}
+
+.adopt-favourite-container > button {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.add-to-favourites-button-unliked, .add-to-favourites-button-liked, .favourites-counter {
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    background-color: rgb(250, 250, 250);
+    cursor: pointer;
+}
+
+.adopt-favourite-container {
+    margin: 1% 20% 6%;
+    text-align: center;
+}
+
+.topic-container {
+    padding: 1vh;
+    color: black;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    margin: 0 20% 5%;
+    height: auto;
+}
+
+.topic-container hr{
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    background-color:gray;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.topic-title-container{
+    margin: 2% 20% 3%;
     color: white;
     text-align: center;
-    width: 100%;
-    margin-bottom: 1%;
-    display: flex;
+    
+    display: block;
     justify-content: center;
 }
 
-.profile-animals-title-container h1, .profile-adopted-title-container h1{
-    width: 60%;
+.topic-title-container .material-icons-round, .questions-title-container .material-icons-round{
+    font-size: 80%;
+}
+
+.topic-title-container h1, .questions-title-container h1{
     border-style: solid;
     border-color:var(--login-blue);
     border-radius: 50px;
     border-width: 2px;
     background-color: white;
     color: black;
+    text-align: center;
     padding: 1vh;
 }
 
-.profile-animals-ext-container, .profile-adopted-ext-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 9vh;
-
+.topic-data, .question-data, .answer-data{
+    font-size: 80%;
 }
 
-.profile-animals-container, .profile-adopted-container{
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-    background-color: rgb(250, 250, 250);
-    width: 80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 1vh;
-}
-
-.profile-animal-container{
-    margin: 4%;
-    border-radius: 50px;
-    min-height: 40vh;
+.topic-username-link, .topic-question-link, .topic-answer-link {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    line-height: 1rem;
     -webkit-transition: 0.3s ease-in-out,
     -webkit-transform 0.3s ease-in-out;
 	-moz-transition:  0.3s ease-in-out,
     -moz-transform 0.3s ease-in-out;
     transition: all 0.3s ease-in-out,
     transform 0.3s ease-in-out, ;
-    background-color: var(--login-blue);
 }
 
-.profile-animal-container .animal-photo{
-    width: 100%;
-    height: 40vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-    
+.topic-username-link:hover, .topic-question-link:hover, .topic-answer-link:hover{
+    color: var(--login-blue);
 }
 
-.profile-animal-container .animal-text{
-    padding-top: 2%;
-    height: 10vh;
-    text-align: center;
-    color: white;
-}
-
-.profile-animal-container .animal-text .animal-name{
-    color: white;
-    font-weight: bold;
-    font-size: x-large;
-    transition: ease-out 0.5s;
-}
-
-.profile-animal-container .animal-text .animal-species{
-    color: black;
-    font-size: large;
-    transition: ease-out 0.5s;;
-}
-
-.profile-animal-container:hover {
-    background-color: darkblue;
-}
-
-.profile-animal-container:hover .animal-text .animal-species{
-    color: white;
-}
-
-/*------------------------*/
-.profile-favourites-title-container{
-    color: white;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 1%;
-    display: flex;
-    justify-content: center;
-}
-
-.profile-favourites-title-container h1{
-    width: 60%;
+.topic-container .proposal-user-photo img, .animal-proposal-photo img{
+    border-radius: 100%;
     border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-    background-color: white;
-    color: black;
-    padding: 1vh;
+    border-width: 10px;
+    border-color: var(--login-blue);
 }
 
-.profile-favourites-ext-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+.proposal-user {
+    font-size: 4vh;
 }
 
-.profile-favourites-container{
-    border-style: solid;
-    border-color:var(--login-blue);
-    border-radius: 50px;
-    border-width: 2px;
-    background-color: rgb(250, 250, 250);
-    width: 80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 1vh;
+.proposal-newName {
+    font-size: 100%;
+    font-style: italic;
 }
 
+.proposal-description {
+    text-align: justify;
+}
 
-/*Comments and Answers in topic.php*/
+.proposal-title{
+    margin-right: 2%;
+}
+
+.proposal-user > a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    line-height: 1rem;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out, ;
+}
+
+.proposal-user > a:hover {
+    color: var(--login-blue);
+}
+
+/* Comments and Answers */
 .questions-title-container h1{
     margin: 2% 10% 3%;
 }
@@ -1404,7 +831,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 .questions-title-container{
     width: 100%;
 }
-
 
 .question-section {
     display: flex;
@@ -1446,8 +872,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     margin-bottom: 1vh;
 }
 
-
-
 .question-header, .answer-header, .topic-header{
     padding-left: 2%;
     padding-top: 1%;
@@ -1458,7 +882,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     color: black;
 }
 
-
 .question-body, .answer-body, .topic-body, .proposal-header{
     display: flex;
     padding: 1%;
@@ -1468,7 +891,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 .question-body .user-photo, .answer-body .user-photo, .topic-body .user-photo, .proposal-user-photo{
     margin-left: 2%;
     margin-right: 4%;
-
 }
 
 .question-body .user-photo img, .answer-body .user-photo img, .topic-body .user-photo img{
@@ -1549,12 +971,10 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     transition: ease-out 0.5s;
 }
 
-
 .forum-button:hover{
     background: white;
     color: var(--login-blue);
 }
-
 
 .question-section hr{
     margin-bottom: 2%;
@@ -1566,7 +986,441 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     width: 100%;
 }
 
-/* Proposals Page*/
+
+
+
+
+/*
+---------------------------------------------
+    7. Animal / User Profile Common
+---------------------------------------------
+*/
+.animal-page-complete, .profile-page-complete {
+    background-color: #f3f2da;
+    width: 100%;
+    padding-bottom: 2%;
+}
+
+.animal-page-complete > svg, .profile-page-complete > svg {
+    width:100%;
+    height: 30%;
+    position: absolute;
+    z-index: 0;
+}
+
+.animal-container, .profile-container {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.animal-photo img, .profile-container .user-photo img {
+    display: block;
+
+    position: relative;
+
+    margin: 0 auto -4%;
+    
+    border-radius: 100%;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 20px;
+    border-color: var(--login-blue);
+
+    min-width: 30vh;
+    min-height: 30vh;
+    width: 400px;
+    height: 400px;
+    max-width: 40vh;
+    max-height: 40vh;
+    z-index: 1;
+}
+
+.animal-card, .user-card {
+    position: relative;
+    /* bottom: 48vh; */
+    color: var(--login-blue);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1% 2% 3% 2%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+
+}
+
+.user-card h4, .animal-stat h4 {
+    color: black;
+    font-weight: normal;
+}
+
+
+
+
+
+/*
+---------------------------------------------
+    8. Edit / Register Common
+---------------------------------------------
+*/
+
+#signup .register-content h1, #edit-profile-container .edit-content h1{
+    font-size: 50px;
+    text-align: center;
+    font-weight: normal;
+    padding-top: 20px;
+    color: darkblue;
+}
+
+.register-content h2,.edit-content h2{
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--login-blue);
+
+}
+
+.register-content > form > button, #edit-profile-container > button{
+    width: 100%;
+    height: 50px;
+    border: 2px solid;
+    background: var(--login-blue);
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
+    margin-top: 20px;
+}
+
+.register-content > form > button:hover, #edit-profile-container > button:hover{
+    background-color: white;
+    color: var(--login-blue);
+}
+
+#signup .txt_field label, #edit-profile-container .txt_field label{
+    position: absolute;
+    top: 30%;
+    left: 5px;
+    color: #adadad;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+#signup .txt_field span::before, #edit-profile-container .txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--login-blue);
+    transition: 0.5s;
+}
+
+
+
+
+
+/*
+---------------------------------------------
+    9. Edit User Profile
+---------------------------------------------
+*/
+
+#edit-profile-container{
+    background-image: url(../assets/edit_profile.jpg);
+}
+
+#edit-profile-container .txt_field input:focus ~ label,
+#edit-profile-container .txt_field input:not(:placeholder-shown) ~ label{
+    top: -15px;
+    color: var(--login-blue)
+}
+
+#edit-profile-container .txt_field input:focus ~ span::before,
+#edit-profile-container .txt_field input:not(:placeholder-shown) ~ span::before{
+    width: 100%;
+}
+
+#edit-profile-container{
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-profile-container > button{
+    width: 50%;
+}
+
+.edit-content{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 2%;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    border: 2px solid var(--login-blue);
+    width: 50%;
+}
+
+.form-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-details-container{
+    width: 35%;
+}
+
+/* Image Upload */
+.change-photo-container{
+    margin-top: 2%;
+}
+
+.change-photo-container .container{
+    height: 350px;
+    width: 430px;
+    position: relative;
+}
+
+.change-photo-container .container .wrapper{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.7);
+    border: 2px solid var(--login-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.change-photo-container .wrapper .image{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.change-photo-container .wrapper img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.change-photo-container .wrapper #cancel-btn i{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: var(--login-blue);
+    cursor: pointer;
+    display: none;
+    transition: ease-out 0.3s;
+}
+
+.change-photo-container .wrapper.active:hover #cancel-btn i{
+    display: block;
+}
+
+.change-photo-container  .wrapper #cancel-btn i:hover{
+    color: #e74c3c;
+}
+
+.change-photo-container .wrapper.active:hover .file-name{
+    display: block;
+  }
+
+.change-photo-container .container #custom-btn{
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: var(--login-blue);
+    transition: ease-out 0.5s;
+}
+
+.change-photo-container .container #custom-btn:hover{
+    background-color: white;
+    color: var(--login-blue);
+    border-color: var(--login-blue);
+}
+
+
+
+
+
+/*
+---------------------------------------------
+    10. Main Page
+---------------------------------------------
+*/
+
+.image-container {
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom-style: solid;
+    border-width: 10px;
+    border-color: var(--login-blue);
+    animation: animate 60s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%, 100%{background-image: url(../assets/image1.png), url(../assets/image2.png);}
+    10% {background-image: url(../assets/image2.png), url(../assets/image3.png);}
+    20% {background-image: url(../assets/image3.png), url(../assets/image4.png);}
+    30% {background-image: url(../assets/image4.png), url(../assets/image5.png);}
+    40% {background-image: url(../assets/image5.png), url(../assets/image6.png);}
+    50% {background-image: url(../assets/image6.png), url(../assets/image7.png);}
+    60% {background-image: url(../assets/image7.png), url(../assets/image8.png);}
+    70% {background-image: url(../assets/image8.png), url(../assets/image9.png);}
+    80% {background-image: url(../assets/image9.png), url(../assets/image10.png);}
+    90% {background-image: url(../assets/image10.png);}
+}
+
+.image-container h1 {
+    text-align: center;
+    color:white;
+    padding-top: 30px;
+    text-shadow: 2px 2px 5px #000000;
+    font-weight: lighter;
+}
+
+.image-container h2 {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px #000000;
+    font-weight: lighter;
+}
+
+.button-container {
+    height: 15%;
+    text-align: center;
+    position: relative;
+    top: 55%;
+}
+
+.inner-button-container{
+    height: 100%;
+    width:50%;
+    position: relative;
+    left: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--login-blue);
+    border-radius: 8px;
+}
+
+/* Main Page Main Button(s) */
+.btn {
+    height: 100%;
+    width: 100%;
+    background: var(--login-blue);
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    outline: none;
+    border:none;
+    border-right-style: solid;
+    border-width: 1px;
+    border-color: black;
+    transition: ease-out 0.5s;
+    color:white;
+}
+
+.btn:hover {
+    background-color: white;
+    color: var(--login-blue)
+}
+
+/* --- Double Button with Rounded Edges --- */
+.btn:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.btn:last-child {
+    border-right: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.message-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    animation: fadeout 3s linear 1 forwards;
+    opacity: 1;
+}
+
+@keyframes fadeout {
+    100% { opacity: 0; }
+  }
+
+.message-content{
+    padding-top: 5px;
+    width: 200px;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+}
+
+.search-content h1 {
+    padding: 20px 0 0 0;
+    font-size: 40px;
+    font-weight: normal;
+    color: darkblue;
+}
+
+.search-content h2{
+    font-size: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--login-blue);
+}
+
+
+
+
+
+/*
+---------------------------------------------
+    11. Proposals Page
+---------------------------------------------
+*/
 
 .proposals-page-complete{
     background-color:  #f3f2da;
@@ -1577,8 +1431,7 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 
 .proposals-container-title{
     text-align: center;
-    margin: 0% 30% 3%;
-    
+    margin: 0% 30% 3%;  
 }
 
 .proposals-container-title .material-icons-round{
@@ -1592,7 +1445,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-radius: 50px;
     border-width: 2px;
     background: white;
-    
 }
     
 .proposals-animal-container{
@@ -1619,7 +1471,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 .proposals-animal-container .animal-text h1:hover{
     color: var(--login-blue);
 }
-
 
 .proposals-animal-inner-container {
     display: flex;
@@ -1653,7 +1504,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     color: var(--login-blue);
 }
 
-
 .proposal-container-pending{
     margin-top: 2%;
     padding: 2%;
@@ -1673,7 +1523,6 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
     border-width: 2px;
     background-color: #ffc6c4; 
 }
-
 
 .proposal-container-pending .approve-button{
     margin-right: 1%;
@@ -1720,140 +1569,327 @@ span.value.upper::before {content: ""; display: inline-block; margin-left: 0.4em
 }
 
 
-/*edit-profile-image-upload*/
-.change-photo-container{
-    margin-top: 2%;
+
+
+
+/*
+---------------------------------------------
+    12. Top bar Header
+---------------------------------------------
+*/
+
+.logo {
+    cursor: pointer;
 }
 
+.authentication li {
+    display: inline-block;
+}
 
-.change-photo-container .container{
-    height: 350px;
-    width: 430px;
-    position: relative;
-  }
-.change-photo-container .container .wrapper{
-    position: relative;
-    height: 300px;
-    width: 100%;
-    border-radius: 10px;
-    background-color: rgba(255,255,255,0.7);
-    border: 2px solid var(--login-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
+.authentication li:first-child {
+    padding-right: 5px;
+}
 
-.change-photo-container .wrapper .image{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255,255,255,0.7);
-  }
+.authentication li:last-child {
+    padding-left: 5px;
+}
 
-.change-photo-container .wrapper img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+.authentication .material-icons-round {
+    font-size: 150%;
+}
 
-.change-photo-container .wrapper #cancel-btn i{
-    position: absolute;
+.authentication li a {
     font-size: 20px;
-    right: 15px;
-    top: 15px;
-    color: var(--login-blue);
-    cursor: pointer;
-    display: none;
-    transition: ease-out 0.3s;
-  }
-.change-photo-container .wrapper.active:hover #cancel-btn i{
-    display: block;
-  }
-.change-photo-container  .wrapper #cancel-btn i:hover{
-    color: #e74c3c;
-  }
-
-.change-photo-container .wrapper.active:hover .file-name{
-    display: block;
-  }
-
-.change-photo-container .container #custom-btn{
-    margin-top: 30px;
-    display: block;
-    width: 100%;
-    height: 50px;
-    border: none;
-    outline: none;
-    border-radius: 25px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: white;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: var(--login-blue);
-    transition: ease-out 0.5s;
+    transition: all 0.3s ease 0s;
+    color: black;
 }
 
-.change-photo-container .container #custom-btn:hover{
-    background-color: white;
-    color: var(--login-blue);
-    border-color: var(--login-blue);
+.authentication li a:hover {
+    color:var(--login-blue);
+}
+
+.about-us-button-class:hover {
+    color:darkblue;
 }
 
 
-#edit-profile-container{
-    background-image: url(../assets/edit_profile.jpg);
+
+
+
+/*
+---------------------------------------------
+    13. User Authentication
+---------------------------------------------
+*/
+
+.login-content h1{
+    font-size: 40px;
+    font-weight: normal;
+    padding: 20px 0 0 0;
+    color: darkblue;
 }
 
-#edit-profile-container .txt_field input:focus ~ label,
-#edit-profile-container .txt_field input:not(:placeholder-shown) ~ label{
+.login-content h2{
+    font-size: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--login-blue);
+}
+
+.login-content form, .register-content form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.login-content .txt_field input:focus ~ label, .login-content .txt_field input:valid ~ label{
     top: -15px;
     color: var(--login-blue)
 }
 
-#edit-profile-container .txt_field input:focus ~ span::before,
-#edit-profile-container .txt_field input:not(:placeholder-shown) ~ span::before{
+.login-content .txt_field input:focus ~ span::before, .login-content .txt_field input:valid ~ span::before{
     width: 100%;
 }
 
-
-.form-container{
-    display: flex;
-    justify-content: space-around;
+.login-content > form > button{
+    width: 100%;
+    height: 50px;
+    border: 2px solid;
+    background: var(--login-blue);
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    transition: ease-out 0.5s;
 }
 
-.edit-content{
+.login-content > form > button:hover{
+    background-color: white;
+    color: var(--login-blue);
+}
+
+body > div > div.login-container > div {
+    font-size: 2rem;
+}
+
+#signup{
+    display : flex;
+    justify-content: center;
+    border-top-style: solid;
+    border-width: 15px;
+    border-color: var(--login-blue);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../assets/register_bg.jpeg);
+    background-size: cover;
+}
+
+.register-content{
     padding-top: 10px;
     padding-bottom: 20px;
     margin-top: 2%;
+    width: 450px;
+    margin-bottom: 150px;
     background-color: rgba(255,255,255,0.7);
     border-radius: 8px;
     text-align: center;
     overflow: hidden;
     border: 2px solid var(--login-blue);
-    width: 50%;
 }
 
-#edit-profile-container{
-    padding-bottom: 10%;
+.signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.signup_link a{
+    color: var(--login-blue);
+    text-decoration: none;
+}
+
+#signup .txt_field input:focus ~ label,
+#signup .txt_field input:valid ~ label{
+    color: var(--login-blue)
+}
+
+#signup .txt_field input:focus ~ span::before,
+#signup .txt_field input:valid ~ span::before{
+    width: 100%;
+}
+
+
+
+
+
+/*
+---------------------------------------------
+    14. User Profile
+---------------------------------------------
+*/
+.profile-page-complete {
+    background-color:#f3f2da;
+    padding-bottom: 2%;
+}
+
+.user-card .user-title {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-.form-details-container{
-    width: 35%;
+.user-card .user-name, .user-card .edit-profile {
+    position: relative;
+    color: black;
+    padding: 5% 0 3px 0;
+    text-align: center;
 }
 
-#edit-profile-container > button{
-    width: 50%;
+.user-card .edit-profile .material-icons-round {
+    font-size: 70%
 }
+
+.user-card .edit-profile a {
+    color: black;
+    margin-left: 50%;
+}
+
+.profile-container .user-card hr {
+    margin-bottom: 2%;
+    margin-top: 1%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    background-color:gray;
+}
+
+.profile-animals-title-container, .profile-adopted-title-container {
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-animals-title-container h1, .profile-adopted-title-container h1 {
+    width: 60%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: white;
+    color: black;
+    padding: 1vh;
+}
+
+.profile-animals-ext-container, .profile-adopted-ext-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 9vh;
+
+}
+
+.profile-animals-container, .profile-adopted-container {
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: rgb(250, 250, 250);
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1vh;
+}
+
+.profile-animal-container {
+    margin: 4%;
+    border-radius: 50px;
+    min-height: 40vh;
+    -webkit-transition: 0.3s ease-in-out,
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out,
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out,
+    transform 0.3s ease-in-out, ;
+    background-color: var(--login-blue);
+}
+
+.profile-animal-container .animal-photo {
+    width: 100%;
+    height: 40vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    
+}
+
+.profile-animal-container .animal-text {
+    padding-top: 2%;
+    height: 10vh;
+    text-align: center;
+    color: white;
+}
+
+.profile-animal-container .animal-text .animal-name {
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    transition: ease-out 0.5s;
+}
+
+.profile-animal-container .animal-text .animal-species {
+    color: black;
+    font-size: large;
+    transition: ease-out 0.5s;;
+}
+
+.profile-animal-container:hover {
+    background-color: darkblue;
+}
+
+.profile-animal-container:hover .animal-text .animal-species {
+    color: white;
+}
+
+.profile-favourites-title-container{
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-favourites-title-container h1{
+    width: 60%;
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: white;
+    color: black;
+    padding: 1vh;
+}
+
+.profile-favourites-ext-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-favourites-container{
+    border-style: solid;
+    border-color:var(--login-blue);
+    border-radius: 50px;
+    border-width: 2px;
+    background-color: rgb(250, 250, 250);
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1vh;
+}
+
