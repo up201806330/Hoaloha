@@ -41,19 +41,13 @@ function deleteQuestionContainer() {
     var div = document.getElementById(response);
     var answersContainer = document.getElementById("answers-container" + response);
     var addAnswerContainer = document.getElementById("add-answer-container" + response);
-    //var hr = document.querySelector('hr');
-
-    //console.log(div);
-    //console.log(hr);
+    var hr = document.querySelector('hr');
 
     div.parentNode.removeChild(div);
     answersContainer.parentNode.removeChild(answersContainer);
     addAnswerContainer.parentNode.removeChild(addAnswerContainer);
 
-    //console.log(hr.parentNode.childElementCount);
-
-    //if(hr.parentNode.childElementCount === 1)
-        //hr.parentNode.removeChild(hr);
+    //hr.parentNode.removeChild(hr);
 
 
     }

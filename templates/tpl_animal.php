@@ -20,7 +20,7 @@
               draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
             }
           ?>
-          <h1><?=ucwords($animal[0]['name'])?></h1>
+          <h1><?=htmlentities(ucwords($animal[0]['name']))?></h1>
           <div class="animal-card-buttons">
             <?php
               if(isset($_SESSION['username']) && $thisUser['username'] === $topic['username']){
@@ -35,7 +35,7 @@
         <div class="animal-info">
           <ul>
             <li class="animal-species"> <?=ucwords($animal[0]['species'])?> </li>
-            <li class="animal-breed"> <?=ucwords($animal[0]['breed'])?> </li>
+            <li class="animal-breed"> <?=htmlentities(ucwords($animal[0]['breed']))?> </li>
             <li class="animal-gender"> <?=ucwords($animal[0]['gender'])?> </li>
             <!--<li class="animal-location"> Location </li>-->
           </ul>
@@ -59,7 +59,7 @@
               <div class="stat-title">
                 <h4>Color</h4>
               </div>
-              <?=ucwords($animal[0]['color'])?>
+              <?=htmlentities(ucwords($animal[0]['color']))?>
 
             </div>
 
@@ -85,7 +85,7 @@
     </div>
 
     <div class="topic-photos-title-container">
-      <h1>More Photos of <?=ucwords($animal[0]['name'])?> <span class="material-icons-round">camera_alt</span></h1>
+      <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
     </div>
     
     <!-- Slideshow container -->
@@ -179,7 +179,7 @@
             <label>Age (Years)</label>
           </div>
           <div class="txt_field">
-            <input type="file"  name="images[]" multiple>
+            <input type="file"  name="images[]" multiple require>
           </div>
         </div>
         <button type="submit">Register Pet</button>

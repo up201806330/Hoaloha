@@ -13,17 +13,17 @@
         </div>
         <div class="user-card">
             <div class="user-title"> 
-                <div class="user-name"> <h1><?=$user['name'] ?></h1> </div>
+                <div class="user-name"> <h1><?=htmlentities($user['name'])?></h1> </div>
                 <?php if(isset($_SESSION['username']) && $user['username'] == $_SESSION['username']) draw_edit_profile($user['username']);?>
             </div> 
             <hr>
         
             <div class= "user-information">
-                <div class="user-username"> <h4>Username:</h4> <?= $user['username'] ?> </div>
-                <div class="user-location"> <h4>Lives in:</h4> <?=$user['location'] ?> </div>
+                <div class="user-username"> <h4>Username:</h4> <?=$user['username'] ?> </div>
+                <div class="user-location"> <h4>Lives in:</h4> <?=htmlentities($user['location'])?> </div>
                 <div class="user-contacts">
-                    <div class="user-phone"> <h4>Phone Number:</h4> <?=$user['phoneNumber'] ?></div>
-                    <div class="user-email"> <h4>Email:</h4> <?=$user['email'] ?> </div>
+                    <div class="user-phone"> <h4>Phone Number:</h4> <?=htmlentities($user['phoneNumber'])?></div>
+                    <div class="user-email"> <h4>Email:</h4> <?=htmlentities($user['email'])?> </div>
                 </div>
             </div>
         </div>

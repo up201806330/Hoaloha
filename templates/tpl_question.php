@@ -40,7 +40,7 @@
                         <img src="../database/db_link_image.php?id=<?php echo $question['idPhoto'];?>" width="200" height="200">
                     </a>
                 </div>
-                <div class="question-description"><?=$question['question']?>
+                <div class="question-description"><?=htmlentities($question['question'])?>
                 </div>
             </div>
 
