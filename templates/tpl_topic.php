@@ -3,13 +3,13 @@
  * Draws the independent part of the topic (username and description)
  */
     ?>
-      <div class="topic-title-container"><h1><?=$animal_name?>'s Story <span class="material-icons-round">library_books</span></h1></div>
+      <div class="topic-title-container"><h1><?=htmlentities($animal_name)?>'s Story <span class="material-icons-round">library_books</span></h1></div>
         <div class="topic-container">
           <div class="topic-header">
             <div class="topic-title">
               <div class="topic-username">
                 Posted by
-                <h1><a><?=$user['name']?></a>-
+                <h1><a><?=htmlentities($user['name'])?></a>-
                 <a class="topic-username-link" href="../pages/profile.php?username=<?=$user['username']?>" ><?=$topic['username']?></a></h1>
               </div>
               <div class="topic-data">
@@ -24,7 +24,7 @@
               </a>
             </div>
           
-            <div class="topic-description"><?=$topic['description']?>
+            <div class="topic-description"><?=htmlentities($topic['description'])?>
             </div>
           </div>
 
@@ -41,7 +41,7 @@
             <div class="proposal-title">
               <div class="proposal-newName">
                 Changed name to 
-                <?=$approved_proposal['newName']?>
+                <?=htmlentities($approved_proposal['newName'])?>
               </div>
             <?php endif; ?>
 
@@ -53,7 +53,7 @@
               </div>
 
               <div class="proposal-description">
-                <?=$approved_proposal['description']?>
+                <?=htmlentities($approved_proposal['description'])?>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
           <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
           </div>
           <div class="animal-text">
-            <div class="animal-name"><?=$animal[0]['name']?></div>
+            <div class="animal-name"><?=htmlentities($animal[0]['name'])?></div>
             <div class="animal-species"><?=$animal[0]['species']?></div>
           </div>
         </a>
@@ -95,7 +95,7 @@
           <div class="animal-photo" style="background-image: url(../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>);">
           </div>
           <div class="animal-text">
-            <div class="animal-name"><?=$animal[0]['name']?></div>
+            <div class="animal-name"><?=htmlentities($animal[0]['name'])?></div>
             <div class="animal-species"><?=$animal[0]['species']?></div>
           </div>
         </a>
@@ -115,7 +115,7 @@
           <a href="../pages/topic.php?id=<?=$id?>"><img src="../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>" width="200" height="200"></a>
         </div>
         <div class="animal-text">
-          <a href="../pages/topic.php?id=<?=$id?>"><h1><div class="animal-name"><?=$animal[0]['name']?></div></h1></a>
+          <a href="../pages/topic.php?id=<?=$id?>"><h1><div class="animal-name"><?=htmlentities($animal[0]['name'])?></div></h1></a>
           <h3><div class="animal-species">Species: <?=$animal[0]['species']?></div></h3>
         </div>
       </div>

@@ -13,10 +13,10 @@
     return $user !== false && password_verify($password, $user['password']);
   }
 
-  function insertUser($username, $name, $password, $profile_img, $phone_number, $email, $location) { // TODO missing some parameters
+  function insertUser($username, $name, $password, $phone_number, $email, $location) { // TODO missing some parameters
     $db = Database::instance()->db();
 
-    $photoId = Database::instance()->insertDoc($profile_img['type'],$profile_img['tmp_name']);
+    //$photoId = Database::instance()->insertDoc($profile_img['type'],$profile_img['tmp_name']);
     
     $options = ['cost' => 12];
 
@@ -26,7 +26,7 @@
     $userId = $db->lastInsertId();
 
     $stmt = $db->prepare('INSERT INTO UserPhotos(idUser,idPhoto) VALUES(?, ?)');
-    $stmt->execute(array($userId,$photoId));
+    $stmt->execute(array($userId,1));
   }
 
   function updateUser($id, $username, $name, $password, $phone_number, $email, $location, $profile_img){

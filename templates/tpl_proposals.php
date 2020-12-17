@@ -24,7 +24,7 @@
         else if($proposal['status'] == 'R') echo 'refused' ?>">
             Proposal by: 
             <div class="proposal-username"><h1><a href="../pages/profile.php?username=<?= $proposal['username'] ?>"><?= $proposal['username'] ?></a></h1></div>
-            <div class="proposal-description"><?= $proposal['description'] ?></div>
+            <div class="proposal-description"><?=htmlentities($proposal['description'])?></div>
             <div class="proposal-buttons">
                 <?php if($proposal['status'] == 'P' && @$_SESSION['username'] != $proposal['username']){
                 echo '<button class="approve-button" onclick="approvalOrRefusalBox(true, ' . $proposal["idUser"] . ', ' . $proposal["idTopic"] . ')">Approve</button>';

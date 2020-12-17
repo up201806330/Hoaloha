@@ -13,22 +13,22 @@
                             <label>Username</label>
                         </div>
                         <div class="txt_field">
-                            <input type="text" value="<?=$user['name']?>" name="name" required placeholder=" ">
+                            <input type="text" value="<?=htmlentities($user['name'])?>" name="name" required placeholder=" ">
                             <span></span>
                             <label>Name</label>
                         </div>
                         <div class="txt_field">
-                            <input type="text" value="<?=$user['location']?>" name="location" required placeholder=" ">
+                            <input type="text" value="<?=htmlentities($user['location'])?>" name="location" required placeholder=" ">
                             <span></span>
                             <label>Location</label>
                         </div>
                         <div class="txt_field">
-                            <input type="number" value="<?=$user['phoneNumber']?>" name="phoneNumber" required placeholder=" ">
+                            <input type="number" value="<?=htmlentities($user['phoneNumber'])?>" name="phoneNumber" required placeholder=" ">
                             <span></span>
                             <label>Phone Number</label>
                         </div>
                         <div class="txt_field">
-                            <input type="email" value="<?=$user['email']?>" name="email" required placeholder=" ">
+                            <input type="email" value="<?=htmlentities($user['email'])?>" name="email" required placeholder=" ">
                             <span></span>
                             <label>Email</label>
                         </div>

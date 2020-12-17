@@ -17,16 +17,14 @@
 
   $description = $_POST['description'];
   
-  //echo count($files['type']);
 
-  /*echo $files['name'][0];
-  echo $files[1];
-  echo $files[2];*/
-  //var_dump($files);
-  /*foreach($files as &$file){
-      //$file[0][0];
-     var_dump($file);
-  }*/
+  for ($i=0; $i < count($files['name']) ; $i++){
+    if($files['name'][$i] != null && exif_imagetype($files['name'][$i]) != IMAGETYPE_PNG && exif_imagetype($files['name'][$i]) != IMAGETYPE_JPEG){
+      $_SESSION['message'][] = array('type' => 'error','content' => 'Images must be png or jpeg!');
+      die(header('Location: ../pages/add_animal.php'));
+    }
+  }
+
 
   try {
     $animalId = insertAnimal($name, $species, $breed, $weight, $color, $dimensions, $gender, $age, $files);
