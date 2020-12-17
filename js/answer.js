@@ -21,6 +21,7 @@ function deleteAnswer(event){
 
 
     let idAnswer = thisAnswer.querySelector('input').value;
+    console.log(idAnswer);
 
     //console.log(idQuestion);
 
@@ -35,28 +36,12 @@ function deleteAnswer(event){
 function deleteAnswerContainer() {
 
     var response = JSON.parse(this.responseText);
-    
-    //console.log(response);
 
     var div = document.getElementById(response);
-    var answersContainer = document.getElementById("answers-container" + response);
-    var addAnswerContainer = document.getElementById("add-answer-container" + response);
-    //var hr = document.querySelector('hr');
-
-    //console.log(div);
-    //console.log(hr);
 
     div.parentNode.removeChild(div);
-    answersContainer.parentNode.removeChild(answersContainer);
-    addAnswerContainer.parentNode.removeChild(addAnswerContainer);
 
-    //console.log(hr.parentNode.childElementCount);
-
-    //if(hr.parentNode.childElementCount === 1)
-        //hr.parentNode.removeChild(hr);
-
-
-    }
+}
 
 
 function submitAnswerForm(event){
@@ -94,13 +79,31 @@ function receiveAnswers() {
         const name = answer['name'];
         const answerText = answer['answer'];
         const idPhoto = answer['idPhoto']; 
-        const data = answer['data'];     
+        const data = answer['data'];
+        const idAnswer = answer['id'];      
 
         let newAnswerContainer = document.createElement('div');
         newAnswerContainer.setAttribute('class','answer-container');
+        newAnswerContainer.setAttribute('id', idAnswer);
 
         let answerHeader = document.createElement('div');
         answerHeader.setAttribute('class','answer-header');
+
+        let deleteButton = document.createElement('div');
+        deleteButton.setAttribute('class','delete-button-answer');
+
+        let spanDelete = document.createElement('span');
+        spanDelete.setAttribute('class','fas fa-times-circle');
+
+        let inputHidden = document.createElement('input');
+        inputHidden.setAttribute('type','hidden');
+        inputHidden.setAttribute('value', idAnswer);
+
+        spanDelete.appendChild(inputHidden);
+        deleteButton.appendChild(spanDelete);
+        answerHeader.appendChild(deleteButton);
+
+        deleteButton.addEventListener("click", deleteAnswer);
 
         let newAnswerUsername = document.createElement('div');
         newAnswerUsername.setAttribute('class','answer-username');
