@@ -26,7 +26,7 @@
                 <?php } ?>
                     <div class="answer-username">
                     Posted by
-                    <h1><a><?=$answer['name']?></a> -
+                    <h1><a><?=htmlentities($answer['name'])?></a> -
                     <a class="topic-answer-link" href="../pages/profile.php?username=<?=$answer['username']?>" >
                         <?=$answer['username']?>
                     </a></h1>
@@ -42,7 +42,7 @@
                             <img src="../database/db_link_image.php?id=<?php echo $answer['idPhoto'];?>" width="200" height="200">
                         </a>
                     </div>
-                    <div class="answer-description"><?=$answer['answer']?>
+                    <div class="answer-description"><?=htmlentities($answer['answer'])?>
                     </div>
                 </div>
             </div>
