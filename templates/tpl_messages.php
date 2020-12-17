@@ -10,7 +10,8 @@ function draw_messages() {
                 <div class="txt_field">
                     <?php 
                     if (@$_SESSION['messages']){
-                        echo '<div id="' . $_SESSION['messages']['type'] . '-message">' . array_pop($_SESSION['messages'])['content'] . '</div>';
+                        $message = array_pop($_SESSION['messages']);
+                        echo '<div id="' . $message['type'] . '-message">' . $message['content'] . '</div>';
                         // array_pop($_SESSION['messages'])['type'];  error poe texto vermelho ; success poe verde
                         unset($_SESSION['messages']);
                     }

@@ -165,7 +165,7 @@ const customBtn = document.querySelector("#custom-btn");
 const cancelBtn = document.querySelector("#cancel-btn i");
 const img = document.querySelector(".image img");
 let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-defaultBtn.addEventListener("change", function(){
+if(defaultBtn != null) defaultBtn.addEventListener("change", function(){
     const file = this.files[0];
     var result;
     if(file){

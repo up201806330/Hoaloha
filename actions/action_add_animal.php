@@ -19,7 +19,7 @@
   
 
   for ($i=0; $i < count($files['name']) ; $i++){
-    if($files['name'][$i] != null && exif_imagetype($files['name'][$i]) != IMAGETYPE_PNG && exif_imagetype($files['name'][$i]) != IMAGETYPE_JPEG){
+    if($files['tmp_name'][$i] != null && exif_imagetype($files['tmp_name'][$i]) != IMAGETYPE_PNG && exif_imagetype($files['tmp_name'][$i]) != IMAGETYPE_JPEG){
       $_SESSION['message'][] = array('type' => 'error','content' => 'Images must be png or jpeg!');
       die(header('Location: ../pages/add_animal.php'));
     }

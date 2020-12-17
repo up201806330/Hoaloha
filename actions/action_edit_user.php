@@ -26,7 +26,7 @@
     die(header('Location: ../pages/edit_profile.php?username=' . $oldUsername));
   }
 
-  if($profile_img['name'] != null && exif_imagetype($profile_img['name']) != IMAGETYPE_PNG && exif_imagetype($profile_img['name']) != IMAGETYPE_JPEG){
+  if($profile_img['tmp_name'] != null && exif_imagetype($profile_img['tmp_name']) != IMAGETYPE_PNG && exif_imagetype($profile_img['tmp_name']) != IMAGETYPE_JPEG){
     $_SESSION['message'][] = array('type' => 'error','content' => 'Profile image must be a png or a jpg!');
     die(header('Location: ../pages/edit_profile.php?username=' . $oldUsername));
   }
