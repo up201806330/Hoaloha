@@ -69,9 +69,14 @@
         <h1><?= $string ?></h1>
     </div>
 
+    <?php
+        if ($n_topics > 0){
+    ?>
     <div class="profile-animals-ext-container">
         <div class="profile-animals-container">
-
+    <?php
+        }
+    ?>
 <?php } ?>
 
 
@@ -100,9 +105,14 @@
         <h1><?= $string ?></h1>
     </div>
 
+    <?php
+        if ($n_topics > 0){
+    ?>
     <div class="profile-adopted-ext-container">
         <div class="profile-adopted-container">
-
+    <?php
+        }
+    ?>
 <?php } ?>
 
 
