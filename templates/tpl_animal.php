@@ -99,10 +99,6 @@
           <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
         </div>
       <?php } ?>
-
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <br>
@@ -136,25 +132,29 @@
           <span></span>
           <label>Description</label>
         </div>
-        <select name='species'>
-            <option value=''>&#xf039; &nbsp; Select a Species</option>
-            <option value='Dog'>&#xf6d3; &nbsp; Dog</option>
-            <option value='Cat'>&#xf6be; &nbsp; Cat</option>
-            <option value='Bird'>&#xf535; &nbsp; Bird</option>
-            <option value='Other'>&#xf059; &nbsp; Other</option>
-            <label>Species</label>
-        </select>
+        <div class="select-box">
+          <select name='species'>
+              <option value=''>Select a Species</option>
+              <option value='Dog'>🐶 Dog</option>
+              <option value='Cat'>🐱 Cat</option>
+              <option value='Bird'>🐥 Bird</option>
+              <option value='Other'>❓ Other</option>
+              <label>Species</label>
+          </select>
+        </div>
         <div class="txt_field">
           <input type="text" name="breed" required>
           <span></span>
           <label>Breed</label>
         </div>
-        <select name='gender'>
-            <option value=''>&#xf22d; &nbsp; Select a Gender</option>
-            <option value='male'>&#xf222; &nbsp; Male</option>
-            <option value='female'>&#xf221; &nbsp; Female</option>
-            <label>Gender</label>
-        </select>
+        <div class="select-box">
+          <select name='gender'>
+              <option value=''>Select a Gender</option>
+              <option value='male'>♂️ Male</option>
+              <option value='female'>♀️ Female</option>
+              <label>Gender</label>
+          </select>
+        </div>
         <div class="details">
           <div class="txt_field">
             <input type="text" name="weight" required>
@@ -166,20 +166,23 @@
             <span></span>
             <label>Color</label>
             </div>
-            <select name='dimensions'>
-                <option value=''>&#xf22d; &nbsp; Select Dimensions</option>
-                <option value='Small'>&#xf56b; &nbsp; Small</option>
-                <option value='Medium'>&#xf546; &nbsp; Medium</option>
-                <option value='Large'>&#xf436; &nbsp; Large</option>
-                <label>Dimensions</label>
-            </select>
+            <div class="select-box">
+              <select name='dimensions'>
+                  <option value=''>Select Dimensions</option>
+                  <option value='Small'>Small</option>
+                  <option value='Medium'>Medium</option>
+                  <option value='Large'>Large</option>
+                  <label>Dimensions</label>
+              </select>
+            </div>
             <div class="txt_field">
             <input type="number" name="age" required>
             <span></span>
             <label>Age (Years)</label>
           </div>
-          <div class="txt_field">
-            <input type="file"  name="images[]" multiple require>
+          <div class="file-choice-animal">
+            <input type="file" id="file" name="images[]" multiple required>
+            <label for="file"><span class="material-icons-round">add_a_photo</span> Upload Animal Pictures</label>
           </div>
         </div>
         <button type="submit">Register Pet</button>
