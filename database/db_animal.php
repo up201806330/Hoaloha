@@ -44,6 +44,17 @@
     return $animalId;
   }
 
+  function insertPhotos($idAnimal, $files) {
+    $db = Database::instance()->db();
+
+    for ($i=0; $i < count($files['name']) ; $i++) { 
+      $photoId = Database::instance()->insertDoc($files['type'][$i],$files['tmp_name'][$i]);
+
+      $stmt = $db->prepare('INSERT INTO PetPhotos(idPet,idPhoto) VALUES(?, ?)');
+      $stmt->execute(array($idAnimal,$photoId));
+    }
+  }
+
   function updateAnimal($idAnimal, $name, $species, $breed, $weight, $color, $dimension, $gender, $age){
 
     $db = Database::instance()->db();

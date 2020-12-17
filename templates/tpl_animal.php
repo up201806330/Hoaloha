@@ -1,4 +1,4 @@
-<?php function draw_animal_full($animal, $topic, $thisUser, $isLoggedIn){
+<?php function draw_animal_full($animal, $topic, $thisUser, $isLoggedIn) {
 /**
  * Draws full animal page
  */?>
@@ -189,13 +189,19 @@
 <?php } ?>
 
 <?php function draw_edit_animal($animalId) {
+  /**
+ * Draws the button that allows an animal's owner to edit its post
+ */
   ?>
   <div class="edit-animal-information">
         <a href="../pages/edit_animal.php?animalId=<?=$animalId?>"><span class="material-icons-round">settings</span></a>
   </div>
 <?php } ?>
 
-<?php function draw_delete_animal($animalId){
+<?php function draw_delete_animal($animalId) {
+/**
+ * Draws the button that allows an animal's owner to delete its post
+ */
 ?>
   <div class="delete-animal">
       <form method="post" action="../actions/action_delete_animal.php">
@@ -206,3 +212,18 @@
 
 <?php } ?>
 
+<?php function draw_add_more_photos_button($idTopic, $idAnimal) {
+/**
+ * Draws the button that allows the user that adopted the animal to add more photos after the fact
+ */?>
+
+    <form method="post" action="../actions/action_add_more_photos.php" enctype="multipart/form-data">
+      <input type="hidden" name="idTopic" value=<?=$idTopic?>>
+      <input type="hidden" name="idAnimal" value=<?=$idAnimal?>>
+      <div class="txt_field">
+        <input type="file"  name="images[]" multiple require>
+      </div>
+      <button type="submit">Add more photos</button>
+    </form>
+
+<?php } ?>
