@@ -4,11 +4,43 @@ var forms = document.querySelectorAll(".add-answer-container form");
 
 forms.forEach(form => {form.addEventListener("submit", submitAnswerForm);});
 
+var answersDeleteButton = document.querySelectorAll(".delete-button-answer");
+
+answersDeleteButton.forEach(answerDeleteButton => {answerDeleteButton.addEventListener("click", deleteAnswer);});
+
 
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
       return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&')
+}
+
+function deleteAnswer(event){
+
+    let thisAnswer = event.target;
+
+
+    let idAnswer = thisAnswer.querySelector('input').value;
+    console.log(idAnswer);
+
+    //console.log(idQuestion);
+
+    let request = new XMLHttpRequest();
+    request.onload = deleteAnswerContainer;
+    request.open('post','../actions/action_delete_answer.php', true);
+    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    request.send(encodeForAjax({idAnswer : idAnswer}));
+    event.preventDefault();
+}
+
+function deleteAnswerContainer() {
+
+    var response = JSON.parse(this.responseText);
+
+    var div = document.getElementById(response);
+
+    div.parentNode.removeChild(div);
+
 }
 
 
@@ -47,13 +79,31 @@ function receiveAnswers() {
         const name = answer['name'];
         const answerText = answer['answer'];
         const idPhoto = answer['idPhoto']; 
-        const data = answer['data'];     
+        const data = answer['data'];
+        const idAnswer = answer['id'];      
 
         let newAnswerContainer = document.createElement('div');
         newAnswerContainer.setAttribute('class','answer-container');
+        newAnswerContainer.setAttribute('id', idAnswer);
 
         let answerHeader = document.createElement('div');
         answerHeader.setAttribute('class','answer-header');
+
+        let deleteButton = document.createElement('div');
+        deleteButton.setAttribute('class','delete-button-answer');
+
+        let spanDelete = document.createElement('span');
+        spanDelete.setAttribute('class','fas fa-times-circle');
+
+        let inputHidden = document.createElement('input');
+        inputHidden.setAttribute('type','hidden');
+        inputHidden.setAttribute('value', idAnswer);
+
+        spanDelete.appendChild(inputHidden);
+        deleteButton.appendChild(spanDelete);
+        answerHeader.appendChild(deleteButton);
+
+        deleteButton.addEventListener("click", deleteAnswer);
 
         let newAnswerUsername = document.createElement('div');
         newAnswerUsername.setAttribute('class','answer-username');

@@ -48,6 +48,13 @@
     $stmt->execute(array($idQuestion));
     return $stmt->fetchAll();
   }
+
+  function deleteQuestion($idQuestion){
+    $db = Database::instance()->db();
+
+    $stmt = $db->prepare('DELETE FROM Questions WHERE id = ?');
+    $stmt->execute(array($idQuestion));
+  }
   
 
 ?>

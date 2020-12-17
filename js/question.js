@@ -2,6 +2,12 @@
 
 var form = document.querySelector(".add-question-container form");
 
+form.addEventListener("submit", submitQuestionForm);
+
+var questionsContainer = document.querySelectorAll(".delete-button-question");
+
+questionsContainer.forEach(questionDiv => {questionDiv.addEventListener("click", deleteQuestion);});
+
 function encodeForAjax(data) {
     return Object.keys(data).map(function(k){
       return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
@@ -9,11 +15,54 @@ function encodeForAjax(data) {
 }
 
 
+function deleteQuestion(event){
+
+    let thisQuestion = event.target;
+
+
+    let idQuestion = thisQuestion.querySelector('input').value;
+
+    //console.log(idQuestion);
+
+    let request = new XMLHttpRequest();
+    request.onload = deleteQuestionContainer;
+    request.open('post','../actions/action_delete_question.php', true);
+    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    request.send(encodeForAjax({idQuestion : idQuestion}));
+    event.preventDefault();
+}
+
+function deleteQuestionContainer() {
+
+    var response = JSON.parse(this.responseText);
+    
+    //console.log(response);
+
+    var div = document.getElementById(response);
+    var answersContainer = document.getElementById("answers-container" + response);
+    var addAnswerContainer = document.getElementById("add-answer-container" + response);
+    //var hr = document.querySelector('hr');
+
+    //console.log(div);
+    //console.log(hr);
+
+    div.parentNode.removeChild(div);
+    answersContainer.parentNode.removeChild(answersContainer);
+    addAnswerContainer.parentNode.removeChild(addAnswerContainer);
+
+    //console.log(hr.parentNode.childElementCount);
+
+    //if(hr.parentNode.childElementCount === 1)
+        //hr.parentNode.removeChild(hr);
+
+
+    }
+
 function submitQuestionForm(event){
     
-    var question = document.querySelector('.add-question-container form textarea').value;
-    var idTopic = document.querySelector('form #idTopic').value;
-    var idUser = document.querySelector('form #idUser').value;
+    let question = document.querySelector('.add-question-container form textarea').value;
+    let idTopic = document.querySelector('form #idTopic').value;
+    let idUser = document.querySelector('form #idUser').value;
     //var data = document.querySelector('form #data').value;
 
 
@@ -27,6 +76,7 @@ function submitQuestionForm(event){
     event.preventDefault();
     
 }
+
 
 function receiveQuestions() {
     console.log(this.responseText);
@@ -48,9 +98,26 @@ function receiveQuestions() {
 
         let newQuestionContainer = document.createElement('div');
         newQuestionContainer.setAttribute('class','question-container');
+        newQuestionContainer.setAttribute('id', idQuestion);
 
         let questionHeader = document.createElement('div');
         questionHeader.setAttribute('class', 'question-header');
+
+        let deleteButton = document.createElement('div');
+        deleteButton.setAttribute('class','delete-button');
+
+        let spanDelete = document.createElement('span');
+        spanDelete.setAttribute('class','fas fa-times-circle');
+
+        let inputHidden = document.createElement('input');
+        inputHidden.setAttribute('type','hidden');
+        inputHidden.setAttribute('value', idQuestion);
+
+        spanDelete.appendChild(inputHidden);
+        deleteButton.appendChild(spanDelete);
+        questionHeader.appendChild(deleteButton);
+
+        deleteButton.addEventListener("click", deleteQuestion);
 
         let newQuestionUsername = document.createElement('div');
         newQuestionUsername.setAttribute('class','question-username');
@@ -121,6 +188,7 @@ function receiveQuestions() {
 
         let addAnswer = document.createElement('div');
         addAnswer.setAttribute('class','add-answer-container');
+        addAnswer.setAttribute('id','add-answer-container' + idQuestion);
 
         let form = document.createElement('form');
 
@@ -172,9 +240,19 @@ function receiveQuestions() {
 
         addAnswer.appendChild(form);
 
+        form.addEventListener("submit", submitAnswerForm);
+
+        let answerContainer = document.createElement('div');
+        answerContainer.setAttribute('class','answers-container');
+        answerContainer.setAttribute('id','answers-container' + idQuestion);
+
+        let hr = document.createElement('hr');
+
+        questions.appendChild(answerContainer);
+
         questions.appendChild(addAnswer);
+        questions.appendChild(hr);
               
     })
 }
 
-form.addEventListener("submit", submitQuestionForm);
