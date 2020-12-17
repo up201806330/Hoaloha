@@ -17,7 +17,7 @@
    
             <div class="answer-container" id="<?=$answer['id']?>">
                 <div class="answer-header">
-                <?php if($answer['username'] === $_SESSION['username']){?> 
+                <?php if(isset($_SESSION['username']) && $answer['username'] === $_SESSION['username']){?> 
                     <div class="delete-button-answer">
                         <span class="fas fa-times-circle">
                             <input type="hidden" value="<?=$answer['id']?>">

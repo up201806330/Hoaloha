@@ -23,7 +23,7 @@
           <h1><?=ucwords($animal[0]['name'])?></h1>
           <div class="animal-card-buttons">
             <?php
-              if($thisUser['username'] === $topic['username']){
+              if(isset($_SESSION['username']) && $thisUser['username'] === $topic['username']){
                 draw_edit_animal($animal[0]['id']);
                 draw_delete_animal($animal[0]['id']);
               } 

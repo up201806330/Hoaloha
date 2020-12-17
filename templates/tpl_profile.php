@@ -14,7 +14,7 @@
         <div class="user-card">
             <div class="user-title"> 
                 <div class="user-name"> <h1><?=$user['name'] ?></h1> </div>
-                <?php if($user['username'] == $_SESSION['username']) draw_edit_profile($user['username']);?>
+                <?php if(isset($_SESSION['username']) && $user['username'] == $_SESSION['username']) draw_edit_profile($user['username']);?>
             </div> 
             <hr>
         
