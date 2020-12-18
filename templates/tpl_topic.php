@@ -38,11 +38,13 @@
                 <img src="../database/db_link_image.php?id=<?php echo $approved_proposal['idPhoto'];?>" width="200" height="200">
               </a>
             </div>
-            <div class="proposal-title">
-              <div class="proposal-newName">
-                Changed name to 
-                <?=htmlentities($approved_proposal['newName'])?>
-              </div>
+              <?php if($approved_proposal['newName'] !== $animal_name) : ?>
+              <div class="proposal-title">
+                <div class="proposal-newName">
+                  Changed name to 
+                  <?=htmlentities($approved_proposal['newName'])?>
+                </div>
+              <?php endif; ?>
             <?php endif; ?>
 
               <div class="proposal-user">
