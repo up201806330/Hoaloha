@@ -23,7 +23,7 @@
                             <label>Location</label>
                         </div>
                         <div class="txt_field">
-                            <input type="tel" value="<?=htmlentities($user['phoneNumber'])?>" name="phoneNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required placeholder=" ">
+                            <input type="tel" value="<?=htmlentities($user['phoneNumber'])?>" name="phoneNumber" pattern="[9]{1}[0-9]{8}" required placeholder=" ">
                             <span></span>
                             <label>Phone Number</label>
                         </div>
