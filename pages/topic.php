@@ -44,8 +44,6 @@
   if($isLoggedIn) draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']);
   draw_animal_full($animal[0], $topic, $thisUser, $isLoggedIn);
 
-  draw_photos($animal);
-
   start_adopt_favourite_container();
 
 
@@ -59,6 +57,8 @@
   }
 
   end_adopt_favourite_container();
+
+  draw_photos($animal);
 
   draw_topic_details($topic, $owner, $approved_proposal, $animal[0]['name']);
 

@@ -40,7 +40,7 @@
             </div>
             <div class="proposal-title">
               <div class="proposal-newName">
-                Changed name to 
+                Animal name is  
                 <?=htmlentities($approved_proposal['newName'])?>
               </div>
             <?php endif; ?>
