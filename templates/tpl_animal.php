@@ -8,7 +8,7 @@
     </svg>
     <div class="animal-container">
       <div class="animal-photo">
-        <img src="../database/db_link_image.php?id=<?php echo $animal[0]['idPhoto'];?>">
+        <img src="../database/db_link_image.php?id=<?php echo $animal['idPhoto'];?>">
       </div>
       <div class="animal-card">
 
@@ -20,12 +20,12 @@
               draw_favourite_button(count($favourites), $topic['id'], $topicIsLiked);
             }
           ?>
-          <h1><?=htmlentities(ucwords($animal[0]['name']))?></h1>
+          <h1><?=htmlentities(ucwords($animal['name']))?></h1>
           <div class="animal-card-buttons">
             <?php
               if(isset($_SESSION['username']) && $thisUser['username'] === $topic['username']){
-                draw_edit_animal($animal[0]['id']);
-                draw_delete_animal($animal[0]['id']);
+                draw_edit_animal($animal['id']);
+                draw_delete_animal($animal['id']);
               } 
             ?>
           </div>
@@ -34,9 +34,9 @@
 
         <div class="animal-info">
           <ul>
-            <li class="animal-species"> <?=ucwords($animal[0]['species'])?> </li>
-            <li class="animal-breed"> <?=htmlentities(ucwords($animal[0]['breed']))?> </li>
-            <li class="animal-gender"> <?=ucwords($animal[0]['gender'])?> </li>
+            <li class="animal-species"> <?=ucwords($animal['species'])?> </li>
+            <li class="animal-breed"> <?=htmlentities(ucwords($animal['breed']))?> </li>
+            <li class="animal-gender"> <?=ucwords($animal['gender'])?> </li>
             <!--<li class="animal-location"> Location </li>-->
           </ul>
         </div>
@@ -50,7 +50,7 @@
               <div class="stat-title">
                 <h4>Weight (Kg)</h4>
               </div>
-              <?=$animal[0]['weight']?>
+              <?=$animal['weight']?>
 
             </div>
 
@@ -59,7 +59,7 @@
               <div class="stat-title">
                 <h4>Color</h4>
               </div>
-              <?=htmlentities(ucwords($animal[0]['color']))?>
+              <?=htmlentities(ucwords($animal['color']))?>
 
             </div>
 
@@ -68,7 +68,7 @@
               <div class="stat-title">
                 <h4>Dimension</h4>
               </div>
-              <?=ucwords($animal[0]['dimension'])?>
+              <?=ucwords($animal['dimension'])?>
 
             </div>
             
@@ -77,42 +77,12 @@
               <div class="stat-title">
                 <h4>Age (Years)</h4>
               </div>
-              <?=$animal[0]['age']?>
+              <?=$animal['age']?>
 
             </div>
         </div>
       </div>
     </div>
-
-    <?php if (count($animal) > 1){ ?>
-
-      <div class="topic-photos-title-container">
-        <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
-      </div>
-      
-      <!-- Slideshow container -->
-      <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-        <?php for ($i=0; $i < count($animal) ; $i++) {       
-          ?>
-          <div class="mySlides fade">
-            <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
-            <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
-          </div>
-        <?php } ?>
-
-      </div>
-
-      <br>
-
-        <!-- The dots/circles -->
-      <div style="text-align:center">
-        <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
-          <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
-        <?php } ?>
-      </div>
-    <?php } ?>
 
 <?php } ?>
 
@@ -237,5 +207,42 @@
         </div>
       </form>
     </div>
+
+<?php } ?>
+
+<?php function draw_photos($animal){
+/**
+ * Draws photos slideshow
+ */ ?>
+
+  <?php if (count($animal) > 1){ ?>
+
+  <div class="topic-photos-title-container">
+    <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
+  </div>
+
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <?php for ($i=0; $i < count($animal) ; $i++) {       
+      ?>
+      <div class="mySlides fade">
+        <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
+        <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
+      </div>
+    <?php } ?>
+
+  </div>
+
+  <br>
+
+    <!-- The dots/circles -->
+  <div style="text-align:center">
+    <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
+      <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
+    <?php } ?>
+  </div>
+  <?php } ?>
 
 <?php } ?>

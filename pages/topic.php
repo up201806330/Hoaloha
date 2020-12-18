@@ -42,7 +42,9 @@
 
   draw_header();
   if($isLoggedIn) draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']);
-  draw_animal_full($animal, $topic, $thisUser, $isLoggedIn);
+  draw_animal_full($animal[0], $topic, $thisUser, $isLoggedIn);
+
+  draw_photos($animal);
 
   start_adopt_favourite_container();
 
