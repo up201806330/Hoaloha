@@ -38,9 +38,10 @@
   }
 
   $approved_proposal = getApprovedProposal($topic['id']);
+  if ($approved_proposal != null) $approved_proposal_user = getUsernameById($approved_proposal['idUser']);
 
   draw_header();
-  if($isLoggedIn){ draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']); }
+  if($isLoggedIn) draw_adopt_div($thisUser['name'], $animal[0]['name'], $topic['id']);
   draw_animal_full($animal, $topic, $thisUser, $isLoggedIn);
 
   start_adopt_favourite_container();
@@ -58,6 +59,9 @@
   end_adopt_favourite_container();
 
   draw_topic_details($topic, $owner, $approved_proposal, $animal[0]['name']);
+
+  if ($approved_proposal != null && $thisUser['username'] == $approved_proposal_user['username'] && isAnimalAdopted($topic['idPet'])) draw_add_more_photos_button($topic['id'], $topic['idPet']);
+
   draw_start_questions_container();
   foreach($questions as &$question){
     draw_question($question);

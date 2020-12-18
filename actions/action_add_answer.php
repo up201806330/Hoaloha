@@ -13,9 +13,9 @@
   
     echo(json_encode($lastAnswerAdded));
     
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Answer sent!');
+    //$_SESSION['messages'][] = array('type' => 'success', 'content' => 'Answer sent!');
   } catch (PDOException $e) {
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add answer to db!');
+    //$_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to add answer to db!');
   }
   
 ?>
