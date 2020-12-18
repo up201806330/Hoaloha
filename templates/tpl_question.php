@@ -16,7 +16,7 @@
  * Draws the independent part of the topic (username and description)
  */
     ?>
-        <div class="question-container" id="<?=$question['id']?>"> 
+        <div class="question-container" id="question<?=$question['id']?>"> 
             <div class="question-header">
                 <?php if(isset($_SESSION['username']) && $question['username'] === $_SESSION['username']){?> 
                     <div class="delete-button-question">
@@ -69,7 +69,6 @@
 
     <?php } ?>
     </div>
-    </div>
 <?php
 }
 ?>
@@ -80,6 +79,7 @@
  * Draws the independent part of the topic (username and description)
  */
     ?> 
+    </div>
     </div>
 <?php
 }

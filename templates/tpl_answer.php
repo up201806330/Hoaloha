@@ -15,7 +15,7 @@
  */
     ?>
    
-            <div class="answer-container" id="<?=$answer['id']?>">
+            <div class="answer-container" id="answer<?=$answer['id']?>">
                 <div class="answer-header">
                 <?php if(isset($_SESSION['username']) && $answer['username'] === $_SESSION['username']){?> 
                     <div class="delete-button-answer">

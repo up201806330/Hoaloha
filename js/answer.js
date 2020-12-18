@@ -21,7 +21,6 @@ function deleteAnswer(event){
 
 
     let idAnswer = thisAnswer.querySelector('input').value;
-    console.log(idAnswer);
 
     //console.log(idQuestion);
 
@@ -37,7 +36,7 @@ function deleteAnswerContainer() {
 
     var response = JSON.parse(this.responseText);
 
-    var div = document.getElementById(response);
+    var div = document.getElementById("answer" + response);
 
     div.parentNode.removeChild(div);
 
@@ -63,6 +62,8 @@ function submitAnswerForm(event){
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.send(encodeForAjax({idUser: idUser, idQuestion: idQuestion, answer: answer}));
     event.preventDefault();
+
+    thisForm.reset();
     
 }
 
@@ -84,7 +85,7 @@ function receiveAnswers() {
 
         let newAnswerContainer = document.createElement('div');
         newAnswerContainer.setAttribute('class','answer-container');
-        newAnswerContainer.setAttribute('id', idAnswer);
+        newAnswerContainer.setAttribute('id', "answer" + idAnswer);
 
         let answerHeader = document.createElement('div');
         answerHeader.setAttribute('class','answer-header');
