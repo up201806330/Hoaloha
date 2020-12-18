@@ -56,32 +56,32 @@
       <h2>New Here? Welcome!</h2>
       <form method="post" action="../actions/action_register.php" enctype="multipart/form-data">
         <div class="txt_field">
-          <input type="text" name="username" required>
+          <input type="text" name="username" required placeholder = " ">
           <span></span>
           <label>Username</label>
         </div>
         <div class="txt_field">
-          <input type="text" name="name" required>
+          <input type="text" name="name" required placeholder = " ">
           <span></span>
           <label>Name</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" required>
+          <input type="password" name="password" required placeholder = " ">
           <span></span>
           <label>Password</label>
         </div>
         <div class="txt_field">
-          <input type="tel" name="phone_number" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
+          <input type="tel" name="phone_number" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required placeholder = " ">
           <span></span>
           <label>Phone Number</label>
         </div>
         <div class="txt_field">
-          <input type="email" name="email" required>
+          <input type="email" name="email" required placeholder = " ">
           <span></span>
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="text" name="location" required>
+          <input type="text" name="location" required placeholder = " ">
           <span></span>
           <label>Location</label>
         </div>

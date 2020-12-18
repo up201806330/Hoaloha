@@ -1968,17 +1968,15 @@ body > div > div.login-container > div {
 }
 
 #signup .txt_field input:focus ~ label,
-#signup .txt_field input:valid ~ label{
+#signup .txt_field input:not(:placeholder-shown) ~ label{
     top: -15px;
     color: var(--login-blue)
 }
 
 #signup .txt_field input:focus ~ span::before,
-#signup .txt_field input:valid ~ span::before{
+#signup .txt_field input:not(:placeholder-shown) ~ span::before{
     width: 100%;
 }
-
-
 
 
 
