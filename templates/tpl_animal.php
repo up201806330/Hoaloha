@@ -84,31 +84,38 @@
       </div>
     </div>
 
-    <div class="topic-photos-title-container">
-      <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
-    </div>
-    
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
+    <?php if (count($animal) > 1){ ?>
 
-      <!-- Full-width images with number and caption text -->
-      <?php for ($i=0; $i < count($animal) ; $i++) {       
-        ?>
-        <div class="mySlides fade">
-          <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
-          <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
-        </div>
-      <?php } ?>
-    </div>
+      <div class="topic-photos-title-container">
+        <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
+      </div>
+      
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
 
-    <br>
+        <!-- Full-width images with number and caption text -->
+        <?php for ($i=0; $i < count($animal) ; $i++) {       
+          ?>
+          <div class="mySlides fade">
+            <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
+            <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
+          </div>
+        <?php } ?>
 
-      <!-- The dots/circles -->
-    <div style="text-align:center">
-      <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
-        <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
-      <?php } ?>
-    </div>
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <br>
+
+        <!-- The dots/circles -->
+      <div style="text-align:center">
+        <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
+          <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
+        <?php } ?>
+      </div>
+    <?php } ?>
 
 <?php } ?>
 
