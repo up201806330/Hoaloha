@@ -84,31 +84,35 @@
       </div>
     </div>
 
-    <div class="topic-photos-title-container">
-      <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
-    </div>
-    
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
+    <?php if (count($animal) > 1){ ?>
 
-      <!-- Full-width images with number and caption text -->
-      <?php for ($i=0; $i < count($animal) ; $i++) {       
-        ?>
-        <div class="mySlides fade">
-          <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
-          <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
-        </div>
-      <?php } ?>
-    </div>
+      <div class="topic-photos-title-container">
+        <h1>More Photos of <?=htmlentities(ucwords($animal[0]['name']))?> <span class="material-icons-round">camera_alt</span></h1>
+      </div>
+      
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
 
-    <br>
+        <!-- Full-width images with number and caption text -->
+        <?php for ($i=0; $i < count($animal) ; $i++) {       
+          ?>
+          <div class="mySlides fade">
+            <div class="numbertext"><?php echo $i+1 ?> / <?php echo count($animal) ?></div>
+            <img src="../database/db_link_image.php?id=<?php echo $animal[$i]['idPhoto'];?>" style="width:100%">
+          </div>
+        <?php } ?>
 
-      <!-- The dots/circles -->
-    <div style="text-align:center">
-      <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
-        <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
-      <?php } ?>
-    </div>
+      </div>
+
+      <br>
+
+        <!-- The dots/circles -->
+      <div style="text-align:center">
+        <?php for ($i=0; $i < count($animal) ; $i++) { ?>  
+          <span class="dot" onclick="currentSlide(<?php echo $i+1 ?>)"></span>    
+        <?php } ?>
+      </div>
+    <?php } ?>
 
 <?php } ?>
 
@@ -157,7 +161,7 @@
         </div>
         <div class="details">
           <div class="txt_field">
-            <input type="text" name="weight" required>
+            <input type="number" step="0.01" name="weight" min="0" required>
             <span></span>
             <label>Weight (Kg)</label>
           </div>
@@ -176,7 +180,7 @@
               </select>
             </div>
             <div class="txt_field">
-            <input type="number" name="age" required>
+            <input type="number" step="0.1" name="age" min="0" required>
             <span></span>
             <label>Age (Years)</label>
           </div>
@@ -219,14 +223,19 @@
 /**
  * Draws the button that allows the user that adopted the animal to add more photos after the fact
  */?>
-
-    <form method="post" action="../actions/action_add_more_photos.php" enctype="multipart/form-data">
-      <input type="hidden" name="idTopic" value=<?=$idTopic?>>
-      <input type="hidden" name="idAnimal" value=<?=$idAnimal?>>
-      <div class="txt_field">
-        <input type="file"  name="images[]" multiple require>
-      </div>
-      <button type="submit">Add more photos</button>
-    </form>
+    <div class="add-adopted-photos">
+      <h1>Congratulations on your adoption! If you'd like to post pictures of your new friend do so here!</h1>
+      <form method="post" action="../actions/action_add_more_photos.php" enctype="multipart/form-data">
+        <input type="hidden" name="idTopic" value=<?=$idTopic?>>
+        <input type="hidden" name="idAnimal" value=<?=$idAnimal?>>
+        <div class="adopted-photos-container">
+          <div class="file-choice-animal">
+              <input type="file" id="file" name="images[]" multiple required>
+              <label for="file"><span class="material-icons-round">add_a_photo</span> Upload Animal Pictures</label>
+          </div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
 
 <?php } ?>

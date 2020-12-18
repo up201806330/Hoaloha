@@ -5,7 +5,7 @@
         $db = Database::instance()->db();
 
         $stmt = $db->prepare('UPDATE Proposals SET status=? WHERE idTopic=?');
-        $stmt->execute(array('F', $idTopic));
+        $stmt->execute(array('R', $idTopic));
 
         $stmt = $db->prepare('UPDATE Proposals SET status=? WHERE idUser=? AND idTopic=?');
         $stmt->execute(array('A', $idUser, $idTopic));

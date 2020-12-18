@@ -71,7 +71,7 @@
           <label>Password</label>
         </div>
         <div class="txt_field">
-          <input type="number" name="phone_number" required>
+          <input type="tel" name="phone_number" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
           <span></span>
           <label>Phone Number</label>
         </div>

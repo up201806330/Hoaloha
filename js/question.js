@@ -38,7 +38,7 @@ function deleteQuestionContainer() {
     
     //console.log(response);
 
-    var div = document.getElementById(response);
+    var div = document.getElementById("question" + response);
     var answersContainer = document.getElementById("answers-container" + response);
     var addAnswerContainer = document.getElementById("add-answer-container" + response);
     var hr = document.querySelector('hr');
@@ -92,7 +92,7 @@ function receiveQuestions() {
 
         let newQuestionContainer = document.createElement('div');
         newQuestionContainer.setAttribute('class','question-container');
-        newQuestionContainer.setAttribute('id', idQuestion);
+        newQuestionContainer.setAttribute('id', "question" + idQuestion);
 
         let questionHeader = document.createElement('div');
         questionHeader.setAttribute('class', 'question-header');
@@ -184,7 +184,7 @@ function receiveQuestions() {
         addAnswer.setAttribute('class','add-answer-container');
         addAnswer.setAttribute('id','add-answer-container' + idQuestion);
 
-        let form = document.createElement('form');
+        let newForm = document.createElement('form');
 
         let formTitle = document.createElement('div');
         formTitle.setAttribute('class','form-title');
@@ -199,7 +199,7 @@ function receiveQuestions() {
         newH1.appendChild(span);
         formTitle.appendChild(newH1);
 
-        form.appendChild(formTitle);
+        newForm.appendChild(formTitle);
 
         let textInput = document.createElement('div');
         textInput.setAttribute('class','textinput');
@@ -209,8 +209,8 @@ function receiveQuestions() {
 
         textInput.appendChild(textarea);
 
-        form.appendChild(formTitle);
-        form.appendChild(textInput);
+        newForm.appendChild(formTitle);
+        newForm.appendChild(textInput);
 
         let idQuestionInput = document.createElement('input');
         idQuestionInput.setAttribute('type','hidden');
@@ -228,13 +228,13 @@ function receiveQuestions() {
         button.setAttribute('id',idQuestion);
         button.setAttribute('value', 'Reply');
 
-        form.appendChild(idQuestionInput);
-        form.appendChild(idUserInput);
-        form.appendChild(button);
+        newForm.appendChild(idQuestionInput);
+        newForm.appendChild(idUserInput);
+        newForm.appendChild(button);
 
-        addAnswer.appendChild(form);
+        addAnswer.appendChild(newForm);
 
-        form.addEventListener("submit", submitAnswerForm);
+        newForm.addEventListener("submit", submitAnswerForm);
 
         let answerContainer = document.createElement('div');
         answerContainer.setAttribute('class','answers-container');
@@ -246,7 +246,8 @@ function receiveQuestions() {
 
         questions.appendChild(addAnswer);
         questions.appendChild(hr);
-              
+      
+        form.reset();
     })
 }
 
