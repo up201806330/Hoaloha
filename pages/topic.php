@@ -48,7 +48,7 @@
 
 
   if ($isLoggedIn) {
-    if ($approved_proposal != null && $thisUser['username'] == $approved_proposal_user['username'] && !isAnimalAdopted($topic['idPet'])) {
+    if ($thisUser['username'] != $owner['username'] && !isAnimalAdopted($topic['idPet'])) {
       draw_adopt_button();
     }
   }
