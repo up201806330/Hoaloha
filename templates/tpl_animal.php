@@ -223,14 +223,19 @@
 /**
  * Draws the button that allows the user that adopted the animal to add more photos after the fact
  */?>
-
-    <form method="post" action="../actions/action_add_more_photos.php" enctype="multipart/form-data">
-      <input type="hidden" name="idTopic" value=<?=$idTopic?>>
-      <input type="hidden" name="idAnimal" value=<?=$idAnimal?>>
-      <div class="txt_field">
-        <input type="file"  name="images[]" multiple require>
-      </div>
-      <button type="submit">Add more photos</button>
-    </form>
+    <div class="add-adopted-photos">
+      <h1>Congratulations on your adoption! If you'd like to post pictures of your new friend do so here!</h1>
+      <form method="post" action="../actions/action_add_more_photos.php" enctype="multipart/form-data">
+        <input type="hidden" name="idTopic" value=<?=$idTopic?>>
+        <input type="hidden" name="idAnimal" value=<?=$idAnimal?>>
+        <div class="adopted-photos-container">
+          <div class="file-choice-animal">
+              <input type="file" id="file" name="images[]" multiple required>
+              <label for="file"><span class="material-icons-round">add_a_photo</span> Upload Animal Pictures</label>
+          </div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
 
 <?php } ?>
