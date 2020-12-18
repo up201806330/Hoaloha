@@ -80,13 +80,15 @@
 <?php } ?>
 
 
-<?php function end_profile_animals_up_for_adoption_div(){
+<?php function end_profile_animals_up_for_adoption_div($n_topics){
 /**
  * Ends the division where the users' animals still up for adoption are displayed
  */
 ?>
+    <?php if($n_topics > 0){ ?>
+            </div>
         </div>
-    </div>
+    <?php } ?>
 
 <?php } ?>
 
@@ -116,12 +118,14 @@
 <?php } ?>
 
 
-<?php function end_profile_animals_adopted_div(){
+<?php function end_profile_animals_adopted_div($n_topics){
 /**
 * Ends the division where the animals adopted by this user are displayed */
 ?>
+    <?php if($n_topics > 0){ ?>
+            </div>
         </div>
-    </div>
+    <?php } ?>
 <?php } ?>
 
 
@@ -152,14 +156,16 @@
 <?php } ?>
 
 
-<?php function end_profile_favourites_div(){
+<?php function end_profile_favourites_div($n_favourites){
 /**
  * Ends the division where the users' favourite animals are displayed
  */
-
 ?>
     
+    <?php if($n_favourites > 0){ ?>
+            </div>
         </div>
+    <?php } ?>
+
     </div>
-</div>
 <?php } ?>

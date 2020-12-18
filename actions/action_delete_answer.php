@@ -14,12 +14,12 @@
 
   try {
     deleteAnswer($idAnswer);
-    $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Answer Deleted!');
+    //$_SESSION['messages'][] = array('type' => 'success', 'content' => 'Answer Deleted!');
 
     echo(json_encode($idAnswer));
 
   } catch (PDOException $e) {
     $idTopic = topicFromAnimalId($animalId);
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to Delete Answer!');
+    //$_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to Delete Answer!');
   }
 ?>

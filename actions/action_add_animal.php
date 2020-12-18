@@ -16,7 +16,6 @@
   $files = $_FILES['images'];
 
   $description = $_POST['description'];
-  
 
   for ($i=0; $i < count($files['name']) ; $i++){
     if($files['tmp_name'][$i] != null && exif_imagetype($files['tmp_name'][$i]) != IMAGETYPE_PNG && exif_imagetype($files['tmp_name'][$i]) != IMAGETYPE_JPEG){
@@ -24,7 +23,6 @@
       die(header('Location: ../pages/add_animal.php'));
     }
   }
-
 
   try {
     $animalId = insertAnimal($name, $species, $breed, $weight, $color, $dimensions, $gender, $age, $files);
