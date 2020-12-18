@@ -31,7 +31,7 @@
       if ($animal != null && !$isAdopted) draw_topic_in_profile($thisPosted['id'], $animal);
     }
   }
-  end_profile_animals_up_for_adoption_div();
+  end_profile_animals_up_for_adoption_div(count($topicsPosted));
 
   start_profile_animals_adopted_div($username, (@$_SESSION['username'] == $username), count($topicsAdopted));
   foreach($topicsAdopted as &$thisAdopted) {
@@ -40,7 +40,7 @@
       if ($animal != null) draw_topic_in_profile($thisAdopted['id'], $animal);
     }
   }
-  end_profile_animals_adopted_div();
+  end_profile_animals_adopted_div(count($topicsAdopted));
 
   start_profile_favourites_div($username, (@$_SESSION['username'] == $username), count($usersFavourites));
   foreach($usersFavourites as &$favourite) {
@@ -52,7 +52,7 @@
       }
     }
   }
-  end_profile_favourites_div();
+  end_profile_favourites_div(count($usersFavourites));
 
   draw_footer();
   ?>
