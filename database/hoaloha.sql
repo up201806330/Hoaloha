@@ -79,13 +79,13 @@ CREATE TABLE UserFavourites(
 	PRIMARY KEY 	(idUser,idTopic)
 );
 
--- status either is 'P' (pending), 'A' (approved), 'F' (finalized) or 'R' (refused)
+-- status either is 'P' (pending), 'A' (approved) or 'R' (refused)
 CREATE TABLE Proposals(
     idUser    		INTEGER NOT NULL REFERENCES UserEntities(id) ON DELETE CASCADE,
     idTopic         INTEGER NOT NULL REFERENCES Topics(id) ON DELETE CASCADE,
 	newName         VARCHAR(255),
 	description     VARCHAR(255) NOT NULL,
-    status          char(1) NOT NULL DEFAULT 'P' CHECK (status in ('P', 'A', 'F', 'R')),
+    status          char(1) NOT NULL DEFAULT 'P' CHECK (status in ('P', 'A', 'R')),
 	PRIMARY KEY 	(idUser,idTopic)
 );
 
