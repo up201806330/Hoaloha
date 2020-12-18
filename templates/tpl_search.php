@@ -184,8 +184,8 @@
 <?php } ?>
 
 <?php function get_max_weight_and_age($topics){ 
-  $currMaxWeight = 0;
-  $currMaxAge = 0;
+  $currMaxWeight = 1;
+  $currMaxAge = 1;
   foreach($topics as &$topic){
     $animal = getAnimal($topic['idPet'])[0];
     if ($animal['weight'] > $currMaxWeight) $currMaxWeight = $animal['weight'];
