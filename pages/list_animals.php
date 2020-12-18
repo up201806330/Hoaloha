@@ -12,9 +12,11 @@
   draw_navbar();
   echo '<div class="animal-list-container">';
 
-  draw_search_parameters();
-  draw_n_results(count($_SESSION['search_results']));
   $topics = $_SESSION['search_results'];
+  list($maxWeight, $maxAge) = get_max_weight_and_age($topics);
+
+  draw_search_parameters($maxWeight, $maxAge);
+  draw_n_results(count($_SESSION['search_results']));
   start_animal_list();
   foreach($topics as &$topic){
     $animal = getAnimal($topic['idPet']);
