@@ -1,3 +1,5 @@
+<?php include_once("../database/db_animal.php"); ?>
+
 <?php function start_animal_list(){
 /**
  * Starts the section that contains all results of a search
@@ -12,7 +14,6 @@
       </ul>
     </div>
 <?php } ?>
-
 
 <?php function draw_search(){
 /**
@@ -91,7 +92,7 @@
 
 <?php } ?>
 
-<?php function draw_search_parameters(){
+<?php function draw_search_parameters($maxWeight, $maxAge){
 /**
  * Draws the section that contains aditional search parameters
  */?>
@@ -107,9 +108,9 @@
             <label for="weight">Weight (Kg)</label>
             <div class="min-max-slider" data-legendnum="2" id="weight">
               <label for="min">Minimum weight</label>
-              <input id="min" class="min" name="weight_min" type="range" step="0.1" min="0" max="10" />
+              <input id="min" class="min" name="weight_min" type="range" step="0.1" min="0" max="<?= $maxWeight?>" />
               <label for="max">Maximum weight</label>
-              <input id="max" class="max" name="weight_max" type="range" step="0.1" min="0" max="10" />
+              <input id="max" class="max" name="weight_max" type="range" step="0.1" min="0" max="<?= $maxWeight?>" />
             </div>
           </div>
 
@@ -117,9 +118,9 @@
             <label for="age">Age (Years)</label>
             <div class="min-max-slider" data-legendnum="3" id="age">
               <label for="min">Minimum weight</label>
-              <input id="min" class="min" name="age_min" type="range" step="0.1" min="0" max="5" />
+              <input id="min" class="min" name="age_min" type="range" step="0.1" min="0" max="<?= $maxAge?>" />
               <label for="max">Maximum weight</label>
-              <input id="max" class="max" name="age_max" type="range" step="0.1" min="0" max="5" />
+              <input id="max" class="max" name="age_max" type="range" step="0.1" min="0" max="<?= $maxAge?>" />
             </div>
           </div>
         </div>
@@ -182,3 +183,13 @@
 
 <?php } ?>
 
+<?php function get_max_weight_and_age($topics){ 
+  $currMaxWeight = 0;
+  $currMaxAge = 0;
+  foreach($topics as &$topic){
+    $animal = getAnimal($topic['idPet'])[0];
+    if ($animal['weight'] > $currMaxWeight) $currMaxWeight = $animal['weight'];
+    if ($animal['age'] > $currMaxAge) $currMaxAge = $animal['age'];
+  }
+  return array($currMaxWeight, $currMaxAge);
+}
