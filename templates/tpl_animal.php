@@ -157,7 +157,7 @@
         </div>
         <div class="details">
           <div class="txt_field">
-            <input type="text" name="weight" required>
+            <input type="number" step="0.01" name="weight" min="0" required>
             <span></span>
             <label>Weight (Kg)</label>
           </div>
@@ -176,7 +176,7 @@
               </select>
             </div>
             <div class="txt_field">
-            <input type="number" name="age" required>
+            <input type="number" step="0.1" name="age" min="0" required>
             <span></span>
             <label>Age (Years)</label>
           </div>

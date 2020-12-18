@@ -39,7 +39,7 @@
         </div>
         <div class="details">
           <div class="txt_field">
-            <input type="number" step="0.01" name="weight" value="<?=$animal['weight']?>" required>
+            <input type="number" step="0.01" name="weight" value="<?=$animal['weight']?>" min="0" required>
             <span></span>
             <label>Weight (Kg)</label>
           </div>
@@ -58,7 +58,7 @@
               </select>
             </div>
             <div class="txt_field">
-            <input type="number" step="0.1" name="age" value="<?=$animal['age']?>" required>
+            <input type="number" step="0.1" name="age" value="<?=$animal['age']?>" min="0" required>
             <span></span>
             <label>Age (Years)</label>
           </div>
