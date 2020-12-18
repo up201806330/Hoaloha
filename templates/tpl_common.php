@@ -56,6 +56,11 @@ function draw_header($draw_login = true) {
  * Draws the footer for all pages.
  */ ?>
     <footer>
+        <div class="footer-bar"></div>
+        <div class="footer-content">
+            <h2>©2020 Hoa Aloha - All Rights Reserved</h2>
+            <h2>Web Languages and Technologies - LTW 20/21</h2> 
+        </div>
     </footer>
   </body>
 </html>
