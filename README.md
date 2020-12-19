@@ -2,10 +2,10 @@
 ltw-project-g50 created by GitHub Classroom
 
 # Elements:
- - John Doe (201801234)
- - Jane Doe (201804321)
- - Mary Doe (201805678)
- - Carl Doe (201808765)
+ - Diogo Almeida    (201806630)
+ - João Sousa       (201806613)
+ - Pedro Queirós    (201806329)
+ - Rafael Ribeiro   (201806330)
 
 # Credentials (username/password (role))
  - john/1234 (admin)
