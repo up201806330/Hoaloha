@@ -15,7 +15,7 @@
           <label>Description</label>
         </div>
         <div class="select-box">
-          <select name='species'>
+          <select name='species' required>
               <option value=''>Select a Species</option>
               <option value='Dog'>🐶 Dog</option> <!-- maybe do this with javascript-->
               <option value='Cat'>🐱 Cat</option>
@@ -30,7 +30,7 @@
           <label>Breed</label>
         </div>
         <div class="select-box">
-          <select name='gender'>
+          <select name='gender' required>
               <option value=''>Select a Gender</option>
               <option value='male'>♂️ Male</option>
               <option value='female'>♀️ Female</option>
@@ -49,7 +49,7 @@
             <label>Color</label>
             </div>
             <div class="select-box">
-              <select name='dimensions'>
+              <select name='dimensions' required>
                   <option value=''>Select Dimensions</option>
                   <option value='Small'>Small</option>
                   <option value='Medium'>Medium</option>
