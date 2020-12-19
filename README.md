@@ -1,37 +1,37 @@
-# ltw-project-g50
-ltw-project-g50 created by GitHub Classroom
+# Hoaloha
+## Group 50
 
-# Elements:
+## Elements:
  - Diogo Almeida    (201806630)
  - João Sousa       (201806613)
  - Pedro Queirós    (201806329)
  - Rafael Ribeiro   (201806330)
 
-# Credentials (username/password (role))
- - john/1234 (admin)
- - mary/9999 (client)
+## Credentials (username/password (role))
+All created accounts have the same role (possible owner and adopter) and password (**12345678**)
+ - curriewilliam14
+ - JeffSDuffy22
+ - brownrita321
+ - lafontaine34
 
-# Libraries:
- - super-dupper-gallery (http://github.com/example/super-dupper-gallery) to create the image caroussel in the first page.
- - strong-password-checker (http://strong-password-checker.com) to show users if their passwords are strong.
+## Libraries:
+ - We didn't use any libraries
 
-# Features:
+## Features:
  - Security
-     - XSS: yes
-     - CSRF: no
-     - SQL using prepare/execute: yes
-     - Passwords: SHA1
-     - Data Validation: regex / php / html / javascript / ajax
-     - Other:
+     - **XSS:** yes
+     - **CSRF:** yes
+     - **SQL using prepare/execute:** yes
+     - **Passwords:** php's *password_hash* and *password_verify*
+     - **Data Validation:** regex and php
  - Technologies
-     - Separated logic/database/presentation: yes
-     - Semantic HTML tags: yes
-     - Responsive CSS: no
-     - Javascript: yes
-     - Ajax: no
-     - REST API: no
-     - Other:
-  Usability:
-     - Error/success messages: yes
-     - Forms don't lose data on error: no
+     - **Separated logic/database/presentation:** yes
+     - **Semantic HTML tags:** yes
+     - **Responsive CSS:** yes
+     - **Javascript:** yes
+     - **Ajax:** yes (creation / deletion of questions and answers)
+     - **REST API:** no
+  - Usability:
+     - **Error/success messages** 
+
  
