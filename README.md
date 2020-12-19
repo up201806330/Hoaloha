@@ -27,7 +27,7 @@ All created accounts have the same role (possible owner and adopter) and passwor
  - Technologies
      - **Separated logic/database/presentation:** yes
      - **Semantic HTML tags:** yes
-     - **Responsive CSS:** yes (in profile page) ?????
+     - **Responsive CSS:** yes
      - **Javascript:** yes
      - **Ajax:** yes (creation / deletion of questions and answers)
      - **REST API:** no
