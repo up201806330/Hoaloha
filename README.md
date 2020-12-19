@@ -15,7 +15,8 @@ All created accounts have the same role (possible owner and adopter) and passwor
  - lafontaine34
 
 ## Libraries:
- - We didn't use any libraries
+ - FontAwesome (for the 'heart' button) (https://fontawesome.com/)
+ - Google Material Design Icons (for icons throughout the whole page) (https://material.io/resources/icons/)
 
 ## Features:
  - Security
