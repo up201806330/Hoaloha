@@ -10,7 +10,6 @@
     die();
   }
 
-
   $profile = getUser($username);
 
   draw_header();

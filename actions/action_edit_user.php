@@ -1,6 +1,9 @@
 <?php
   include_once('../includes/session.php');
+  include_once('../includes/token.php');
   include_once('../database/db_user.php');
+
+  validate_token($_POST['csrf']);
 
   $username = $_POST['username'];
   $name = $_POST['name'];
@@ -13,12 +16,6 @@
   $idUser = $_POST['idUser'];
 
   $oldUsername = getUsernameById($idUser);
-
-  //echo $name;
-
-  //var_dump($profile_img);
-  //if($profile_img['name'] == null)
-    //echo "Ola";
 
   // Don't allow certain characters
   if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {

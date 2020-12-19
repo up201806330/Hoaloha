@@ -1,8 +1,6 @@
 <?php
   include_once('../includes/database.php');
 
-  //use App\SQLiteBLOB as SQLiteBlob;
-
   function checkUserPassword($username, $password) {
     $db = Database::instance()->db();
 
@@ -16,8 +14,6 @@
   function insertUser($username, $name, $password, $phone_number, $email, $location) { // TODO missing some parameters
     $db = Database::instance()->db();
 
-    //$photoId = Database::instance()->insertDoc($profile_img['type'],$profile_img['tmp_name']);
-    
     $options = ['cost' => 12];
 
     $stmt = $db->prepare('INSERT INTO UserEntities(username, name, password, location, phoneNumber, email) VALUES(?, ?, ?, ?, ?, ?)');

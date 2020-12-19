@@ -6,11 +6,10 @@
   
   $animalId = $_GET['animalId'];
 
-  /*if (!isset($_GET['username']) || $username != $_SESSION['username']){
+  if (!isset($_GET['username']) || $username != $_SESSION['username']){
     header('Location: ../pages/main.php');
     die();
-  }*/
-
+  }
 
   $animal = getAnimal($animalId)[0];
   $topic = topicFromAnimalId($animalId);

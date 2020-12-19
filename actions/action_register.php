@@ -1,6 +1,9 @@
 <?php
+  include_once('../includes/token.php');
   include_once('../includes/session.php');
   include_once('../database/db_user.php');
+
+  validate_token($_POST['csrf']);
 
   $username = $_POST['username'];
   $name = $_POST['name'];

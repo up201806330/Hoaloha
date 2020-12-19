@@ -5,6 +5,8 @@
             <h1>Edit Profile</h1>
             <h2>Here you can edit your profile settings</h2>
             <form method="post" action="../actions/action_edit_user.php" enctype="multipart/form-data">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+                
                 <div class= "form-container">
                     <div class = "form-details-container">
                         <div class="txt_field">

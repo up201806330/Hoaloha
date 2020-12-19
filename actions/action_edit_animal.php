@@ -16,8 +16,6 @@
 
   $idTopic = topicFromAnimalId($animalId)['id'];
 
-  //updateAnimal($animalId, $name, $species, $breed, $weight, $color, $dimensions, $gender, $age);
-
   try {
     updateTopicDescription($idTopic, $description);
     updateAnimal($animalId, $name, $species, $breed, $weight, $color, $dimensions, $gender, $age);

@@ -10,6 +10,8 @@
     <h1>Log In</h1>
     <h2>Welcome Back!</h2>
     <form method="post" action="../actions/action_login.php">
+      <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+      
       <div class="txt_field">
         <input type="text" name="username" required>
         <span></span>
@@ -55,6 +57,8 @@
       <h1>Sign Up</h1>
       <h2>New Here? Welcome!</h2>
       <form method="post" action="../actions/action_register.php" enctype="multipart/form-data">
+        <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+
         <div class="txt_field">
           <input type="text" name="username" required placeholder = " ">
           <span></span>

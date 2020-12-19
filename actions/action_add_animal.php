@@ -12,7 +12,6 @@
   $dimensions = strtolower($_POST['dimensions']);
   $gender = strtolower($_POST['gender']);
   $age = $_POST['age'];
-  //$photo = $_POST['img'];
   $files = $_FILES['images'];
 
   $description = $_POST['description'];

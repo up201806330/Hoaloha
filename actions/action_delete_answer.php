@@ -4,14 +4,6 @@
 
   $idAnswer = $_POST['idAnswer'];
 
-  //echo $idAnswer;
-
-  //echo $animalId;
-
-  //deleteAnimal($animalId);
-
-  //deleteAnswer($idAnswer);
-
   try {
     deleteAnswer($idAnswer);
     //$_SESSION['messages'][] = array('type' => 'success', 'content' => 'Answer Deleted!');
