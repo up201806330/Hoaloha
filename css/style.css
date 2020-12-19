@@ -496,7 +496,6 @@ span.upper.value {
     text-align: right;
     margin-right: -10px;
     width: 50%;
-    /* padding-left: 35%; */
 }
 
 span.value.lower::before {content: ""; display: inline-block;}
@@ -1278,7 +1277,6 @@ body > div.adopt-container > div > form > div{
 
 .animal-card, .user-card {
     position: relative;
-    /* bottom: 48vh; */
     color: var(--login-blue);
     margin-left: 20%;
     margin-right: 20%;
