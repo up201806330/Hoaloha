@@ -1,6 +1,8 @@
 <?php 
 function draw_mainpage_body() {
-?>
+/**
+ * Draws the center piece of the mainpage, which incu´ludes the slideshow and the two buttons
+ */ ?>
 
     <div class="image-container">
         <h1>Find the Right Animal for You</h1>

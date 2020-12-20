@@ -6,7 +6,7 @@ include_once('../templates/tpl_messages.php');
 function draw_header($draw_login = true) { 
 /**
  * Draws the header for all pages.
- */?>
+ */ ?>
   <!DOCTYPE html>
   <html lang="en">
 

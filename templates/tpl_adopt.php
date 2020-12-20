@@ -1,8 +1,7 @@
 <?php function draw_adopt_div($user_full_name, $previous_pet_name, $idTopic){
 /**
  * Draws the adoption floating object
- */
-?>
+ */ ?>
 
     <div class="adopt-container">
         <div class="adopt-content">
@@ -29,8 +28,7 @@
 <?php function draw_adopt_button(){
 /**
  * Draws the adopt button for a particular topic page
- */
-?>
+ */ ?>
 
     <button id="adoptButton" class="adopt-button-container">Adopt this pet</button>
 

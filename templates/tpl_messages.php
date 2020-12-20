@@ -2,9 +2,9 @@
 include_once('../includes/session.php');
 
 function draw_messages() { 
-    /**
-     * Draws success or failure message objects, if any
-     */?>
+/**
+ * Draws success or failure message objects, if any
+ */ ?>
         <div class="message-container">
             <div class="message-content">
                 <div class="txt_field">

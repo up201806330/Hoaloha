@@ -1,5 +1,7 @@
 <?php function draw_edit_profile($user){
-?>
+/**
+ * Draws the entire edit profile page
+ */ ?>
     <section id="edit-profile-container">
         <div class="edit-content">
             <h1>Edit Profile</h1>

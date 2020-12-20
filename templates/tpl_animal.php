@@ -1,7 +1,7 @@
 <?php function draw_animal_full($animal, $topic, $thisUser, $isLoggedIn) {
 /**
  * Draws full animal page
- */?>
+ */ ?>
   <div class="animal-page-complete">
      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
         <path fill= "#3d8af7" fill-opacity="1" d="M0,320L120,293.3C240,267,480,213,720,213.3C960,213,1200,267,1320,293.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
@@ -168,8 +168,7 @@
 <?php function draw_edit_animal($animalId) {
   /**
  * Draws the button that allows an animal's owner to edit its post
- */
-  ?>
+ */ ?>
   <div class="edit-animal-information">
         <a href="../pages/edit_animal.php?animalId=<?=$animalId?>"><span class="material-icons-round">settings</span></a>
   </div>
@@ -178,8 +177,7 @@
 <?php function draw_delete_animal($animalId) {
 /**
  * Draws the button that allows an animal's owner to delete its post
- */
-?>
+ */ ?>
   <div class="delete-animal">
       <form method="post" action="../actions/action_delete_animal.php">
       <input type="hidden" name="animalId" value="<?=$animalId?>">
@@ -192,7 +190,7 @@
 <?php function draw_add_more_photos_button($idTopic, $idAnimal) {
 /**
  * Draws the button that allows the user that adopted the animal to add more photos after the fact
- */?>
+ */ ?>
     <div class="add-adopted-photos">
       <h1>Congratulations on your adoption! If you'd like to post pictures of your new friend do so here!</h1>
       <form method="post" action="../actions/action_add_more_photos.php" enctype="multipart/form-data">

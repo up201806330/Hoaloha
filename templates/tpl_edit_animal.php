@@ -1,5 +1,7 @@
 <?php function draw_edit_animal($animal,$topic){
-    ?>
+/**
+ * Draws the entire edit animal page
+ */ ?>
     <section id="edit-animal">
     <div class="register-content">
       <h1>Edit Animal Details</h1>

@@ -1,8 +1,7 @@
 <?php function draw_profile($user){
 /**
  * Draws entire profile page
- */
-?>
+ */ ?>
 <div class="profile-page-complete">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
         <path fill= "#3d8af7" fill-opacity="1" d="M0,320L120,293.3C240,267,480,213,720,213.3C960,213,1200,267,1320,293.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
@@ -41,8 +40,7 @@
 <?php function draw_profile_simple($user){
 /**
  * Draws simplified version of profile page (just username and photo)
- */
-?>
+ */ ?>
     <div class="simple-profile-container">
         <!-- <div class="user-photo"> 
             <img src="../database/db_link_image.php?id=<?php echo $user['idPhoto'];?>" width="200" height="200">
@@ -57,8 +55,7 @@
 <?php function start_profile_animals_up_for_adoption_div($username, $is_own_profile, $n_topics){
 /**
  * Starts the division where the users' animals still up for adoption are displayed
- */
-?>
+ */ ?>
     <?php 
         $string = $is_own_profile ? 
             ($n_topics > 0 ? 'Your animals up for adoption' : 'You have no animals registered yet. <a href=../pages/add_animal.php>Lets change that!</a>') : 
@@ -83,8 +80,7 @@
 <?php function end_profile_animals_up_for_adoption_div($n_topics){
 /**
  * Ends the division where the users' animals still up for adoption are displayed
- */
-?>
+ */ ?>
     <?php if($n_topics > 0){ ?>
             </div>
         </div>
@@ -95,8 +91,7 @@
 <?php function start_profile_animals_adopted_div($username, $is_own_profile, $n_topics){
 /**
  * Starts the division where the animals adopted by this user are displayed
- */
-?>
+ */ ?>
     <?php 
         $string = $is_own_profile ? 
             ($n_topics > 0 ? 'The animals you have adopted' : 'You havent adopted any animals yet...') : 
@@ -120,8 +115,8 @@
 
 <?php function end_profile_animals_adopted_div($n_topics){
 /**
-* Ends the division where the animals adopted by this user are displayed */
-?>
+ * Ends the division where the animals adopted by this user are displayed 
+ */ ?>
     <?php if($n_topics > 0){ ?>
             </div>
         </div>
@@ -132,8 +127,7 @@
 <?php function start_profile_favourites_div($username, $is_own_profile, $n_favourites){
 /**
  * Starts the division where the users' favourite animals are displayed
- */
-?>
+ */ ?>
     <?php 
         $string = $is_own_profile ? 
             ($n_favourites > 0 ? 'Your favourite animals' : 'You have no favourite animals yet') : 
@@ -159,8 +153,7 @@
 <?php function end_profile_favourites_div($n_favourites){
 /**
  * Ends the division where the users' favourite animals are displayed
- */
-?>
+ */ ?>
     
     <?php if($n_favourites > 0){ ?>
             </div>

@@ -3,14 +3,14 @@
 <?php function start_animal_list(){
 /**
  * Starts the section that contains all results of a search
- */?>
+ */ ?>
       <ul class="animal-list-grid">
 <?php } ?>
 
 <?php function end_animal_list(){
 /**
  * Ends the section that contains all results of a search
- */?>
+ */ ?>
       </ul>
     </div>
 <?php } ?>
@@ -18,7 +18,7 @@
 <?php function draw_search(){
 /**
  * Draws the search floating object.
- */?>
+ */ ?>
 
 <div class="search-container">
   <div class="search-content">
@@ -95,7 +95,7 @@
 <?php function draw_search_parameters($maxWeight, $maxAge){
 /**
  * Draws the section that contains aditional search parameters
- */?>
+ */ ?>
   <div class="search-parameters-container">
     <div class="search-parameters">
       <h1>Advanced Search</h1>
@@ -179,7 +179,6 @@
         <button type="submit">Search</button>
       </form>
     </div>
-  <!-- </div> -->
 
 <?php } ?>
 

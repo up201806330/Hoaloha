@@ -1,4 +1,7 @@
-<?php function draw_start_questions_container(){ ?> 
+<?php function draw_start_questions_container(){
+/**
+ * Starts the container that holds all questions of an animal
+ */ ?> 
 
     <div class= "question-section">
         <div class="questions-title-container"><h1>Questions & Comments <span class="material-icons-round">question_answer</span></h1></div>
@@ -7,13 +10,15 @@
 <?php } ?>
 
 <?php function draw_end_questions_container(){
-    ?>  
+/**
+ * Ends the container that holds all questions of an animal
+ */ ?> 
         </div>
 <?php } ?>
 
 <?php function draw_question($question){
 /**
- * Draws the independent part of the topic (username and description)
+ * Draws the question and all associated buttons
  */
     ?>
         <div class="question-container" id="question<?=$question['id']?>"> 
@@ -49,8 +54,10 @@
 <?php } ?>
 
 
-<?php function draw_add_question($idTopic,$idUser){
-    ?>
+<?php function draw_add_question($idTopic,$idUser){ 
+/**
+ * Draws the button for the user to write a new question
+ */ ?> 
     <script defer src = "../js/question.js"></script>
     <script defer src = "../js/answer.js"></script>
     <div class = "add-question-container">
@@ -76,9 +83,8 @@
 
 <?php function draw_end_question_section(){
 /**
- * Draws the independent part of the topic (username and description)
- */
-    ?> 
+ * Ends the container that holds all questions of an animal
+ */ ?> 
     </div>
     </div>
 <?php

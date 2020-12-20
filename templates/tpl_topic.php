@@ -1,8 +1,7 @@
 <?php function draw_topic_details($topic, $user, $approved_proposal, $animal_name){
 /**
  * Draws the independent part of the topic (username and description)
- */
-    ?>
+ */ ?>
       <div class="topic-title-container"><h1><?=htmlentities($animal_name)?>'s Story <span class="material-icons-round">library_books</span></h1></div>
         <div class="topic-container">
           <div class="topic-header">
@@ -67,7 +66,7 @@
 <?php function draw_topic_simple($id, $animal){
 /**
  * Draws topic division with the animal's most important info
- */?>
+ */ ?>
 
     <li>
       <div class="profile-animal-container" >
@@ -87,8 +86,7 @@
 <?php function draw_topic_in_profile($id, $animal){
 /**
  * Draws the topic shown inside a user's profile
- */
-?>
+ */ ?>
     <li>
       <div class="profile-animal-container" >
         <a href="../pages/topic.php?id=<?=$id?>">
@@ -107,8 +105,7 @@
 <?php function draw_topic_in_proposals($id, $animal){
 /**
  * Draws the topic shown inside a user's proposals page
- */
-?>
+ */ ?>
     <div class="proposals-animal-container" >
       <div class="proposals-animal-inner-container" >
         <div class="animal-proposal-photo">
@@ -127,8 +124,7 @@
 <?php function start_favourite_adopt_div(){
 /**
  * Starts the division that holds the adopt and favourite buttons
- */
-?>
+ */ ?>
   <div class="favourite-adopt-container">
 
 <?php } ?>
@@ -136,12 +132,14 @@
 <?php function end_favourite_adopt_div(){
 /**
  * Ends the division that holds the adopt and favourite buttons
- */
-?>
+ */ ?>
     </div>
 <?php } ?>
 
 <?php function draw_n_results($n_results){
+/**
+ * Draws the text that indicates how many results were found
+ */
   if ($n_results == 0) $output = 'No results match your search <span class="material-icons-round">warning</span>';
   else {
     $result_string = ($n_results == 1) ? ' result' : ' results';

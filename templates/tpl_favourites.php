@@ -1,8 +1,7 @@
 <?php function draw_favourite_button($n_favourites, $idTopic, $topicIsLiked){
 /**
  * Draws the favourite button for a particular topic page
- */
-?>
+ */ ?>
     <div class="favourite-container">
         <div class="favourite-button-container"> 
         <form method="post" action="../actions/action_toggle_favourite.php">

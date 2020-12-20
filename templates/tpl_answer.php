@@ -1,56 +1,60 @@
-<?php function draw_start_answers_container($idQuestion){ ?> 
-
-<div class= "answers-container" id = "answers-container<?=$idQuestion?>">
-
+<?php function draw_start_answers_container($idQuestion){ 
+/**
+ * Draws the start of the container that holds a questions' answers
+ */ ?> 
+    <div class= "answers-container" id = "answers-container<?=$idQuestion?>">
 <?php } ?>
 
 <?php function draw_end_answers_container(){
-?>  
-</div>
+/**
+ * Draws the end of the container that holds a questions' answers
+ */ ?>  
+    </div>
 <?php } ?>
 
 <?php function draw_answer($answer){
 /**
  * Draws the independent part of the topic (username and description)
- */
-    ?>
-   
-            <div class="answer-container" id="answer<?=$answer['id']?>">
-                <div class="answer-header">
-                <?php if(isset($_SESSION['username']) && $answer['username'] === $_SESSION['username']){?> 
-                    <div class="delete-button-answer">
-                        <span class="fas fa-times-circle">
-                            <input type="hidden" value="<?=$answer['id']?>">
-                        </span>
-                    </div>
-                <?php } ?>
-                    <div class="answer-username">
-                    Posted by
-                    <h1><a><?=htmlentities($answer['name'])?></a> -
-                    <a class="topic-answer-link" href="../pages/profile.php?username=<?=$answer['username']?>" >
-                        <?=$answer['username']?>
-                    </a></h1>
-                    </div>
-                    <div class="answer-data">
-                    at <a><?=$answer['data']?></a>
-                    </div>
-                </div>
-                
-                <div class="answer-body">
-                    <div class="user-photo">
-                        <a href="../pages/profile.php?username=<?=$answer['username']?>" >
-                            <img src="../database/db_link_image.php?id=<?php echo $answer['idPhoto'];?>" width="200" height="200">
-                        </a>
-                    </div>
-                    <div class="answer-description"><?=htmlentities($answer['answer'])?>
-                    </div>
-                </div>
+ */ ?>
+
+    <div class="answer-container" id="answer<?=$answer['id']?>">
+        <div class="answer-header">
+        <?php if(isset($_SESSION['username']) && $answer['username'] === $_SESSION['username']){?> 
+            <div class="delete-button-answer">
+                <span class="fas fa-times-circle">
+                    <input type="hidden" value="<?=$answer['id']?>">
+                </span>
             </div>
+        <?php } ?>
+            <div class="answer-username">
+            Posted by
+            <h1><a><?=htmlentities($answer['name'])?></a> -
+            <a class="topic-answer-link" href="../pages/profile.php?username=<?=$answer['username']?>" >
+                <?=$answer['username']?>
+            </a></h1>
+            </div>
+            <div class="answer-data">
+            at <a><?=$answer['data']?></a>
+            </div>
+        </div>
+        
+        <div class="answer-body">
+            <div class="user-photo">
+                <a href="../pages/profile.php?username=<?=$answer['username']?>" >
+                    <img src="../database/db_link_image.php?id=<?php echo $answer['idPhoto'];?>" width="200" height="200">
+                </a>
+            </div>
+            <div class="answer-description"><?=htmlentities($answer['answer'])?>
+            </div>
+        </div>
+    </div>
 
 <?php } ?>
 
 <?php function draw_add_answer($idQuestion,$idUser){
-    ?>
+/**
+ * Draws the box for the user to write an answer to a question
+ */ ?>
     <div class = "add-answer-container" id="add-answer-container<?=$idQuestion?>">
     <?php if (isset($_SESSION['username']) && $_SESSION['username'] != '') { ?>
         <form>
@@ -68,6 +72,4 @@
     <?php } ?>
     </div>
     <hr>
-<?php
-}
-?>
+<?php } ?>

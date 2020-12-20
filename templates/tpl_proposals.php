@@ -1,14 +1,14 @@
 <?php function start_proposals_page(){
 /**
  * Starts the section that holds all proposals made on an animal
- */?>
+ */ ?>
     <div class="proposals-page-complete">
 <?php } ?>
 
 <?php function start_proposals_div(){
 /**
  * Starts the section that holds all proposals made on an animal
- */?>
+ */ ?>
     <div class="proposals-container">
         <ul>
 
@@ -17,7 +17,7 @@
 <?php function draw_proposal($proposal){
 /**
  * Draws one proposal section.
- */?>
+ */ ?>
         <li class="proposal-container-<?php 
         if($proposal['status'] == 'P') echo 'pending';
         else if($proposal['status'] == 'A') echo 'accepted';
@@ -37,7 +37,7 @@
 <?php function end_proposals_div(){
 /**
  * Ends the section that holds all proposals made on an animal
- */?>
+ */ ?>
         </ul>
     </div>
     </div>
@@ -48,7 +48,7 @@
 <?php function end_proposals_page(){
 /**
  * Starts the section that holds all proposals made on an animal
- */?>
+ */ ?>
     </div>
 <?php } ?>
 
@@ -57,7 +57,7 @@
  * Starts the section that holds either 
  * a) a user's animals still up for adoption and all of their pendind adoption proposals or 
  * b) the proposals a user has created on other people's pets
- */?>
+ */ ?>
     <div class= "proposals-container-title">
         <h1><?php echo ($toggle) ? "Received Proposals Status" : "Sent Proposals Status";?> <span class="material-icons-round"><?php echo ($toggle) ? "call_received" : "call_made";?></span></h1>
     </div>
@@ -70,16 +70,22 @@
  * Ends the section that holds either 
  * a) a user's animals still up for adoption and all of their pendind adoption proposals or 
  * b) the proposals a user has created on other people's pets
- */?>
+ */ ?>
     </div>
 
 <?php } ?>
 
 
-<?php function start_no_proposals_div(){?>
+<?php function start_no_proposals_div(){
+/**
+ * Starts the div that appears if the user has no proposals listed yet
+ */ ?>
     <div class="proposals-animal-container">
 <?php } ?>
 
-<?php function end_no_proposals_div(){?>
+<?php function end_no_proposals_div(){
+/**
+ * Ends the div that appears if the user has no proposals listed yet
+ */ ?>
     </div>
 <?php } ?>
