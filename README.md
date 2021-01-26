@@ -7,6 +7,7 @@
 - **Tools:** PHP, HTML, Javascript, CSS, Ajax
 - **Institution:** [FEUP](https://sigarra.up.pt/feup/en/web_page.Inicial)
 - **Course:** [LTW](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=281471) (Web Languages and Technologies)
+- **Project grade:** 17.5/20.0
 - **Group members:**
     - [Diogo Henrique Pinto de Almeida](https://github.com/diogohalmeida) ([up201806630@fe.up.pt](mailto:up201806630@fe.up.pt))
     - [João António Cardoso Vieira e Basto de Sousa](https://github.com/JoaoASousa) ([up201806613@fe.up.pt](mailto:up201806613@fe.up.pt))
