@@ -1,3 +1,5 @@
+# Hoaloha
+
 [Check it out here!](https://web.fe.up.pt/~up201806330/ltw-project-g50/) <------>
 
 - **Project name:** Hoaloha
