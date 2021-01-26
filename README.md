@@ -1,11 +1,15 @@
-# Hoaloha
-## Group 50
+[Check it out here!](https://web.fe.up.pt/~up201806330/ltw-project-g50/) <------>
 
-## Elements:
- - Diogo Almeida    (201806630)
- - João Sousa       (201806613)
- - Pedro Queirós    (201806329)
- - Rafael Ribeiro   (201806330)
+- **Project name:** Hoaloha
+- **Short description:** Pet adoption website
+- **Tools:** PHP, HTML, Javascript, CSS, Ajax
+- **Institution:** [FEUP](https://sigarra.up.pt/feup/en/web_page.Inicial)
+- **Course:** [LTW](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=281471) (Web Languages and Technologies)
+- **Group members:**
+    - [Diogo Henrique Pinto de Almeida](https://github.com/diogohalmeida) ([up201806630@fe.up.pt](mailto:up201806630@fe.up.pt))
+    - [João António Cardoso Vieira e Basto de Sousa](https://github.com/JoaoASousa) ([up201806613@fe.up.pt](mailto:up201806613@fe.up.pt))
+    - [Pedro Manuel Santos Queirós](https://github.com/pedroqtuga) ([up201806329@fe.up.pt](mailto:up201806329@fe.up.pt))
+    - [Rafael Soares Ribeiro](https://github.com/up201806330) ([up201806330@fe.up.pt](mailto:up201806330@fe.up.pt))
 
 ## Credentials (username/password (role))
 All created accounts have the same role (possible owner and adopter) and password (**12345678**)
@@ -50,3 +54,10 @@ All created accounts have the same role (possible owner and adopter) and passwor
      - **Listing of added, adopted and favourited pets in a user's profile**
      - **Insertion of new photos by the new owner after an adoption**
  
+## Navigation
+![nav](img/uml/navigation.png)
+![pet](img/uml/petPosting.png)
+![](img/uml/profile.png)
+
+## Database
+[hoaloha.sql](database/hoaloha.sql)
